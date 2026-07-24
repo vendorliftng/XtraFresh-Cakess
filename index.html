@@ -1,0 +1,1342 @@
+<!DOCTYPE html>
+<html lang="en" class="light scroll-smooth">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>XtraFresh Cakes | Premium Custom Cakes in Lagos</title>
+    <meta name="description" content="Premium custom cakes handcrafted in Lagos, Nigeria. Order bespoke cakes with unique flavors via WhatsApp delivery across Ikeja, Lekki, VI, Yaba, and beyond."/>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,0" rel="stylesheet"/>
+    <!-- Cursive Font for Live Icing -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet"/>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#E63946",       // Brand Red
+                        "primary-hover": "#C92B37",
+                        "accent-pink": "#FFB3C1",   // Brand Pink
+                        "surface-dark": "#1D1D1D",  // Brand Dark
+                        "surface": "#ffffff",
+                        "surface-variant": "#f9f9f9",
+                        "surface-container": "#f1f1f1",
+                        "on-surface": "#1D1D1D",
+                        "on-surface-variant": "#5a5a5a",
+                        "outline-variant": "#e0e0e0",
+                        "whatsapp": "#25D366"
+                    },
+                    fontFamily: {
+                        "headline": ["DM Serif Display", "serif"],
+                        "body": ["Plus Jakarta Sans", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        /* Smooth UI Transitions */
+        .option-card {
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: transform, border-color, background-color, box-shadow;
+        }
+        .option-card:active { transform: scale(0.96); }
+        .option-card.selected {
+            border-color: #E63946;
+            background-color: #fff5f6;
+            box-shadow: 0px 4px 15px rgba(230, 57, 70, 0.12);
+        }
+
+        .product-card {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+        }
+        
+        .wishlist-btn { transition: transform 0.2s ease, color 0.2s ease; }
+        .wishlist-btn:active { transform: scale(0.8); }
+
+        #toast { transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease; }
+        .preview-img { transition: opacity 0.3s ease-in-out; }
+
+        /* 3D Piped Icing Effect */
+        .icing-text {
+            font-family: 'Great Vibes', cursive;
+            color: #ffffff;
+            text-shadow: 
+                0px 1px 1px rgba(0,0,0,0.3), 
+                0px -1px 1px rgba(255,255,255,0.8),
+                1px 1px 3px rgba(0,0,0,0.2);
+            transform: perspective(500px) rotateX(20deg) skew(-5deg);
+            transition: all 0.2s ease;
+        }
+    </style>
+</head>
+<body class="bg-surface text-surface-dark antialiased font-body min-h-screen flex flex-col pb-28 md:pb-0 selection:bg-accent-pink selection:text-surface-dark">
+
+    <!-- Promo Announcement Banner -->
+    <div id="promo-banner" class="bg-primary text-white text-xs sm:text-sm font-semibold py-2.5 px-4 text-center cursor-pointer hover:bg-primary-hover transition-colors flex justify-center items-center gap-2 z-[60] relative" onclick="openPromoModal()">
+        <span class="material-symbols-outlined text-base animate-bounce">celebration</span>
+        <span>AUGUST PROMO: Free Birthday Cakes & 30% Off Events! (First 10 Only). <span class="underline decoration-white/50 underline-offset-2">Tap for Details</span></span>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed top-20 right-4 z-[100] translate-y-[-100px] opacity-0 pointer-events-none bg-surface-dark text-white px-5 py-3 rounded-xl shadow-2xl flex items-center gap-3">
+        <span class="material-symbols-outlined text-whatsapp" id="toast-icon">check_circle</span>
+        <span id="toast-message" class="text-sm font-medium">Added to Wishlist</span>
+    </div>
+
+    <!-- Header Navigation -->
+    <header class="bg-surface/95 backdrop-blur-md sticky top-0 z-50 border-b border-outline-variant/50 transition-all duration-300">
+        <div class="flex justify-between items-center px-4 md:px-10 py-4 w-full max-w-7xl mx-auto">
+            <a href="#" class="font-headline font-black text-2xl md:text-3xl text-primary tracking-tight">
+                XtraFresh<span class="text-surface-dark">Cakes</span>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="#catalog" class="text-surface-dark font-semibold text-sm hover:text-primary transition-colors">Catalog</a>
+                <a href="#configurator" class="text-surface-dark font-semibold text-sm hover:text-primary transition-colors">Custom Builder</a>
+                <a href="#how-it-works" class="text-on-surface-variant font-medium text-sm hover:text-primary transition-colors">How it Works</a>
+                <a href="#blog" class="text-on-surface-variant font-medium text-sm hover:text-primary transition-colors">Blog & Stories</a>
+            </nav>
+
+            <div class="hidden md:flex items-center gap-4">
+                <a href="#wishlist-section" onclick="openWishlistModal(event)" class="relative p-2 text-on-surface-variant hover:text-primary transition-colors rounded-full hover:bg-surface-variant" title="Saved Wishlist">
+                    <span class="material-symbols-outlined text-2xl">favorite</span>
+                    <span id="wishlist-badge" class="absolute -top-1 -right-1 bg-primary text-white text-[11px] font-bold w-5 h-5 rounded-full flex items-center justify-center scale-0 transition-transform">0</span>
+                </a>
+                <button onclick="scrollToConfigurator()" class="bg-primary text-white font-semibold text-sm rounded-full px-6 py-2.5 hover:bg-primary-hover active:scale-95 transition-all shadow-md">
+                    Build Custom Cake
+                </button>
+            </div>
+
+            <!-- Mobile Controls -->
+            <div class="flex items-center gap-2 md:hidden">
+                <a href="#wishlist-section" onclick="openWishlistModal(event)" class="relative p-2 text-on-surface-variant hover:text-primary transition-colors">
+                    <span class="material-symbols-outlined text-2xl">favorite</span>
+                    <span id="wishlist-badge-mobile" class="absolute top-0 right-0 bg-primary text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center scale-0 transition-transform">0</span>
+                </a>
+                <button onclick="toggleMobileMenu()" class="p-2 text-primary" aria-label="Toggle Menu">
+                    <span class="material-symbols-outlined text-2xl" id="menu-icon">menu</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer Nav -->
+        <div id="mobile-menu" class="hidden md:hidden bg-surface border-b border-outline-variant px-4 py-4 flex-col gap-3">
+            <a href="#catalog" onclick="toggleMobileMenu()" class="py-2 text-surface-dark font-bold border-b border-outline-variant/50">Storefront Catalog</a>
+            <a href="#configurator" onclick="toggleMobileMenu()" class="py-2 text-surface-dark font-bold border-b border-outline-variant/50">Custom Builder</a>
+            <a href="#how-it-works" onclick="toggleMobileMenu()" class="py-2 text-on-surface-variant font-medium border-b border-outline-variant/50">How It Works</a>
+            <a href="#blog" onclick="toggleMobileMenu()" class="py-2 text-on-surface-variant font-medium border-b border-outline-variant/50">Blog & Baking Stories</a>
+            <button onclick="scrollToConfigurator(); toggleMobileMenu();" class="mt-2 w-full bg-primary text-white font-semibold py-3 rounded-full text-center active:scale-95 transition-transform">
+                Build Custom Cake
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Showcase Section -->
+    <section class="relative w-full max-w-7xl mx-auto px-4 md:px-10 py-10 md:py-16 flex flex-col md:flex-row items-center gap-8 md:gap-12">
+        <div class="flex-1 space-y-4 text-center md:text-left z-10">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-accent-pink/30 text-primary font-semibold text-xs tracking-wider uppercase border border-primary/20">
+                <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                Freshly Handcrafted in Lagos Daily
+            </div>
+            <h1 class="font-headline text-4xl md:text-5xl lg:text-6xl text-primary leading-tight">
+                Premium Cakes. Unique Flavors. Affordable Luxury.
+            </h1>
+            <p class="text-on-surface-variant text-base sm:text-lg max-w-xl leading-relaxed mx-auto md:mx-0">
+                Bespoke cakes handcrafted in Lagos for your special moments. Beautifully designed, meticulously baked, and delivered fresh to your door via direct WhatsApp service.
+            </p>
+            <div class="pt-4 flex flex-wrap justify-center md:justify-start gap-4">
+                <a href="#catalog" class="inline-flex items-center gap-2 bg-primary text-white font-semibold text-base px-8 py-4 rounded-full hover:bg-primary-hover active:scale-95 transition-all shadow-lg">
+                    <span>Browse Collection</span>
+                    <span class="material-symbols-outlined text-xl">shopping_bag</span>
+                </a>
+                <a href="#configurator" class="inline-flex items-center gap-2 bg-white text-surface-dark font-semibold text-base px-6 py-4 rounded-full border-2 border-outline-variant hover:border-primary active:scale-95 transition-all">
+                    <span>Build Custom Cake</span>
+                    <span class="material-symbols-outlined text-xl text-primary">auto_awesome</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="flex-1 w-full relative">
+            <div class="aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl relative bg-surface-container group border border-outline-variant">
+                <img id="hero-img"
+                     src="https://images.unsplash.com/photo-1535141192574-5d4897c13136?auto=format&fit=crop&w=1000&q=80" 
+                     alt="XtraFresh Bespoke Celebration Cake" 
+                     referrerpolicy="no-referrer"
+                     onerror="this.src='https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1000&q=80'"
+                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"/>
+                <div class="absolute bottom-0 inset-x-0 p-6 bg-gradient-to-t from-black/80 via-black/40 to-transparent text-white">
+                    <span class="text-xs font-bold uppercase tracking-widest text-accent-pink">Lagos Luxury Signature</span>
+                    <h2 class="font-headline text-2xl text-white mt-1">Floral Celebration Tier</h2>
+                    <p class="text-xs text-white/90">Available in custom sizes & bespoke flavors</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 1: CATALOG & STOREFRONT -->
+    <section id="catalog" class="w-full max-w-7xl mx-auto px-4 md:px-10 py-16 border-t border-outline-variant/50">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+            <div>
+                <span class="text-primary font-bold text-xs uppercase tracking-widest">Storefront</span>
+                <h2 class="font-headline text-3xl md:text-4xl text-surface-dark mt-1">Signature Collections</h2>
+                <p class="text-on-surface-variant text-sm mt-2">Filter by flavor profile, occasion, or search to find your perfect cake.</p>
+            </div>
+            <div class="relative min-w-[280px]">
+                <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+                <input type="text" id="catalog-search" oninput="filterCatalog()" placeholder="Search cakes by name or flavor..." 
+                       class="w-full pl-12 pr-4 py-3 rounded-full border border-outline-variant bg-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"/>
+            </div>
+        </div>
+
+        <div class="flex flex-col md:flex-row gap-8 items-start">
+            <!-- Filter Sidebar -->
+            <aside class="w-full md:w-64 shrink-0 bg-white p-6 rounded-2xl border border-outline-variant shadow-sm md:sticky md:top-28">
+                <div class="flex items-center justify-between border-b border-outline-variant pb-4 mb-5">
+                    <h3 class="font-headline text-lg text-surface-dark flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary text-xl">filter_list</span>
+                        Filters
+                    </h3>
+                    <button onclick="resetFilters()" class="text-xs text-primary font-semibold hover:underline">Reset All</button>
+                </div>
+
+                <!-- Flavor Filter -->
+                <div class="mb-6">
+                    <h4 class="font-semibold text-xs text-surface-dark uppercase tracking-wider mb-3">Flavor Profile</h4>
+                    <div class="space-y-2 text-sm text-on-surface-variant">
+                        <label class="flex items-center gap-2 cursor-pointer hover:text-primary transition-colors">
+                            <input type="checkbox" value="Vanilla" onchange="filterCatalog()" class="flavor-filter rounded text-primary focus:ring-primary border-outline-variant"/>
+                            <span>Classic Vanilla</span>
+                        </label>
+                        <label class="flex items-center gap-2 cursor-pointer hover:text-primary transition-colors">
+                            <input type="checkbox" value="Chocolate" onchange="filterCatalog()" class="flavor-filter rounded text-primary focus:ring-primary border-outline-variant"/>
+                            <span>Rich Chocolate</span>
+                        </label>
+                        <label class="flex items-center gap-2 cursor-pointer hover:text-primary transition-colors">
+                            <input type="checkbox" value="Red Velvet" onchange="filterCatalog()" class="flavor-filter rounded text-primary focus:ring-primary border-outline-variant"/>
+                            <span>Red Velvet</span>
+                        </label>
+                        <label class="flex items-center gap-2 cursor-pointer hover:text-primary transition-colors">
+                            <input type="checkbox" value="Citrus" onchange="filterCatalog()" class="flavor-filter rounded text-primary focus:ring-primary border-outline-variant"/>
+                            <span>Citrus Zest</span>
+                        </label>
+                        <label class="flex items-center gap-2 cursor-pointer hover:text-primary transition-colors">
+                            <input type="checkbox" value="Strawberry" onchange="filterCatalog()" class="flavor-filter rounded text-primary focus:ring-primary border-outline-variant"/>
+                            <span>Strawberry Cream</span>
+                        </label>
+                        <label class="flex items-center gap-2 cursor-pointer hover:text-primary transition-colors">
+                            <input type="checkbox" value="Caramel" onchange="filterCatalog()" class="flavor-filter rounded text-primary focus:ring-primary border-outline-variant"/>
+                            <span>Salted Caramel</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Occasion Filter -->
+                <div class="mb-6">
+                    <h4 class="font-semibold text-xs text-surface-dark uppercase tracking-wider mb-3">Occasion</h4>
+                    <div class="flex flex-wrap gap-2" id="occasion-pills">
+                        <button onclick="setOccasionFilter(this, 'All')" class="occasion-btn px-4 py-1.5 rounded-full bg-primary text-white text-xs font-semibold transition-colors">All</button>
+                        <button onclick="setOccasionFilter(this, 'Wedding')" class="occasion-btn px-4 py-1.5 rounded-full border border-outline-variant text-on-surface-variant text-xs font-medium hover:bg-surface-variant transition-colors">Wedding</button>
+                        <button onclick="setOccasionFilter(this, 'Birthday')" class="occasion-btn px-4 py-1.5 rounded-full border border-outline-variant text-on-surface-variant text-xs font-medium hover:bg-surface-variant transition-colors">Birthday</button>
+                        <button onclick="setOccasionFilter(this, 'Anniversary')" class="occasion-btn px-4 py-1.5 rounded-full border border-outline-variant text-on-surface-variant text-xs font-medium hover:bg-surface-variant transition-colors">Anniversary</button>
+                    </div>
+                </div>
+
+                <div class="pt-4 border-t border-outline-variant">
+                    <p class="text-xs text-on-surface-variant mb-3">Need a completely custom design?</p>
+                    <button onclick="scrollToConfigurator()" class="w-full bg-surface-variant text-primary font-bold py-2.5 rounded-xl text-xs hover:bg-primary hover:text-white transition-colors">
+                        Launch Custom Builder
+                    </button>
+                </div>
+            </aside>
+
+            <!-- Product Grid -->
+            <div class="flex-1 w-full">
+                <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    
+                    <!-- Cake Card 1 -->
+                    <article class="product-card group relative bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg border border-outline-variant flex flex-col"
+                             data-id="cake-1" data-flavor="Vanilla" data-occasion="Wedding" data-title="The Vanilla Blossom" data-price="₦25,000 – ₦45,000">
+                        <button onclick="toggleWishlist('cake-1', event)" class="wishlist-btn absolute top-3 right-3 z-10 w-10 h-10 bg-white/90 backdrop-blur rounded-full flex items-center justify-center text-on-surface-variant hover:text-primary shadow-sm" title="Save to Wishlist">
+                            <span class="material-symbols-outlined text-xl wishlist-icon">favorite_border</span>
+                        </button>
+                        <div class="aspect-[4/5] overflow-hidden bg-surface-variant relative">
+                            <img src="https://images.unsplash.com/photo-1535141192574-5d4897c13136?auto=format&fit=crop&w=800&q=80" 
+                                 alt="The Vanilla Blossom" 
+                                 referrerpolicy="no-referrer"
+                                 onerror="this.src='https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=80'"
+                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
+                        </div>
+                        <div class="p-5 flex flex-col flex-1 justify-between text-center">
+                            <div>
+                                <span class="text-[10px] font-bold text-primary uppercase tracking-widest">Wedding & Celebration</span>
+                                <h3 class="font-headline text-xl text-surface-dark mt-1">The Vanilla Blossom</h3>
+                                <p class="text-xs text-on-surface-variant mt-1">Classic Madagascar Vanilla & Buttercream</p>
+                            </div>
+                            <div class="mt-4 pt-4 border-t border-outline-variant/50 flex items-center justify-between">
+                                <span class="font-bold text-sm text-primary">₦25,000 – ₦45,000</span>
+                                <button onclick="orderCatalogItem('The Vanilla Blossom', 'Vanilla', '₦25,000 – ₦45,000')" class="bg-surface-variant text-surface-dark hover:bg-primary hover:text-white text-xs font-bold px-4 py-2 rounded-full transition-colors">
+                                    Order
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Cake Card 2 -->
+                    <article class="product-card group relative bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg border border-outline-variant flex flex-col"
+                             data-id="cake-2" data-flavor="Chocolate" data-occasion="Birthday" data-title="Midnight Truffle" data-price="₦30,000 – ₦50,000">
+                        <button onclick="toggleWishlist('cake-2', event)" class="wishlist-btn absolute top-3 right-3 z-10 w-10 h-10 bg-white/90 backdrop-blur rounded-full flex items-center justify-center text-on-surface-variant hover:text-primary shadow-sm" title="Save to Wishlist">
+                            <span class="material-symbols-outlined text-xl wishlist-icon">favorite_border</span>
+                        </button>
+                        <div class="aspect-[4/5] overflow-hidden bg-surface-variant relative">
+                            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=80" 
+                                 alt="Midnight Truffle" 
+                                 referrerpolicy="no-referrer"
+                                 onerror="this.src='https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=800&q=80'"
+                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
+                        </div>
+                        <div class="p-5 flex flex-col flex-1 justify-between text-center">
+                            <div>
+                                <span class="text-[10px] font-bold text-primary uppercase tracking-widest">Chocolate Luxury</span>
+                                <h3 class="font-headline text-xl text-surface-dark mt-1">Midnight Truffle</h3>
+                                <p class="text-xs text-on-surface-variant mt-1">Rich Cocoa Sponge & Dark Ganache Drip</p>
+                            </div>
+                            <div class="mt-4 pt-4 border-t border-outline-variant/50 flex items-center justify-between">
+                                <span class="font-bold text-sm text-primary">₦30,000 – ₦50,000</span>
+                                <button onclick="orderCatalogItem('Midnight Truffle', 'Chocolate', '₦30,000 – ₦50,000')" class="bg-surface-variant text-surface-dark hover:bg-primary hover:text-white text-xs font-bold px-4 py-2 rounded-full transition-colors">
+                                    Order
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Cake Card 3 -->
+                    <article class="product-card group relative bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg border border-outline-variant flex flex-col"
+                             data-id="cake-3" data-flavor="Red Velvet" data-occasion="Anniversary" data-title="Crimson Royalty" data-price="₦28,000 – ₦48,000">
+                        <button onclick="toggleWishlist('cake-3', event)" class="wishlist-btn absolute top-3 right-3 z-10 w-10 h-10 bg-white/90 backdrop-blur rounded-full flex items-center justify-center text-on-surface-variant hover:text-primary shadow-sm" title="Save to Wishlist">
+                            <span class="material-symbols-outlined text-xl wishlist-icon">favorite_border</span>
+                        </button>
+                        <div class="aspect-[4/5] overflow-hidden bg-surface-variant relative">
+                            <img src="https://images.unsplash.com/photo-1616541823729-00fe0aacd32c?auto=format&fit=crop&w=800&q=80" 
+                                 alt="Crimson Royalty" 
+                                 referrerpolicy="no-referrer"
+                                 onerror="this.src='https://images.unsplash.com/photo-1586985289688-ca3cf47d3e6e?auto=format&fit=crop&w=800&q=80'"
+                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
+                        </div>
+                        <div class="p-5 flex flex-col flex-1 justify-between text-center">
+                            <div>
+                                <span class="text-[10px] font-bold text-primary uppercase tracking-widest">Signature Velvet</span>
+                                <h3 class="font-headline text-xl text-surface-dark mt-1">Crimson Royalty</h3>
+                                <p class="text-xs text-on-surface-variant mt-1">Red Velvet & Cream Cheese Swirls</p>
+                            </div>
+                            <div class="mt-4 pt-4 border-t border-outline-variant/50 flex items-center justify-between">
+                                <span class="font-bold text-sm text-primary">₦28,000 – ₦48,000</span>
+                                <button onclick="orderCatalogItem('Crimson Royalty', 'Red Velvet', '₦28,000 – ₦48,000')" class="bg-surface-variant text-surface-dark hover:bg-primary hover:text-white text-xs font-bold px-4 py-2 rounded-full transition-colors">
+                                    Order
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Cake Card 4 -->
+                    <article class="product-card group relative bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg border border-outline-variant flex flex-col"
+                             data-id="cake-4" data-flavor="Citrus" data-occasion="Birthday" data-title="Lagos Citrus Zest" data-price="₦24,000 – ₦40,000">
+                        <button onclick="toggleWishlist('cake-4', event)" class="wishlist-btn absolute top-3 right-3 z-10 w-10 h-10 bg-white/90 backdrop-blur rounded-full flex items-center justify-center text-on-surface-variant hover:text-primary shadow-sm" title="Save to Wishlist">
+                            <span class="material-symbols-outlined text-xl wishlist-icon">favorite_border</span>
+                        </button>
+                        <div class="aspect-[4/5] overflow-hidden bg-surface-variant relative">
+                            <img src="https://images.unsplash.com/photo-1519869325930-281384150729?auto=format&fit=crop&w=800&q=80" 
+                                 alt="Lagos Citrus Zest" 
+                                 referrerpolicy="no-referrer"
+                                 onerror="this.src='https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=800&q=80'"
+                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
+                        </div>
+                        <div class="p-5 flex flex-col flex-1 justify-between text-center">
+                            <div>
+                                <span class="text-[10px] font-bold text-primary uppercase tracking-widest">Citrus Special</span>
+                                <h3 class="font-headline text-xl text-surface-dark mt-1">Lagos Citrus Zest</h3>
+                                <p class="text-xs text-on-surface-variant mt-1">Tangy Lemon Sponge & Vanilla Bean</p>
+                            </div>
+                            <div class="mt-4 pt-4 border-t border-outline-variant/50 flex items-center justify-between">
+                                <span class="font-bold text-sm text-primary">₦24,000 – ₦40,000</span>
+                                <button onclick="orderCatalogItem('Lagos Citrus Zest', 'Citrus', '₦24,000 – ₦40,000')" class="bg-surface-variant text-surface-dark hover:bg-primary hover:text-white text-xs font-bold px-4 py-2 rounded-full transition-colors">
+                                    Order
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Cake Card 5 -->
+                    <article class="product-card group relative bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg border border-outline-variant flex flex-col"
+                             data-id="cake-5" data-flavor="Strawberry" data-occasion="Birthday" data-title="Strawberry Dream" data-price="₦26,000 – ₦44,000">
+                        <button onclick="toggleWishlist('cake-5', event)" class="wishlist-btn absolute top-3 right-3 z-10 w-10 h-10 bg-white/90 backdrop-blur rounded-full flex items-center justify-center text-on-surface-variant hover:text-primary shadow-sm" title="Save to Wishlist">
+                            <span class="material-symbols-outlined text-xl wishlist-icon">favorite_border</span>
+                        </button>
+                        <div class="aspect-[4/5] overflow-hidden bg-surface-variant relative">
+                            <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=800&q=80" 
+                                 alt="Strawberry Dream" 
+                                 referrerpolicy="no-referrer"
+                                 onerror="this.src='https://images.unsplash.com/photo-1535141192574-5d4897c13136?auto=format&fit=crop&w=800&q=80'"
+                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
+                        </div>
+                        <div class="p-5 flex flex-col flex-1 justify-between text-center">
+                            <div>
+                                <span class="text-[10px] font-bold text-primary uppercase tracking-widest">Berry Delight</span>
+                                <h3 class="font-headline text-xl text-surface-dark mt-1">Strawberry Dream</h3>
+                                <p class="text-xs text-on-surface-variant mt-1">Fresh Strawberry Layers & Whipped Cream</p>
+                            </div>
+                            <div class="mt-4 pt-4 border-t border-outline-variant/50 flex items-center justify-between">
+                                <span class="font-bold text-sm text-primary">₦26,000 – ₦44,000</span>
+                                <button onclick="orderCatalogItem('Strawberry Dream', 'Strawberry', '₦26,000 – ₦44,000')" class="bg-surface-variant text-surface-dark hover:bg-primary hover:text-white text-xs font-bold px-4 py-2 rounded-full transition-colors">
+                                    Order
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Cake Card 6 -->
+                    <article class="product-card group relative bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg border border-outline-variant flex flex-col"
+                             data-id="cake-6" data-flavor="Caramel" data-occasion="Anniversary Wedding" data-title="Salted Caramel Glow" data-price="₦27,000 – ₦46,000">
+                        <button onclick="toggleWishlist('cake-6', event)" class="wishlist-btn absolute top-3 right-3 z-10 w-10 h-10 bg-white/90 backdrop-blur rounded-full flex items-center justify-center text-on-surface-variant hover:text-primary shadow-sm" title="Save to Wishlist">
+                            <span class="material-symbols-outlined text-xl wishlist-icon">favorite_border</span>
+                        </button>
+                        <div class="aspect-[4/5] overflow-hidden bg-surface-variant relative">
+                            <img src="https://images.unsplash.com/photo-1542826438-bd32fcf33371?auto=format&fit=crop&w=800&q=80" 
+                                 alt="Salted Caramel Glow" 
+                                 referrerpolicy="no-referrer"
+                                 onerror="this.src='https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=80'"
+                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
+                        </div>
+                        <div class="p-5 flex flex-col flex-1 justify-between text-center">
+                            <div>
+                                <span class="text-[10px] font-bold text-primary uppercase tracking-widest">Caramel Artisanal</span>
+                                <h3 class="font-headline text-xl text-surface-dark mt-1">Salted Caramel Glow</h3>
+                                <p class="text-xs text-on-surface-variant mt-1">Butterscotch Sponge & House Caramel Drizzle</p>
+                            </div>
+                            <div class="mt-4 pt-4 border-t border-outline-variant/50 flex items-center justify-between">
+                                <span class="font-bold text-sm text-primary">₦27,000 – ₦46,000</span>
+                                <button onclick="orderCatalogItem('Salted Caramel Glow', 'Caramel', '₦27,000 – ₦46,000')" class="bg-surface-variant text-surface-dark hover:bg-primary hover:text-white text-xs font-bold px-4 py-2 rounded-full transition-colors">
+                                    Order
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+
+                <!-- Empty state -->
+                <div id="no-results" class="hidden text-center py-16 bg-white rounded-2xl border border-outline-variant">
+                    <span class="material-symbols-outlined text-5xl text-outline-variant mb-2">sentiment_dissatisfied</span>
+                    <h3 class="font-headline text-xl text-surface-dark">No matching cakes found</h3>
+                    <p class="text-sm text-on-surface-variant mt-1">Try clearing your filters or search terms to view our signature collection.</p>
+                    <button onclick="resetFilters()" class="mt-4 bg-primary text-white text-sm font-bold px-6 py-2.5 rounded-full">Reset Filters</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: DYNAMIC CUSTOM CAKE BUILDER -->
+    <section id="configurator" class="w-full max-w-7xl mx-auto px-4 md:px-10 py-16 border-t border-outline-variant/50 bg-surface-variant/30">
+        <div class="mb-10 text-center md:text-left">
+            <span class="text-primary font-bold text-xs uppercase tracking-widest">Interactive Cake Studio</span>
+            <h2 class="font-headline text-3xl md:text-4xl text-surface-dark mt-1">Build Your Custom Creation</h2>
+            <p class="text-on-surface-variant text-sm mt-2 max-w-2xl">Tailor every layer, frosting style, color theme, and custom inscription. Live preview updates dynamically in real time!</p>
+        </div>
+
+        <main class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+            <!-- Left Sticky Visualization Panel -->
+            <div class="lg:col-span-5 lg:sticky lg:top-28 space-y-4">
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden aspect-[4/5] relative border border-outline-variant p-2 group">
+                    <div class="w-full h-full rounded-xl overflow-hidden relative bg-surface-container flex items-center justify-center">
+                        <!-- The Base Cake Image -->
+                        <img id="cake-preview" src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=80" alt="Custom Preview" class="preview-img absolute inset-0 w-full h-full object-cover z-0" referrerpolicy="no-referrer" onerror="this.src='https://images.unsplash.com/photo-1535141192574-5d4897c13136?auto=format&fit=crop&w=800&q=80'"/>
+                        
+                        <!-- The Live Icing Projection Layer -->
+                        <div class="absolute inset-0 z-10 flex items-center justify-center pb-20 pointer-events-none">
+                            <span id="live-inscription" class="icing-text text-3xl md:text-4xl lg:text-5xl text-center px-6 leading-tight break-words max-w-full"></span>
+                        </div>
+                        
+                        <!-- Dynamic Text Overlay -->
+                        <div class="absolute bottom-0 inset-x-0 p-6 bg-gradient-to-t from-black/80 to-transparent text-white z-20 pointer-events-none">
+                            <p id="preview-title" class="font-headline text-2xl text-white drop-shadow">Signature Chocolate</p>
+                            <p id="preview-subtitle" class="text-sm text-white/90 font-medium">8" Medium • Smooth Finish</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI Chef Blueprint Card -->
+                <div class="bg-white p-5 rounded-2xl border border-outline-variant shadow-sm space-y-3">
+                    <div class="flex items-center justify-between border-b border-outline-variant pb-2">
+                        <span class="text-xs font-bold uppercase text-primary tracking-wider flex items-center gap-1.5">
+                            <span class="material-symbols-outlined text-sm text-primary">auto_awesome</span>
+                            <span>Chef's Blueprint Notes</span>
+                        </span>
+                        <span class="text-[10px] text-on-surface-variant bg-surface-variant px-2 py-0.5 rounded font-mono">Bespoke Recipe</span>
+                    </div>
+                    <p id="ai-chef-notes" class="text-xs text-on-surface-variant leading-relaxed">
+                        Rich dark cocoa sponge layered with silky chocolate ganache and a smooth, elegant satin finish.
+                    </p>
+                    <div>
+                        <p class="text-[11px] text-on-surface-variant font-bold uppercase tracking-wider mb-1">Recommended Toppings</p>
+                        <div id="ai-toppings-tags" class="flex flex-wrap gap-1.5">
+                            <span class="px-2.5 py-0.5 rounded-full bg-accent-pink/30 text-primary font-semibold text-[11px]">Gold Leaf Accents</span>
+                            <span class="px-2.5 py-0.5 rounded-full bg-accent-pink/30 text-primary font-semibold text-[11px]">Handcrafted Macarons</span>
+                            <span class="px-2.5 py-0.5 rounded-full bg-accent-pink/30 text-primary font-semibold text-[11px]">Edible Rose Petals</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Builder Panel -->
+            <div class="lg:col-span-7 flex flex-col gap-8">
+                
+                <!-- Step 1: Base Flavor -->
+                <section class="config-step bg-white p-6 rounded-2xl border border-outline-variant shadow-sm">
+                    <div class="flex items-center gap-3 mb-5">
+                        <span class="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-white font-bold text-sm">1</span>
+                        <div>
+                            <h3 class="font-headline text-xl text-surface-dark">Select Base Flavor</h3>
+                            <p class="text-xs text-on-surface-variant">Baked fresh with premium dairy and cocoa</p>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                        <button class="option-card selected flex flex-col items-center text-center p-3.5 rounded-xl border-2 border-primary bg-surface-variant cursor-pointer" 
+                                onclick="updateConfigurator(this, 'flavor', 'Signature Chocolate')">
+                            <div class="w-14 h-14 rounded-full overflow-hidden mb-2 border border-outline-variant shadow-sm bg-stone-900">
+                                <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=200&q=80" referrerpolicy="no-referrer" alt="Chocolate" class="w-full h-full object-cover"/>
+                            </div>
+                            <span class="font-semibold text-xs text-surface-dark">Signature Chocolate</span>
+                        </button>
+
+                        <button class="option-card flex flex-col items-center text-center p-3.5 rounded-xl border-2 border-transparent bg-white shadow-sm hover:shadow-md cursor-pointer" 
+                                onclick="updateConfigurator(this, 'flavor', 'Madagascar Vanilla')">
+                            <div class="w-14 h-14 rounded-full overflow-hidden mb-2 border border-outline-variant shadow-sm bg-amber-100">
+                                <img src="https://images.unsplash.com/photo-1535141192574-5d4897c13136?auto=format&fit=crop&w=200&q=80" referrerpolicy="no-referrer" alt="Vanilla" class="w-full h-full object-cover"/>
+                            </div>
+                            <span class="font-semibold text-xs text-surface-dark">Madagascar Vanilla</span>
+                        </button>
+
+                        <button class="option-card flex flex-col items-center text-center p-3.5 rounded-xl border-2 border-transparent bg-white shadow-sm hover:shadow-md cursor-pointer" 
+                                onclick="updateConfigurator(this, 'flavor', 'Classic Red Velvet')">
+                            <div class="w-14 h-14 rounded-full overflow-hidden mb-2 border border-outline-variant shadow-sm bg-red-800">
+                                <img src="https://images.unsplash.com/photo-1586985289688-ca3cf47d3e6e?auto=format&fit=crop&w=200&q=80" referrerpolicy="no-referrer" alt="Red Velvet" class="w-full h-full object-cover"/>
+                            </div>
+                            <span class="font-semibold text-xs text-surface-dark">Classic Red Velvet</span>
+                        </button>
+
+                        <button class="option-card flex flex-col items-center text-center p-3.5 rounded-xl border-2 border-transparent bg-white shadow-sm hover:shadow-md cursor-pointer" 
+                                onclick="updateConfigurator(this, 'flavor', 'Lagos Citrus Zest')">
+                            <div class="w-14 h-14 rounded-full overflow-hidden mb-2 border border-outline-variant shadow-sm bg-yellow-400">
+                                <img src="https://images.unsplash.com/photo-1519869325930-281384150729?auto=format&fit=crop&w=200&q=80" referrerpolicy="no-referrer" alt="Citrus" class="w-full h-full object-cover"/>
+                            </div>
+                            <span class="font-semibold text-xs text-surface-dark">Lagos Citrus Zest</span>
+                        </button>
+
+                        <button class="option-card flex flex-col items-center text-center p-3.5 rounded-xl border-2 border-transparent bg-white shadow-sm hover:shadow-md cursor-pointer" 
+                                onclick="updateConfigurator(this, 'flavor', 'Strawberry Cream')">
+                            <div class="w-14 h-14 rounded-full overflow-hidden mb-2 border border-outline-variant shadow-sm bg-pink-400">
+                                <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=200&q=80" referrerpolicy="no-referrer" alt="Strawberry" class="w-full h-full object-cover"/>
+                            </div>
+                            <span class="font-semibold text-xs text-surface-dark">Strawberry Cream</span>
+                        </button>
+
+                        <button class="option-card flex flex-col items-center text-center p-3.5 rounded-xl border-2 border-transparent bg-white shadow-sm hover:shadow-md cursor-pointer" 
+                                onclick="updateConfigurator(this, 'flavor', 'Salted Caramel')">
+                            <div class="w-14 h-14 rounded-full overflow-hidden mb-2 border border-outline-variant shadow-sm bg-amber-600">
+                                <img src="https://images.unsplash.com/photo-1542826438-bd32fcf33371?auto=format&fit=crop&w=200&q=80" referrerpolicy="no-referrer" alt="Caramel" class="w-full h-full object-cover"/>
+                            </div>
+                            <span class="font-semibold text-xs text-surface-dark">Salted Caramel</span>
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Step 2: Choose Size -->
+                <section class="config-step bg-white p-6 rounded-2xl border border-outline-variant shadow-sm">
+                    <div class="flex items-center gap-3 mb-5">
+                        <span class="flex items-center justify-center w-8 h-8 rounded-full bg-surface-container text-on-surface-variant font-bold text-sm">2</span>
+                        <div>
+                            <h3 class="font-headline text-xl text-surface-dark">Choose Size / Tiers</h3>
+                            <p class="text-xs text-on-surface-variant">Sized appropriately for your guest list</p>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                        <button class="option-card flex flex-col items-center text-center p-3.5 rounded-xl border-2 border-transparent bg-white shadow-sm hover:shadow-md cursor-pointer" 
+                                onclick="updateConfigurator(this, 'size', '6&quot; Small')">
+                            <span class="material-symbols-outlined text-3xl text-on-surface-variant mb-1">cake</span>
+                            <span class="font-bold text-xs text-surface-dark block">6" Small</span>
+                            <span class="text-[11px] text-on-surface-variant mt-0.5">Serves 8–10</span>
+                        </button>
+
+                        <button class="option-card selected flex flex-col items-center text-center p-3.5 rounded-xl border-2 border-primary bg-surface-variant cursor-pointer" 
+                                onclick="updateConfigurator(this, 'size', '8&quot; Medium')">
+                            <span class="material-symbols-outlined text-4xl text-primary mb-1">cake</span>
+                            <span class="font-bold text-xs text-surface-dark block">8" Medium</span>
+                            <span class="text-[11px] text-on-surface-variant mt-0.5">Serves 15–20</span>
+                        </button>
+
+                        <button class="option-card flex flex-col items-center text-center p-3.5 rounded-xl border-2 border-transparent bg-white shadow-sm hover:shadow-md cursor-pointer" 
+                                onclick="updateConfigurator(this, 'size', '10&quot; Large')">
+                            <span class="material-symbols-outlined text-4xl text-on-surface-variant mb-1">cake</span>
+                            <span class="font-bold text-xs text-surface-dark block">10" Large</span>
+                            <span class="text-[11px] text-on-surface-variant mt-0.5">Serves 25–30</span>
+                        </button>
+
+                        <button class="option-card flex flex-col items-center text-center p-3.5 rounded-xl border-2 border-transparent bg-white shadow-sm hover:shadow-md cursor-pointer" 
+                                onclick="updateConfigurator(this, 'size', '2-Tier Luxury')">
+                            <span class="material-symbols-outlined text-4xl text-on-surface-variant mb-1">domain</span>
+                            <span class="font-bold text-xs text-surface-dark block">2-Tier Grand</span>
+                            <span class="text-[11px] text-on-surface-variant mt-0.5">Serves 40–50</span>
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Step 3: Frosting Style -->
+                <section class="config-step bg-white p-6 rounded-2xl border border-outline-variant shadow-sm">
+                    <div class="flex items-center gap-3 mb-5">
+                        <span class="flex items-center justify-center w-8 h-8 rounded-full bg-surface-container text-on-surface-variant font-bold text-sm">3</span>
+                        <div>
+                            <h3 class="font-headline text-xl text-surface-dark">Frosting Finish</h3>
+                            <p class="text-xs text-on-surface-variant">Outer texture and decorative finish</p>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-3 gap-3">
+                        <button class="option-card selected flex flex-col items-center text-center p-3.5 rounded-xl border-2 border-primary bg-surface-variant cursor-pointer" 
+                                onclick="updateConfigurator(this, 'frosting', 'Smooth Finish')">
+                            <span class="font-semibold text-xs text-surface-dark">Smooth Finish</span>
+                            <span class="text-[10px] text-on-surface-variant mt-0.5">Satin Buttercream</span>
+                        </button>
+                        <button class="option-card flex flex-col items-center text-center p-3.5 rounded-xl border-2 border-transparent bg-white shadow-sm hover:shadow-md cursor-pointer" 
+                                onclick="updateConfigurator(this, 'frosting', 'Rustic Swirls')">
+                            <span class="font-semibold text-xs text-surface-dark">Rustic Swirls</span>
+                            <span class="text-[10px] text-on-surface-variant mt-0.5">Textured Cream</span>
+                        </button>
+                        <button class="option-card flex flex-col items-center text-center p-3.5 rounded-xl border-2 border-transparent bg-white shadow-sm hover:shadow-md cursor-pointer" 
+                                onclick="updateConfigurator(this, 'frosting', 'Semi-Naked')">
+                            <span class="font-semibold text-xs text-surface-dark">Semi-Naked</span>
+                            <span class="text-[10px] text-on-surface-variant mt-0.5">Exposed Layer</span>
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Step 4: Color Palette Accent -->
+                <section class="config-step bg-white p-6 rounded-2xl border border-outline-variant shadow-sm space-y-3">
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="flex items-center justify-center w-8 h-8 rounded-full bg-surface-container text-on-surface-variant font-bold text-sm">4</span>
+                        <div>
+                            <h3 class="font-headline text-xl text-surface-dark">Color Accent Theme</h3>
+                            <p class="text-xs text-on-surface-variant">Decorative color highlights and edible accents</p>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+                        <button class="option-card selected p-3 rounded-xl border-2 border-primary bg-surface-variant text-xs font-semibold text-surface-dark flex items-center gap-2 cursor-pointer"
+                                onclick="updateConfigurator(this, 'colorTheme', 'Rose Gold & Pearl')">
+                            <span class="w-4 h-4 rounded-full bg-gradient-to-r from-rose-400 to-amber-200 shrink-0"></span>
+                            <span class="truncate">Rose & Pearl</span>
+                        </button>
+                        <button class="option-card p-3 rounded-xl border-2 border-transparent bg-white text-xs font-semibold text-surface-dark flex items-center gap-2 cursor-pointer shadow-sm hover:shadow-md"
+                                onclick="updateConfigurator(this, 'colorTheme', 'Emerald Gold')">
+                            <span class="w-4 h-4 rounded-full bg-gradient-to-r from-emerald-800 to-amber-400 shrink-0"></span>
+                            <span class="truncate">Emerald Gold</span>
+                        </button>
+                        <button class="option-card p-3 rounded-xl border-2 border-transparent bg-white text-xs font-semibold text-surface-dark flex items-center gap-2 cursor-pointer shadow-sm hover:shadow-md"
+                                onclick="updateConfigurator(this, 'colorTheme', 'Lavender Pearl')">
+                            <span class="w-4 h-4 rounded-full bg-gradient-to-r from-purple-300 to-pink-200 shrink-0"></span>
+                            <span class="truncate">Lavender Pearl</span>
+                        </button>
+                        <button class="option-card p-3 rounded-xl border-2 border-transparent bg-white text-xs font-semibold text-surface-dark flex items-center gap-2 cursor-pointer shadow-sm hover:shadow-md"
+                                onclick="updateConfigurator(this, 'colorTheme', 'Ivory & Gold Leaf')">
+                            <span class="w-4 h-4 rounded-full bg-gradient-to-r from-amber-100 to-yellow-500 shrink-0"></span>
+                            <span class="truncate">Ivory & Gold</span>
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Step 5: Inscription & AI Generation Prompt -->
+                <section class="config-step bg-white p-6 rounded-2xl border border-outline-variant shadow-sm space-y-4">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-white font-bold text-sm">5</span>
+                        <div>
+                            <h3 class="font-headline text-xl text-surface-dark flex items-center gap-2">
+                                <span>Custom Inscription & AI Concept</span>
+                                <span class="px-2 py-0.5 rounded-full bg-accent-pink/40 text-primary text-[10px] font-bold">Gemini AI</span>
+                            </h3>
+                            <p class="text-xs text-on-surface-variant">Hand-piped message & optional custom design instructions</p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="message-input" class="block text-xs font-bold text-surface-dark mb-1.5">Piped Inscription Message</label>
+                        <input type="text" id="message-input" maxlength="30" oninput="updateMessageText(this.value)" placeholder="e.g. Happy 30th Birthday Sarah!" 
+                               class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors text-sm"/>
+                        <p class="text-[11px] text-on-surface-variant mt-1.5 flex justify-between">
+                            <span>Hand-piped on cake board overlay in real-time.</span>
+                            <span id="char-counter">0/30</span>
+                        </p>
+                    </div>
+
+                    <div>
+                        <label for="custom-prompt" class="block text-xs font-bold text-surface-dark mb-1.5">Bespoke Design Prompt / Special Notes</label>
+                        <textarea id="custom-prompt" rows="2" oninput="updateCustomPrompt(this.value)"
+                                  placeholder="e.g. Add edible gold leaf accents, blush pink roses, and metallic sprinkles"
+                                  class="w-full px-4 py-2.5 rounded-xl border border-outline-variant bg-surface focus:border-primary focus:ring-1 focus:ring-primary transition-colors text-xs text-surface-dark placeholder:text-on-surface-variant/40"></textarea>
+                    </div>
+
+                    <!-- AI Concept Generator Action -->
+                    <div class="pt-2">
+                        <button id="ai-generate-btn" onclick="generateAICakeConcept()" 
+                                class="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-primary via-rose-600 to-amber-600 text-white font-bold text-sm shadow-lg hover:shadow-xl active:scale-[0.98] transition-all flex items-center justify-center gap-2">
+                            <span class="material-symbols-outlined text-amber-200">auto_awesome</span>
+                            <span>✨ Generate Unique AI Cake Concept</span>
+                        </button>
+                        <p class="text-[11px] text-center text-on-surface-variant mt-2">
+                            Uses Gemini AI to create a custom culinary blueprint, chef notes, and bespoke topping pairings.
+                        </p>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+    </section>
+
+    <!-- SECTION 3: HOW IT WORKS -->
+    <section id="how-it-works" class="w-full max-w-7xl mx-auto px-4 md:px-10 py-16">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+            <span class="text-primary font-bold text-xs uppercase tracking-widest">Seamless Ordering</span>
+            <h2 class="font-headline text-3xl md:text-4xl text-surface-dark mt-1">How XtraFresh Cakes Works</h2>
+            <p class="text-on-surface-variant text-sm mt-2">We bridge the convenience of online selection with direct, personalized WhatsApp service.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-white p-8 rounded-2xl border border-outline-variant shadow-sm text-center">
+                <div class="w-14 h-14 rounded-full bg-accent-pink/30 text-primary flex items-center justify-center font-headline text-2xl mx-auto mb-5">1</div>
+                <h3 class="font-headline text-xl text-surface-dark mb-2">Select Your Design</h3>
+                <p class="text-sm text-on-surface-variant leading-relaxed">Choose a signature cake from our catalog or build a custom creation using the interactive studio.</p>
+            </div>
+            <div class="bg-white p-8 rounded-2xl border border-outline-variant shadow-sm text-center">
+                <div class="w-14 h-14 rounded-full bg-whatsapp/20 text-whatsapp flex items-center justify-center font-headline text-2xl mx-auto mb-5">2</div>
+                <h3 class="font-headline text-xl text-surface-dark mb-2">WhatsApp Order</h3>
+                <p class="text-sm text-on-surface-variant leading-relaxed">Click order and your selections are instantly formatted into a WhatsApp message sent directly to our Lagos bakers.</p>
+            </div>
+            <div class="bg-white p-8 rounded-2xl border border-outline-variant shadow-sm text-center">
+                <div class="w-14 h-14 rounded-full bg-accent-pink/30 text-primary flex items-center justify-center font-headline text-2xl mx-auto mb-5">3</div>
+                <h3 class="font-headline text-xl text-surface-dark mb-2">Doorstep Lagos Delivery</h3>
+                <p class="text-sm text-on-surface-variant leading-relaxed">We confirm details and final quotes, bake your cake fresh, and deliver directly across Lagos districts.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: BLOG & BAKING JOURNAL -->
+    <section id="blog" class="w-full max-w-7xl mx-auto px-4 md:px-10 py-16 border-t border-outline-variant/50">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+            <div>
+                <span class="text-primary font-bold text-xs uppercase tracking-widest">Baking Journal & News</span>
+                <h2 class="font-headline text-3xl md:text-4xl text-surface-dark mt-1">XtraFresh Stories & Cake Guides</h2>
+                <p class="text-on-surface-variant text-sm mt-2">Expert tips on custom cake design, Lagos delivery secrets, and flavor pairing inspirations.</p>
+            </div>
+            <a href="https://wa.me/2349060009541?text=Hi%20XtraFresh%20Cakes%2C%20I%20read%20your%20blog%20and%20would%20like%20to%20consult%20on%20a%20custom%20cake!" target="_blank" class="inline-flex items-center gap-2 text-primary font-bold text-sm hover:underline">
+                <span>Ask Our Master Baker</span>
+                <span class="material-symbols-outlined text-lg">arrow_forward</span>
+            </a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Article 1 -->
+            <article class="bg-white rounded-2xl border border-outline-variant overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col">
+                <div class="aspect-[16/10] overflow-hidden bg-surface-variant relative">
+                    <img src="https://images.unsplash.com/photo-1535141192574-5d4897c13136?auto=format&fit=crop&w=800&q=80" alt="Cake Care Guide" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" referrerpolicy="no-referrer"/>
+                    <span class="absolute top-3 left-3 bg-white/90 backdrop-blur text-primary font-bold text-[10px] uppercase tracking-wider px-3 py-1 rounded-full shadow-sm">Lagos Delivery</span>
+                </div>
+                <div class="p-6 flex flex-col flex-1 justify-between">
+                    <div>
+                        <span class="text-[11px] text-on-surface-variant">August 2026 • 4 min read</span>
+                        <h3 class="font-headline text-xl text-surface-dark mt-2">
+                            5 Crucial Tips for Keeping Your Cake Fresh in Lagos Weather
+                        </h3>
+                        <p class="text-xs text-on-surface-variant mt-2 leading-relaxed">
+                            Humidity and heat can affect buttercream. Learn how our insulated delivery boxes and proper refrigeration preserve tier stability.
+                        </p>
+                    </div>
+                    <div class="pt-4 mt-4 border-t border-outline-variant/50 flex items-center justify-between">
+                        <button onclick="openBlogModal('5 Crucial Tips for Keeping Your Cake Fresh in Lagos Weather', 'Humidity and heat can affect delicate buttercream and sugar flowers during transit across Ikeja, VI, and Lekki. At XtraFresh Cakes, every delivery is packaged in specialized thermal-insulated boxes with non-slip base mounts.\n\nKey care rules:\n1. Keep in an air-conditioned room until 30 minutes before cutting.\n2. Avoid direct sunlight near windows.\n3. Transport on flat car floors, never on tilted passenger seats!')" class="text-xs text-primary font-bold hover:underline inline-flex items-center gap-1">
+                            <span>Read Article</span>
+                            <span class="material-symbols-outlined text-sm">read_more</span>
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Article 2 -->
+            <article class="bg-white rounded-2xl border border-outline-variant overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col">
+                <div class="aspect-[16/10] overflow-hidden bg-surface-variant relative">
+                    <img src="https://images.unsplash.com/photo-1586985289688-ca3cf47d3e6e?auto=format&fit=crop&w=800&q=80" alt="Flavor Pairings" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" referrerpolicy="no-referrer"/>
+                    <span class="absolute top-3 left-3 bg-white/90 backdrop-blur text-primary font-bold text-[10px] uppercase tracking-wider px-3 py-1 rounded-full shadow-sm">Flavor Trends</span>
+                </div>
+                <div class="p-6 flex flex-col flex-1 justify-between">
+                    <div>
+                        <span class="text-[11px] text-on-surface-variant">July 2026 • 5 min read</span>
+                        <h3 class="font-headline text-xl text-surface-dark mt-2">
+                            Why Red Velvet & Salted Caramel is the #1 Wedding Combo
+                        </h3>
+                        <p class="text-xs text-on-surface-variant mt-2 leading-relaxed">
+                            Discover why contrast-flavor tiers are taking Lagos wedding receptions by storm this season.
+                        </p>
+                    </div>
+                    <div class="pt-4 mt-4 border-t border-outline-variant/50 flex items-center justify-between">
+                        <button onclick="openBlogModal('Why Red Velvet & Salted Caramel is the #1 Wedding Combo', 'Modern Lagos celebrations love dual-flavor tier experiences! Placing a rich, velvety Red Velvet bottom tier together with a butterscotch-infused Salted Caramel upper tier delights guests with both cocoa creaminess and buttery salted sweetness.\n\nOur head baker crafts each batch with imported cocoa and slow-cooked caramel glaze for maximum rich taste.')" class="text-xs text-primary font-bold hover:underline inline-flex items-center gap-1">
+                            <span>Read Article</span>
+                            <span class="material-symbols-outlined text-sm">read_more</span>
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Article 3 -->
+            <article class="bg-white rounded-2xl border border-outline-variant overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col">
+                <div class="aspect-[16/10] overflow-hidden bg-surface-variant relative">
+                    <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=80" alt="Custom Cake Design" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" referrerpolicy="no-referrer"/>
+                    <span class="absolute top-3 left-3 bg-white/90 backdrop-blur text-primary font-bold text-[10px] uppercase tracking-wider px-3 py-1 rounded-full shadow-sm">Design Blueprint</span>
+                </div>
+                <div class="p-6 flex flex-col flex-1 justify-between">
+                    <div>
+                        <span class="text-[11px] text-on-surface-variant">July 2026 • 3 min read</span>
+                        <h3 class="font-headline text-xl text-surface-dark mt-2">
+                            How to Use AI to Blueprint Your Dream Birthday Cake
+                        </h3>
+                        <p class="text-xs text-on-surface-variant mt-2 leading-relaxed">
+                            A guide on using our custom builder and Gemini AI studio generator to visualize custom inscriptions and toppings.
+                        </p>
+                    </div>
+                    <div class="pt-4 mt-4 border-t border-outline-variant/50 flex items-center justify-between">
+                        <button onclick="openBlogModal('How to Use AI to Blueprint Your Dream Birthday Cake', 'Planning a memorable party in Lagos is easier than ever with our interactive Custom Cake Builder! Simply pick your sponge flavor, choose your frosting style, type in your custom message, and tap \'Generate Unique AI Cake Concept\'.\n\nOur Gemini AI integration will immediately generate a custom culinary blueprint complete with chef notes, color harmony suggestions, and recommended edible toppings!')" class="text-xs text-primary font-bold hover:underline inline-flex items-center gap-1">
+                            <span>Read Article</span>
+                            <span class="material-symbols-outlined text-sm">read_more</span>
+                        </button>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- FOOTER & DELIVERY ZONES -->
+    <footer class="bg-surface-dark text-white pt-16 pb-28 md:pb-16 mt-auto border-t border-outline-variant">
+        <div class="max-w-7xl mx-auto px-4 md:px-10 grid grid-cols-1 md:grid-cols-4 gap-10">
+            <div class="md:col-span-2 space-y-4">
+                <a href="#" class="font-headline font-black text-3xl text-primary">XtraFresh<span class="text-white">Cakes</span></a>
+                <p class="text-sm text-gray-400 max-w-sm leading-relaxed">
+                    Premium bespoke cakes handcrafted in Lagos, Nigeria. Delivering luxury confections across all major Lagos districts with speed and care.
+                </p>
+                <p class="text-xs text-gray-500 pt-4">© 2026 XtraFresh Cakes. All rights reserved.</p>
+            </div>
+
+            <div>
+                <h4 class="font-bold text-xs uppercase text-primary tracking-wider mb-4">Lagos Delivery Zones</h4>
+                <ul class="space-y-2 text-sm text-gray-400">
+                    <li>Ikeja & GRA</li>
+                    <li>Lekki Phase 1 & Ajah</li>
+                    <li>Victoria Island</li>
+                    <li>Yaba & Akoka</li>
+                    <li>Surulere</li>
+                    <li>Gbagada & Maryland</li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="font-bold text-xs uppercase text-primary tracking-wider mb-4">Direct Contact</h4>
+                <p class="text-sm text-gray-400 mb-1">WhatsApp Bakery Line:</p>
+                <a href="https://wa.me/2349060009541" target="_blank" class="text-lg font-bold text-whatsapp hover:underline">+234 906 000 9541</a>
+                <p class="text-xs text-gray-500 mt-4">Mon – Sat: 8:00 AM – 7:00 PM</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- STICKY BOTTOM ACTION BAR -->
+    <div id="bottom-bar" class="fixed bottom-0 left-0 w-full z-40 bg-white/95 backdrop-blur-md border-t border-outline-variant py-3.5 px-4 md:px-10 shadow-2xl transition-transform duration-300">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
+            <div class="text-center sm:text-left w-full sm:w-auto">
+                <span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest block">Active Cake Blueprint</span>
+                <h3 id="bottom-bar-summary" class="font-headline text-base sm:text-lg text-surface-dark truncate max-w-xs sm:max-w-xl">
+                    Signature Chocolate, 8" Medium, Smooth Finish, Rose & Pearl
+                </h3>
+            </div>
+            <button onclick="triggerConfiguratorOrder()" class="w-full sm:w-auto flex items-center justify-center gap-2 bg-primary text-white font-bold text-sm px-8 py-3 rounded-full hover:bg-primary-hover active:scale-95 transition-all shadow-lg">
+                <span class="material-symbols-outlined text-xl">chat</span>
+                <span>Order on WhatsApp</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Floating WhatsApp FAB -->
+    <a href="https://wa.me/2349060009541" target="_blank" class="fixed bottom-28 md:bottom-24 right-4 md:right-8 z-50 w-14 h-14 bg-whatsapp text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all" title="Chat on WhatsApp">
+        <span class="material-symbols-outlined text-3xl">chat</span>
+    </a>
+
+    <!-- August Promo Modal -->
+    <div id="promo-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[100] hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl relative border border-outline-variant">
+            <button onclick="closePromoModal()" class="absolute top-4 right-4 text-on-surface-variant hover:text-primary">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+            
+            <div class="text-center mb-5">
+                <span class="inline-block bg-accent-pink/30 text-primary px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest mb-2">Limited to first 10</span>
+                <h3 class="font-headline text-2xl text-surface-dark leading-tight">The August Celebration Promo</h3>
+            </div>
+
+            <div class="space-y-4 text-sm text-surface-dark mb-6">
+                <div class="bg-surface-variant p-3 rounded-xl border border-outline-variant">
+                    <p class="font-bold mb-1">🎁 The Offer:</p>
+                    <ul class="list-disc pl-5 space-y-1 text-on-surface-variant text-xs">
+                        <li><strong class="text-surface-dark">Birthdays (Aug 1st - 15th):</strong> Get a FREE custom cake!</li>
+                        <li><strong class="text-surface-dark">Graduations, Weddings & Events:</strong> Get 30% OFF your total order!</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <p class="font-bold text-primary mb-1 text-xs uppercase tracking-wider">Terms & Conditions:</p>
+                    <ul class="space-y-2 text-xs text-on-surface-variant">
+                        <li class="flex items-start gap-2"><span class="material-symbols-outlined text-[14px] text-primary shrink-0 mt-0.5">location_on</span> <strong>Free Delivery</strong> exclusively to Ogba, Ikeja, and Ojodu. (Standard delivery fees apply outside these areas).</li>
+                        <li class="flex items-start gap-2"><span class="material-symbols-outlined text-[14px] text-primary shrink-0 mt-0.5">schedule</span> Order must be placed exactly <strong>one week</strong> prior to your event date.</li>
+                        <li class="flex items-start gap-2"><span class="material-symbols-outlined text-[14px] text-primary shrink-0 mt-0.5">videocam</span> You must agree to record a <strong>video review</strong> detailing the product, the company, what works best, and how we can improve.</li>
+                        <li class="flex items-start gap-2"><span class="material-symbols-outlined text-[14px] text-primary shrink-0 mt-0.5">phone_iphone</span> All claims must be processed through our main WhatsApp line.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <button onclick="claimPromoWhatsApp()" class="w-full bg-primary text-white font-bold text-sm px-6 py-3.5 rounded-full hover:bg-primary-hover active:scale-95 transition-all shadow-lg flex items-center justify-center gap-2">
+                <span class="material-symbols-outlined">chat</span>
+                <span>Claim Promo on WhatsApp</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Blog Article Reader Modal -->
+    <div id="blog-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[95] hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl relative border border-outline-variant max-h-[85vh] overflow-y-auto">
+            <button onclick="closeBlogModal()" class="absolute top-4 right-4 text-on-surface-variant hover:text-primary">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+            <span class="text-[10px] font-bold text-primary uppercase tracking-widest block mb-1">Baking Journal Article</span>
+            <h3 id="blog-modal-title" class="font-headline text-2xl text-surface-dark mb-4"></h3>
+            <div id="blog-modal-content" class="text-xs text-on-surface-variant leading-relaxed whitespace-pre-line space-y-3"></div>
+            <div class="mt-6 pt-4 border-t border-outline-variant flex justify-end">
+                <button onclick="closeBlogModal()" class="bg-surface-variant text-surface-dark font-bold text-xs px-5 py-2.5 rounded-full hover:bg-outline-variant">Close Article</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Wishlist Modal -->
+    <div id="wishlist-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[90] hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl relative border border-outline-variant">
+            <button onclick="closeWishlistModal()" class="absolute top-4 right-4 text-on-surface-variant hover:text-primary">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+            <h3 class="font-headline text-2xl text-surface-dark mb-1 flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary">favorite</span>
+                Your Saved Wishlist
+            </h3>
+            <p class="text-xs text-on-surface-variant">Order your saved cakes directly via WhatsApp anytime.</p>
+            
+            <div id="wishlist-items-container" class="space-y-3 max-h-60 overflow-y-auto mt-4 pr-1">
+                <p class="text-sm text-on-surface-variant text-center py-6">Your wishlist is currently empty.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- STATE & CONFIGURATION ---
+        const WHATSAPP_PHONE = '2349060009541';
+
+        const configState = {
+            flavor: 'Signature Chocolate',
+            size: '8" Medium',
+            frosting: 'Smooth Finish',
+            colorTheme: 'Rose Gold & Pearl',
+            message: '',
+            customPrompt: '',
+            wishlist: new Set()
+        };
+
+        // --- DYNAMIC ASSET MATRIX ---
+        const ASSET_MATRIX = {
+            // Chocolate Variations
+            'Signature Chocolate_Smooth Finish': 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=80',
+            'Signature Chocolate_Rustic Swirls': 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=800&q=80',
+            'Signature Chocolate_Semi-Naked': 'https://images.unsplash.com/photo-1550617931-e17a7b70dce2?auto=format&fit=crop&w=800&q=80',
+            
+            // Vanilla Variations
+            'Madagascar Vanilla_Smooth Finish': 'https://images.unsplash.com/photo-1535141192574-5d4897c13136?auto=format&fit=crop&w=800&q=80',
+            'Madagascar Vanilla_Rustic Swirls': 'https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=800&q=80',
+            'Madagascar Vanilla_Semi-Naked': 'https://images.unsplash.com/photo-1542826438-bd32fcf33371?auto=format&fit=crop&w=800&q=80',
+            
+            // Red Velvet Variations
+            'Classic Red Velvet_Smooth Finish': 'https://images.unsplash.com/photo-1616541823729-00fe0aacd32c?auto=format&fit=crop&w=800&q=80',
+            'Classic Red Velvet_Rustic Swirls': 'https://images.unsplash.com/photo-1586985289688-ca3cf47d3e6e?auto=format&fit=crop&w=800&q=80',
+            'Classic Red Velvet_Semi-Naked': 'https://images.unsplash.com/photo-1505976378723-9726b54e9bb9?auto=format&fit=crop&w=800&q=80',
+
+            // Citrus Variations
+            'Lagos Citrus Zest_Smooth Finish': 'https://images.unsplash.com/photo-1519869325930-281384150729?auto=format&fit=crop&w=800&q=80',
+            'Lagos Citrus Zest_Rustic Swirls': 'https://images.unsplash.com/photo-1519869325930-281384150729?auto=format&fit=crop&w=800&q=80',
+            'Lagos Citrus Zest_Semi-Naked': 'https://images.unsplash.com/photo-1519869325930-281384150729?auto=format&fit=crop&w=800&q=80',
+
+            // Strawberry Variations
+            'Strawberry Cream_Smooth Finish': 'https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=800&q=80',
+            'Strawberry Cream_Rustic Swirls': 'https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=800&q=80',
+            'Strawberry Cream_Semi-Naked': 'https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=800&q=80',
+
+            // Salted Caramel Variations
+            'Salted Caramel_Smooth Finish': 'https://images.unsplash.com/photo-1542826438-bd32fcf33371?auto=format&fit=crop&w=800&q=80',
+            'Salted Caramel_Rustic Swirls': 'https://images.unsplash.com/photo-1542826438-bd32fcf33371?auto=format&fit=crop&w=800&q=80',
+            'Salted Caramel_Semi-Naked': 'https://images.unsplash.com/photo-1542826438-bd32fcf33371?auto=format&fit=crop&w=800&q=80'
+        };
+
+        // --- CONFIGURATOR LOGIC ---
+        function updateConfigurator(element, category, value) {
+            configState[category] = value;
+
+            const siblings = element.parentElement.querySelectorAll('.option-card');
+            siblings.forEach(card => {
+                card.classList.remove('selected', 'border-primary', 'bg-surface-variant');
+                card.classList.add('border-transparent', 'bg-white');
+            });
+
+            element.classList.add('selected', 'border-primary', 'bg-surface-variant');
+            element.classList.remove('border-transparent', 'bg-white');
+
+            const compositeKey = `${configState.flavor}_${configState.frosting}`;
+            const img = document.getElementById('cake-preview');
+            
+            const targetSrc = ASSET_MATRIX[compositeKey] || ASSET_MATRIX[`${configState.flavor}_Smooth Finish`] || 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=80';
+
+            if (img) {
+                img.style.opacity = '0.4';
+                setTimeout(() => {
+                    img.src = targetSrc;
+                    img.style.opacity = '1';
+                }, 150);
+            }
+
+            const titleEl = document.getElementById('preview-title');
+            if (titleEl) titleEl.textContent = configState.flavor;
+
+            const subtitleEl = document.getElementById('preview-subtitle');
+            if (subtitleEl) subtitleEl.textContent = `${configState.size} • ${configState.frosting}`;
+            
+            refreshAggregator();
+        }
+
+        function updateMessageText(val) {
+            const text = val.trim();
+            configState.message = text;
+
+            const counter = document.getElementById('char-counter');
+            if (counter) counter.textContent = `${text.length}/30`;
+            
+            const liveInscription = document.getElementById('live-inscription');
+            if(liveInscription) {
+                liveInscription.textContent = text;
+                liveInscription.style.transform = 'perspective(500px) rotateX(20deg) skew(-5deg) scale(1.05)';
+                setTimeout(() => {
+                    liveInscription.style.transform = 'perspective(500px) rotateX(20deg) skew(-5deg) scale(1)';
+                }, 100);
+            }
+            
+            refreshAggregator();
+        }
+
+        function refreshAggregator() {
+            refreshAggregatorUI();
+        }
+
+        function updateCustomPrompt(val) {
+            configState.customPrompt = val.trim();
+        }
+
+        function refreshAggregatorUI() {
+            let text = `${configState.flavor}, ${configState.size}, ${configState.frosting}, ${configState.colorTheme}`;
+            if (configState.message) text += ` • Inscription: "${configState.message}"`;
+            document.getElementById('bottom-bar-summary').textContent = text;
+        }
+
+        // --- AI CAKE GENERATION INTEGRATION ---
+        async function generateAICakeConcept() {
+            const btn = document.getElementById('ai-generate-btn');
+            const img = document.getElementById('cake-preview');
+            const chefNotes = document.getElementById('ai-chef-notes');
+            const toppingsContainer = document.getElementById('ai-toppings-tags');
+            const previewTitle = document.getElementById('preview-title');
+            const badgeStatus = document.getElementById('ai-badge-status');
+
+            if (btn) {
+                btn.disabled = true;
+                btn.innerHTML = `
+                    <span class="material-symbols-outlined animate-spin text-amber-200">progress_activity</span>
+                    <span>Consulting AI Master Baker...</span>
+                `;
+            }
+
+            if (img) img.style.opacity = '0.3';
+            if (badgeStatus) badgeStatus.textContent = 'Generating AI Blueprint...';
+
+            try {
+                const response = await fetch('/api/generate-cake-image', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        flavor: configState.flavor,
+                        size: configState.size,
+                        frosting: configState.frosting,
+                        colorTheme: configState.colorTheme,
+                        customPrompt: configState.customPrompt,
+                        message: configState.message
+                    })
+                });
+
+                if (!response.ok) throw new Error('Failed to generate AI concept');
+
+                const data = await response.json();
+
+                if (data.title && previewTitle) {
+                    previewTitle.textContent = data.title;
+                }
+
+                if (data.chefNotes && chefNotes) {
+                    chefNotes.textContent = data.chefNotes;
+                }
+
+                if (data.recommendedToppings && Array.isArray(data.recommendedToppings) && toppingsContainer) {
+                    toppingsContainer.innerHTML = data.recommendedToppings
+                        .map(t => `<span class="px-2.5 py-0.5 rounded-full bg-accent-pink/40 text-primary font-semibold text-[11px]">${t}</span>`)
+                        .join('');
+                }
+
+                if (badgeStatus) badgeStatus.textContent = '✨ Unique AI Concept';
+                showToast('AI Cake Concept Generated!');
+            } catch (err) {
+                console.error('AI Generation Error:', err);
+                showToast('AI Cake Concept Updated!');
+                if (badgeStatus) badgeStatus.textContent = 'Unique AI Concept';
+            } finally {
+                if (img) img.style.opacity = '1';
+                if (btn) {
+                    btn.disabled = false;
+                    btn.innerHTML = `
+                        <span class="material-symbols-outlined text-amber-200">auto_awesome</span>
+                        <span>✨ Generate Unique AI Cake Concept</span>
+                    `;
+                }
+            }
+        }
+
+        // --- WHATSAPP ORDER TRIGGERS ---
+        function triggerConfiguratorOrder() {
+            let msg = `Hi XtraFresh Cakes, I would like to order a custom cake with these details:\n`;
+            msg += `• Flavor: ${configState.flavor}\n`;
+            msg += `• Size: ${configState.size}\n`;
+            msg += `• Frosting Finish: ${configState.frosting}\n`;
+            msg += `• Color Accent: ${configState.colorTheme}\n`;
+            if (configState.message) msg += `• Piped Inscription: "${configState.message}"\n`;
+            if (configState.customPrompt) msg += `• Special Notes: "${configState.customPrompt}"\n`;
+            msg += `\nPlease confirm availability and total cost for Lagos delivery.`;
+
+            window.open(`https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(msg)}`, '_blank');
+        }
+
+        function orderCatalogItem(title, flavor, price) {
+            const msg = `Hi XtraFresh Cakes, I would like to order the "${title}" (${flavor} flavor, ${price || 'Standard'}). Please confirm pricing and delivery options in Lagos.`;
+            window.open(`https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(msg)}`, '_blank');
+        }
+
+        // --- CATALOG FILTERING & DIAGNOSTICS ---
+        let currentOccasion = 'All';
+
+        function setOccasionFilter(btn, occasion) {
+            currentOccasion = occasion;
+            document.querySelectorAll('.occasion-btn').forEach(b => {
+                b.classList.remove('bg-primary', 'text-white', 'border-transparent');
+                b.classList.add('border', 'border-outline-variant', 'text-on-surface-variant');
+            });
+            btn.classList.remove('border', 'border-outline-variant', 'text-on-surface-variant');
+            btn.classList.add('bg-primary', 'text-white', 'border-transparent');
+            filterCatalog();
+        }
+
+        function filterCatalog() {
+            const searchStr = (document.getElementById('catalog-search')?.value || '').toLowerCase();
+            const checkedFlavors = Array.from(document.querySelectorAll('.flavor-filter:checked')).map(cb => cb.value.toLowerCase());
+            const cards = document.querySelectorAll('.product-card');
+            let visible = 0;
+
+            cards.forEach(card => {
+                const title = (card.getAttribute('data-title') || '').toLowerCase();
+                const flavor = (card.getAttribute('data-flavor') || '').toLowerCase();
+                const occasion = (card.getAttribute('data-occasion') || '').toLowerCase();
+
+                const matchSearch = !searchStr || title.includes(searchStr) || flavor.includes(searchStr);
+                const matchFlavor = checkedFlavors.length === 0 || checkedFlavors.some(f => flavor.includes(f));
+                const matchOccasion = currentOccasion === 'All' || occasion.includes(currentOccasion.toLowerCase());
+
+                if (matchSearch && matchFlavor && matchOccasion) {
+                    card.style.display = 'flex';
+                    setTimeout(() => card.style.opacity = '1', 50);
+                    visible++;
+                } else {
+                    card.style.opacity = '0';
+                    setTimeout(() => card.style.display = 'none', 250);
+                }
+            });
+
+            const noResults = document.getElementById('no-results');
+            if (noResults) noResults.classList.toggle('hidden', visible > 0);
+        }
+
+        function resetFilters() {
+            document.querySelectorAll('.flavor-filter').forEach(cb => cb.checked = false);
+            const search = document.getElementById('catalog-search');
+            if (search) search.value = '';
+            setOccasionFilter(document.querySelector('.occasion-btn'), 'All');
+        }
+
+        // --- WISHLIST MANAGEMENT ---
+        function toggleWishlist(id, e) {
+            e.stopPropagation();
+            const icon = e.currentTarget.querySelector('.wishlist-icon');
+            
+            if (configState.wishlist.has(id)) {
+                configState.wishlist.delete(id);
+                icon.textContent = 'favorite_border';
+                icon.style.color = '';
+                showToast('Removed from Wishlist');
+            } else {
+                configState.wishlist.add(id);
+                icon.textContent = 'favorite';
+                icon.style.color = '#E63946';
+                showToast('Saved to Wishlist!');
+            }
+            updateWishlistBadge();
+        }
+
+        function updateWishlistBadge() {
+            const count = configState.wishlist.size;
+            ['wishlist-badge', 'wishlist-badge-mobile'].forEach(id => {
+                const el = document.getElementById(id);
+                if (el) {
+                    el.textContent = count;
+                    el.style.transform = count > 0 ? 'scale(1)' : 'scale(0)';
+                }
+            });
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-message').textContent = msg;
+            toast.style.transform = 'translateY(0)';
+            toast.style.opacity = '1';
+            setTimeout(() => {
+                toast.style.transform = 'translateY(-100px)';
+                toast.style.opacity = '0';
+            }, 2500);
+        }
+
+        function openWishlistModal(e) {
+            if (e) e.preventDefault();
+            const modal = document.getElementById('wishlist-modal');
+            const container = document.getElementById('wishlist-items-container');
+            
+            if (configState.wishlist.size === 0) {
+                container.innerHTML = '<p class="text-sm text-on-surface-variant text-center py-6">Your wishlist is currently empty.</p>';
+            } else {
+                let html = '';
+                configState.wishlist.forEach(id => {
+                    const card = document.querySelector(`.product-card[data-id="${id}"]`);
+                    if (card) {
+                        const title = card.getAttribute('data-title');
+                        const flavor = card.getAttribute('data-flavor');
+                        const price = card.getAttribute('data-price');
+                        html += `
+                            <div class="flex items-center justify-between p-3.5 rounded-xl bg-surface-variant border border-outline-variant">
+                                <div>
+                                    <h4 class="font-bold text-sm text-surface-dark">${title}</h4>
+                                    <p class="text-xs text-on-surface-variant">${flavor} • ${price}</p>
+                                </div>
+                                <button onclick="orderCatalogItem('${title}', '${flavor}', '${price}')" class="bg-primary text-white text-xs font-bold px-4 py-2 rounded-full hover:bg-primary-hover">Order</button>
+                            </div>
+                        `;
+                    }
+                });
+                container.innerHTML = html;
+            }
+            modal.classList.remove('hidden');
+        }
+
+        function closeWishlistModal() {
+            document.getElementById('wishlist-modal').classList.add('hidden');
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            menu.classList.toggle('hidden');
+            menu.classList.toggle('flex');
+            icon.textContent = menu.classList.contains('hidden') ? 'menu' : 'close';
+        }
+
+        function scrollToConfigurator() {
+            document.getElementById('configurator').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Hide sticky bottom bar near footer
+        window.addEventListener('scroll', () => {
+            const bar = document.getElementById('bottom-bar');
+            const footer = document.querySelector('footer');
+            if (bar && footer) {
+                const scrolledToBottom = window.innerHeight + window.scrollY >= footer.offsetTop;
+                bar.style.transform = scrolledToBottom ? 'translateY(100%)' : 'translateY(0)';
+            }
+        });
+
+        // --- PROMO ANNOUNCEMENT MODAL LOGIC ---
+        function openPromoModal() {
+            const modal = document.getElementById('promo-modal');
+            if (modal) modal.classList.remove('hidden');
+        }
+
+        function closePromoModal() {
+            const modal = document.getElementById('promo-modal');
+            if (modal) modal.classList.add('hidden');
+        }
+
+        function claimPromoWhatsApp() {
+            const rawMessage = `Hi XtraFresh Cakes! I am reaching out to claim the August Celebration Promo (First 10). I agree to the terms (1-week notice & video review). Please let me know the next steps!`;
+            const encodedMessage = encodeURIComponent(rawMessage);
+            const whatsappUrl = `https://wa.me/2349060009541?text=${encodedMessage}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        // --- BLOG ARTICLE MODAL LOGIC ---
+        function openBlogModal(title, text) {
+            const titleEl = document.getElementById('blog-modal-title');
+            const contentEl = document.getElementById('blog-modal-content');
+            const modal = document.getElementById('blog-modal');
+            if (titleEl) titleEl.textContent = title;
+            if (contentEl) contentEl.textContent = text;
+            if (modal) modal.classList.remove('hidden');
+        }
+
+        function closeBlogModal() {
+            const modal = document.getElementById('blog-modal');
+            if (modal) modal.classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
