@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en" class="light scroll-smooth">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Storefront | XtraFresh Cakes Catalog</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,0" rel="stylesheet"/>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#E63946",       
+                        "primary-hover": "#C92B37",
+                        "accent-pink": "#FFB3C1",   
+                        "surface-dark": "#1D1D1D",  
+                        "surface": "#ffffff",
+                        "surface-variant": "#f9f9f9",
+                        "surface-container": "#f1f1f1",
+                        "on-surface": "#1D1D1D",
+                        "on-surface-variant": "#5a5a5a",
+                        "outline-variant": "#e0e0e0",
+                        "whatsapp": "#25D366"
+                    },
+                    fontFamily: {
+                        "headline": ["DM Serif Display", "serif"],
+                        "body": ["Plus Jakarta Sans", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-surface text-surface-dark antialiased font-body min-h-screen flex flex-col selection:bg-accent-pink selection:text-surface-dark">
+
+    <!-- Header Navigation -->
+    <header class="bg-surface/95 backdrop-blur-md sticky top-0 z-50 border-b border-outline-variant/50 transition-all duration-300">
+        <div class="flex justify-between items-center px-4 md:px-10 py-4 w-full max-w-7xl mx-auto">
+            <a href="index.html" class="font-headline font-black text-2xl md:text-3xl text-primary tracking-tight">
+                XtraFresh<span class="text-surface-dark">Cakes</span>
+            </a>
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="index.html" class="text-surface-dark font-semibold text-sm hover:text-primary transition-colors">Home</a>
+                <a href="store.html" class="text-primary font-bold text-sm transition-colors border-b-2 border-primary pb-1">Full Catalog</a>
+                <a href="index.html#configurator" class="text-on-surface-variant font-medium text-sm hover:text-primary transition-colors">Custom Builder</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- STOREFRONT MAIN LAYOUT -->
+    <div class="w-full max-w-7xl mx-auto px-4 md:px-10 py-10 flex flex-col lg:flex-row gap-8 items-start">
+        
+        <!-- SIDEBAR FILTERS -->
+        <aside class="w-full lg:w-72 shrink-0 bg-white p-6 rounded-2xl border border-outline-variant shadow-sm lg:sticky lg:top-28">
+            <div class="flex items-center justify-between border-b border-outline-variant pb-4 mb-5">
+                <h3 class="font-headline text-xl text-surface-dark flex items-center gap-2">
+                    <span class="material-symbols-outlined text-primary text-xl">tune</span> Filters
+                </h3>
+                <button onclick="resetFilters()" class="text-xs text-primary font-semibold hover:underline">Clear All</button>
+            </div>
+
+            <!-- Search -->
+            <div class="mb-6 relative">
+                <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-lg">search</span>
+                <input type="text" id="store-search" oninput="filterStore()" placeholder="Search cakes..." class="w-full pl-10 pr-4 py-2.5 rounded-xl border border-outline-variant bg-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none text-sm transition-all"/>
+            </div>
+
+            <!-- Occasion Filter -->
+            <div class="mb-6">
+                <h4 class="font-bold text-xs text-surface-dark uppercase tracking-wider mb-3">Occasion</h4>
+                <div class="flex flex-col gap-2 text-sm text-on-surface-variant">
+                    <label class="flex items-center gap-2 cursor-pointer hover:text-primary"><input type="radio" name="filter-occasion" value="all" onchange="filterStore()" checked class="text-primary focus:ring-primary"/> All Occasions</label>
+                    <label class="flex items-center gap-2 cursor-pointer hover:text-primary"><input type="radio" name="filter-occasion" value="Birthday" onchange="filterStore()" class="text-primary focus:ring-primary"/> Birthday</label>
+                    <label class="flex items-center gap-2 cursor-pointer hover:text-primary"><input type="radio" name="filter-occasion" value="Wedding" onchange="filterStore()" class="text-primary focus:ring-primary"/> Wedding & Engagement</label>
+                    <label class="flex items-center gap-2 cursor-pointer hover:text-primary"><input type="radio" name="filter-occasion" value="Anniversary" onchange="filterStore()" class="text-primary focus:ring-primary"/> Anniversary</label>
+                    <label class="flex items-center gap-2 cursor-pointer hover:text-primary"><input type="radio" name="filter-occasion" value="Shower" onchange="filterStore()" class="text-primary focus:ring-primary"/> Baby / Bridal Showers</label>
+                </div>
+            </div>
+
+            <!-- Flavor Filter -->
+            <div class="mb-6">
+                <h4 class="font-bold text-xs text-surface-dark uppercase tracking-wider mb-3">Base Flavor</h4>
+                <div class="flex flex-col gap-2 text-sm text-on-surface-variant">
+                    <label class="flex items-center gap-2 cursor-pointer hover:text-primary"><input type="radio" name="filter-flavor" value="all" onchange="filterStore()" checked class="text-primary focus:ring-primary"/> All Flavors</label>
+                    <label class="flex items-center gap-2 cursor-pointer hover:text-primary"><input type="radio" name="filter-flavor" value="Vanilla" onchange="filterStore()" class="text-primary focus:ring-primary"/> Vanilla & Funfetti</label>
+                    <label class="flex items-center gap-2 cursor-pointer hover:text-primary"><input type="radio" name="filter-flavor" value="Chocolate" onchange="filterStore()" class="text-primary focus:ring-primary"/> Rich Chocolate</label>
+                    <label class="flex items-center gap-2 cursor-pointer hover:text-primary"><input type="radio" name="filter-flavor" value="Red Velvet" onchange="filterStore()" class="text-primary focus:ring-primary"/> Red Velvet</label>
+                    <label class="flex items-center gap-2 cursor-pointer hover:text-primary"><input type="radio" name="filter-flavor" value="Fruit" onchange="filterStore()" class="text-primary focus:ring-primary"/> Citrus & Berry</label>
+                    <label class="flex items-center gap-2 cursor-pointer hover:text-primary"><input type="radio" name="filter-flavor" value="Specialty" onchange="filterStore()" class="text-primary focus:ring-primary"/> Specialty (Matcha, Caramel)</label>
+                </div>
+            </div>
+            
+            <div class="pt-4 border-t border-outline-variant text-center">
+                <p class="text-xs text-on-surface-variant mb-3">Don't see what you need?</p>
+                <a href="index.html#configurator" class="block w-full bg-surface-variant text-primary font-bold py-2.5 rounded-xl text-xs hover:bg-primary hover:text-white transition-colors">Use Custom Builder</a>
+            </div>
+        </aside>
+
+        <!-- PRODUCT GRID -->
+        <main class="flex-1 w-full">
+            <div class="mb-6 flex justify-between items-center">
+                <h1 class="font-headline text-3xl text-surface-dark">The Signature Catalog</h1>
+                <span id="result-count" class="text-sm font-bold text-on-surface-variant">12 items</span>
+            </div>
+
+            <div id="store-grid" class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
+                
+                <!-- Cake 1 -->
+                <article class="store-card bg-white rounded-2xl overflow-hidden shadow-sm border border-outline-variant flex flex-col relative transition-opacity duration-300" data-flavor="Vanilla" data-occasion="Wedding">
+                    <span class="absolute top-3 left-3 bg-white/90 text-primary font-bold text-[10px] uppercase tracking-wider px-3 py-1 rounded-full shadow-sm z-10">Best Seller</span>
+                    <div class="aspect-[4/3] overflow-hidden bg-surface-variant relative"><img src="https://images.unsplash.com/photo-1535141192574-5d4897c13136?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover"/></div>
+                    <div class="p-5 flex flex-col flex-1 justify-between">
+                        <div>
+                            <h3 class="font-headline text-xl text-surface-dark">The Vanilla Blossom</h3>
+                            <p class="text-xs text-on-surface-variant mt-2 line-clamp-2">Classic Madagascar vanilla sponge with silky Swiss meringue buttercream.</p>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-outline-variant/50 flex items-center justify-between">
+                            <span class="font-bold text-sm text-primary">₦25,000+</span>
+                            <button onclick="openCatalogModal('The Vanilla Blossom', 'Classic Vanilla', '₦25,000+', 'This classic Madagascar vanilla cake features three layers of moist sponge, frosted with our signature silky Swiss meringue buttercream. Perfect for elegant weddings and milestone celebrations.')" class="bg-primary text-white text-xs font-bold px-5 py-2 rounded-full hover:bg-primary-hover">Order</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Cake 2 -->
+                <article class="store-card bg-white rounded-2xl overflow-hidden shadow-sm border border-outline-variant flex flex-col relative transition-opacity duration-300" data-flavor="Chocolate" data-occasion="Birthday">
+                    <div class="aspect-[4/3] overflow-hidden bg-surface-variant relative"><img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover"/></div>
+                    <div class="p-5 flex flex-col flex-1 justify-between">
+                        <div>
+                            <h3 class="font-headline text-xl text-surface-dark">Midnight Truffle</h3>
+                            <p class="text-xs text-on-surface-variant mt-2 line-clamp-2">Rich dark cocoa sponge layered with a luxurious dark ganache drip.</p>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-outline-variant/50 flex items-center justify-between">
+                            <span class="font-bold text-sm text-primary">₦30,000+</span>
+                            <button onclick="openCatalogModal('Midnight Truffle', 'Rich Chocolate', '₦30,000+', 'Our decadent Midnight Truffle is a chocolate lover’s dream. Built with imported dark cocoa and layered with our house-made chocolate ganache.')" class="bg-primary text-white text-xs font-bold px-5 py-2 rounded-full hover:bg-primary-hover">Order</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Cake 3 -->
+                <article class="store-card bg-white rounded-2xl overflow-hidden shadow-sm border border-outline-variant flex flex-col relative transition-opacity duration-300" data-flavor="Red Velvet" data-occasion="Anniversary Wedding">
+                    <div class="aspect-[4/3] overflow-hidden bg-surface-variant relative"><img src="https://images.unsplash.com/photo-1616541823729-00fe0aacd32c?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover"/></div>
+                    <div class="p-5 flex flex-col flex-1 justify-between">
+                        <div>
+                            <h3 class="font-headline text-xl text-surface-dark">Crimson Royalty</h3>
+                            <p class="text-xs text-on-surface-variant mt-2 line-clamp-2">Our signature red velvet with rich cream cheese swirls.</p>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-outline-variant/50 flex items-center justify-between">
+                            <span class="font-bold text-sm text-primary">₦28,000+</span>
+                            <button onclick="openCatalogModal('Crimson Royalty', 'Red Velvet', '₦28,000+', 'The Crimson Royalty brings authentic, soft red velvet crumb perfectly paired with a slightly tangy, rich cream cheese frosting.')" class="bg-primary text-white text-xs font-bold px-5 py-2 rounded-full hover:bg-primary-hover">Order</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Cake 4 -->
+                <article class="store-card bg-white rounded-2xl overflow-hidden shadow-sm border border-outline-variant flex flex-col relative transition-opacity duration-300" data-flavor="Fruit" data-occasion="Shower">
+                    <div class="aspect-[4/3] overflow-hidden bg-surface-variant relative"><img src="https://images.unsplash.com/photo-1519869325930-281384150729?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover"/></div>
+                    <div class="p-5 flex flex-col flex-1 justify-between">
+                        <div>
+                            <h3 class="font-headline text-xl text-surface-dark">Lagos Citrus Zest</h3>
+                            <p class="text-xs text-on-surface-variant mt-2 line-clamp-2">Tangy lemon sponge infused with fresh citrus and vanilla bean.</p>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-outline-variant/50 flex items-center justify-between">
+                            <span class="font-bold text-sm text-primary">₦24,000+</span>
+                            <button onclick="openCatalogModal('Lagos Citrus Zest', 'Citrus', '₦24,000+', 'Perfect for the warm Lagos weather! This refreshing cake uses actual zest in the batter, creating a light, tangy, and incredibly moist sponge.')" class="bg-primary text-white text-xs font-bold px-5 py-2 rounded-full hover:bg-primary-hover">Order</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Cake 5 -->
+                <article class="store-card bg-white rounded-2xl overflow-hidden shadow-sm border border-outline-variant flex flex-col relative transition-opacity duration-300" data-flavor="Fruit" data-occasion="Birthday Shower">
+                    <span class="absolute top-3 left-3 bg-surface-dark/90 text-white font-bold text-[10px] uppercase tracking-wider px-3 py-1 rounded-full shadow-sm z-10">Pre-order</span>
+                    <div class="aspect-[4/3] overflow-hidden bg-surface-variant relative"><img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover"/></div>
+                    <div class="p-5 flex flex-col flex-1 justify-between">
+                        <div>
+                            <h3 class="font-headline text-xl text-surface-dark">Strawberry Dream</h3>
+                            <p class="text-xs text-on-surface-variant mt-2 line-clamp-2">Fresh strawberry layers with real fruit compote and whipped cream.</p>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-outline-variant/50 flex items-center justify-between">
+                            <span class="font-bold text-sm text-primary">₦26,000+</span>
+                            <button onclick="openCatalogModal('Strawberry Dream', 'Strawberry Cream', '₦26,000+', 'We use a house-made strawberry compote layered between light vanilla sponge and stabilized whipped cream.')" class="bg-primary text-white text-xs font-bold px-5 py-2 rounded-full hover:bg-primary-hover">Order</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Cake 6 -->
+                <article class="store-card bg-white rounded-2xl overflow-hidden shadow-sm border border-outline-variant flex flex-col relative transition-opacity duration-300" data-flavor="Specialty" data-occasion="Anniversary">
+                    <div class="aspect-[4/3] overflow-hidden bg-surface-variant relative"><img src="https://images.unsplash.com/photo-1542826438-bd32fcf33371?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover"/></div>
+                    <div class="p-5 flex flex-col flex-1 justify-between">
+                        <div>
+                            <h3 class="font-headline text-xl text-surface-dark">Salted Caramel Glow</h3>
+                            <p class="text-xs text-on-surface-variant mt-2 line-clamp-2">Butterscotch sponge with an artisanal house caramel drizzle.</p>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-outline-variant/50 flex items-center justify-between">
+                            <span class="font-bold text-sm text-primary">₦27,000+</span>
+                            <button onclick="openCatalogModal('Salted Caramel Glow', 'Salted Caramel', '₦27,000+', 'A beautiful balance of sweet and salty. Our butterscotch sponge is soaked in caramel syrup and finished with a smooth buttercream and dramatic caramel drip.')" class="bg-primary text-white text-xs font-bold px-5 py-2 rounded-full hover:bg-primary-hover">Order</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Cake 7 -->
+                <article class="store-card bg-white rounded-2xl overflow-hidden shadow-sm border border-outline-variant flex flex-col relative transition-opacity duration-300" data-flavor="Vanilla" data-occasion="Birthday">
+                    <div class="aspect-[4/3] overflow-hidden bg-surface-variant relative"><img src="https://images.unsplash.com/photo-1550617931-e17a7b70dce2?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover"/></div>
+                    <div class="p-5 flex flex-col flex-1 justify-between">
+                        <div>
+                            <h3 class="font-headline text-xl text-surface-dark">Funfetti Fiesta</h3>
+                            <p class="text-xs text-on-surface-variant mt-2 line-clamp-2">Colorful vanilla sprinkle sponge designed for the ultimate party.</p>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-outline-variant/50 flex items-center justify-between">
+                            <span class="font-bold text-sm text-primary">₦22,000+</span>
+                            <button onclick="openCatalogModal('Funfetti Fiesta', 'Funfetti Vanilla', '₦22,000+', 'The ultimate celebration cake! Rainbow sprinkles are folded directly into our soft vanilla batter, layered with sweet buttercream.')" class="bg-primary text-white text-xs font-bold px-5 py-2 rounded-full hover:bg-primary-hover">Order</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Cake 8 -->
+                <article class="store-card bg-white rounded-2xl overflow-hidden shadow-sm border border-outline-variant flex flex-col relative transition-opacity duration-300" data-flavor="Specialty" data-occasion="Wedding Shower">
+                    <div class="aspect-[4/3] overflow-hidden bg-surface-variant relative"><img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover"/></div>
+                    <div class="p-5 flex flex-col flex-1 justify-between">
+                        <div>
+                            <h3 class="font-headline text-xl text-surface-dark">Pistachio Rose</h3>
+                            <p class="text-xs text-on-surface-variant mt-2 line-clamp-2">Nutty pistachio layers infused with delicate rose water frosting.</p>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-outline-variant/50 flex items-center justify-between">
+                            <span class="font-bold text-sm text-primary">₦35,000+</span>
+                            <button onclick="openCatalogModal('Pistachio Rose', 'Pistachio', '₦35,000+', 'A sophisticated, aromatic dessert. We use roasted pistachios in the sponge and lightly scent the buttercream with pure rose water.')" class="bg-primary text-white text-xs font-bold px-5 py-2 rounded-full hover:bg-primary-hover">Order</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Cake 9 -->
+                <article class="store-card bg-white rounded-2xl overflow-hidden shadow-sm border border-outline-variant flex flex-col relative transition-opacity duration-300" data-flavor="Fruit" data-occasion="Shower Wedding">
+                    <div class="aspect-[4/3] overflow-hidden bg-surface-variant relative"><img src="https://images.unsplash.com/photo-1557925923-33b251dc3296?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover"/></div>
+                    <div class="p-5 flex flex-col flex-1 justify-between">
+                        <div>
+                            <h3 class="font-headline text-xl text-surface-dark">Lemon Meringue Cloud</h3>
+                            <p class="text-xs text-on-surface-variant mt-2 line-clamp-2">Zesty lemon curd core wrapped in toasted marshmallow meringue.</p>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-outline-variant/50 flex items-center justify-between">
+                            <span class="font-bold text-sm text-primary">₦25,000+</span>
+                            <button onclick="openCatalogModal('Lemon Meringue Cloud', 'Lemon', '₦25,000+', 'A showstopper! Fluffy lemon sponge with a sharp lemon curd center, entirely encased in marshmallow meringue that is toasted to perfection.')" class="bg-primary text-white text-xs font-bold px-5 py-2 rounded-full hover:bg-primary-hover">Order</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Cake 10 -->
+                <article class="store-card bg-white rounded-2xl overflow-hidden shadow-sm border border-outline-variant flex flex-col relative transition-opacity duration-300" data-flavor="Specialty" data-occasion="Corporate Birthday">
+                    <div class="aspect-[4/3] overflow-hidden bg-surface-variant relative"><img src="https://images.unsplash.com/photo-1621303837174-89787a7d4729?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover"/></div>
+                    <div class="p-5 flex flex-col flex-1 justify-between">
+                        <div>
+                            <h3 class="font-headline text-xl text-surface-dark">Matcha Elegance</h3>
+                            <p class="text-xs text-on-surface-variant mt-2 line-clamp-2">Earthy premium green tea sponge with white chocolate ganache.</p>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-outline-variant/50 flex items-center justify-between">
+                            <span class="font-bold text-sm text-primary">₦32,000+</span>
+                            <button onclick="openCatalogModal('Matcha Elegance', 'Matcha Green Tea', '₦32,000+', 'For those who prefer their desserts less sweet. Premium culinary matcha provides a gorgeous green hue and earthy flavor, smoothed out by white chocolate layers.')" class="bg-primary text-white text-xs font-bold px-5 py-2 rounded-full hover:bg-primary-hover">Order</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Cake 11 -->
+                <article class="store-card bg-white rounded-2xl overflow-hidden shadow-sm border border-outline-variant flex flex-col relative transition-opacity duration-300" data-flavor="Chocolate Vanilla" data-occasion="Birthday">
+                    <div class="aspect-[4/3] overflow-hidden bg-surface-variant relative"><img src="https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover"/></div>
+                    <div class="p-5 flex flex-col flex-1 justify-between">
+                        <div>
+                            <h3 class="font-headline text-xl text-surface-dark">Cookies & Cream Crunch</h3>
+                            <p class="text-xs text-on-surface-variant mt-2 line-clamp-2">Crushed chocolate cookies folded heavily into a cream cheese base.</p>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-outline-variant/50 flex items-center justify-between">
+                            <span class="font-bold text-sm text-primary">₦26,000+</span>
+                            <button onclick="openCatalogModal('Cookies & Cream Crunch', 'Cookies and Cream', '₦26,000+', 'A crowd-pleaser combining alternating layers of chocolate and vanilla sponge, generously filled with crushed cookie buttercream.')" class="bg-primary text-white text-xs font-bold px-5 py-2 rounded-full hover:bg-primary-hover">Order</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Cake 12 -->
+                <article class="store-card bg-white rounded-2xl overflow-hidden shadow-sm border border-outline-variant flex flex-col relative transition-opacity duration-300" data-flavor="Vanilla Chocolate" data-occasion="Wedding Anniversary">
+                    <div class="aspect-[4/3] overflow-hidden bg-surface-variant relative"><img src="https://images.unsplash.com/photo-1623594042456-e918c5e3f1db?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover"/></div>
+                    <div class="p-5 flex flex-col flex-1 justify-between">
+                        <div>
+                            <h3 class="font-headline text-xl text-surface-dark">Two-Tier Grandeur</h3>
+                            <p class="text-xs text-on-surface-variant mt-2 line-clamp-2">A towering masterpiece combining two distinct flavor profiles.</p>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-outline-variant/50 flex items-center justify-between">
+                            <span class="font-bold text-sm text-primary">₦65,000+</span>
+                            <button onclick="openCatalogModal('Two-Tier Grandeur', 'Custom Split', '₦65,000+', 'Designed for large gatherings. Choose any two flavors for your top and bottom tiers. Delivered pre-stacked and structurally secured.')" class="bg-primary text-white text-xs font-bold px-5 py-2 rounded-full hover:bg-primary-hover">Order</button>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+            
+            <div id="no-results" class="hidden text-center py-20 bg-surface-variant rounded-2xl border border-outline-variant mt-6">
+                <span class="material-symbols-outlined text-4xl text-on-surface-variant mb-2">search_off</span>
+                <h3 class="font-headline text-xl text-surface-dark">No cakes found</h3>
+                <p class="text-sm text-on-surface-variant mt-1">Try adjusting your filters or search term.</p>
+                <button onclick="resetFilters()" class="mt-4 bg-white text-primary border border-outline-variant text-sm font-bold px-6 py-2 rounded-full hover:bg-surface">Reset Filters</button>
+            </div>
+        </main>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-surface-dark text-white pt-16 pb-12 mt-auto border-t border-outline-variant">
+        <div class="max-w-7xl mx-auto px-4 md:px-10 grid grid-cols-1 md:grid-cols-3 gap-12 border-b border-gray-800 pb-12">
+            <div class="space-y-4">
+                <a href="#" class="font-headline font-black text-3xl text-primary block">XtraFresh<span class="text-white">Cakes</span></a>
+                <p class="text-sm text-gray-400 leading-relaxed max-w-sm">Premium bespoke cakes handcrafted in Lagos, Nigeria. We specialize in transforming your special occasions into unforgettable memories.</p>
+                <div class="flex gap-4 pt-2">
+                    <a href="https://instagram.com/xtrafreshcakes" target="_blank" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-pink-600 transition-colors text-white"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd"/></svg></a>
+                    <a href="https://tiktok.com/@xtrafreshcakes" target="_blank" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-pink-600 transition-colors text-white"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg></a>
+                </div>
+            </div>
+            <div>
+                <h4 class="font-bold text-xs uppercase text-primary tracking-wider mb-5">Serving All of Lagos State</h4>
+                <div class="grid grid-cols-2 gap-2 text-sm text-gray-400">
+                    <ul class="space-y-2"><li>Ikeja & GRA</li><li>Victoria Island</li><li>Lekki & Ajah</li><li>Ikoyi</li><li>Yaba & Akoka</li></ul>
+                    <ul class="space-y-2"><li>Surulere</li><li>Maryland & Anthony</li><li>Gbagada</li><li>Festac Town</li><li>Alimosho District</li></ul>
+                </div>
+            </div>
+            <div>
+                <h4 class="font-bold text-xs uppercase text-primary tracking-wider mb-5">Contact Us</h4>
+                <address class="not-italic text-sm text-gray-400 space-y-3">
+                    <p class="font-bold text-white text-base mb-1">XtraFresh Cakes</p>
+                    <p class="flex items-start gap-3"><span class="material-symbols-outlined text-primary text-[18px] mt-0.5">location_on</span><span>73 Clem Road,<br/>Ijaye, Lagos, Nigeria</span></p>
+                    <p class="flex items-center gap-3 pt-2"><span class="material-symbols-outlined text-whatsapp text-[18px]">chat</span><a href="https://wa.me/2349060009541" target="_blank" class="font-bold text-white hover:text-whatsapp transition-colors text-base">+234 906 000 9541</a></p>
+                </address>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 md:px-10 pt-6 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
+            <p>© 2026 XtraFresh Cakes. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- CHECKOUT MODAL -->
+    <div id="checkout-modal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-[100] hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-lg w-full shadow-2xl relative border border-outline-variant overflow-hidden flex flex-col max-h-[90vh]">
+            <div class="bg-surface-variant p-4 border-b border-outline-variant flex justify-between items-center">
+                <h3 class="font-headline text-2xl text-surface-dark">Finalize Order</h3>
+                <button onclick="closeCheckoutModal()" class="text-on-surface-variant hover:text-primary"><span class="material-symbols-outlined text-2xl">close</span></button>
+            </div>
+            <div class="p-6 overflow-y-auto space-y-5">
+                <div class="bg-primary/5 border border-primary/20 p-4 rounded-xl">
+                    <p class="text-[10px] font-bold text-primary uppercase tracking-widest mb-1">Your Order:</p>
+                    <p id="modal-cake-summary" class="text-sm font-bold text-surface-dark whitespace-pre-line mb-2"></p>
+                    <p id="modal-long-desc" class="text-xs text-on-surface-variant leading-relaxed border-t border-primary/10 pt-2"></p>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="col-span-2 sm:col-span-1">
+                        <label class="block text-xs font-bold text-surface-dark mb-1.5">Full Name</label>
+                        <input type="text" id="checkout-name" placeholder="Sarah Doe" class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface focus:border-primary outline-none text-sm"/>
+                    </div>
+                    <div class="col-span-2 sm:col-span-1">
+                        <label class="block text-xs font-bold text-surface-dark mb-1.5">WhatsApp Number</label>
+                        <input type="tel" id="checkout-phone" placeholder="090..." class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface focus:border-primary outline-none text-sm"/>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="col-span-2 sm:col-span-1">
+                        <label class="block text-xs font-bold text-surface-dark mb-1.5">Delivery Date</label>
+                        <input type="date" id="checkout-date" class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface focus:border-primary outline-none text-sm"/>
+                    </div>
+                    <div class="col-span-2 sm:col-span-1">
+                        <label class="block text-xs font-bold text-surface-dark mb-1.5">Claim August Promo?</label>
+                        <select id="checkout-promo" class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface focus:border-primary outline-none text-sm">
+                            <option value="No">No</option><option value="Yes">Yes</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-surface-dark mb-1.5">Allergies?</label>
+                    <input type="text" id="checkout-allergies" placeholder="e.g., Nuts, None" class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface focus:border-primary outline-none text-sm mb-4"/>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-surface-dark mb-1.5">Delivery Address (Lagos)</label>
+                    <textarea id="checkout-address" rows="2" placeholder="Full street address and area" class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface focus:border-primary outline-none text-sm"></textarea>
+                </div>
+            </div>
+            <div class="p-4 border-t border-outline-variant bg-surface">
+                <button id="final-submit-btn" onclick="submitOrderToSheet(event)" class="w-full bg-primary text-white font-bold text-base px-6 py-4 rounded-xl hover:bg-primary-hover active:scale-[0.98] transition-all shadow-lg flex items-center justify-center gap-2">
+                    <span class="material-symbols-outlined">send</span> Confirm & Send to WhatsApp
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        const API_URL = "https://script.google.com/macros/s/AKfycbycvxx3tKkPp_Ssld75TfQGX13oVp8GpD58tvehjAAFsXaywJJg-c_XhQ42q0aZ724Q/exec";
+        const WHATSAPP_PHONE = "2349060009541";
+        let currentOrderDetails = "";
+
+        // FILTER LOGIC
+        function filterStore() {
+            const searchVal = document.getElementById('store-search').value.toLowerCase();
+            const occasionVal = document.querySelector('input[name="filter-occasion"]:checked').value;
+            const flavorVal = document.querySelector('input[name="filter-flavor"]:checked').value;
+            
+            const cards = document.querySelectorAll('.store-card');
+            let visibleCount = 0;
+
+            cards.forEach(card => {
+                const title = card.querySelector('h3').innerText.toLowerCase();
+                const cardFlavor = card.getAttribute('data-flavor');
+                const cardOccasion = card.getAttribute('data-occasion');
+
+                const matchesSearch = title.includes(searchVal);
+                const matchesOccasion = occasionVal === 'all' || cardOccasion.includes(occasionVal);
+                const matchesFlavor = flavorVal === 'all' || cardFlavor.includes(flavorVal);
+
+                if (matchesSearch && matchesOccasion && matchesFlavor) {
+                    card.style.display = 'flex';
+                    setTimeout(() => card.style.opacity = '1', 50);
+                    visibleCount++;
+                } else {
+                    card.style.opacity = '0';
+                    setTimeout(() => card.style.display = 'none', 300);
+                }
+            });
+
+            document.getElementById('result-count').innerText = `${visibleCount} items`;
+            document.getElementById('no-results').style.display = visibleCount === 0 ? 'block' : 'none';
+        }
+
+        function resetFilters() {
+            document.getElementById('store-search').value = '';
+            document.querySelector('input[name="filter-occasion"][value="all"]').checked = true;
+            document.querySelector('input[name="filter-flavor"][value="all"]').checked = true;
+            filterStore();
+        }
+
+        // MODAL & SUBMIT LOGIC
+        function openCatalogModal(cakeName, flavor, price, longDesc) {
+            const shortDetails = `${cakeName}\nFlavor: ${flavor}\nBase Price: ${price}`;
+            currentOrderDetails = shortDetails;
+            document.getElementById("modal-cake-summary").innerText = shortDetails;
+            const descEl = document.getElementById("modal-long-desc");
+            descEl.innerText = longDesc; 
+            descEl.classList.remove("hidden"); 
+            document.getElementById("checkout-modal").classList.remove("hidden");
+            document.body.style.overflow = "hidden";
+        }
+
+        function closeCheckoutModal() {
+            document.getElementById("checkout-modal").classList.add("hidden");
+            document.body.style.overflow = "auto";
+        }
+
+        function submitOrderToSheet(event) {
+            event.preventDefault(); 
+            const submitBtn = document.getElementById("final-submit-btn");
+            submitBtn.innerHTML = `<span class="material-symbols-outlined animate-spin">progress_activity</span> Sending...`;
+            submitBtn.disabled = true;
+
+            const orderData = {
+                customerName: document.getElementById("checkout-name").value || "No Name",
+                customerPhone: document.getElementById("checkout-phone").value || "No Phone",
+                deliveryDate: document.getElementById("checkout-date").value,
+                deliveryAddress: document.getElementById("checkout-address").value,
+                allergies: document.getElementById("checkout-allergies").value,
+                promoClaimed: document.getElementById("checkout-promo").value 
+            };
+
+            fetch(API_URL, {
+                method: 'POST',
+                body: JSON.stringify(orderData)
+            }).then(response => response.json()).then(data => {
+                if(data.status === "success") {
+                    let message = `Hello XtraFresh! 🎂\n\nI just placed an order on the website.\n*Order ID:* ${data.orderId}\n\n*My Order Details:*\n${currentOrderDetails}\n\n*Delivery to:* ${orderData.deliveryAddress} on ${orderData.deliveryDate}\n\nPlease let me know the total cost with delivery and your account details so I can make the transfer!`;
+                    window.location.href = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(message)}`;
+                } else {
+                    alert("Oops! Something went wrong saving your order.");
+                    resetSubmitButton(submitBtn);
+                }
+            }).catch(error => {
+                alert("Network error. Please check your connection.");
+                resetSubmitButton(submitBtn);
+            });
+        }
+
+        function resetSubmitButton(btn) {
+            btn.innerHTML = `<span class="material-symbols-outlined">send</span> Confirm & Send to WhatsApp`;
+            btn.disabled = false;
+        }
+    </script>
+</body>
+</html>
