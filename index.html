@@ -115,48 +115,9 @@
             <a href="store.html" class="text-sm font-bold text-primary hover:underline flex items-center gap-1">View All <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Item 1 -->
-            <div id="dynamic-cake-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Cakes will load here automatically -->
-                <div class="col-span-full text-center py-10 text-on-surface-variant animate-pulse">Loading fresh cakes...</div>
-            </div>
-
-            <!-- Item 2 -->
-            <article class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg border border-outline-variant flex flex-col relative">
-                <span class="absolute top-3 left-3 bg-surface-dark/90 text-white font-bold text-[10px] uppercase tracking-wider px-3 py-1 rounded-full shadow-sm z-10 flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span> Pre-order Only</span>
-                <div class="aspect-[4/3] overflow-hidden bg-surface-variant relative">
-                    <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?q=80&w=800&auto=format&fit=crop" alt="Midnight Truffle" class="w-full h-full object-cover"/>
-                </div>
-                <div class="p-5 flex flex-col flex-1 justify-between">
-                    <div>
-                        <h3 class="font-headline text-xl text-surface-dark">Midnight Truffle</h3>
-                        <p class="text-xs text-on-surface-variant mt-2 line-clamp-2">Rich dark cocoa sponge layered with a luxurious dark ganache drip.</p>
-                    </div>
-                    <div class="mt-4 pt-4 border-t border-outline-variant/50 flex items-center justify-between">
-                        <span class="font-bold text-sm text-primary">₦30,000+</span>
-                        <button onclick="openCatalogModal('Midnight Truffle', 'Chocolate', '₦30,000+', 'Our decadent Midnight Truffle is a chocolate lover’s dream. Built with imported dark cocoa and layered with our house-made chocolate ganache. Due to high demand and specialized ingredients, this premium tier requires a 72-hour pre-order window.')" class="bg-surface-variant text-surface-dark hover:bg-primary hover:text-white text-xs font-bold px-5 py-2 rounded-full transition-colors">Pre-order</button>
-                    </div>
-                </div>
-            </article>
-
-            <!-- Item 3 -->
-            <article class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg border border-outline-variant flex flex-col relative">
-                <span class="absolute top-3 left-3 bg-white/90 backdrop-blur text-primary font-bold text-[10px] uppercase tracking-wider px-3 py-1 rounded-full shadow-sm z-10 flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-green-500"></span> Available</span>
-                <div class="aspect-[4/3] overflow-hidden bg-surface-variant relative">
-                    <img src="https://images.unsplash.com/photo-1616541823729-00fe0aacd32c?q=80&w=800&auto=format&fit=crop" alt="Crimson Royalty" class="w-full h-full object-cover"/>
-                </div>
-                <div class="p-5 flex flex-col flex-1 justify-between">
-                    <div>
-                        <h3 class="font-headline text-xl text-surface-dark">Crimson Royalty</h3>
-                        <p class="text-xs text-on-surface-variant mt-2 line-clamp-2">Our signature red velvet with rich cream cheese swirls.</p>
-                    </div>
-                    <div class="mt-4 pt-4 border-t border-outline-variant/50 flex items-center justify-between">
-                        <span class="font-bold text-sm text-primary">₦28,000+</span>
-                        <button onclick="openCatalogModal('Crimson Royalty', 'Red Velvet', '₦28,000+', 'The Crimson Royalty brings authentic, soft red velvet crumb perfectly paired with a slightly tangy, rich cream cheese frosting. A staple for anniversaries and romantic celebrations across Lagos.')" class="bg-surface-variant text-surface-dark hover:bg-primary hover:text-white text-xs font-bold px-5 py-2 rounded-full transition-colors">Order Now</button>
-                    </div>
-                </div>
-            </article>
+        <!-- BEST SELLERS DYNAMIC GRID -->
+        <div id="best-sellers-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="col-span-full text-center py-10 text-on-surface-variant animate-pulse">Loading best sellers...</div>
         </div>
     </section>
 
@@ -168,23 +129,9 @@
             <p class="text-on-surface-variant text-sm mt-2">Vibrant flavors and unique designs that are currently taking over our kitchen.</p>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Item 4 -->
-           <div id="dynamic-cake-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-    <!-- Cakes will load here automatically -->
-            <div class="col-span-full text-center py-10 text-on-surface-variant animate-pulse">Loading fresh cakes...</div>
-        </div>
-            <!-- Item 5 -->
-            <div id="dynamic-cake-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-    <!-- Cakes will load here automatically -->
-    <div class="col-span-full text-center py-10 text-on-surface-variant animate-pulse">Loading fresh cakes...</div>
-</div>
-
-            <!-- Item 6 -->
-            <div id="dynamic-cake-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-    <!-- Cakes will load here automatically -->
-    <div class="col-span-full text-center py-10 text-on-surface-variant animate-pulse">Loading fresh cakes...</div>
-</div>
+        <!-- TRENDING DYNAMIC GRID -->
+        <div id="trending-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="col-span-full text-center py-10 text-on-surface-variant animate-pulse">Loading trending cakes...</div>
         </div>
         
         <div class="mt-12 text-center">
@@ -329,12 +276,9 @@
             </a>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <!-- Article 1 -->
-            <div id="dynamic-blog-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8">
-    <!-- Blog posts will load here automatically -->
-    <div class="col-span-full text-center py-10 text-on-surface-variant animate-pulse">Loading latest articles...</div>
-</div>
+        <!-- BLOG DYNAMIC GRID -->
+        <div id="dynamic-blog-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="col-span-full text-center py-10 text-on-surface-variant animate-pulse">Loading latest articles...</div>
         </div>
     </section>
 
@@ -724,6 +668,7 @@
         function scrollToConfigurator() {
             document.getElementById('configurator').scrollIntoView({ behavior: 'smooth' });
         }
+        
         // --- EXCLUSIVE PROMO SUBMISSION LOGIC ---
         function submitPromoOrderToSheet(event) {
             event.preventDefault(); 
@@ -783,9 +728,9 @@
                 submitBtn.disabled = false;
             });
         }
+        
         // --- DYNAMIC CONTENT FETCHING ---
-        // Paste your newly deployed Google Apps Script URL here
-        const APP_SCRIPT_GET_URL = "https://script.google.com/macros/library/d/1LoWgeT5k_sBpiIw67WAUeArpztzva5LKU135CSBgSNXp4_XlwvWqiQhY/3";
+        const APP_SCRIPT_GET_URL = API_URL;
 
         // Fetch data as soon as the page loads
         document.addEventListener("DOMContentLoaded", () => {
@@ -799,7 +744,14 @@
                 const cakeData = await cakeResponse.json();
                 
                 if (cakeData.status === "success") {
-                    renderCakes(cakeData.data);
+                    // Filter cakes based on the Notion "Display Section" tag
+                    const allCakes = cakeData.data;
+                    const bestSellers = allCakes.filter(c => c["Display Section"] === "Best Seller").slice(0, 3);
+                    const trending = allCakes.filter(c => c["Display Section"] === "Trending").slice(0, 3);
+                    
+                    // Render to specific grids
+                    renderCakes(bestSellers, 'best-sellers-grid');
+                    renderCakes(trending, 'trending-grid');
                 }
 
                 // Fetch Blog
@@ -811,20 +763,25 @@
                 }
             } catch (error) {
                 console.error("Error fetching data:", error);
-                document.getElementById('dynamic-cake-grid').innerHTML = `<p class="text-primary col-span-full text-center">Failed to load catalog. Please refresh.</p>`;
+                document.getElementById('best-sellers-grid').innerHTML = `<p class="text-primary col-span-full text-center">Failed to load catalog. Please refresh.</p>`;
+                document.getElementById('trending-grid').innerHTML = `<p class="text-primary col-span-full text-center">Failed to load catalog. Please refresh.</p>`;
             }
         }
 
-        function renderCakes(cakes) {
-            const grid = document.getElementById('dynamic-cake-grid');
+        function renderCakes(cakesToRender, targetGridId) {
+            const grid = document.getElementById(targetGridId);
+            if(!grid) return;
+            
             grid.innerHTML = ""; // Clear the loading text
             
-            // Only show the first 3 on the homepage
-            const homeCakes = cakes.slice(0, 3);
-            
-            homeCakes.forEach(cake => {
-                // Formatting the price nicely with commas
+            if(cakesToRender.length === 0) {
+                grid.innerHTML = `<p class="text-on-surface-variant col-span-full text-center">Check back soon for new items!</p>`;
+                return;
+            }
+
+            cakesToRender.forEach(cake => {
                 const formattedPrice = "₦" + Number(cake["Price"]).toLocaleString() + "+";
+                const safeDesc = cake["Long Description"] ? cake["Long Description"].replace(/'/g, "\\'") : '';
                 
                 const html = `
                 <article class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg border border-outline-variant flex flex-col relative">
@@ -842,7 +799,7 @@
                         </div>
                         <div class="mt-4 pt-4 border-t border-outline-variant/50 flex items-center justify-between">
                             <span class="font-bold text-sm text-primary">${formattedPrice}</span>
-                            <button onclick="openCatalogModal('${cake["Cake Name"]}', '${cake["Flavor"]}', '${formattedPrice}', '${cake["Long Description"] ? cake["Long Description"].replace(/'/g, "\\'") : ''}')" class="bg-surface-variant text-surface-dark hover:bg-primary hover:text-white text-xs font-bold px-5 py-2 rounded-full transition-colors">Order Now</button>
+                            <button onclick="openCatalogModal('${cake["Cake Name"]}', '${cake["Flavor"]}', '${formattedPrice}', '${safeDesc}')" class="bg-surface-variant text-surface-dark hover:bg-primary hover:text-white text-xs font-bold px-5 py-2 rounded-full transition-colors">Order Now</button>
                         </div>
                     </div>
                 </article>`;
@@ -852,12 +809,12 @@
 
         function renderBlog(posts) {
             const grid = document.getElementById('dynamic-blog-grid');
-            grid.innerHTML = ""; // Clear the loading text
+            if(!grid) return;
             
+            grid.innerHTML = ""; 
             const homePosts = posts.slice(0, 3);
             
             homePosts.forEach(post => {
-                // Format the Notion date string securely
                 const dateObj = new Date(post["Publish Date"]);
                 const formattedDate = !isNaN(dateObj) ? dateObj.toLocaleDateString('en-US', { month: 'long', year: 'numeric' }) : "Recent";
                 
@@ -872,6 +829,7 @@
                             <span class="text-[11px] text-on-surface-variant">${formattedDate} • ${post["Read Time"] || '3 min read'}</span>
                             <h3 class="font-headline text-xl text-surface-dark mt-2">${post["Title"]}</h3>
                             <p class="text-xs text-on-surface-variant mt-2 leading-relaxed">${post["Short Summary"] || ''}</p>
+                            <a href="#" class="text-primary font-bold text-xs hover:underline mt-4 inline-block">Read More &rarr;</a>
                         </div>
                     </div>
                 </article>`;
