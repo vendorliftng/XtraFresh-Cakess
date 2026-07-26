@@ -730,6 +730,7 @@
         }
         
         // --- DYNAMIC CONTENT FETCHING ---
+        // Pointing directly to your valid /exec API URL
         const APP_SCRIPT_GET_URL = API_URL;
 
         // Fetch data as soon as the page loads
@@ -744,14 +745,17 @@
                 const cakeData = await cakeResponse.json();
                 
                 if (cakeData.status === "success") {
-                    // Filter cakes based on the Notion "Display Section" tag
                     const allCakes = cakeData.data;
                     const bestSellers = allCakes.filter(c => c["Display Section"] === "Best Seller").slice(0, 3);
                     const trending = allCakes.filter(c => c["Display Section"] === "Trending").slice(0, 3);
                     
-                    // Render to specific grids
                     renderCakes(bestSellers, 'best-sellers-grid');
                     renderCakes(trending, 'trending-grid');
+                } else {
+                    // Stop hanging and print the exact backend error
+                    const errorMsg = `<p class="text-primary col-span-full text-center font-bold">Backend says: ${cakeData.message}</p>`;
+                    if(document.getElementById('best-sellers-grid')) document.getElementById('best-sellers-grid').innerHTML = errorMsg;
+                    if(document.getElementById('trending-grid')) document.getElementById('trending-grid').innerHTML = errorMsg;
                 }
 
                 // Fetch Blog
@@ -760,11 +764,15 @@
                 
                 if (blogData.status === "success") {
                     renderBlog(blogData.data);
+                } else {
+                    const errorMsg = `<p class="text-primary col-span-full text-center font-bold">Backend says: ${blogData.message}</p>`;
+                    if(document.getElementById('dynamic-blog-grid')) document.getElementById('dynamic-blog-grid').innerHTML = errorMsg;
                 }
             } catch (error) {
                 console.error("Error fetching data:", error);
-                document.getElementById('best-sellers-grid').innerHTML = `<p class="text-primary col-span-full text-center">Failed to load catalog. Please refresh.</p>`;
-                document.getElementById('trending-grid').innerHTML = `<p class="text-primary col-span-full text-center">Failed to load catalog. Please refresh.</p>`;
+                const networkErrorHtml = `<p class="text-primary col-span-full text-center font-bold">Network Error: Failed to connect to server.</p>`;
+                if(document.getElementById('best-sellers-grid')) document.getElementById('best-sellers-grid').innerHTML = networkErrorHtml;
+                if(document.getElementById('trending-grid')) document.getElementById('trending-grid').innerHTML = networkErrorHtml;
             }
         }
 
@@ -772,7 +780,7 @@
             const grid = document.getElementById(targetGridId);
             if(!grid) return;
             
-            grid.innerHTML = ""; // Clear the loading text
+            grid.innerHTML = ""; 
             
             if(cakesToRender.length === 0) {
                 grid.innerHTML = `<p class="text-on-surface-variant col-span-full text-center">Check back soon for new items!</p>`;
