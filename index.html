@@ -78,6 +78,7 @@
                 <a href="#catalog" class="text-surface-dark font-semibold text-sm hover:text-primary transition-colors">Catalog</a>
                 <a href="#configurator" class="text-surface-dark font-semibold text-sm hover:text-primary transition-colors">Custom Builder</a>
                 <a href="#how-it-works" class="text-on-surface-variant font-medium text-sm hover:text-primary transition-colors">How it Works</a>
+                <a href="#blog" class="text-on-surface-variant font-medium text-sm hover:text-primary transition-colors">Blog & Stories</a>
             </nav>
 
             <div class="hidden md:flex items-center gap-4">
@@ -87,6 +88,48 @@
             </div>
         </div>
     </header>
+
+    <!-- Hero Showcase Section -->
+    <section class="relative w-full max-w-7xl mx-auto px-4 md:px-10 py-10 md:py-16 flex flex-col md:flex-row items-center gap-8 md:gap-12">
+        <div class="flex-1 space-y-4 text-center md:text-left z-10">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-accent-pink/30 text-primary font-semibold text-xs tracking-wider uppercase border border-primary/20">
+                <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                Freshly Handcrafted in Lagos Daily
+            </div>
+            <h1 class="font-headline text-4xl md:text-5xl lg:text-6xl text-primary leading-tight">
+                Premium Cakes. Unique Flavors. Affordable Luxury.
+            </h1>
+            <p class="text-on-surface-variant text-base sm:text-lg max-w-xl leading-relaxed mx-auto md:mx-0">
+                Bespoke cakes handcrafted in Lagos for your special moments. Beautifully designed, meticulously baked, and delivered fresh to your door via direct WhatsApp service.
+            </p>
+            <div class="pt-4 flex flex-wrap justify-center md:justify-start gap-4">
+                <a href="#catalog" class="inline-flex items-center gap-2 bg-primary text-white font-semibold text-base px-8 py-4 rounded-full hover:bg-primary-hover active:scale-95 transition-all shadow-lg">
+                    <span>Browse Collection</span>
+                    <span class="material-symbols-outlined text-xl">shopping_bag</span>
+                </a>
+                <a href="#configurator" class="inline-flex items-center gap-2 bg-white text-surface-dark font-semibold text-base px-6 py-4 rounded-full border-2 border-outline-variant hover:border-primary active:scale-95 transition-all">
+                    <span>Build Custom Cake</span>
+                    <span class="material-symbols-outlined text-xl text-primary">auto_awesome</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="flex-1 w-full relative">
+            <div class="aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl relative bg-surface-container group border border-outline-variant">
+                <img id="hero-img"
+                     src="https://images.unsplash.com/photo-1535141192574-5d4897c13136?auto=format&fit=crop&w=1000&q=80" 
+                     alt="XtraFresh Bespoke Celebration Cake" 
+                     referrerpolicy="no-referrer"
+                     onerror="this.src='https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1000&q=80'"
+                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"/>
+                <div class="absolute bottom-0 inset-x-0 p-6 bg-gradient-to-t from-black/80 via-black/40 to-transparent text-white">
+                    <span class="text-xs font-bold uppercase tracking-widest text-accent-pink">Lagos Luxury Signature</span>
+                    <h2 class="font-headline text-2xl text-white mt-1">Floral Celebration Tier</h2>
+                    <p class="text-xs text-white/90">Available in custom sizes & bespoke flavors</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- SECTION 1: CATALOG & STOREFRONT -->
     <section id="catalog" class="w-full max-w-7xl mx-auto px-4 md:px-10 py-16 border-t border-outline-variant/50">
@@ -162,83 +205,220 @@
     </section>
 
     <!-- SECTION 2: SIMPLIFIED CUSTOM BUILDER -->
-    <section id="configurator" class="w-full max-w-3xl mx-auto px-4 md:px-10 py-16 border-t border-outline-variant/50">
-        <div class="mb-10 text-center">
-            <span class="text-primary font-bold text-xs uppercase tracking-widest">Interactive Studio</span>
-            <h2 class="font-headline text-3xl md:text-4xl text-surface-dark mt-1">Build Your Custom Cake</h2>
-            <p class="text-on-surface-variant text-sm mt-2">Select your options below for a completely bespoke creation.</p>
+    <section id="configurator" class="w-full max-w-7xl mx-auto px-4 md:px-10 py-16 border-t border-outline-variant/50 bg-surface-variant/30">
+        <div class="mb-10 text-center md:text-left">
+            <span class="text-primary font-bold text-xs uppercase tracking-widest">Interactive Cake Studio</span>
+            <h2 class="font-headline text-3xl md:text-4xl text-surface-dark mt-1">Build Your Custom Creation</h2>
+            <p class="text-on-surface-variant text-sm mt-2 max-w-2xl">Select your preferred occasion, flavors, and sizes to build the perfect bespoke cake.</p>
         </div>
 
-        <div class="flex flex-col gap-6">
+        <main class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
             
-            <!-- Step 1: Occasion -->
-            <div class="bg-white p-6 rounded-2xl border border-outline-variant shadow-sm">
-                <h3 class="font-bold text-surface-dark mb-4 text-sm uppercase tracking-wider">1. Occasion</h3>
-                <div class="flex flex-wrap gap-3">
-                    <button class="option-btn occasion-btn selected px-5 py-2.5 rounded-full border-2 border-primary bg-primary text-white text-sm font-semibold" onclick="selectOption(this, 'occasion', 'Birthday')">Birthday</button>
-                    <button class="option-btn occasion-btn px-5 py-2.5 rounded-full border-2 border-outline-variant bg-white text-surface-dark text-sm font-semibold hover:border-primary" onclick="selectOption(this, 'occasion', 'Wedding')">Wedding</button>
-                    <button class="option-btn occasion-btn px-5 py-2.5 rounded-full border-2 border-outline-variant bg-white text-surface-dark text-sm font-semibold hover:border-primary" onclick="selectOption(this, 'occasion', 'Anniversary')">Anniversary</button>
-                    <button class="option-btn occasion-btn px-5 py-2.5 rounded-full border-2 border-outline-variant bg-white text-surface-dark text-sm font-semibold hover:border-primary" onclick="selectOption(this, 'occasion', 'Corporate')">Corporate</button>
+            <!-- Left Static Image Panel (Restoring the Layout) -->
+            <div class="lg:col-span-5 lg:sticky lg:top-28 space-y-4">
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden aspect-[4/5] relative border border-outline-variant p-2 group">
+                    <div class="w-full h-full rounded-xl overflow-hidden relative bg-surface-container flex items-center justify-center">
+                        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=80" alt="Custom Preview Placeholder" class="absolute inset-0 w-full h-full object-cover z-0" referrerpolicy="no-referrer" onerror="this.src='https://images.unsplash.com/photo-1535141192574-5d4897c13136?auto=format&fit=crop&w=800&q=80'"/>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent z-10 pointer-events-none"></div>
+                        <div class="absolute bottom-0 inset-x-0 p-6 text-white z-20 pointer-events-none">
+                            <p class="font-headline text-3xl text-white drop-shadow">The Masterpiece Studio</p>
+                            <p class="text-sm text-white/90 font-medium mt-1">Beautifully Crafted. Unforgettable Taste.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <!-- Step 2: Flavor -->
-            <div class="bg-white p-6 rounded-2xl border border-outline-variant shadow-sm">
-                <h3 class="font-bold text-surface-dark mb-4 text-sm uppercase tracking-wider">2. Base Flavor</h3>
-                <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
-                    <button class="option-btn flavor-btn selected px-4 py-3 rounded-xl border-2 border-primary bg-primary text-white text-sm font-semibold" onclick="selectOption(this, 'flavor', 'Classic Vanilla')">Classic Vanilla</button>
-                    <button class="option-btn flavor-btn px-4 py-3 rounded-xl border-2 border-outline-variant bg-white text-surface-dark text-sm font-semibold hover:border-primary" onclick="selectOption(this, 'flavor', 'Rich Chocolate')">Rich Chocolate</button>
-                    <button class="option-btn flavor-btn px-4 py-3 rounded-xl border-2 border-outline-variant bg-white text-surface-dark text-sm font-semibold hover:border-primary" onclick="selectOption(this, 'flavor', 'Red Velvet')">Red Velvet</button>
-                    <button class="option-btn flavor-btn px-4 py-3 rounded-xl border-2 border-outline-variant bg-white text-surface-dark text-sm font-semibold hover:border-primary" onclick="selectOption(this, 'flavor', 'Citrus Zest')">Citrus Zest</button>
-                    <button class="option-btn flavor-btn px-4 py-3 rounded-xl border-2 border-outline-variant bg-white text-surface-dark text-sm font-semibold hover:border-primary" onclick="selectOption(this, 'flavor', 'Strawberry Cream')">Strawberry Cream</button>
-                    <button class="option-btn flavor-btn px-4 py-3 rounded-xl border-2 border-outline-variant bg-white text-surface-dark text-sm font-semibold hover:border-primary" onclick="selectOption(this, 'flavor', 'Salted Caramel')">Salted Caramel</button>
-                </div>
-            </div>
-
-            <!-- Step 3: Size -->
-            <div class="bg-white p-6 rounded-2xl border border-outline-variant shadow-sm">
-                <h3 class="font-bold text-surface-dark mb-4 text-sm uppercase tracking-wider">3. Size / Tiers</h3>
-                <div class="grid grid-cols-2 gap-3">
-                    <button class="option-btn size-btn px-4 py-3 rounded-xl border-2 border-outline-variant bg-white text-surface-dark text-sm font-semibold hover:border-primary flex flex-col items-center" onclick="selectOption(this, 'size', '6-inch Small')">
-                        <span>6" Small</span>
-                        <span class="text-[10px] font-normal opacity-80 mt-1">Serves 8-10</span>
-                    </button>
-                    <button class="option-btn size-btn selected px-4 py-3 rounded-xl border-2 border-primary bg-primary text-white text-sm font-semibold flex flex-col items-center" onclick="selectOption(this, 'size', '8-inch Medium')">
-                        <span>8" Medium</span>
-                        <span class="text-[10px] font-normal opacity-80 mt-1">Serves 15-20</span>
-                    </button>
-                    <button class="option-btn size-btn px-4 py-3 rounded-xl border-2 border-outline-variant bg-white text-surface-dark text-sm font-semibold hover:border-primary flex flex-col items-center" onclick="selectOption(this, 'size', '10-inch Large')">
-                        <span>10" Large</span>
-                        <span class="text-[10px] font-normal opacity-80 mt-1">Serves 25-30</span>
-                    </button>
-                    <button class="option-btn size-btn px-4 py-3 rounded-xl border-2 border-outline-variant bg-white text-surface-dark text-sm font-semibold hover:border-primary flex flex-col items-center" onclick="selectOption(this, 'size', '2-Tier Grand')">
-                        <span>2-Tier Grand</span>
-                        <span class="text-[10px] font-normal opacity-80 mt-1">Serves 40-50</span>
-                    </button>
-                </div>
-            </div>
-
-            <!-- Step 4: Details -->
-            <div class="bg-white p-6 rounded-2xl border border-outline-variant shadow-sm space-y-4">
-                <h3 class="font-bold text-surface-dark text-sm uppercase tracking-wider">4. Custom Details</h3>
+            <!-- Right Builder Panel -->
+            <div class="lg:col-span-7 flex flex-col gap-6">
                 
-                <div>
-                    <label class="block text-xs font-bold text-surface-dark mb-1.5">Cake Inscription (What should we write?)</label>
-                    <input type="text" id="builder-message" placeholder="e.g., Happy 30th Birthday Sarah!" class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none text-sm"/>
+                <!-- Step 1: Occasion -->
+                <div class="bg-white p-6 rounded-2xl border border-outline-variant shadow-sm">
+                    <h3 class="font-bold text-surface-dark mb-4 text-sm uppercase tracking-wider">1. Occasion</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <button class="option-btn occasion-btn selected px-5 py-2.5 rounded-full border-2 border-primary bg-primary text-white text-sm font-semibold" onclick="selectOption(this, 'occasion', 'Birthday')">Birthday</button>
+                        <button class="option-btn occasion-btn px-5 py-2.5 rounded-full border-2 border-outline-variant bg-white text-surface-dark text-sm font-semibold hover:border-primary" onclick="selectOption(this, 'occasion', 'Wedding')">Wedding</button>
+                        <button class="option-btn occasion-btn px-5 py-2.5 rounded-full border-2 border-outline-variant bg-white text-surface-dark text-sm font-semibold hover:border-primary" onclick="selectOption(this, 'occasion', 'Engagement')">Engagement</button>
+                        <button class="option-btn occasion-btn px-5 py-2.5 rounded-full border-2 border-outline-variant bg-white text-surface-dark text-sm font-semibold hover:border-primary" onclick="selectOption(this, 'occasion', 'Anniversary')">Anniversary</button>
+                        <button class="option-btn occasion-btn px-5 py-2.5 rounded-full border-2 border-outline-variant bg-white text-surface-dark text-sm font-semibold hover:border-primary" onclick="selectOption(this, 'occasion', 'Bridal Shower')">Bridal Shower</button>
+                        <button class="option-btn occasion-btn px-5 py-2.5 rounded-full border-2 border-outline-variant bg-white text-surface-dark text-sm font-semibold hover:border-primary" onclick="selectOption(this, 'occasion', 'Graduation')">Graduation</button>
+                        <button class="option-btn occasion-btn px-5 py-2.5 rounded-full border-2 border-outline-variant bg-white text-surface-dark text-sm font-semibold hover:border-primary" onclick="selectOption(this, 'occasion', 'Baby Shower')">Baby Shower</button>
+                        <button class="option-btn occasion-btn px-5 py-2.5 rounded-full border-2 border-outline-variant bg-white text-surface-dark text-sm font-semibold hover:border-primary" onclick="selectOption(this, 'occasion', 'Other')">Other (Specify)</button>
+                    </div>
+                    <!-- Hidden input for custom occasion -->
+                    <div id="other-occasion-input" class="hidden mt-4">
+                        <label class="block text-xs font-bold text-surface-dark mb-1.5">Specify Occasion:</label>
+                        <input type="text" id="other-occasion-val" placeholder="Type your occasion..." class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none text-sm"/>
+                    </div>
                 </div>
 
-                <div>
-                    <label class="block text-xs font-bold text-surface-dark mb-1.5">Special Design Notes</label>
-                    <textarea id="builder-notes" rows="2" placeholder="e.g., Please use gold accents and pink frosting" class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none text-sm"></textarea>
+                <!-- Step 2: Flavor -->
+                <div class="bg-white p-6 rounded-2xl border border-outline-variant shadow-sm">
+                    <h3 class="font-bold text-surface-dark mb-4 text-sm uppercase tracking-wider">2. Base Flavor</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <button class="option-btn flavor-btn selected px-4 py-3 rounded-xl border-2 border-primary bg-primary text-white text-sm font-semibold" onclick="selectOption(this, 'flavor', 'Classic Vanilla')">Classic Vanilla</button>
+                        <button class="option-btn flavor-btn px-4 py-3 rounded-xl border-2 border-outline-variant bg-white text-surface-dark text-sm font-semibold hover:border-primary" onclick="selectOption(this, 'flavor', 'Rich Chocolate')">Rich Chocolate</button>
+                        <button class="option-btn flavor-btn px-4 py-3 rounded-xl border-2 border-outline-variant bg-white text-surface-dark text-sm font-semibold hover:border-primary" onclick="selectOption(this, 'flavor', 'Red Velvet')">Red Velvet</button>
+                        <button class="option-btn flavor-btn px-4 py-3 rounded-xl border-2 border-outline-variant bg-white text-surface-dark text-sm font-semibold hover:border-primary" onclick="selectOption(this, 'flavor', 'Citrus Zest')">Citrus Zest</button>
+                        <button class="option-btn flavor-btn px-4 py-3 rounded-xl border-2 border-outline-variant bg-white text-surface-dark text-sm font-semibold hover:border-primary" onclick="selectOption(this, 'flavor', 'Strawberry Cream')">Strawberry Cream</button>
+                        <button class="option-btn flavor-btn px-4 py-3 rounded-xl border-2 border-outline-variant bg-white text-surface-dark text-sm font-semibold hover:border-primary" onclick="selectOption(this, 'flavor', 'Salted Caramel')">Salted Caramel</button>
+                        <button class="option-btn flavor-btn px-4 py-3 rounded-xl border-2 border-outline-variant bg-white text-surface-dark text-sm font-semibold hover:border-primary" onclick="selectOption(this, 'flavor', 'Funfetti')">Funfetti</button>
+                        <button class="option-btn flavor-btn px-4 py-3 rounded-xl border-2 border-outline-variant bg-white text-surface-dark text-sm font-semibold hover:border-primary" onclick="selectOption(this, 'flavor', 'Lemon')">Lemon</button>
+                        <button class="option-btn flavor-btn px-4 py-3 rounded-xl border-2 border-outline-variant bg-white text-surface-dark text-sm font-semibold hover:border-primary" onclick="selectOption(this, 'flavor', 'Pistachio')">Pistachio</button>
+                        <button class="option-btn flavor-btn px-4 py-3 rounded-xl border-2 border-outline-variant bg-white text-surface-dark text-sm font-semibold hover:border-primary" onclick="selectOption(this, 'flavor', 'Matcha Green Tea')">Matcha Green Tea</button>
+                        <button class="option-btn flavor-btn px-4 py-3 rounded-xl border-2 border-outline-variant bg-white text-surface-dark text-sm font-semibold hover:border-primary" onclick="selectOption(this, 'flavor', 'Cookies and Cream')">Cookies & Cream</button>
+                        <button class="option-btn flavor-btn px-4 py-3 rounded-xl border-2 border-outline-variant bg-white text-surface-dark text-sm font-semibold hover:border-primary" onclick="selectOption(this, 'flavor', 'Other')">Other (Specify)</button>
+                    </div>
+                    <!-- Hidden input for custom flavor -->
+                    <div id="other-flavor-input" class="hidden mt-4">
+                        <label class="block text-xs font-bold text-surface-dark mb-1.5">Specify Flavor:</label>
+                        <input type="text" id="other-flavor-val" placeholder="Type your custom flavor..." class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none text-sm"/>
+                    </div>
                 </div>
+
+                <!-- Step 3: Size -->
+                <div class="bg-white p-6 rounded-2xl border border-outline-variant shadow-sm">
+                    <h3 class="font-bold text-surface-dark mb-4 text-sm uppercase tracking-wider">3. Size / Tiers</h3>
+                    <div class="grid grid-cols-2 gap-3">
+                        <button class="option-btn size-btn px-4 py-3 rounded-xl border-2 border-outline-variant bg-white text-surface-dark text-sm font-semibold hover:border-primary flex flex-col items-center" onclick="selectOption(this, 'size', '6-inch Small')">
+                            <span>6" Small</span>
+                            <span class="text-[10px] font-normal opacity-80 mt-1">Serves 8-10</span>
+                        </button>
+                        <button class="option-btn size-btn selected px-4 py-3 rounded-xl border-2 border-primary bg-primary text-white text-sm font-semibold flex flex-col items-center" onclick="selectOption(this, 'size', '8-inch Medium')">
+                            <span>8" Medium</span>
+                            <span class="text-[10px] font-normal opacity-80 mt-1">Serves 15-20</span>
+                        </button>
+                        <button class="option-btn size-btn px-4 py-3 rounded-xl border-2 border-outline-variant bg-white text-surface-dark text-sm font-semibold hover:border-primary flex flex-col items-center" onclick="selectOption(this, 'size', '10-inch Large')">
+                            <span>10" Large</span>
+                            <span class="text-[10px] font-normal opacity-80 mt-1">Serves 25-30</span>
+                        </button>
+                        <button class="option-btn size-btn px-4 py-3 rounded-xl border-2 border-outline-variant bg-white text-surface-dark text-sm font-semibold hover:border-primary flex flex-col items-center" onclick="selectOption(this, 'size', '2-Tier Grand')">
+                            <span>2-Tier Grand</span>
+                            <span class="text-[10px] font-normal opacity-80 mt-1">Serves 40-50</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 4: Details -->
+                <div class="bg-white p-6 rounded-2xl border border-outline-variant shadow-sm space-y-4">
+                    <h3 class="font-bold text-surface-dark text-sm uppercase tracking-wider">4. Custom Details</h3>
+                    
+                    <div>
+                        <label class="block text-xs font-bold text-surface-dark mb-1.5">Cake Inscription (What should we write?)</label>
+                        <input type="text" id="builder-message" placeholder="e.g., Happy 30th Birthday Sarah!" class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none text-sm"/>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-surface-dark mb-1.5">Special Design Notes</label>
+                        <textarea id="builder-notes" rows="2" placeholder="e.g., Please use gold accents and pink frosting" class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none text-sm"></textarea>
+                    </div>
+                </div>
+
+                <!-- Order Button -->
+                <button onclick="triggerBuilderCheckout()" class="w-full py-4 rounded-2xl bg-primary text-white font-bold text-lg shadow-lg hover:bg-primary-hover active:scale-[0.98] transition-all flex items-center justify-center gap-2">
+                    <span class="material-symbols-outlined">shopping_cart_checkout</span>
+                    <span>Checkout Custom Cake</span>
+                </button>
             </div>
+        </main>
+    </section>
 
-            <!-- Order Button -->
-            <button onclick="triggerBuilderCheckout()" class="w-full py-4 rounded-2xl bg-primary text-white font-bold text-lg shadow-lg hover:bg-primary-hover active:scale-[0.98] transition-all flex items-center justify-center gap-2">
-                <span class="material-symbols-outlined">shopping_cart_checkout</span>
-                <span>Checkout Custom Cake</span>
-            </button>
+    <!-- SECTION 3: HOW IT WORKS -->
+    <section id="how-it-works" class="w-full max-w-7xl mx-auto px-4 md:px-10 py-16">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+            <span class="text-primary font-bold text-xs uppercase tracking-widest">Seamless Ordering</span>
+            <h2 class="font-headline text-3xl md:text-4xl text-surface-dark mt-1">How XtraFresh Cakes Works</h2>
+            <p class="text-on-surface-variant text-sm mt-2">We bridge the convenience of online selection with direct, personalized WhatsApp service.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-white p-8 rounded-2xl border border-outline-variant shadow-sm text-center">
+                <div class="w-14 h-14 rounded-full bg-accent-pink/30 text-primary flex items-center justify-center font-headline text-2xl mx-auto mb-5">1</div>
+                <h3 class="font-headline text-xl text-surface-dark mb-2">Select Your Design</h3>
+                <p class="text-sm text-on-surface-variant leading-relaxed">Choose a signature cake from our catalog or build a custom creation using the interactive studio.</p>
+            </div>
+            <div class="bg-white p-8 rounded-2xl border border-outline-variant shadow-sm text-center">
+                <div class="w-14 h-14 rounded-full bg-whatsapp/20 text-whatsapp flex items-center justify-center font-headline text-2xl mx-auto mb-5">2</div>
+                <h3 class="font-headline text-xl text-surface-dark mb-2">WhatsApp Order</h3>
+                <p class="text-sm text-on-surface-variant leading-relaxed">Click order and your selections are instantly formatted into a WhatsApp message sent directly to our Lagos bakers.</p>
+            </div>
+            <div class="bg-white p-8 rounded-2xl border border-outline-variant shadow-sm text-center">
+                <div class="w-14 h-14 rounded-full bg-accent-pink/30 text-primary flex items-center justify-center font-headline text-2xl mx-auto mb-5">3</div>
+                <h3 class="font-headline text-xl text-surface-dark mb-2">Doorstep Lagos Delivery</h3>
+                <p class="text-sm text-on-surface-variant leading-relaxed">We confirm details and final quotes, bake your cake fresh, and deliver directly across Lagos districts.</p>
+            </div>
+        </div>
+    </section>
 
+    <!-- SECTION 4: BLOG & BAKING JOURNAL -->
+    <section id="blog" class="w-full max-w-7xl mx-auto px-4 md:px-10 py-16 border-t border-outline-variant/50">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+            <div>
+                <span class="text-primary font-bold text-xs uppercase tracking-widest">Baking Journal & News</span>
+                <h2 class="font-headline text-3xl md:text-4xl text-surface-dark mt-1">XtraFresh Stories & Cake Guides</h2>
+                <p class="text-on-surface-variant text-sm mt-2">Expert tips on custom cake design, Lagos delivery secrets, and flavor pairing inspirations.</p>
+            </div>
+            <a href="https://wa.me/2349060009541?text=Hi%20XtraFresh%20Cakes%2C%20I%20read%20your%20blog%20and%20would%20like%20to%20consult%20on%20a%20custom%20cake!" target="_blank" class="inline-flex items-center gap-2 text-primary font-bold text-sm hover:underline">
+                <span>Ask Our Master Baker</span>
+                <span class="material-symbols-outlined text-lg">arrow_forward</span>
+            </a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Article 1 -->
+            <article class="bg-white rounded-2xl border border-outline-variant overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col">
+                <div class="aspect-[16/10] overflow-hidden bg-surface-variant relative">
+                    <img src="https://images.unsplash.com/photo-1535141192574-5d4897c13136?auto=format&fit=crop&w=800&q=80" alt="Cake Care Guide" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" referrerpolicy="no-referrer"/>
+                    <span class="absolute top-3 left-3 bg-white/90 backdrop-blur text-primary font-bold text-[10px] uppercase tracking-wider px-3 py-1 rounded-full shadow-sm">Lagos Delivery</span>
+                </div>
+                <div class="p-6 flex flex-col flex-1 justify-between">
+                    <div>
+                        <span class="text-[11px] text-on-surface-variant">August 2026 • 4 min read</span>
+                        <h3 class="font-headline text-xl text-surface-dark mt-2">
+                            5 Crucial Tips for Keeping Your Cake Fresh in Lagos Weather
+                        </h3>
+                        <p class="text-xs text-on-surface-variant mt-2 leading-relaxed">
+                            Humidity and heat can affect buttercream. Learn how our insulated delivery boxes and proper refrigeration preserve tier stability.
+                        </p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Article 2 -->
+            <article class="bg-white rounded-2xl border border-outline-variant overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col">
+                <div class="aspect-[16/10] overflow-hidden bg-surface-variant relative">
+                    <img src="https://images.unsplash.com/photo-1586985289688-ca3cf47d3e6e?auto=format&fit=crop&w=800&q=80" alt="Flavor Pairings" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" referrerpolicy="no-referrer"/>
+                    <span class="absolute top-3 left-3 bg-white/90 backdrop-blur text-primary font-bold text-[10px] uppercase tracking-wider px-3 py-1 rounded-full shadow-sm">Flavor Trends</span>
+                </div>
+                <div class="p-6 flex flex-col flex-1 justify-between">
+                    <div>
+                        <span class="text-[11px] text-on-surface-variant">July 2026 • 5 min read</span>
+                        <h3 class="font-headline text-xl text-surface-dark mt-2">
+                            Why Red Velvet & Salted Caramel is the #1 Wedding Combo
+                        </h3>
+                        <p class="text-xs text-on-surface-variant mt-2 leading-relaxed">
+                            Discover why contrast-flavor tiers are taking Lagos wedding receptions by storm this season.
+                        </p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Article 3 -->
+            <article class="bg-white rounded-2xl border border-outline-variant overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col">
+                <div class="aspect-[16/10] overflow-hidden bg-surface-variant relative">
+                    <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=80" alt="Custom Cake Design" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" referrerpolicy="no-referrer"/>
+                    <span class="absolute top-3 left-3 bg-white/90 backdrop-blur text-primary font-bold text-[10px] uppercase tracking-wider px-3 py-1 rounded-full shadow-sm">Design Blueprint</span>
+                </div>
+                <div class="p-6 flex flex-col flex-1 justify-between">
+                    <div>
+                        <span class="text-[11px] text-on-surface-variant">July 2026 • 3 min read</span>
+                        <h3 class="font-headline text-xl text-surface-dark mt-2">
+                            How to Pre-order Your Birthday Cake Fast and Easy
+                        </h3>
+                        <p class="text-xs text-on-surface-variant mt-2 leading-relaxed">
+                            A guide on using our custom builder to visualize custom inscriptions and toppings seamlessly!
+                        </p>
+                    </div>
+                </div>
+            </article>
         </div>
     </section>
 
@@ -271,7 +451,7 @@
                 <!-- Order Summary -->
                 <div class="bg-primary/10 border border-primary/20 p-4 rounded-xl">
                     <p class="text-[10px] font-bold text-primary uppercase tracking-widest mb-1">Your Order:</p>
-                    <p id="modal-cake-summary" class="text-sm font-semibold text-surface-dark"></p>
+                    <p id="modal-cake-summary" class="text-sm font-semibold text-surface-dark whitespace-pre-line"></p>
                 </div>
 
                 <div class="grid grid-cols-2 gap-4">
@@ -291,9 +471,18 @@
                         <input type="date" id="checkout-date" class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface focus:border-primary outline-none text-sm"/>
                     </div>
                     <div class="col-span-2 sm:col-span-1">
-                        <label class="block text-xs font-bold text-surface-dark mb-1.5">Allergies?</label>
-                        <input type="text" id="checkout-allergies" placeholder="e.g., Nuts, None" class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface focus:border-primary outline-none text-sm"/>
+                        <label class="block text-xs font-bold text-surface-dark mb-1.5">Claim August Promo?</label>
+                        <select id="checkout-promo" class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface focus:border-primary outline-none text-sm">
+                            <!-- Defaulting to No because it's currently July, but allowing pre-booking claims -->
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                        </select>
                     </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-surface-dark mb-1.5">Allergies?</label>
+                    <input type="text" id="checkout-allergies" placeholder="e.g., Nuts, None" class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface focus:border-primary outline-none text-sm mb-4"/>
                 </div>
 
                 <div>
@@ -314,7 +503,6 @@
     </div>
     <!-- ========================================== -->
 
-
     <!-- Scripts -->
     <script>
         const API_URL = "https://script.google.com/macros/s/AKfycbycvxx3tKkPp_Ssld75TfQGX13oVp8GpD58tvehjAAFsXaywJJg-c_XhQ42q0aZ724Q/exec";
@@ -328,6 +516,10 @@
             flavor: "Classic Vanilla",
             size: "8-inch Medium"
         };
+        
+        // Track states for "Other" text boxes
+        let isOtherOccasion = false;
+        let isOtherFlavor = false;
 
         // --- BUTTON SELECTION LOGIC ---
         function selectOption(button, category, value) {
@@ -343,6 +535,29 @@
             // Add 'selected' styling to the clicked button
             button.classList.remove('bg-white', 'text-surface-dark', 'border-outline-variant');
             button.classList.add('selected', 'bg-primary', 'text-white', 'border-primary');
+
+            // Handle logic to show/hide the Custom "Other" inputs
+            if (category === 'occasion') {
+                const otherInput = document.getElementById('other-occasion-input');
+                if (value === 'Other') {
+                    otherInput.classList.remove('hidden');
+                    isOtherOccasion = true;
+                } else {
+                    otherInput.classList.add('hidden');
+                    isOtherOccasion = false;
+                }
+            }
+            
+            if (category === 'flavor') {
+                const otherInput = document.getElementById('other-flavor-input');
+                if (value === 'Other') {
+                    otherInput.classList.remove('hidden');
+                    isOtherFlavor = true;
+                } else {
+                    otherInput.classList.add('hidden');
+                    isOtherFlavor = false;
+                }
+            }
         }
 
         // --- TRIGGER FROM CUSTOM BUILDER ---
@@ -350,8 +565,12 @@
             const inscription = document.getElementById("builder-message").value;
             const notes = document.getElementById("builder-notes").value;
             
-            let details = `Custom ${builderState.occasion} Cake\n`;
-            details += `Flavor: ${builderState.flavor}\n`;
+            // Capture custom text if "Other" is selected
+            const finalOccasion = isOtherOccasion ? document.getElementById("other-occasion-val").value || "Custom Occasion" : builderState.occasion;
+            const finalFlavor = isOtherFlavor ? document.getElementById("other-flavor-val").value || "Custom Flavor" : builderState.flavor;
+            
+            let details = `Custom ${finalOccasion} Cake\n`;
+            details += `Flavor: ${finalFlavor}\n`;
             details += `Size: ${builderState.size}`;
             if(inscription) details += `\nInscription: "${inscription}"`;
             if(notes) details += `\nNotes: ${notes}`;
@@ -393,7 +612,7 @@
                 deliveryDate: date,
                 deliveryAddress: address,
                 allergies: document.getElementById("checkout-allergies").value,
-                promoClaimed: "Pending" 
+                promoClaimed: document.getElementById("checkout-promo").value 
             };
 
             fetch(API_URL, {
@@ -432,7 +651,6 @@
 
         // --- PROMO MODAL LOGIC ---
         function openPromoModal() {
-            // Add your promo modal html back here if needed, or link directly to whatsapp
             alert("August Promo: Free delivery in Ogba/Ikeja/Ojodu. 1-week notice required. Message us on WhatsApp to claim!");
         }
     </script>
