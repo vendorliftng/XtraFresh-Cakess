@@ -117,22 +117,10 @@
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             <!-- Item 1 -->
-            <article class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg border border-outline-variant flex flex-col relative">
-                <span class="absolute top-3 left-3 bg-white/90 backdrop-blur text-primary font-bold text-[10px] uppercase tracking-wider px-3 py-1 rounded-full shadow-sm z-10 flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-green-500"></span> Available</span>
-                <div class="aspect-[4/3] overflow-hidden bg-surface-variant relative">
-                    <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=800&auto=format&fit=crop" alt="The Vanilla Blossom" class="w-full h-full object-cover"/>
-                </div>
-                <div class="p-5 flex flex-col flex-1 justify-between">
-                    <div>
-                        <h3 class="font-headline text-xl text-surface-dark">The Vanilla Blossom</h3>
-                        <p class="text-xs text-on-surface-variant mt-2 line-clamp-2">Classic Madagascar vanilla sponge with silky Swiss meringue buttercream.</p>
-                    </div>
-                    <div class="mt-4 pt-4 border-t border-outline-variant/50 flex items-center justify-between">
-                        <span class="font-bold text-sm text-primary">₦25,000+</span>
-                        <button onclick="openCatalogModal('The Vanilla Blossom', 'Vanilla', '₦25,000+', 'This classic Madagascar vanilla cake features three layers of moist sponge, frosted with our signature silky Swiss meringue buttercream. Perfect for elegant weddings and milestone celebrations. Available for immediate customization and delivery across Lagos.')" class="bg-surface-variant text-surface-dark hover:bg-primary hover:text-white text-xs font-bold px-5 py-2 rounded-full transition-colors">Order Now</button>
-                    </div>
-                </div>
-            </article>
+            <div id="dynamic-cake-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Cakes will load here automatically -->
+                <div class="col-span-full text-center py-10 text-on-surface-variant animate-pulse">Loading fresh cakes...</div>
+            </div>
 
             <!-- Item 2 -->
             <article class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg border border-outline-variant flex flex-col relative">
@@ -182,58 +170,21 @@
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             <!-- Item 4 -->
-            <article class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg border border-outline-variant flex flex-col relative">
-                <span class="absolute top-3 left-3 bg-white/90 backdrop-blur text-primary font-bold text-[10px] uppercase tracking-wider px-3 py-1 rounded-full shadow-sm z-10 flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-green-500"></span> Available</span>
-                <div class="aspect-[4/3] overflow-hidden bg-surface-variant relative">
-                    <img src="https://images.unsplash.com/photo-1519869325930-281384150729?q=80&w=800&auto=format&fit=crop" alt="Lagos Citrus Zest" class="w-full h-full object-cover"/>
-                </div>
-                <div class="p-5 flex flex-col flex-1 justify-between">
-                    <div>
-                        <h3 class="font-headline text-xl text-surface-dark">Lagos Citrus Zest</h3>
-                        <p class="text-xs text-on-surface-variant mt-2 line-clamp-2">Tangy lemon sponge infused with fresh citrus and vanilla bean.</p>
-                    </div>
-                    <div class="mt-4 pt-4 border-t border-outline-variant/50 flex items-center justify-between">
-                        <span class="font-bold text-sm text-primary">₦24,000+</span>
-                        <button onclick="openCatalogModal('Lagos Citrus Zest', 'Citrus', '₦24,000+', 'Perfect for the warm Lagos weather! This refreshing cake uses actual zest in the batter, creating a light, tangy, and incredibly moist sponge paired with a sweet vanilla bean glaze.')" class="bg-surface-variant text-surface-dark hover:bg-primary hover:text-white text-xs font-bold px-5 py-2 rounded-full transition-colors">Order Now</button>
-                    </div>
-                </div>
-            </article>
-
+           <div id="dynamic-cake-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <!-- Cakes will load here automatically -->
+            <div class="col-span-full text-center py-10 text-on-surface-variant animate-pulse">Loading fresh cakes...</div>
+        </div>
             <!-- Item 5 -->
-            <article class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg border border-outline-variant flex flex-col relative">
-                <span class="absolute top-3 left-3 bg-surface-dark/90 text-white font-bold text-[10px] uppercase tracking-wider px-3 py-1 rounded-full shadow-sm z-10 flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span> Pre-order Only</span>
-                <div class="aspect-[4/3] overflow-hidden bg-surface-variant relative">
-                    <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?q=80&w=800&auto=format&fit=crop" alt="Strawberry Dream" class="w-full h-full object-cover"/>
-                </div>
-                <div class="p-5 flex flex-col flex-1 justify-between">
-                    <div>
-                        <h3 class="font-headline text-xl text-surface-dark">Strawberry Dream</h3>
-                        <p class="text-xs text-on-surface-variant mt-2 line-clamp-2">Fresh strawberry layers with real fruit compote and whipped cream.</p>
-                    </div>
-                    <div class="mt-4 pt-4 border-t border-outline-variant/50 flex items-center justify-between">
-                        <span class="font-bold text-sm text-primary">₦26,000+</span>
-                        <button onclick="openCatalogModal('Strawberry Dream', 'Strawberry', '₦26,000+', 'A highly requested seasonal favorite. We use a house-made strawberry compote layered between light vanilla sponge and stabilized whipped cream. Please note: Due to sourcing fresh strawberries daily, this requires a pre-order.')" class="bg-surface-variant text-surface-dark hover:bg-primary hover:text-white text-xs font-bold px-5 py-2 rounded-full transition-colors">Pre-order</button>
-                    </div>
-                </div>
-            </article>
+            <div id="dynamic-cake-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <!-- Cakes will load here automatically -->
+    <div class="col-span-full text-center py-10 text-on-surface-variant animate-pulse">Loading fresh cakes...</div>
+</div>
 
             <!-- Item 6 -->
-            <article class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg border border-outline-variant flex flex-col relative">
-                <span class="absolute top-3 left-3 bg-white/90 backdrop-blur text-primary font-bold text-[10px] uppercase tracking-wider px-3 py-1 rounded-full shadow-sm z-10 flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-green-500"></span> Available</span>
-                <div class="aspect-[4/3] overflow-hidden bg-surface-variant relative">
-                    <img src="https://images.unsplash.com/photo-1542826438-bd32fcf33371?q=80&w=800&auto=format&fit=crop" alt="Salted Caramel Glow" class="w-full h-full object-cover"/>
-                </div>
-                <div class="p-5 flex flex-col flex-1 justify-between">
-                    <div>
-                        <h3 class="font-headline text-xl text-surface-dark">Salted Caramel Glow</h3>
-                        <p class="text-xs text-on-surface-variant mt-2 line-clamp-2">Butterscotch sponge with an artisanal house caramel drizzle.</p>
-                    </div>
-                    <div class="mt-4 pt-4 border-t border-outline-variant/50 flex items-center justify-between">
-                        <span class="font-bold text-sm text-primary">₦27,000+</span>
-                        <button onclick="openCatalogModal('Salted Caramel Glow', 'Caramel', '₦27,000+', 'A beautiful balance of sweet and salty. Our butterscotch sponge is soaked in caramel syrup and finished with a smooth buttercream and dramatic caramel drip. Available for standard delivery.')" class="bg-surface-variant text-surface-dark hover:bg-primary hover:text-white text-xs font-bold px-5 py-2 rounded-full transition-colors">Order Now</button>
-                    </div>
-                </div>
-            </article>
+            <div id="dynamic-cake-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <!-- Cakes will load here automatically -->
+    <div class="col-span-full text-center py-10 text-on-surface-variant animate-pulse">Loading fresh cakes...</div>
+</div>
         </div>
         
         <div class="mt-12 text-center">
@@ -380,61 +331,10 @@
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <!-- Article 1 -->
-            <article class="bg-white rounded-2xl border border-outline-variant overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col">
-                <div class="aspect-[16/10] overflow-hidden bg-surface-variant relative">
-                    <img src="https://images.unsplash.com/photo-1557925923-33b251dc3296?q=80&w=800&auto=format&fit=crop" alt="Cake Care Guide" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"/>
-                    <span class="absolute top-3 left-3 bg-white/90 backdrop-blur text-primary font-bold text-[10px] uppercase tracking-wider px-3 py-1 rounded-full shadow-sm">Lagos Delivery</span>
-                </div>
-                <div class="p-6 flex flex-col flex-1 justify-between">
-                    <div>
-                        <span class="text-[11px] text-on-surface-variant">August 2026 • 4 min read</span>
-                        <h3 class="font-headline text-xl text-surface-dark mt-2">
-                            5 Crucial Tips for Keeping Your Cake Fresh in Lagos Weather
-                        </h3>
-                        <p class="text-xs text-on-surface-variant mt-2 leading-relaxed">
-                            Humidity and heat can affect buttercream. Learn how our insulated delivery boxes and proper refrigeration preserve tier stability.
-                        </p>
-                    </div>
-                </div>
-            </article>
-
-            <!-- Article 2 -->
-            <article class="bg-white rounded-2xl border border-outline-variant overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col">
-                <div class="aspect-[16/10] overflow-hidden bg-surface-variant relative">
-                    <img src="https://images.unsplash.com/photo-1550617931-e17a7b70dce2?q=80&w=800&auto=format&fit=crop" alt="Flavor Pairings" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"/>
-                    <span class="absolute top-3 left-3 bg-white/90 backdrop-blur text-primary font-bold text-[10px] uppercase tracking-wider px-3 py-1 rounded-full shadow-sm">Flavor Trends</span>
-                </div>
-                <div class="p-6 flex flex-col flex-1 justify-between">
-                    <div>
-                        <span class="text-[11px] text-on-surface-variant">July 2026 • 5 min read</span>
-                        <h3 class="font-headline text-xl text-surface-dark mt-2">
-                            Why Red Velvet & Salted Caramel is the #1 Wedding Combo
-                        </h3>
-                        <p class="text-xs text-on-surface-variant mt-2 leading-relaxed">
-                            Discover why contrast-flavor tiers are taking Lagos wedding receptions by storm this season.
-                        </p>
-                    </div>
-                </div>
-            </article>
-
-            <!-- Article 3 -->
-            <article class="bg-white rounded-2xl border border-outline-variant overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col">
-                <div class="aspect-[16/10] overflow-hidden bg-surface-variant relative">
-                    <img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?q=80&w=800&auto=format&fit=crop" alt="Custom Cake Design" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"/>
-                    <span class="absolute top-3 left-3 bg-white/90 backdrop-blur text-primary font-bold text-[10px] uppercase tracking-wider px-3 py-1 rounded-full shadow-sm">Design Blueprint</span>
-                </div>
-                <div class="p-6 flex flex-col flex-1 justify-between">
-                    <div>
-                        <span class="text-[11px] text-on-surface-variant">July 2026 • 3 min read</span>
-                        <h3 class="font-headline text-xl text-surface-dark mt-2">
-                            How to Pre-order Your Birthday Cake Fast and Easy
-                        </h3>
-                        <p class="text-xs text-on-surface-variant mt-2 leading-relaxed">
-                            A guide on using our custom builder to visualize custom inscriptions and toppings seamlessly!
-                        </p>
-                    </div>
-                </div>
-            </article>
+            <div id="dynamic-blog-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <!-- Blog posts will load here automatically -->
+    <div class="col-span-full text-center py-10 text-on-surface-variant animate-pulse">Loading latest articles...</div>
+</div>
         </div>
     </section>
 
@@ -881,6 +781,101 @@
                 alert("Network error. Please check your connection.");
                 submitBtn.innerHTML = `<span class="material-symbols-outlined">celebration</span> Claim Free Cake & WhatsApp Us`;
                 submitBtn.disabled = false;
+            });
+        }
+        // --- DYNAMIC CONTENT FETCHING ---
+        // Paste your newly deployed Google Apps Script URL here
+        const APP_SCRIPT_GET_URL = "https://script.google.com/macros/library/d/1LoWgeT5k_sBpiIw67WAUeArpztzva5LKU135CSBgSNXp4_XlwvWqiQhY/3";
+
+        // Fetch data as soon as the page loads
+        document.addEventListener("DOMContentLoaded", () => {
+            fetchDynamicContent();
+        });
+
+        async function fetchDynamicContent() {
+            try {
+                // Fetch Cakes
+                const cakeResponse = await fetch(`${APP_SCRIPT_GET_URL}?action=getCakes`);
+                const cakeData = await cakeResponse.json();
+                
+                if (cakeData.status === "success") {
+                    renderCakes(cakeData.data);
+                }
+
+                // Fetch Blog
+                const blogResponse = await fetch(`${APP_SCRIPT_GET_URL}?action=getBlog`);
+                const blogData = await blogResponse.json();
+                
+                if (blogData.status === "success") {
+                    renderBlog(blogData.data);
+                }
+            } catch (error) {
+                console.error("Error fetching data:", error);
+                document.getElementById('dynamic-cake-grid').innerHTML = `<p class="text-primary col-span-full text-center">Failed to load catalog. Please refresh.</p>`;
+            }
+        }
+
+        function renderCakes(cakes) {
+            const grid = document.getElementById('dynamic-cake-grid');
+            grid.innerHTML = ""; // Clear the loading text
+            
+            // Only show the first 3 on the homepage
+            const homeCakes = cakes.slice(0, 3);
+            
+            homeCakes.forEach(cake => {
+                // Formatting the price nicely with commas
+                const formattedPrice = "₦" + Number(cake["Price"]).toLocaleString() + "+";
+                
+                const html = `
+                <article class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg border border-outline-variant flex flex-col relative">
+                    <span class="absolute top-3 left-3 bg-white/90 backdrop-blur text-primary font-bold text-[10px] uppercase tracking-wider px-3 py-1 rounded-full shadow-sm z-10 flex items-center gap-1">
+                        <span class="w-1.5 h-1.5 rounded-full ${cake["Status"] === 'Available' ? 'bg-green-500' : 'bg-amber-400'}"></span> 
+                        ${cake["Status"] || 'Available'}
+                    </span>
+                    <div class="aspect-[4/3] overflow-hidden bg-surface-variant relative">
+                        <img src="${cake["Cake Photo"] || 'https://via.placeholder.com/800x600?text=No+Image'}" alt="${cake["Cake Name"]}" class="w-full h-full object-cover"/>
+                    </div>
+                    <div class="p-5 flex flex-col flex-1 justify-between">
+                        <div>
+                            <h3 class="font-headline text-xl text-surface-dark">${cake["Cake Name"]}</h3>
+                            <p class="text-xs text-on-surface-variant mt-2 line-clamp-2">${cake["Short Description"] || ''}</p>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-outline-variant/50 flex items-center justify-between">
+                            <span class="font-bold text-sm text-primary">${formattedPrice}</span>
+                            <button onclick="openCatalogModal('${cake["Cake Name"]}', '${cake["Flavor"]}', '${formattedPrice}', '${cake["Long Description"] ? cake["Long Description"].replace(/'/g, "\\'") : ''}')" class="bg-surface-variant text-surface-dark hover:bg-primary hover:text-white text-xs font-bold px-5 py-2 rounded-full transition-colors">Order Now</button>
+                        </div>
+                    </div>
+                </article>`;
+                grid.insertAdjacentHTML('beforeend', html);
+            });
+        }
+
+        function renderBlog(posts) {
+            const grid = document.getElementById('dynamic-blog-grid');
+            grid.innerHTML = ""; // Clear the loading text
+            
+            const homePosts = posts.slice(0, 3);
+            
+            homePosts.forEach(post => {
+                // Format the Notion date string securely
+                const dateObj = new Date(post["Publish Date"]);
+                const formattedDate = !isNaN(dateObj) ? dateObj.toLocaleDateString('en-US', { month: 'long', year: 'numeric' }) : "Recent";
+                
+                const html = `
+                <article class="bg-white rounded-2xl border border-outline-variant overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col">
+                    <div class="aspect-[16/10] overflow-hidden bg-surface-variant relative">
+                        <img src="${post["Cover Image"] || 'https://via.placeholder.com/800x500?text=No+Image'}" alt="${post["Title"]}" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"/>
+                        <span class="absolute top-3 left-3 bg-white/90 backdrop-blur text-primary font-bold text-[10px] uppercase tracking-wider px-3 py-1 rounded-full shadow-sm">${post["Category"] || 'Update'}</span>
+                    </div>
+                    <div class="p-6 flex flex-col flex-1 justify-between">
+                        <div>
+                            <span class="text-[11px] text-on-surface-variant">${formattedDate} • ${post["Read Time"] || '3 min read'}</span>
+                            <h3 class="font-headline text-xl text-surface-dark mt-2">${post["Title"]}</h3>
+                            <p class="text-xs text-on-surface-variant mt-2 leading-relaxed">${post["Short Summary"] || ''}</p>
+                        </div>
+                    </div>
+                </article>`;
+                grid.insertAdjacentHTML('beforeend', html);
             });
         }
     </script>
