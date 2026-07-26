@@ -587,30 +587,91 @@
     <!-- ========================================== -->
 
     <!-- Promo Modal -->
-    <div id="promo-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[100] hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl relative border border-outline-variant">
-            <button onclick="closePromoModal()" class="absolute top-4 right-4 text-on-surface-variant hover:text-primary">
-                <span class="material-symbols-outlined">close</span>
-            </button>
-            <div class="text-center mb-5">
-                <span class="inline-block bg-accent-pink/30 text-primary px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest mb-2">Limited to first 10</span>
-                <h3 class="font-headline text-2xl text-surface-dark leading-tight">The August Celebration Promo</h3>
-            </div>
-            <div class="space-y-4 text-sm text-surface-dark mb-6">
-                <div class="bg-surface-variant p-3 rounded-xl border border-outline-variant">
-                    <p class="font-bold mb-1">🎁 The Offer:</p>
-                    <ul class="list-disc pl-5 space-y-1 text-on-surface-variant text-xs">
-                        <li><strong class="text-surface-dark">Birthdays (Aug 1st - 15th):</strong> Get a FREE custom cake!</li>
-                        <li><strong class="text-surface-dark">Graduations, Weddings & Events:</strong> Get 30% OFF your total order!</li>
-                    </ul>
-                </div>
+    <!-- EXCLUSIVE PROMO CHECKOUT MODAL -->
+    <div id="promo-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-[100] hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-lg w-full shadow-2xl relative border border-outline-variant overflow-hidden flex flex-col max-h-[95vh]">
+            
+            <!-- Header -->
+            <div class="bg-primary p-5 flex justify-between items-center text-white">
                 <div>
-                    <p class="font-bold text-primary mb-1 text-xs uppercase tracking-wider">Terms & Conditions:</p>
-                    <ul class="space-y-2 text-xs text-on-surface-variant">
-                        <li class="flex items-start gap-2"><span class="material-symbols-outlined text-[14px] text-primary shrink-0 mt-0.5">location_on</span> <strong>Free Delivery</strong> exclusively to Ogba, Ikeja, and Ojodu.</li>
-                        <li class="flex items-start gap-2"><span class="material-symbols-outlined text-[14px] text-primary shrink-0 mt-0.5">schedule</span> Order must be placed exactly <strong>one week</strong> prior to your event date.</li>
+                    <span class="inline-block bg-white/20 text-white font-bold text-[10px] uppercase tracking-widest px-2 py-1 rounded-full mb-1">First 10 Only</span>
+                    <h3 class="font-headline text-2xl leading-none">August Giveaway</h3>
+                </div>
+                <button onclick="closePromoModal()" class="text-white/80 hover:text-white transition-colors">
+                    <span class="material-symbols-outlined text-3xl">close</span>
+                </button>
+            </div>
+            
+            <!-- Body -->
+            <div class="p-6 overflow-y-auto space-y-6">
+                
+                <!-- Updated Terms from XtraFresh Giveaway terms.jpg overrides -->
+                <div class="bg-primary/5 p-4 rounded-xl border border-primary/20">
+                    <p class="font-bold text-primary mb-2 text-xs uppercase tracking-wider">Giveaway Terms:</p>
+                    <ul class="space-y-1.5 text-xs text-on-surface-variant list-decimal pl-4">
+                        <li>Valid for <strong class="text-surface-dark">ALL occasions</strong> (Birthdays, Weddings, Anniversaries, etc.) between August 1–15, 2026.</li>
+                        <li>Available in <strong class="text-surface-dark">6", 8", and 10"</strong> sizes.</li>
+                        <li>Must pre-order <strong class="text-surface-dark">5 days in advance</strong> (Weddings require <strong class="text-surface-dark">7 days</strong> notice).</li>
+                        <li>Free delivery strictly within <strong class="text-surface-dark">Ogba, Ikeja & Ojodu</strong> only.</li>
+                        <li>Valid ID/Proof of event required on delivery. Limit 1 per person.</li>
                     </ul>
                 </div>
+
+                <!-- Exclusive Promo Form -->
+                <div class="space-y-4 border-t border-outline-variant pt-2">
+                    <h4 class="font-bold text-surface-dark text-sm">Claim Your Free Cake</h4>
+                    
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="col-span-2 sm:col-span-1">
+                            <label class="block text-xs font-bold text-surface-dark mb-1.5">Full Name</label>
+                            <input type="text" id="promo-name" placeholder="Sarah Doe" class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface focus:border-primary outline-none text-sm"/>
+                        </div>
+                        <div class="col-span-2 sm:col-span-1">
+                            <label class="block text-xs font-bold text-surface-dark mb-1.5">WhatsApp Number</label>
+                            <input type="tel" id="promo-phone" placeholder="090..." class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface focus:border-primary outline-none text-sm"/>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="col-span-2 sm:col-span-1">
+                            <label class="block text-xs font-bold text-surface-dark mb-1.5">Occasion</label>
+                            <select id="promo-occasion" class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface focus:border-primary outline-none text-sm">
+                                <option value="Birthday">Birthday</option>
+                                <option value="Wedding">Wedding</option>
+                                <option value="Anniversary">Anniversary</option>
+                                <option value="Graduation">Graduation</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="col-span-2 sm:col-span-1">
+                            <label class="block text-xs font-bold text-surface-dark mb-1.5">Cake Size</label>
+                            <select id="promo-size" class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface focus:border-primary outline-none text-sm">
+                                <option value="6-inch">6" Small</option>
+                                <option value="8-inch">8" Medium</option>
+                                <option value="10-inch">10" Large</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-surface-dark mb-1.5">Event/Delivery Date (Must be Aug 1 - Aug 15)</label>
+                        <!-- Date logic locked to Max Aug 15, 2026 -->
+                        <input type="date" id="promo-date" min="2026-08-01" max="2026-08-15" class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface focus:border-primary outline-none text-sm"/>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-surface-dark mb-1.5">Delivery Address</label>
+                        <textarea id="promo-address" rows="2" placeholder="Full street address (Ogba, Ikeja, or Ojodu)" class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface focus:border-primary outline-none text-sm"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Action -->
+            <div class="p-4 border-t border-outline-variant bg-surface">
+                <button id="promo-submit-btn" onclick="submitPromoOrderToSheet(event)" class="w-full bg-primary text-white font-bold text-base px-6 py-4 rounded-xl hover:bg-primary-hover active:scale-[0.98] transition-all shadow-lg flex items-center justify-center gap-2">
+                    <span class="material-symbols-outlined">celebration</span>
+                    <span>Claim Free Cake & WhatsApp Us</span>
+                </button>
             </div>
         </div>
     </div>
@@ -762,6 +823,65 @@
         }
         function scrollToConfigurator() {
             document.getElementById('configurator').scrollIntoView({ behavior: 'smooth' });
+        }
+        // --- EXCLUSIVE PROMO SUBMISSION LOGIC ---
+        function submitPromoOrderToSheet(event) {
+            event.preventDefault(); 
+            
+            const submitBtn = document.getElementById("promo-submit-btn");
+            submitBtn.innerHTML = `<span class="material-symbols-outlined animate-spin">progress_activity</span> Verifying...`;
+            submitBtn.disabled = true;
+
+            const name = document.getElementById("promo-name").value || "No Name";
+            const phone = document.getElementById("promo-phone").value || "No Phone";
+            const date = document.getElementById("promo-date").value;
+            const address = document.getElementById("promo-address").value;
+            const occasion = document.getElementById("promo-occasion").value;
+            const size = document.getElementById("promo-size").value;
+
+            // Enforce date validation directly on the frontend
+            if (!date || new Date(date) > new Date('2026-08-15') || new Date(date) < new Date('2026-08-01')) {
+                alert("Please select a valid event date between August 1 and August 15, 2026.");
+                submitBtn.innerHTML = `<span class="material-symbols-outlined">celebration</span> Claim Free Cake & WhatsApp Us`;
+                submitBtn.disabled = false;
+                return;
+            }
+
+            const orderData = {
+                customerName: name,
+                customerPhone: phone,
+                deliveryDate: date,
+                deliveryAddress: address,
+                allergies: "Promo Giveaway",
+                promoClaimed: "Yes" 
+            };
+
+            fetch(API_URL, {
+                method: 'POST',
+                body: JSON.stringify(orderData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if(data.status === "success") {
+                    let message = `Hello XtraFresh! 🎉\n\nI am reaching out to claim the *August Celebration Giveaway*!\n*Order ID:* ${data.orderId}\n\n`;
+                    message += `*Promo Details:*\nOccasion: ${occasion}\nSize: ${size}\n\n`;
+                    message += `*Delivery to:* ${address} on ${date}\n\n`;
+                    message += `Please let me know if I am among the first 10 and confirm my booking!`;
+                    
+                    const whatsappLink = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(message)}`;
+                    window.location.href = whatsappLink;
+                } else {
+                    alert("Oops! Something went wrong saving your promo claim.");
+                    submitBtn.innerHTML = `<span class="material-symbols-outlined">celebration</span> Claim Free Cake & WhatsApp Us`;
+                    submitBtn.disabled = false;
+                }
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                alert("Network error. Please check your connection.");
+                submitBtn.innerHTML = `<span class="material-symbols-outlined">celebration</span> Claim Free Cake & WhatsApp Us`;
+                submitBtn.disabled = false;
+            });
         }
     </script>
 </body>
