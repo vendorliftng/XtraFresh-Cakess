@@ -48,7 +48,7 @@
         .option-btn.selected { border-color: #E63946; background-color: #E63946; color: white; box-shadow: 0px 4px 15px rgba(230, 57, 70, 0.2); }
     </style>
 </head>
-<body class="bg-surface text-surface-dark antialiased font-body min-h-screen flex flex-col pb-28 md:pb-0 selection:bg-accent-pink selection:text-surface-dark">
+<body class="bg-surface text-surface-dark antialiased font-body min-h-screen flex flex-col selection:bg-accent-pink selection:text-surface-dark">
 
     <!-- Promo Banner -->
     <div id="promo-banner" class="bg-primary text-white text-xs sm:text-sm font-semibold py-2.5 px-4 text-center cursor-pointer hover:bg-primary-hover transition-colors flex justify-center items-center gap-2 z-[60] relative" onclick="openPromoModal()">
@@ -63,7 +63,6 @@
                 XtraFresh<span class="text-surface-dark">Cakes</span>
             </a>
             <nav class="hidden md:flex items-center gap-8">
-                <!-- We will link this to the new store page -->
                 <a href="store.html" class="text-surface-dark font-semibold text-sm hover:text-primary transition-colors flex items-center gap-1">
                     <span class="material-symbols-outlined text-lg">storefront</span> Full Catalog
                 </a>
@@ -100,12 +99,12 @@
         </div>
         <div class="flex-1 w-full relative">
             <div class="aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl relative bg-surface-container group border border-outline-variant">
-                <img src="https://images.unsplash.com/photo-1535141192574-5d4897c13136?auto=format&fit=crop&w=1000&q=80" alt="XtraFresh Bespoke Celebration Cake" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"/>
+                <img src="https://images.unsplash.com/photo-1621303837174-89787a7d4729?q=80&w=1000&auto=format&fit=crop" alt="XtraFresh Bespoke Celebration Cake" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"/>
             </div>
         </div>
     </section>
 
-    <!-- NEW SECTION: FEATURED BEST SELLERS -->
+    <!-- FEATURED BEST SELLERS -->
     <section class="w-full max-w-7xl mx-auto px-4 md:px-10 py-16 border-t border-outline-variant/50">
         <div class="mb-10 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
             <div>
@@ -121,12 +120,11 @@
             <article class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg border border-outline-variant flex flex-col relative">
                 <span class="absolute top-3 left-3 bg-white/90 backdrop-blur text-primary font-bold text-[10px] uppercase tracking-wider px-3 py-1 rounded-full shadow-sm z-10 flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-green-500"></span> Available</span>
                 <div class="aspect-[4/3] overflow-hidden bg-surface-variant relative">
-                    <img src="https://images.unsplash.com/photo-1535141192574-5d4897c13136?auto=format&fit=crop&w=800&q=80" alt="The Vanilla Blossom" class="w-full h-full object-cover"/>
+                    <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=800&auto=format&fit=crop" alt="The Vanilla Blossom" class="w-full h-full object-cover"/>
                 </div>
                 <div class="p-5 flex flex-col flex-1 justify-between">
                     <div>
                         <h3 class="font-headline text-xl text-surface-dark">The Vanilla Blossom</h3>
-                        <!-- Short Description -->
                         <p class="text-xs text-on-surface-variant mt-2 line-clamp-2">Classic Madagascar vanilla sponge with silky Swiss meringue buttercream.</p>
                     </div>
                     <div class="mt-4 pt-4 border-t border-outline-variant/50 flex items-center justify-between">
@@ -140,12 +138,11 @@
             <article class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg border border-outline-variant flex flex-col relative">
                 <span class="absolute top-3 left-3 bg-surface-dark/90 text-white font-bold text-[10px] uppercase tracking-wider px-3 py-1 rounded-full shadow-sm z-10 flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span> Pre-order Only</span>
                 <div class="aspect-[4/3] overflow-hidden bg-surface-variant relative">
-                    <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=80" alt="Midnight Truffle" class="w-full h-full object-cover"/>
+                    <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?q=80&w=800&auto=format&fit=crop" alt="Midnight Truffle" class="w-full h-full object-cover"/>
                 </div>
                 <div class="p-5 flex flex-col flex-1 justify-between">
                     <div>
                         <h3 class="font-headline text-xl text-surface-dark">Midnight Truffle</h3>
-                        <!-- Short Description -->
                         <p class="text-xs text-on-surface-variant mt-2 line-clamp-2">Rich dark cocoa sponge layered with a luxurious dark ganache drip.</p>
                     </div>
                     <div class="mt-4 pt-4 border-t border-outline-variant/50 flex items-center justify-between">
@@ -159,12 +156,11 @@
             <article class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg border border-outline-variant flex flex-col relative">
                 <span class="absolute top-3 left-3 bg-white/90 backdrop-blur text-primary font-bold text-[10px] uppercase tracking-wider px-3 py-1 rounded-full shadow-sm z-10 flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-green-500"></span> Available</span>
                 <div class="aspect-[4/3] overflow-hidden bg-surface-variant relative">
-                    <img src="https://images.unsplash.com/photo-1616541823729-00fe0aacd32c?auto=format&fit=crop&w=800&q=80" alt="Crimson Royalty" class="w-full h-full object-cover"/>
+                    <img src="https://images.unsplash.com/photo-1616541823729-00fe0aacd32c?q=80&w=800&auto=format&fit=crop" alt="Crimson Royalty" class="w-full h-full object-cover"/>
                 </div>
                 <div class="p-5 flex flex-col flex-1 justify-between">
                     <div>
                         <h3 class="font-headline text-xl text-surface-dark">Crimson Royalty</h3>
-                        <!-- Short Description -->
                         <p class="text-xs text-on-surface-variant mt-2 line-clamp-2">Our signature red velvet with rich cream cheese swirls.</p>
                     </div>
                     <div class="mt-4 pt-4 border-t border-outline-variant/50 flex items-center justify-between">
@@ -176,7 +172,7 @@
         </div>
     </section>
 
-    <!-- NEW SECTION: TRENDING / FLASHY -->
+    <!-- TRENDING / FLASHY -->
     <section class="w-full max-w-7xl mx-auto px-4 md:px-10 py-16 border-t border-outline-variant/50 bg-accent-pink/5">
         <div class="mb-10 text-center max-w-2xl mx-auto">
             <span class="inline-block bg-primary text-white font-bold text-[10px] uppercase tracking-widest px-3 py-1 rounded-full mb-3">Chef's Specials</span>
@@ -189,7 +185,7 @@
             <article class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg border border-outline-variant flex flex-col relative">
                 <span class="absolute top-3 left-3 bg-white/90 backdrop-blur text-primary font-bold text-[10px] uppercase tracking-wider px-3 py-1 rounded-full shadow-sm z-10 flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-green-500"></span> Available</span>
                 <div class="aspect-[4/3] overflow-hidden bg-surface-variant relative">
-                    <img src="https://images.unsplash.com/photo-1519869325930-281384150729?auto=format&fit=crop&w=800&q=80" alt="Lagos Citrus Zest" class="w-full h-full object-cover"/>
+                    <img src="https://images.unsplash.com/photo-1519869325930-281384150729?q=80&w=800&auto=format&fit=crop" alt="Lagos Citrus Zest" class="w-full h-full object-cover"/>
                 </div>
                 <div class="p-5 flex flex-col flex-1 justify-between">
                     <div>
@@ -207,7 +203,7 @@
             <article class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg border border-outline-variant flex flex-col relative">
                 <span class="absolute top-3 left-3 bg-surface-dark/90 text-white font-bold text-[10px] uppercase tracking-wider px-3 py-1 rounded-full shadow-sm z-10 flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span> Pre-order Only</span>
                 <div class="aspect-[4/3] overflow-hidden bg-surface-variant relative">
-                    <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=800&q=80" alt="Strawberry Dream" class="w-full h-full object-cover"/>
+                    <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?q=80&w=800&auto=format&fit=crop" alt="Strawberry Dream" class="w-full h-full object-cover"/>
                 </div>
                 <div class="p-5 flex flex-col flex-1 justify-between">
                     <div>
@@ -225,7 +221,7 @@
             <article class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg border border-outline-variant flex flex-col relative">
                 <span class="absolute top-3 left-3 bg-white/90 backdrop-blur text-primary font-bold text-[10px] uppercase tracking-wider px-3 py-1 rounded-full shadow-sm z-10 flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-green-500"></span> Available</span>
                 <div class="aspect-[4/3] overflow-hidden bg-surface-variant relative">
-                    <img src="https://images.unsplash.com/photo-1542826438-bd32fcf33371?auto=format&fit=crop&w=800&q=80" alt="Salted Caramel Glow" class="w-full h-full object-cover"/>
+                    <img src="https://images.unsplash.com/photo-1542826438-bd32fcf33371?q=80&w=800&auto=format&fit=crop" alt="Salted Caramel Glow" class="w-full h-full object-cover"/>
                 </div>
                 <div class="p-5 flex flex-col flex-1 justify-between">
                     <div>
@@ -241,13 +237,13 @@
         </div>
         
         <div class="mt-12 text-center">
-            <a href="store.html" class="inline-flex items-center justify-center gap-2 bg-surface-dark text-white font-bold text-sm px-8 py-4 rounded-full hover:bg-black transition-colors shadow-lg">
-                View All 12 Signature Cakes <span class="material-symbols-outlined text-lg">storefront</span>
+            <a href="store.html" class="inline-flex items-center justify-center gap-2 bg-pink-500 text-white font-bold text-sm px-8 py-4 rounded-full hover:bg-pink-600 transition-colors shadow-lg">
+                View All <span class="material-symbols-outlined text-lg">storefront</span>
             </a>
         </div>
     </section>
 
-    <!-- SECTION 3: SIMPLIFIED CUSTOM BUILDER (No Left Image) -->
+    <!-- SECTION 3: SIMPLIFIED CUSTOM BUILDER -->
     <section id="configurator" class="w-full max-w-4xl mx-auto px-4 md:px-10 py-16 border-t border-outline-variant/50">
         <div class="mb-10 text-center">
             <span class="text-primary font-bold text-xs uppercase tracking-widest">Interactive Studio</span>
@@ -342,7 +338,107 @@
         </div>
     </section>
 
-    <!-- NEW SEO-COMPLIANT 3-COLUMN FOOTER -->
+    <!-- SECTION 4: HOW IT WORKS -->
+    <section id="how-it-works" class="w-full max-w-7xl mx-auto px-4 md:px-10 py-16">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+            <span class="text-primary font-bold text-xs uppercase tracking-widest">Seamless Ordering</span>
+            <h2 class="font-headline text-3xl md:text-4xl text-surface-dark mt-1">How XtraFresh Cakes Works</h2>
+            <p class="text-on-surface-variant text-sm mt-2">We bridge the convenience of online selection with direct, personalized WhatsApp service.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-white p-8 rounded-2xl border border-outline-variant shadow-sm text-center">
+                <div class="w-14 h-14 rounded-full bg-accent-pink/30 text-primary flex items-center justify-center font-headline text-2xl mx-auto mb-5">1</div>
+                <h3 class="font-headline text-xl text-surface-dark mb-2">Select Your Design</h3>
+                <p class="text-sm text-on-surface-variant leading-relaxed">Choose a signature cake from our catalog or build a custom creation using the interactive studio.</p>
+            </div>
+            <div class="bg-white p-8 rounded-2xl border border-outline-variant shadow-sm text-center">
+                <div class="w-14 h-14 rounded-full bg-whatsapp/20 text-whatsapp flex items-center justify-center font-headline text-2xl mx-auto mb-5">2</div>
+                <h3 class="font-headline text-xl text-surface-dark mb-2">WhatsApp Order</h3>
+                <p class="text-sm text-on-surface-variant leading-relaxed">Click order and your selections are instantly formatted into a WhatsApp message sent directly to our Lagos bakers.</p>
+            </div>
+            <div class="bg-white p-8 rounded-2xl border border-outline-variant shadow-sm text-center">
+                <div class="w-14 h-14 rounded-full bg-accent-pink/30 text-primary flex items-center justify-center font-headline text-2xl mx-auto mb-5">3</div>
+                <h3 class="font-headline text-xl text-surface-dark mb-2">Doorstep Lagos Delivery</h3>
+                <p class="text-sm text-on-surface-variant leading-relaxed">We confirm details and final quotes, bake your cake fresh, and deliver directly across Lagos districts.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: BLOG & BAKING JOURNAL -->
+    <section id="blog" class="w-full max-w-7xl mx-auto px-4 md:px-10 py-16 border-t border-outline-variant/50">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+            <div>
+                <span class="text-primary font-bold text-xs uppercase tracking-widest">Baking Journal & News</span>
+                <h2 class="font-headline text-3xl md:text-4xl text-surface-dark mt-1">XtraFresh Stories & Cake Guides</h2>
+                <p class="text-on-surface-variant text-sm mt-2">Expert tips on custom cake design, Lagos delivery secrets, and flavor pairing inspirations.</p>
+            </div>
+            <a href="https://wa.me/2349060009541?text=Hi%20XtraFresh%20Cakes%2C%20I%20read%20your%20blog%20and%20would%20like%20to%20consult%20on%20a%20custom%20cake!" target="_blank" class="inline-flex items-center gap-2 text-primary font-bold text-sm hover:underline">
+                <span>Ask Our Master Baker</span>
+                <span class="material-symbols-outlined text-lg">arrow_forward</span>
+            </a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Article 1 -->
+            <article class="bg-white rounded-2xl border border-outline-variant overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col">
+                <div class="aspect-[16/10] overflow-hidden bg-surface-variant relative">
+                    <img src="https://images.unsplash.com/photo-1557925923-33b251dc3296?q=80&w=800&auto=format&fit=crop" alt="Cake Care Guide" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"/>
+                    <span class="absolute top-3 left-3 bg-white/90 backdrop-blur text-primary font-bold text-[10px] uppercase tracking-wider px-3 py-1 rounded-full shadow-sm">Lagos Delivery</span>
+                </div>
+                <div class="p-6 flex flex-col flex-1 justify-between">
+                    <div>
+                        <span class="text-[11px] text-on-surface-variant">August 2026 • 4 min read</span>
+                        <h3 class="font-headline text-xl text-surface-dark mt-2">
+                            5 Crucial Tips for Keeping Your Cake Fresh in Lagos Weather
+                        </h3>
+                        <p class="text-xs text-on-surface-variant mt-2 leading-relaxed">
+                            Humidity and heat can affect buttercream. Learn how our insulated delivery boxes and proper refrigeration preserve tier stability.
+                        </p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Article 2 -->
+            <article class="bg-white rounded-2xl border border-outline-variant overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col">
+                <div class="aspect-[16/10] overflow-hidden bg-surface-variant relative">
+                    <img src="https://images.unsplash.com/photo-1550617931-e17a7b70dce2?q=80&w=800&auto=format&fit=crop" alt="Flavor Pairings" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"/>
+                    <span class="absolute top-3 left-3 bg-white/90 backdrop-blur text-primary font-bold text-[10px] uppercase tracking-wider px-3 py-1 rounded-full shadow-sm">Flavor Trends</span>
+                </div>
+                <div class="p-6 flex flex-col flex-1 justify-between">
+                    <div>
+                        <span class="text-[11px] text-on-surface-variant">July 2026 • 5 min read</span>
+                        <h3 class="font-headline text-xl text-surface-dark mt-2">
+                            Why Red Velvet & Salted Caramel is the #1 Wedding Combo
+                        </h3>
+                        <p class="text-xs text-on-surface-variant mt-2 leading-relaxed">
+                            Discover why contrast-flavor tiers are taking Lagos wedding receptions by storm this season.
+                        </p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Article 3 -->
+            <article class="bg-white rounded-2xl border border-outline-variant overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col">
+                <div class="aspect-[16/10] overflow-hidden bg-surface-variant relative">
+                    <img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?q=80&w=800&auto=format&fit=crop" alt="Custom Cake Design" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"/>
+                    <span class="absolute top-3 left-3 bg-white/90 backdrop-blur text-primary font-bold text-[10px] uppercase tracking-wider px-3 py-1 rounded-full shadow-sm">Design Blueprint</span>
+                </div>
+                <div class="p-6 flex flex-col flex-1 justify-between">
+                    <div>
+                        <span class="text-[11px] text-on-surface-variant">July 2026 • 3 min read</span>
+                        <h3 class="font-headline text-xl text-surface-dark mt-2">
+                            How to Pre-order Your Birthday Cake Fast and Easy
+                        </h3>
+                        <p class="text-xs text-on-surface-variant mt-2 leading-relaxed">
+                            A guide on using our custom builder to visualize custom inscriptions and toppings seamlessly!
+                        </p>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- SEO-COMPLIANT 3-COLUMN FOOTER -->
     <footer class="bg-surface-dark text-white pt-16 pb-12 mt-auto border-t border-outline-variant">
         <div class="max-w-7xl mx-auto px-4 md:px-10 grid grid-cols-1 md:grid-cols-3 gap-12 border-b border-gray-800 pb-12">
             
@@ -353,8 +449,18 @@
                     Premium bespoke cakes handcrafted in Lagos, Nigeria. We specialize in transforming your special occasions into unforgettable memories with our signature flavors and stunning custom designs. 
                 </p>
                 <div class="flex gap-4 pt-2">
-                    <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors text-white"><span class="material-symbols-outlined text-sm">public</span></a>
-                    <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors text-white"><span class="material-symbols-outlined text-sm">photo_camera</span></a>
+                    <!-- Instagram Icon -->
+                    <a href="https://instagram.com/xtrafreshcakes" target="_blank" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-pink-600 transition-colors text-white" title="Instagram">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                    <!-- TikTok Icon -->
+                    <a href="https://tiktok.com/@xtrafreshcakes" target="_blank" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-pink-600 transition-colors text-white" title="TikTok">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+                        </svg>
+                    </a>
                 </div>
             </div>
 
@@ -429,7 +535,6 @@
                 <div class="bg-primary/5 border border-primary/20 p-4 rounded-xl">
                     <p class="text-[10px] font-bold text-primary uppercase tracking-widest mb-1">Your Order:</p>
                     <p id="modal-cake-summary" class="text-sm font-bold text-surface-dark whitespace-pre-line mb-2"></p>
-                    <!-- This paragraph will hold the long description when clicked from catalog -->
                     <p id="modal-long-desc" class="text-xs text-on-surface-variant leading-relaxed border-t border-primary/10 pt-2"></p>
                 </div>
 
@@ -513,11 +618,10 @@
     <!-- Scripts -->
     <script>
         const API_URL = "https://script.google.com/macros/s/AKfycbycvxx3tKkPp_Ssld75TfQGX13oVp8GpD58tvehjAAFsXaywJJg-c_XhQ42q0aZ724Q/exec";
-        const WHATSAPP_PHONE = "2349060009541"; //
+        const WHATSAPP_PHONE = "2349060009541";
         
         let currentOrderDetails = ""; 
 
-        // Custom Builder State
         const builderState = {
             occasion: "Birthday",
             flavor: "Classic Vanilla",
@@ -527,7 +631,6 @@
         let isOtherOccasion = false;
         let isOtherFlavor = false;
 
-        // --- BUTTON SELECTION LOGIC ---
         function selectOption(button, category, value) {
             builderState[category] = value;
             
@@ -563,26 +666,20 @@
             }
         }
 
-        // --- TRIGGER FROM CATALOG SECTIONS ---
         function openCatalogModal(cakeName, flavor, price, longDesc) {
-            // Build the short string for the summary and WhatsApp
             const shortDetails = `${cakeName}\nFlavor: ${flavor}\nBase Price: ${price}`;
-            
-            // Set the global variable for WhatsApp
             currentOrderDetails = shortDetails;
             
-            // Populate Modal UI
             document.getElementById("modal-cake-summary").innerText = shortDetails;
             
             const descEl = document.getElementById("modal-long-desc");
-            descEl.innerText = longDesc; // Display the long description in the modal
-            descEl.classList.remove("hidden"); // Ensure it's visible
+            descEl.innerText = longDesc; 
+            descEl.classList.remove("hidden"); 
 
             document.getElementById("checkout-modal").classList.remove("hidden");
             document.body.style.overflow = "hidden";
         }
 
-        // --- TRIGGER FROM CUSTOM BUILDER ---
         function triggerBuilderCheckout() {
             const inscription = document.getElementById("builder-message").value;
             const notes = document.getElementById("builder-notes").value;
@@ -597,10 +694,8 @@
             if(notes) details += `\nNotes: ${notes}`;
 
             currentOrderDetails = details;
-
             document.getElementById("modal-cake-summary").innerText = details;
             
-            // Hide the long description box for custom builds since it doesn't apply
             document.getElementById("modal-long-desc").classList.add("hidden");
             
             document.getElementById("checkout-modal").classList.remove("hidden");
@@ -612,7 +707,6 @@
             document.body.style.overflow = "auto";
         }
 
-        // --- API SUBMISSION LOGIC ---
         function submitOrderToSheet(event) {
             event.preventDefault(); 
             
@@ -620,7 +714,6 @@
             submitBtn.innerHTML = `<span class="material-symbols-outlined animate-spin">progress_activity</span> Sending...`;
             submitBtn.disabled = true;
 
-            // Updated strictly separated data fields to match the CRM backend setup
             const orderData = {
                 customerName: document.getElementById("checkout-name").value || "No Name",
                 customerPhone: document.getElementById("checkout-phone").value || "No Phone",
@@ -661,7 +754,6 @@
             btn.disabled = false;
         }
 
-        // --- PROMO MODAL LOGIC ---
         function openPromoModal() {
             document.getElementById('promo-modal').classList.remove('hidden');
         }
