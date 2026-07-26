@@ -706,6 +706,36 @@
                     </div>
                 </section>
 
+                <!-- ============================================== -->
+                <!-- NEW CODE: STEP 6 DELIVERY DETAILS & CHECKOUT   -->
+                <!-- ============================================== -->
+                <section class="config-step bg-white p-6 rounded-2xl border border-outline-variant shadow-sm space-y-4">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="flex items-center justify-center w-8 h-8 rounded-full bg-surface-container text-on-surface-variant font-bold text-sm">6</span>
+                        <div>
+                            <h3 class="font-headline text-xl text-surface-dark">Delivery Details</h3>
+                            <p class="text-xs text-on-surface-variant">Where and when do you need this cake?</p>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <label for="delivery-date" class="block text-xs font-bold text-surface-dark mb-1.5">Delivery Date</label>
+                            <input type="date" id="delivery-date" class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors text-sm"/>
+                        </div>
+                        <div>
+                            <label for="delivery-address" class="block text-xs font-bold text-surface-dark mb-1.5">Delivery Address (Lagos Only)</label>
+                            <textarea id="delivery-address" rows="2" placeholder="Enter your full street address and area (e.g., Ikeja, Lekki)" class="w-full px-4 py-2.5 rounded-xl border border-outline-variant bg-surface focus:border-primary focus:ring-1 focus:ring-primary transition-colors text-sm"></textarea>
+                        </div>
+                        <div>
+                            <label for="allergies" class="block text-xs font-bold text-surface-dark mb-1.5">Allergies / Dietary Notes</label>
+                            <input type="text" id="allergies" placeholder="e.g., Nut allergy, Vegan, None" class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors text-sm"/>
+                        </div>
+                    </div>
+                </section>
+                <!-- ============================================== -->
+                <!-- END NEW CODE                                   -->
+                <!-- ============================================== -->
+
             </div>
         </main>
     </section>
@@ -793,7 +823,7 @@
                         </p>
                     </div>
                     <div class="pt-4 mt-4 border-t border-outline-variant/50 flex items-center justify-between">
-                        <button onclick="openBlogModal('Why Red Velvet & Salted Caramel is the #1 Wedding Combo', 'Modern Lagos celebrations love dual-flavor tier experiences! Placing a rich, velvety Red Velvet bottom tier together with a butterscotch-infused Salted Caramel upper tier delights guests with both cocoa creaminess and buttery salted sweetness.\n\nOur head baker crafts each batch with imported cocoa and slow-cooked caramel glaze for maximum rich taste.')" class="text-xs text-primary font-bold hover:underline inline-flex items-center gap-1">
+                        <button onclick="openBlogModal('Why Red Velvet & Salted Caramel is the #1 Wedding Combo', 'Modern Lagos celebrations love dual-flavor tier experiences! Placing a rich velvety Red Velvet bottom tier together with a butterscotch-infused Salted Caramel upper tier delights guests with both cocoa creaminess and buttery salted sweetness.\n\nOur head baker crafts each batch with imported cocoa and slow-cooked caramel glaze for maximum rich taste.')" class="text-xs text-primary font-bold hover:underline inline-flex items-center gap-1">
                             <span>Read Article</span>
                             <span class="material-symbols-outlined text-sm">read_more</span>
                         </button>
@@ -869,10 +899,16 @@
                     Signature Chocolate, 8" Medium, Smooth Finish, Rose & Pearl
                 </h3>
             </div>
-            <button onclick="triggerConfiguratorOrder()" class="w-full sm:w-auto flex items-center justify-center gap-2 bg-primary text-white font-bold text-sm px-8 py-3 rounded-full hover:bg-primary-hover active:scale-95 transition-all shadow-lg">
-                <span class="material-symbols-outlined text-xl">chat</span>
-                <span>Order on WhatsApp</span>
+            <!-- ============================================== -->
+            <!-- UPDATED CODE: CHECKOUT BUTTON FOR APPS SCRIPT  -->
+            <!-- ============================================== -->
+            <button id="checkout-btn" onclick="submitOrderToSheet(event)" class="w-full sm:w-auto flex items-center justify-center gap-2 bg-primary text-white font-bold text-sm px-8 py-3 rounded-full hover:bg-primary-hover active:scale-95 transition-all shadow-lg">
+                <span class="material-symbols-outlined text-xl">shopping_cart_checkout</span>
+                <span>Place Order Today!</span>
             </button>
+            <!-- ============================================== -->
+            <!-- END UPDATED CODE                               -->
+            <!-- ============================================== -->
         </div>
     </div>
 
@@ -954,6 +990,58 @@
     </div>
 
     <script>
+
+  // This is the secret tunnel to your Google Sheet
+  const API_URL = "https://script.google.com/macros/s/AKfycbycvxx3tKkPp_Ssld75TfQGX13oVp8GpD58tvehjAAFsXaywJJg-c_XhQ42q0aZ724Q/exec";
+
+  // This function runs when the customer clicks the "Place Order" button
+  function submitOrderToSheet(event) {
+    // 1. Stop the button from refreshing the page
+    event.preventDefault(); 
+    
+    // 2. Change the button text so the customer knows it is loading
+    const orderButton = document.getElementById("checkout-btn");
+    orderButton.innerText = "Sending Order...";
+
+    // 3. Gather the data from your website's input fields (IDs must match your HTML)
+    const orderData = {
+      deliveryDate: document.getElementById("delivery-date").value,
+      deliveryAddress: document.getElementById("delivery-address").value,
+      allergies: document.getElementById("allergies").value,
+      promoClaimed: "Yes" // We can make this dynamic later
+    };
+
+    // 4. Send the invisible box of data to the Google Sheet
+    fetch(API_URL, {
+      method: 'POST',
+      body: JSON.stringify(orderData)
+    })
+    .then(response => response.json())
+    .then(data => {
+      // 5. If the Sheet successfully saved it, move to WhatsApp
+      if(data.status === "success") {
+        
+        // Use the exact WhatsApp number from the client's flyer
+        const whatsappNumber = "2349060009541"; 
+        
+        // Draft a clean, automated message for the customer to send
+        const message = `Hello XtraFresh! 🎂\n\I just placed an order on the website.\nMy Order ID is: *${data.orderId}*\n\nHere is the screenshot of my payment transfer:`;
+        
+        // Generate the final WhatsApp link and redirect the customer there
+        const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+        window.location.href = whatsappLink;
+        
+      } else {
+        alert("Oops! Something went wrong saving your order.");
+        orderButton.innerText = "Try Again";
+      }
+    })
+    .catch(error => {
+      console.error("Error:", error);
+      alert("Network error. Please check your connection.");
+      orderButton.innerText = "Place Order";
+    });
+  }
         // --- STATE & CONFIGURATION ---
         const WHATSAPP_PHONE = '2349060009541';
 
