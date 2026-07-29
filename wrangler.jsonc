@@ -13,6 +13,11 @@
     // Serve the repository root as plain static files.
     "directory": "./",
 
+    // Serve files at their real paths. Without this, Cloudflare redirects
+    // /store.html to /store, which disagrees with the canonical tags and
+    // the sitemap and creates a needless redirect on every internal link.
+    "html_handling": "none",
+
     // "404-page" = if a file genuinely does not exist, show 404.html.
     //
     // The default is "single-page-application", which returns index.html

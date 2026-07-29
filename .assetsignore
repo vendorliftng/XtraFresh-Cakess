@@ -1,0 +1,27 @@
+# Files in this repo that must NOT be published to the website.
+#
+# Cloudflare serves the whole repo root (assets.directory = "./"), so without
+# this file anyone could open xtrafreshcakes.com/LAUNCH-PLAN.md and read your
+# pricing strategy, margins and promo cost exposure.
+#
+# Same format as .gitignore.
+
+# Internal planning and setup documents
+*.md
+backend/
+
+# Leftover build scaffolding from the original template
+package.json
+package-lock.json
+tsconfig.json
+vite.config.ts
+server.ts
+metadata.json
+src/
+assets/.aistudio/
+
+# Config and dotfiles
+wrangler.jsonc
+.gitignore
+.env.example
+.assetsignore

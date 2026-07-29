@@ -93,6 +93,15 @@ function doGet(e) {
       case 'getPost':
         return json({ status: 'success', data: getPostText(e.parameter.id) });
 
+      // Published customer reviews, for the testimonials section.
+      case 'getTestimonials':
+        return json({ status: 'success', data: getTestimonials() });
+
+      // Confirms an order number exists, so the feedback form can greet
+      // the customer by name instead of asking them to retype everything.
+      case 'lookupOrder':
+        return json({ status: 'success', data: lookupOrder(e.parameter.id) });
+
       default:
         return json({ status: 'error', code: 'UNKNOWN_ACTION' });
     }
@@ -118,6 +127,9 @@ function doPost(e) {
 
   try {
     var data = JSON.parse(e.postData.contents);
+
+    // Feedback posts to the same URL — route it before any order logic runs.
+    if (data.type === 'feedback') return json(saveFeedback(data));
 
     // --- Idempotency: same submission twice returns the first result -------
     var cache = CacheService.getScriptCache();
@@ -530,13 +542,70 @@ function saveFeedback(d) {
                      'Value','Improve','Testimonial','May Publish']);
   }
 
+  if (!d.overall) return { status: 'error', code: 'RATING_REQUIRED' };
+
   sheet.appendRow([
     new Date(), d.orderId || '', d.name || '',
     d.overall || '', d.taste || '', d.appearance || '', d.value || '',
     d.improve || '', d.testimonial || '', d.mayPublish ? 'Yes' : 'No'
   ]);
 
+  CacheService.getScriptCache().remove('testimonials');
   return { status: 'success' };
+}
+
+/**
+ * Reviews the customer gave permission to publish.
+ * Columns: A Timestamp · B Order ID · C Name · D Overall · … I Testimonial · J May Publish
+ */
+function getTestimonials() {
+  var cache = CacheService.getScriptCache();
+  var hit = cache.get('testimonials');
+  if (hit) return JSON.parse(hit);
+
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName('Feedback');
+  if (!sheet || sheet.getLastRow() < 2) return [];
+
+  var rows = sheet.getDataRange().getValues();
+  var out = [];
+
+  for (var i = 1; i < rows.length; i++) {
+    var mayPublish = String(rows[i][9] || '').toLowerCase();
+    var quote = String(rows[i][8] || '').trim();
+    if (mayPublish !== 'yes' || !quote) continue;
+
+    // First name only — never publish a full name without asking.
+    var first = String(rows[i][2] || '').trim().split(/\s+/)[0] || 'A customer';
+
+    out.push({ name: first, quote: quote, rating: Number(rows[i][3]) || 5 });
+  }
+
+  out.reverse();                    // newest first
+  out = out.slice(0, 12);
+
+  try { cache.put('testimonials', JSON.stringify(out), CACHE_SECONDS); } catch (err) { log('testimonial cache', err); }
+  return out;
+}
+
+/** Looks up an order so the feedback form can confirm it and greet by name. */
+function lookupOrder(orderId) {
+  if (!orderId) return null;
+
+  var doc = SpreadsheetApp.getActiveSpreadsheet();
+  var rows = doc.getSheetByName('Orders').getDataRange().getValues();
+  var wanted = String(orderId).trim().toUpperCase();
+
+  for (var i = 1; i < rows.length; i++) {
+    if (String(rows[i][0]).trim().toUpperCase() === wanted) {
+      return {
+        orderId: rows[i][0],
+        name:    rows[i][3],          // Customer Name
+        details: rows[i][8],          // Order Details
+        date:    rows[i][5] ? Utilities.formatDate(new Date(rows[i][5]), cfg().timezone, 'd MMMM yyyy') : ''
+      };
+    }
+  }
+  return null;
 }
 
 // ============================================================
