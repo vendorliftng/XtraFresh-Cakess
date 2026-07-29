@@ -1,849 +1,1690 @@
 <!DOCTYPE html>
 <html lang="en" class="light scroll-smooth">
 <head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>XtraFresh Cakes | Premium Custom Cakes in Lagos</title>
-    <meta name="description" content="Premium custom cakes handcrafted in Lagos, Nigeria. Order bespoke cakes with unique flavors via WhatsApp delivery across Ikeja, Lekki, VI, Yaba, and beyond."/>
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com"/>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,0" rel="stylesheet"/>
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <script id="tailwind-config">
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#E63946",       
-                        "primary-hover": "#C92B37",
-                        "accent-pink": "#FFB3C1",   
-                        "surface-dark": "#1D1D1D",  
-                        "surface": "#ffffff",
-                        "surface-variant": "#f9f9f9",
-                        "surface-container": "#f1f1f1",
-                        "on-surface": "#1D1D1D",
-                        "on-surface-variant": "#5a5a5a",
-                        "outline-variant": "#e0e0e0",
-                        "whatsapp": "#25D366"
-                    },
-                    fontFamily: {
-                        "headline": ["DM Serif Display", "serif"],
-                        "body": ["Plus Jakarta Sans", "sans-serif"]
-                    }
-                }
-            }
-        }
-    </script>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<!-- ============================================================
+     SEO
+     Replace https://xtrafreshcakes.com with your real domain
+     everywhere it appears in this file AND in store.html,
+     sitemap.xml and robots.txt. It must be the full absolute
+     address — WhatsApp and Google will not accept relative paths.
+     ============================================================ -->
+<title>Custom Cakes in Lagos | Baked Fresh, Delivered | XtraFresh Cakes</title>
+<meta name="description" content="Order a custom birthday or wedding cake in Lagos. Made to order, baked fresh the morning of your event. Free delivery in Ogba, Ikeja and Ojodu. Order on WhatsApp."/>
+<link rel="canonical" href="https://xtrafreshcakes.com/"/>
+<meta name="robots" content="index, follow, max-image-preview:large"/>
+<meta name="theme-color" content="#E63946"/>
+<meta name="geo.region" content="NG-LA"/>
+<meta name="geo.placename" content="Lagos"/>
 
-    <style>
-        .hide-scrollbar::-webkit-scrollbar { display: none; }
-        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-        .option-btn { transition: all 0.2s ease-in-out; will-change: transform, border-color, background-color, color; }
-        .option-btn:active { transform: scale(0.96); }
-        .option-btn.selected { border-color: #E63946; background-color: #E63946; color: white; box-shadow: 0px 4px 15px rgba(230, 57, 70, 0.2); }
-    </style>
+<!-- Link preview: WhatsApp, Facebook, Instagram, LinkedIn -->
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="XtraFresh Cakes"/>
+<meta property="og:locale" content="en_NG"/>
+<meta property="og:url" content="https://xtrafreshcakes.com/"/>
+<meta property="og:title" content="Custom Cakes in Lagos | XtraFresh Cakes"/>
+<meta property="og:description" content="Made to order in Lagos, baked fresh the morning of your event. Free delivery in Ogba, Ikeja and Ojodu."/>
+<meta property="og:image" content="https://xtrafreshcakes.com/og-image.jpg"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:image:alt" content="XtraFresh Cakes — custom cakes baked fresh in Lagos"/>
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Custom Cakes in Lagos | XtraFresh Cakes"/>
+<meta name="twitter:description" content="Made to order in Lagos, baked fresh the morning of your event. Free delivery in Ogba, Ikeja and Ojodu."/>
+<meta name="twitter:image" content="https://xtrafreshcakes.com/og-image.jpg"/>
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23E63946'/%3E%3Ctext x='50' y='72' font-size='62' font-family='Georgia,serif' fill='white' text-anchor='middle'%3EX%3C/text%3E%3C/svg%3E"/>
+
+<!-- Tells Google you are a real bakery in Lagos. This is what earns the
+     map listing and the "cake near me" results. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Bakery",
+  "@id": "https://xtrafreshcakes.com/#business",
+  "name": "XtraFresh Cakes",
+  "description": "Custom cakes made to order in Lagos, baked fresh the morning of your event.",
+  "url": "https://xtrafreshcakes.com/",
+  "image": "https://xtrafreshcakes.com/og-image.jpg",
+  "telephone": "+2349060009541",
+  "priceRange": "₦₦",
+  "currenciesAccepted": "NGN",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "73 Clem Road, Ijaye",
+    "addressLocality": "Lagos",
+    "addressRegion": "Lagos State",
+    "addressCountry": "NG"
+  },
+  "areaServed": [
+    { "@type": "Place", "name": "Ogba" },
+    { "@type": "Place", "name": "Ikeja" },
+    { "@type": "Place", "name": "Ojodu" },
+    { "@type": "Place", "name": "Lagos" }
+  ],
+  "openingHoursSpecification": [{
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+    "opens": "08:00",
+    "closes": "19:00"
+  }],
+  "sameAs": [
+    "https://instagram.com/xtrafreshcakes",
+    "https://tiktok.com/@xtrafreshcakes"
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "XtraFresh Cakes",
+  "url": "https://xtrafreshcakes.com/",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://xtrafreshcakes.com/store.html?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="preconnect" href="https://script.google.com"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,0" rel="stylesheet"/>
+
+<script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+<script>
+tailwind.config = {
+  theme: { extend: {
+    colors: {
+      "primary": "#E63946", "primary-hover": "#C92B37", "accent-pink": "#FFB3C1",
+      "surface-dark": "#1D1D1D", "surface": "#ffffff", "surface-variant": "#f9f9f9",
+      "surface-container": "#f1f1f1", "on-surface": "#1D1D1D",
+      "on-surface-variant": "#5a5a5a", "outline-variant": "#e0e0e0", "whatsapp": "#25D366"
+    },
+    fontFamily: { "headline": ["DM Serif Display","serif"], "body": ["Plus Jakarta Sans","sans-serif"] }
+  }}
+};
+</script>
+
+<style>
+  .hide-scrollbar::-webkit-scrollbar { display:none; }
+  .hide-scrollbar { -ms-overflow-style:none; scrollbar-width:none; }
+  .option-btn { transition: all .2s ease-in-out; }
+  .option-btn:active { transform: scale(.96); }
+  .option-btn.selected { border-color:#E63946; background:#E63946; color:#fff; box-shadow:0 4px 15px rgba(230,57,70,.2); }
+  .skeleton { background: linear-gradient(90deg,#f1f1f1 25%,#e6e6e6 37%,#f1f1f1 63%); background-size:400% 100%; animation: shimmer 1.4s ease infinite; }
+  @keyframes shimmer { 0%{background-position:100% 50%} 100%{background-position:0 50%} }
+  /* Stops iOS Safari zooming when a field is focused */
+  input, select, textarea { font-size: 16px; }
+  [hidden] { display:none !important; }
+</style>
 </head>
-<body class="bg-surface text-surface-dark antialiased font-body min-h-screen flex flex-col selection:bg-accent-pink selection:text-surface-dark">
 
-    <!-- Promo Banner -->
-    <div id="promo-banner" class="bg-primary text-white text-xs sm:text-sm font-semibold py-2.5 px-4 text-center cursor-pointer hover:bg-primary-hover transition-colors flex justify-center items-center gap-2 z-[60] relative" onclick="openPromoModal()">
-        <span class="material-symbols-outlined text-base animate-bounce">celebration</span>
-        <span>AUGUST PROMO: Free Birthday Cakes & 30% Off Events! (First 10 Only). <span class="underline decoration-white/50 underline-offset-2">Tap for Details</span></span>
+<body class="font-body bg-surface text-on-surface antialiased">
+
+<!-- ============ ANNOUNCEMENT BAR ============ -->
+<div id="announce-bar" hidden
+     class="bg-primary text-white text-xs sm:text-sm font-semibold py-2.5 px-4 text-center flex justify-center items-center gap-2 relative z-[60]">
+  <span class="material-symbols-outlined text-base">celebration</span>
+  <span id="announce-text"></span>
+</div>
+
+<!-- ============ HEADER ============ -->
+<header class="sticky top-0 z-50 bg-surface/95 backdrop-blur border-b border-outline-variant">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
+    <a href="index.html" class="font-headline text-xl sm:text-2xl tracking-tight">
+      XtraFresh<span class="text-primary">Cakes</span>
+    </a>
+    <nav class="hidden md:flex items-center gap-7 text-sm font-medium">
+      <a href="store.html" class="hover:text-primary transition-colors">All Cakes</a>
+      <a href="#builder" class="hover:text-primary transition-colors">Build Your Cake</a>
+      <a href="#how" class="hover:text-primary transition-colors">How It Works</a>
+      <a href="#blog" class="hover:text-primary transition-colors">Stories</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <span class="hidden lg:inline text-xs text-on-surface-variant">Order 1 week ahead</span>
+      <button onclick="scrollTo_('#builder')"
+              class="bg-primary text-white text-sm font-bold px-4 py-2.5 rounded-xl hover:bg-primary-hover active:scale-95 transition">
+        Build Your Cake
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="max-w-7xl mx-auto px-4 sm:px-6 py-10 sm:py-16 grid md:grid-cols-2 gap-10 items-center">
+  <div>
+    <div class="inline-flex items-center gap-2 text-xs font-semibold bg-surface-container px-3 py-1.5 rounded-full mb-5">
+      <span class="w-2 h-2 rounded-full bg-primary"></span>
+      <span>Baked fresh in Lagos every morning</span>
     </div>
 
-    <!-- Header Navigation -->
-    <header class="bg-surface/95 backdrop-blur-md sticky top-0 z-50 border-b border-outline-variant/50 transition-all duration-300">
-        <div class="flex justify-between items-center px-4 md:px-10 py-4 w-full max-w-7xl mx-auto">
-            <a href="index.html" class="font-headline font-black text-2xl md:text-3xl text-primary tracking-tight">
-                XtraFresh<span class="text-surface-dark">Cakes</span>
-            </a>
-            <nav class="hidden md:flex items-center gap-8">
-                <a href="store.html" class="text-surface-dark font-semibold text-sm hover:text-primary transition-colors flex items-center gap-1">
-                    <span class="material-symbols-outlined text-lg">storefront</span> Full Catalog
-                </a>
-                <a href="#configurator" class="text-surface-dark font-semibold text-sm hover:text-primary transition-colors">Custom Builder</a>
-                <a href="#how-it-works" class="text-on-surface-variant font-medium text-sm hover:text-primary transition-colors">How it Works</a>
-            </nav>
-            <div class="hidden md:flex items-center gap-4">
-                <a href="store.html" class="text-primary font-bold text-sm hover:underline">Shop All</a>
-                <button onclick="scrollToConfigurator()" class="bg-primary text-white font-semibold text-sm rounded-full px-6 py-2.5 hover:bg-primary-hover active:scale-95 transition-all shadow-md">
-                    Build Custom Cake
-                </button>
-            </div>
-        </div>
-    </header>
-
-    <!-- Hero Showcase Section -->
-    <section class="relative w-full max-w-7xl mx-auto px-4 md:px-10 py-10 md:py-16 flex flex-col md:flex-row items-center gap-8 md:gap-12">
-        <div class="flex-1 space-y-4 text-center md:text-left z-10">
-            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-accent-pink/30 text-primary font-semibold text-xs tracking-wider uppercase border border-primary/20">
-                <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span> Freshly Handcrafted in Lagos Daily
-            </div>
-            <h1 class="font-headline text-4xl md:text-5xl lg:text-6xl text-primary leading-tight">
-                Premium Cakes. Unique Flavors. Affordable Luxury.
-            </h1>
-            <p class="text-on-surface-variant text-base sm:text-lg max-w-xl leading-relaxed mx-auto md:mx-0">
-                Bespoke cakes handcrafted in Lagos for your special moments. Beautifully designed, meticulously baked, and delivered fresh to your door via direct WhatsApp service.
-            </p>
-            <div class="pt-4 flex flex-wrap justify-center md:justify-start gap-4">
-                <a href="store.html" class="inline-flex items-center gap-2 bg-primary text-white font-semibold text-base px-8 py-4 rounded-full hover:bg-primary-hover active:scale-95 transition-all shadow-lg">
-                    <span>Browse Full Store</span>
-                    <span class="material-symbols-outlined text-xl">storefront</span>
-                </a>
-            </div>
-        </div>
-        <div class="flex-1 w-full relative">
-            <div class="aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl relative bg-surface-container group border border-outline-variant">
-                <img src="https://images.unsplash.com/photo-1621303837174-89787a7d4729?q=80&w=1000&auto=format&fit=crop" alt="XtraFresh Bespoke Celebration Cake" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"/>
-            </div>
-        </div>
-    </section>
-
-    <!-- FEATURED BEST SELLERS -->
-    <section class="w-full max-w-7xl mx-auto px-4 md:px-10 py-16 border-t border-outline-variant/50">
-        <div class="mb-10 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
-            <div>
-                <span class="text-primary font-bold text-xs uppercase tracking-widest">Customer Favorites</span>
-                <h2 class="font-headline text-3xl md:text-4xl text-surface-dark mt-1">Our Best Sellers</h2>
-                <p class="text-on-surface-variant text-sm mt-2">The most loved signature cakes across Lagos this month.</p>
-            </div>
-            <a href="store.html" class="text-sm font-bold text-primary hover:underline flex items-center gap-1">View All <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
-        </div>
-
-        <!-- BEST SELLERS DYNAMIC GRID -->
-        <div id="best-sellers-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div class="col-span-full text-center py-10 text-on-surface-variant animate-pulse">Loading best sellers...</div>
-        </div>
-    </section>
-
-    <!-- TRENDING / FLASHY -->
-    <section class="w-full max-w-7xl mx-auto px-4 md:px-10 py-16 border-t border-outline-variant/50 bg-accent-pink/5">
-        <div class="mb-10 text-center max-w-2xl mx-auto">
-            <span class="inline-block bg-primary text-white font-bold text-[10px] uppercase tracking-widest px-3 py-1 rounded-full mb-3">Chef's Specials</span>
-            <h2 class="font-headline text-3xl md:text-4xl text-surface-dark mt-1">Trending This Season</h2>
-            <p class="text-on-surface-variant text-sm mt-2">Vibrant flavors and unique designs that are currently taking over our kitchen.</p>
-        </div>
-
-        <!-- TRENDING DYNAMIC GRID -->
-        <div id="trending-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div class="col-span-full text-center py-10 text-on-surface-variant animate-pulse">Loading trending cakes...</div>
-        </div>
-        
-        <div class="mt-12 text-center">
-            <a href="store.html" class="inline-flex items-center justify-center gap-2 bg-pink-500 text-white font-bold text-sm px-8 py-4 rounded-full hover:bg-pink-600 transition-colors shadow-lg">
-                View All <span class="material-symbols-outlined text-lg">storefront</span>
-            </a>
-        </div>
-    </section>
-
-    <!-- SECTION 3: SIMPLIFIED CUSTOM BUILDER -->
-    <section id="configurator" class="w-full max-w-4xl mx-auto px-4 md:px-10 py-16 border-t border-outline-variant/50">
-        <div class="mb-10 text-center">
-            <span class="text-primary font-bold text-xs uppercase tracking-widest">Interactive Studio</span>
-            <h2 class="font-headline text-3xl md:text-4xl text-surface-dark mt-1">Build Your Custom Cake</h2>
-            <p class="text-on-surface-variant text-sm mt-2">Select your options below for a completely bespoke creation.</p>
-        </div>
-
-        <div class="flex flex-col gap-6">
-            <!-- Step 1: Occasion -->
-            <div class="bg-white p-6 md:p-8 rounded-2xl border border-outline-variant shadow-sm">
-                <h3 class="font-bold text-surface-dark mb-4 text-sm uppercase tracking-wider">1. Occasion</h3>
-                <div class="flex flex-wrap gap-3">
-                    <button class="option-btn occasion-btn selected px-5 py-2.5 rounded-full border-2 border-primary bg-primary text-white text-sm font-semibold" onclick="selectOption(this, 'occasion', 'Birthday')">Birthday</button>
-                    <button class="option-btn occasion-btn px-5 py-2.5 rounded-full border-2 border-outline-variant bg-white text-surface-dark text-sm font-semibold hover:border-primary" onclick="selectOption(this, 'occasion', 'Wedding')">Wedding</button>
-                    <button class="option-btn occasion-btn px-5 py-2.5 rounded-full border-2 border-outline-variant bg-white text-surface-dark text-sm font-semibold hover:border-primary" onclick="selectOption(this, 'occasion', 'Engagement')">Engagement</button>
-                    <button class="option-btn occasion-btn px-5 py-2.5 rounded-full border-2 border-outline-variant bg-white text-surface-dark text-sm font-semibold hover:border-primary" onclick="selectOption(this, 'occasion', 'Anniversary')">Anniversary</button>
-                    <button class="option-btn occasion-btn px-5 py-2.5 rounded-full border-2 border-outline-variant bg-white text-surface-dark text-sm font-semibold hover:border-primary" onclick="selectOption(this, 'occasion', 'Bridal Shower')">Bridal Shower</button>
-                    <button class="option-btn occasion-btn px-5 py-2.5 rounded-full border-2 border-outline-variant bg-white text-surface-dark text-sm font-semibold hover:border-primary" onclick="selectOption(this, 'occasion', 'Graduation')">Graduation</button>
-                    <button class="option-btn occasion-btn px-5 py-2.5 rounded-full border-2 border-outline-variant bg-white text-surface-dark text-sm font-semibold hover:border-primary" onclick="selectOption(this, 'occasion', 'Baby Shower')">Baby Shower</button>
-                    <button class="option-btn occasion-btn px-5 py-2.5 rounded-full border-2 border-outline-variant bg-white text-surface-dark text-sm font-semibold hover:border-primary" onclick="selectOption(this, 'occasion', 'Other')">Other (Specify)</button>
-                </div>
-                <div id="other-occasion-input" class="hidden mt-4">
-                    <label class="block text-xs font-bold text-surface-dark mb-1.5">Specify Occasion:</label>
-                    <input type="text" id="other-occasion-val" placeholder="Type your occasion..." class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none text-sm"/>
-                </div>
-            </div>
-
-            <!-- Step 2: Flavor -->
-            <div class="bg-white p-6 md:p-8 rounded-2xl border border-outline-variant shadow-sm">
-                <h3 class="font-bold text-surface-dark mb-4 text-sm uppercase tracking-wider">2. Base Flavor</h3>
-                <div class="flex flex-wrap gap-3">
-                    <button class="option-btn flavor-btn selected px-4 py-3 rounded-xl border-2 border-primary bg-primary text-white text-sm font-semibold" onclick="selectOption(this, 'flavor', 'Classic Vanilla')">Classic Vanilla</button>
-                    <button class="option-btn flavor-btn px-4 py-3 rounded-xl border-2 border-outline-variant bg-white text-surface-dark text-sm font-semibold hover:border-primary" onclick="selectOption(this, 'flavor', 'Rich Chocolate')">Rich Chocolate</button>
-                    <button class="option-btn flavor-btn px-4 py-3 rounded-xl border-2 border-outline-variant bg-white text-surface-dark text-sm font-semibold hover:border-primary" onclick="selectOption(this, 'flavor', 'Red Velvet')">Red Velvet</button>
-                    <button class="option-btn flavor-btn px-4 py-3 rounded-xl border-2 border-outline-variant bg-white text-surface-dark text-sm font-semibold hover:border-primary" onclick="selectOption(this, 'flavor', 'Citrus Zest')">Citrus Zest</button>
-                    <button class="option-btn flavor-btn px-4 py-3 rounded-xl border-2 border-outline-variant bg-white text-surface-dark text-sm font-semibold hover:border-primary" onclick="selectOption(this, 'flavor', 'Strawberry Cream')">Strawberry Cream</button>
-                    <button class="option-btn flavor-btn px-4 py-3 rounded-xl border-2 border-outline-variant bg-white text-surface-dark text-sm font-semibold hover:border-primary" onclick="selectOption(this, 'flavor', 'Salted Caramel')">Salted Caramel</button>
-                    <button class="option-btn flavor-btn px-4 py-3 rounded-xl border-2 border-outline-variant bg-white text-surface-dark text-sm font-semibold hover:border-primary" onclick="selectOption(this, 'flavor', 'Funfetti')">Funfetti</button>
-                    <button class="option-btn flavor-btn px-4 py-3 rounded-xl border-2 border-outline-variant bg-white text-surface-dark text-sm font-semibold hover:border-primary" onclick="selectOption(this, 'flavor', 'Lemon')">Lemon</button>
-                    <button class="option-btn flavor-btn px-4 py-3 rounded-xl border-2 border-outline-variant bg-white text-surface-dark text-sm font-semibold hover:border-primary" onclick="selectOption(this, 'flavor', 'Pistachio')">Pistachio</button>
-                    <button class="option-btn flavor-btn px-4 py-3 rounded-xl border-2 border-outline-variant bg-white text-surface-dark text-sm font-semibold hover:border-primary" onclick="selectOption(this, 'flavor', 'Matcha Green Tea')">Matcha Green Tea</button>
-                    <button class="option-btn flavor-btn px-4 py-3 rounded-xl border-2 border-outline-variant bg-white text-surface-dark text-sm font-semibold hover:border-primary" onclick="selectOption(this, 'flavor', 'Cookies and Cream')">Cookies & Cream</button>
-                    <button class="option-btn flavor-btn px-4 py-3 rounded-xl border-2 border-outline-variant bg-white text-surface-dark text-sm font-semibold hover:border-primary" onclick="selectOption(this, 'flavor', 'Other')">Other (Specify)</button>
-                </div>
-                <div id="other-flavor-input" class="hidden mt-4">
-                    <label class="block text-xs font-bold text-surface-dark mb-1.5">Specify Flavor:</label>
-                    <input type="text" id="other-flavor-val" placeholder="Type your custom flavor..." class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none text-sm"/>
-                </div>
-            </div>
-
-            <!-- Step 3: Size -->
-            <div class="bg-white p-6 md:p-8 rounded-2xl border border-outline-variant shadow-sm">
-                <h3 class="font-bold text-surface-dark mb-4 text-sm uppercase tracking-wider">3. Size / Tiers</h3>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
-                    <button class="option-btn size-btn px-4 py-3 rounded-xl border-2 border-outline-variant bg-white text-surface-dark text-sm font-semibold hover:border-primary flex flex-col items-center" onclick="selectOption(this, 'size', '6-inch Small')">
-                        <span>6" Small</span>
-                        <span class="text-[10px] font-normal opacity-80 mt-1">Serves 8-10</span>
-                    </button>
-                    <button class="option-btn size-btn selected px-4 py-3 rounded-xl border-2 border-primary bg-primary text-white text-sm font-semibold flex flex-col items-center" onclick="selectOption(this, 'size', '8-inch Medium')">
-                        <span>8" Medium</span>
-                        <span class="text-[10px] font-normal opacity-80 mt-1">Serves 15-20</span>
-                    </button>
-                    <button class="option-btn size-btn px-4 py-3 rounded-xl border-2 border-outline-variant bg-white text-surface-dark text-sm font-semibold hover:border-primary flex flex-col items-center" onclick="selectOption(this, 'size', '10-inch Large')">
-                        <span>10" Large</span>
-                        <span class="text-[10px] font-normal opacity-80 mt-1">Serves 25-30</span>
-                    </button>
-                    <button class="option-btn size-btn px-4 py-3 rounded-xl border-2 border-outline-variant bg-white text-surface-dark text-sm font-semibold hover:border-primary flex flex-col items-center" onclick="selectOption(this, 'size', '2-Tier Grand')">
-                        <span>2-Tier Grand</span>
-                        <span class="text-[10px] font-normal opacity-80 mt-1">Serves 40-50</span>
-                    </button>
-                </div>
-            </div>
-
-            <!-- Step 4: Details -->
-            <div class="bg-white p-6 md:p-8 rounded-2xl border border-outline-variant shadow-sm space-y-4">
-                <h3 class="font-bold text-surface-dark text-sm uppercase tracking-wider">4. Custom Details</h3>
-                <div>
-                    <label class="block text-xs font-bold text-surface-dark mb-1.5">Cake Inscription (What should we write?)</label>
-                    <input type="text" id="builder-message" placeholder="e.g., Happy 30th Birthday Sarah!" class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none text-sm"/>
-                </div>
-                <div>
-                    <label class="block text-xs font-bold text-surface-dark mb-1.5">Special Design Notes</label>
-                    <textarea id="builder-notes" rows="2" placeholder="e.g., Please use gold accents and pink frosting" class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none text-sm"></textarea>
-                </div>
-            </div>
-
-            <!-- Order Button -->
-            <button onclick="triggerBuilderCheckout()" class="w-full py-4 rounded-2xl bg-primary text-white font-bold text-lg shadow-lg hover:bg-primary-hover active:scale-[0.98] transition-all flex items-center justify-center gap-2">
-                <span class="material-symbols-outlined">shopping_cart_checkout</span>
-                <span>Checkout Custom Cake</span>
-            </button>
-        </div>
-    </section>
-
-    <!-- SECTION 4: HOW IT WORKS -->
-    <section id="how-it-works" class="w-full max-w-7xl mx-auto px-4 md:px-10 py-16">
-        <div class="text-center max-w-2xl mx-auto mb-12">
-            <span class="text-primary font-bold text-xs uppercase tracking-widest">Seamless Ordering</span>
-            <h2 class="font-headline text-3xl md:text-4xl text-surface-dark mt-1">How XtraFresh Cakes Works</h2>
-            <p class="text-on-surface-variant text-sm mt-2">We bridge the convenience of online selection with direct, personalized WhatsApp service.</p>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="bg-white p-8 rounded-2xl border border-outline-variant shadow-sm text-center">
-                <div class="w-14 h-14 rounded-full bg-accent-pink/30 text-primary flex items-center justify-center font-headline text-2xl mx-auto mb-5">1</div>
-                <h3 class="font-headline text-xl text-surface-dark mb-2">Select Your Design</h3>
-                <p class="text-sm text-on-surface-variant leading-relaxed">Choose a signature cake from our catalog or build a custom creation using the interactive studio.</p>
-            </div>
-            <div class="bg-white p-8 rounded-2xl border border-outline-variant shadow-sm text-center">
-                <div class="w-14 h-14 rounded-full bg-whatsapp/20 text-whatsapp flex items-center justify-center font-headline text-2xl mx-auto mb-5">2</div>
-                <h3 class="font-headline text-xl text-surface-dark mb-2">WhatsApp Order</h3>
-                <p class="text-sm text-on-surface-variant leading-relaxed">Click order and your selections are instantly formatted into a WhatsApp message sent directly to our Lagos bakers.</p>
-            </div>
-            <div class="bg-white p-8 rounded-2xl border border-outline-variant shadow-sm text-center">
-                <div class="w-14 h-14 rounded-full bg-accent-pink/30 text-primary flex items-center justify-center font-headline text-2xl mx-auto mb-5">3</div>
-                <h3 class="font-headline text-xl text-surface-dark mb-2">Doorstep Lagos Delivery</h3>
-                <p class="text-sm text-on-surface-variant leading-relaxed">We confirm details and final quotes, bake your cake fresh, and deliver directly across Lagos districts.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 5: BLOG & BAKING JOURNAL -->
-    <section id="blog" class="w-full max-w-7xl mx-auto px-4 md:px-10 py-16 border-t border-outline-variant/50">
-        <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
-            <div>
-                <span class="text-primary font-bold text-xs uppercase tracking-widest">Baking Journal & News</span>
-                <h2 class="font-headline text-3xl md:text-4xl text-surface-dark mt-1">XtraFresh Stories & Cake Guides</h2>
-                <p class="text-on-surface-variant text-sm mt-2">Expert tips on custom cake design, Lagos delivery secrets, and flavor pairing inspirations.</p>
-            </div>
-            <a href="https://wa.me/2349060009541?text=Hi%20XtraFresh%20Cakes%2C%20I%20read%20your%20blog%20and%20would%20like%20to%20consult%20on%20a%20custom%20cake!" target="_blank" class="inline-flex items-center gap-2 text-primary font-bold text-sm hover:underline">
-                <span>Ask Our Master Baker</span>
-                <span class="material-symbols-outlined text-lg">arrow_forward</span>
-            </a>
-        </div>
-
-        <!-- BLOG DYNAMIC GRID -->
-        <div id="dynamic-blog-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="col-span-full text-center py-10 text-on-surface-variant animate-pulse">Loading latest articles...</div>
-        </div>
-    </section>
-
-    <!-- SEO-COMPLIANT 3-COLUMN FOOTER -->
-    <footer class="bg-surface-dark text-white pt-16 pb-12 mt-auto border-t border-outline-variant">
-        <div class="max-w-7xl mx-auto px-4 md:px-10 grid grid-cols-1 md:grid-cols-3 gap-12 border-b border-gray-800 pb-12">
-            
-            <!-- Column 1: Brand & Description -->
-            <div class="space-y-4">
-                <a href="#" class="font-headline font-black text-3xl text-primary block">XtraFresh<span class="text-white">Cakes</span></a>
-                <p class="text-sm text-gray-400 leading-relaxed max-w-sm">
-                    Premium bespoke cakes handcrafted in Lagos, Nigeria. We specialize in transforming your special occasions into unforgettable memories with our signature flavors and stunning custom designs. 
-                </p>
-                <div class="flex gap-4 pt-2">
-                    <!-- Instagram Icon -->
-                    <a href="https://instagram.com/xtrafreshcakes" target="_blank" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-pink-600 transition-colors text-white" title="Instagram">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                            <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd" />
-                        </svg>
-                    </a>
-                    <!-- TikTok Icon -->
-                    <a href="https://tiktok.com/@xtrafreshcakes" target="_blank" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-pink-600 transition-colors text-white" title="TikTok">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
-                        </svg>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Column 2: Service Areas -->
-            <div>
-                <h4 class="font-bold text-xs uppercase text-primary tracking-wider mb-5">Serving All of Lagos State</h4>
-                <div class="grid grid-cols-2 gap-2 text-sm text-gray-400">
-                    <ul class="space-y-2">
-                        <li>Ikeja & GRA</li>
-                        <li>Victoria Island</li>
-                        <li>Lekki & Ajah</li>
-                        <li>Ikoyi</li>
-                        <li>Yaba & Akoka</li>
-                    </ul>
-                    <ul class="space-y-2">
-                        <li>Surulere</li>
-                        <li>Maryland & Anthony</li>
-                        <li>Gbagada</li>
-                        <li>Festac Town</li>
-                        <li>Alimosho District</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Column 3: NAP (Name, Address, Phone) -->
-            <div>
-                <h4 class="font-bold text-xs uppercase text-primary tracking-wider mb-5">Contact Us</h4>
-                <address class="not-italic text-sm text-gray-400 space-y-3">
-                    <p class="font-bold text-white text-base mb-1">XtraFresh Cakes</p>
-                    <p class="flex items-start gap-3">
-                        <span class="material-symbols-outlined text-primary text-[18px] mt-0.5">location_on</span>
-                        <span>73 Clem Road,<br/>Ijaye, Lagos, Nigeria</span>
-                    </p>
-                    <p class="flex items-center gap-3 pt-2">
-                        <span class="material-symbols-outlined text-whatsapp text-[18px]">chat</span>
-                        <a href="https://wa.me/2349060009541" target="_blank" class="font-bold text-white hover:text-whatsapp transition-colors text-base">
-                            +234 906 000 9541
-                        </a>
-                    </p>
-                    <p class="text-xs text-gray-500 pt-2">Mon – Sat: 8:00 AM – 7:00 PM</p>
-                </address>
-            </div>
-
-        </div>
-        <div class="max-w-7xl mx-auto px-4 md:px-10 pt-6 text-center md:text-left flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
-            <p>© 2026 XtraFresh Cakes. All rights reserved.</p>
-            <div class="flex gap-4 mt-4 md:mt-0">
-                <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
-                <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
-            </div>
-        </div>
-    </footer>
-
-    <!-- ========================================== -->
-    <!-- UNIVERSAL CHECKOUT MODAL                   -->
-    <!-- ========================================== -->
-    <div id="checkout-modal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-[100] hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-2xl max-w-lg w-full shadow-2xl relative border border-outline-variant overflow-hidden flex flex-col max-h-[90vh]">
-            
-            <!-- Modal Header -->
-            <div class="bg-surface-variant p-4 border-b border-outline-variant flex justify-between items-center">
-                <h3 class="font-headline text-2xl text-surface-dark">Finalize Order</h3>
-                <button onclick="closeCheckoutModal()" class="text-on-surface-variant hover:text-primary transition-colors">
-                    <span class="material-symbols-outlined text-2xl">close</span>
-                </button>
-            </div>
-            
-            <!-- Modal Body (Scrollable) -->
-            <div class="p-6 overflow-y-auto space-y-5">
-                
-                <!-- Order Summary & Long Description -->
-                <div class="bg-primary/5 border border-primary/20 p-4 rounded-xl">
-                    <p class="text-[10px] font-bold text-primary uppercase tracking-widest mb-1">Your Order:</p>
-                    <p id="modal-cake-summary" class="text-sm font-bold text-surface-dark whitespace-pre-line mb-2"></p>
-                    <p id="modal-long-desc" class="text-xs text-on-surface-variant leading-relaxed border-t border-primary/10 pt-2"></p>
-                </div>
-
-                <div class="grid grid-cols-2 gap-4">
-                    <div class="col-span-2 sm:col-span-1">
-                        <label class="block text-xs font-bold text-surface-dark mb-1.5">Full Name</label>
-                        <input type="text" id="checkout-name" placeholder="Sarah Doe" class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface focus:border-primary outline-none text-sm"/>
-                    </div>
-                    <div class="col-span-2 sm:col-span-1">
-                        <label class="block text-xs font-bold text-surface-dark mb-1.5">WhatsApp Number</label>
-                        <input type="tel" id="checkout-phone" placeholder="090..." class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface focus:border-primary outline-none text-sm"/>
-                    </div>
-                </div>
-
-                <div class="grid grid-cols-2 gap-4">
-                    <div class="col-span-2 sm:col-span-1">
-                        <label class="block text-xs font-bold text-surface-dark mb-1.5">Delivery Date</label>
-                        <input type="date" id="checkout-date" class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface focus:border-primary outline-none text-sm"/>
-                    </div>
-                    <div class="col-span-2 sm:col-span-1">
-                        <label class="block text-xs font-bold text-surface-dark mb-1.5">Claim August Promo?</label>
-                        <select id="checkout-promo" class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface focus:border-primary outline-none text-sm">
-                            <option value="No">No</option>
-                            <option value="Yes">Yes</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div>
-                    <label class="block text-xs font-bold text-surface-dark mb-1.5">Allergies?</label>
-                    <input type="text" id="checkout-allergies" placeholder="e.g., Nuts, None" class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface focus:border-primary outline-none text-sm mb-4"/>
-                </div>
-
-                <div>
-                    <label class="block text-xs font-bold text-surface-dark mb-1.5">Delivery Address (Lagos)</label>
-                    <textarea id="checkout-address" rows="2" placeholder="Full street address and area (e.g., 12 Admiralty Way, Lekki)" class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface focus:border-primary outline-none text-sm"></textarea>
-                    <p class="text-[10px] text-on-surface-variant mt-1.5">Free delivery for August Promo applies only to Ogba, Ikeja, and Ojodu zones.</p>
-                </div>
-            </div>
-
-            <!-- Modal Footer -->
-            <div class="p-4 border-t border-outline-variant bg-surface">
-                <button id="final-submit-btn" onclick="submitOrderToSheet(event)" class="w-full bg-primary text-white font-bold text-base px-6 py-4 rounded-xl hover:bg-primary-hover active:scale-[0.98] transition-all shadow-lg flex items-center justify-center gap-2">
-                    <span class="material-symbols-outlined">send</span>
-                    <span>Confirm & Send to WhatsApp</span>
-                </button>
-            </div>
-        </div>
-    </div>
-    <!-- ========================================== -->
-
-    <!-- Promo Modal -->
-    <!-- EXCLUSIVE PROMO CHECKOUT MODAL -->
-    <div id="promo-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-[100] hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-2xl max-w-lg w-full shadow-2xl relative border border-outline-variant overflow-hidden flex flex-col max-h-[95vh]">
-            
-            <!-- Header -->
-            <div class="bg-primary p-5 flex justify-between items-center text-white">
-                <div>
-                    <span class="inline-block bg-white/20 text-white font-bold text-[10px] uppercase tracking-widest px-2 py-1 rounded-full mb-1">First 10 Only</span>
-                    <h3 class="font-headline text-2xl leading-none">August Giveaway</h3>
-                </div>
-                <button onclick="closePromoModal()" class="text-white/80 hover:text-white transition-colors">
-                    <span class="material-symbols-outlined text-3xl">close</span>
-                </button>
-            </div>
-            
-            <!-- Body -->
-            <div class="p-6 overflow-y-auto space-y-6">
-                
-                <!-- Updated Terms from XtraFresh Giveaway terms.jpg overrides -->
-                <div class="bg-primary/5 p-4 rounded-xl border border-primary/20">
-                    <p class="font-bold text-primary mb-2 text-xs uppercase tracking-wider">Giveaway Terms:</p>
-                    <ul class="space-y-1.5 text-xs text-on-surface-variant list-decimal pl-4">
-                        <li>Valid for <strong class="text-surface-dark">ALL occasions</strong> (Birthdays, Weddings, Anniversaries, etc.) between August 1–15, 2026.</li>
-                        <li>Available in <strong class="text-surface-dark">6", 8", and 10"</strong> sizes.</li>
-                        <li>Must pre-order <strong class="text-surface-dark">5 days in advance</strong> (Weddings require <strong class="text-surface-dark">7 days</strong> notice).</li>
-                        <li>Free delivery strictly within <strong class="text-surface-dark">Ogba, Ikeja & Ojodu</strong> only.</li>
-                        <li>Valid ID/Proof of event required on delivery. Limit 1 per person.</li>
-                    </ul>
-                </div>
-
-                <!-- Exclusive Promo Form -->
-                <div class="space-y-4 border-t border-outline-variant pt-2">
-                    <h4 class="font-bold text-surface-dark text-sm">Claim Your Free Cake</h4>
-                    
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="col-span-2 sm:col-span-1">
-                            <label class="block text-xs font-bold text-surface-dark mb-1.5">Full Name</label>
-                            <input type="text" id="promo-name" placeholder="Sarah Doe" class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface focus:border-primary outline-none text-sm"/>
-                        </div>
-                        <div class="col-span-2 sm:col-span-1">
-                            <label class="block text-xs font-bold text-surface-dark mb-1.5">WhatsApp Number</label>
-                            <input type="tel" id="promo-phone" placeholder="090..." class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface focus:border-primary outline-none text-sm"/>
-                        </div>
-                    </div>
-
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="col-span-2 sm:col-span-1">
-                            <label class="block text-xs font-bold text-surface-dark mb-1.5">Occasion</label>
-                            <select id="promo-occasion" class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface focus:border-primary outline-none text-sm">
-                                <option value="Birthday">Birthday</option>
-                                <option value="Wedding">Wedding</option>
-                                <option value="Anniversary">Anniversary</option>
-                                <option value="Graduation">Graduation</option>
-                                <option value="Other">Other</option>
-                            </select>
-                        </div>
-                        <div class="col-span-2 sm:col-span-1">
-                            <label class="block text-xs font-bold text-surface-dark mb-1.5">Cake Size</label>
-                            <select id="promo-size" class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface focus:border-primary outline-none text-sm">
-                                <option value="6-inch">6" Small</option>
-                                <option value="8-inch">8" Medium</option>
-                                <option value="10-inch">10" Large</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div>
-                        <label class="block text-xs font-bold text-surface-dark mb-1.5">Event/Delivery Date (Must be Aug 1 - Aug 15)</label>
-                        <!-- Date logic locked to Max Aug 15, 2026 -->
-                        <input type="date" id="promo-date" min="2026-08-01" max="2026-08-15" class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface focus:border-primary outline-none text-sm"/>
-                    </div>
-
-                    <div>
-                        <label class="block text-xs font-bold text-surface-dark mb-1.5">Delivery Address</label>
-                        <textarea id="promo-address" rows="2" placeholder="Full street address (Ogba, Ikeja, or Ojodu)" class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface focus:border-primary outline-none text-sm"></textarea>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Footer Action -->
-            <div class="p-4 border-t border-outline-variant bg-surface">
-                <button id="promo-submit-btn" onclick="submitPromoOrderToSheet(event)" class="w-full bg-primary text-white font-bold text-base px-6 py-4 rounded-xl hover:bg-primary-hover active:scale-[0.98] transition-all shadow-lg flex items-center justify-center gap-2">
-                    <span class="material-symbols-outlined">celebration</span>
-                    <span>Claim Free Cake & WhatsApp Us</span>
-                </button>
-            </div>
-        </div>
+    <!-- Promo hero -->
+    <div id="hero-promo" hidden>
+      <h1 class="font-headline text-4xl sm:text-5xl lg:text-6xl leading-[1.05] mb-4">
+        Your cake. On&nbsp;us.
+      </h1>
+      <p class="text-on-surface-variant text-base sm:text-lg leading-relaxed mb-6 max-w-lg">
+        We're giving away <strong class="text-on-surface">10 cakes</strong> this August — any size,
+        any flavour, completely free. No catch. We're new, we're confident in what we bake,
+        and we want Lagos to taste it.
+      </p>
+      <div class="flex flex-wrap gap-3 mb-4">
+        <button onclick="openPromo()"
+                class="bg-primary text-white font-bold px-6 py-3.5 rounded-xl hover:bg-primary-hover active:scale-95 transition shadow-lg shadow-primary/20">
+          Claim Your Free Cake
+        </button>
+        <a href="store.html"
+           class="border border-outline-variant font-bold px-6 py-3.5 rounded-xl hover:border-primary hover:text-primary transition">
+          See All Cakes
+        </a>
+      </div>
+      <p class="text-sm text-on-surface-variant">
+        <strong id="hero-slots" class="text-primary">—</strong> ·
+        Free delivery in Ogba, Ikeja &amp; Ojodu
+      </p>
     </div>
 
-    <!-- Scripts -->
-    <script>
-        const API_URL = "https://script.google.com/macros/s/AKfycbycvxx3tKkPp_Ssld75TfQGX13oVp8GpD58tvehjAAFsXaywJJg-c_XhQ42q0aZ724Q/exec";
-        const WHATSAPP_PHONE = "2349060009541";
-        
-        let currentOrderDetails = ""; 
+    <!-- Normal hero -->
+    <div id="hero-normal" hidden>
+      <h1 class="font-headline text-4xl sm:text-5xl lg:text-6xl leading-[1.05] mb-4">
+        Cakes worth celebrating with.
+      </h1>
+      <p class="text-on-surface-variant text-base sm:text-lg leading-relaxed mb-6 max-w-lg">
+        Made to order in Lagos, baked fresh the morning of your event, and delivered to your door.
+        Tell us what you're celebrating — we'll handle the rest.
+      </p>
+      <div class="flex flex-wrap gap-3 mb-4">
+        <button onclick="scrollTo_('#builder')"
+                class="bg-primary text-white font-bold px-6 py-3.5 rounded-xl hover:bg-primary-hover active:scale-95 transition shadow-lg shadow-primary/20">
+          Build Your Cake
+        </button>
+        <a href="store.html"
+           class="border border-outline-variant font-bold px-6 py-3.5 rounded-xl hover:border-primary hover:text-primary transition">
+          See All Cakes
+        </a>
+      </div>
+      <p class="text-sm text-on-surface-variant">Free delivery in Ogba, Ikeja &amp; Ojodu</p>
+    </div>
+  </div>
 
-        const builderState = {
-            occasion: "Birthday",
-            flavor: "Classic Vanilla",
-            size: "8-inch Medium"
-        };
-        
-        let isOtherOccasion = false;
-        let isOtherFlavor = false;
+  <div class="relative">
+    <img src="https://images.unsplash.com/photo-1621303837174-89787a7d4729?q=80&w=1000&auto=format&fit=crop"
+         alt="XtraFresh celebration cake" width="1000" height="1000"
+         class="rounded-3xl w-full aspect-square object-cover shadow-xl"/>
+  </div>
+</section>
 
-        function selectOption(button, category, value) {
-            builderState[category] = value;
-            
-            const siblings = document.querySelectorAll(`.${category}-btn`);
-            siblings.forEach(btn => {
-                btn.classList.remove('selected', 'bg-primary', 'text-white', 'border-primary');
-                btn.classList.add('bg-white', 'text-surface-dark', 'border-outline-variant');
-            });
-            
-            button.classList.remove('bg-white', 'text-surface-dark', 'border-outline-variant');
-            button.classList.add('selected', 'bg-primary', 'text-white', 'border-primary');
+<!-- ============ TRUST ROW ============ -->
+<section class="bg-surface-variant border-y border-outline-variant">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-8 grid grid-cols-2 lg:grid-cols-4 gap-6 text-sm">
+    <div class="flex gap-3">
+      <span class="material-symbols-outlined text-primary">schedule</span>
+      <div><p class="font-bold">Baked fresh</p><p class="text-on-surface-variant">Never frozen, never day-old</p></div>
+    </div>
+    <div class="flex gap-3">
+      <span class="material-symbols-outlined text-primary">chat</span>
+      <div><p class="font-bold">Talk to the baker</p><p class="text-on-surface-variant">Not a call centre</p></div>
+    </div>
+    <div class="flex gap-3">
+      <span class="material-symbols-outlined text-primary">local_shipping</span>
+      <div><p class="font-bold">Free delivery</p><p class="text-on-surface-variant">Ogba, Ikeja &amp; Ojodu</p></div>
+    </div>
+    <div class="flex gap-3">
+      <span class="material-symbols-outlined text-primary">event_available</span>
+      <div><p class="font-bold">Order 1 week ahead</p><p class="text-on-surface-variant">2 weeks for weddings</p></div>
+    </div>
+  </div>
+</section>
 
-            if (category === 'occasion') {
-                const otherInput = document.getElementById('other-occasion-input');
-                if (value === 'Other') {
-                    otherInput.classList.remove('hidden');
-                    isOtherOccasion = true;
-                } else {
-                    otherInput.classList.add('hidden');
-                    isOtherOccasion = false;
-                }
-            }
-            
-            if (category === 'flavor') {
-                const otherInput = document.getElementById('other-flavor-input');
-                if (value === 'Other') {
-                    otherInput.classList.remove('hidden');
-                    isOtherFlavor = true;
-                } else {
-                    otherInput.classList.add('hidden');
-                    isOtherFlavor = false;
-                }
-            }
-        }
+<!-- ============ BEST SELLERS ============ -->
+<section class="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
+  <div class="flex items-end justify-between gap-4 mb-7">
+    <div>
+      <span class="text-xs font-bold text-primary uppercase tracking-wider">Most Ordered</span>
+      <h2 class="font-headline text-3xl sm:text-4xl mt-1">Our Best Sellers</h2>
+      <p class="text-on-surface-variant mt-1">The cakes Lagos keeps coming back for.</p>
+    </div>
+    <a href="store.html" class="hidden sm:flex items-center gap-1 text-sm font-bold text-primary hover:gap-2 transition-all">
+      See More <span class="material-symbols-outlined text-base">arrow_forward</span>
+    </a>
+  </div>
+  <div id="grid-best" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+</section>
 
-        function openCatalogModal(cakeName, flavor, price, longDesc) {
-            const shortDetails = `${cakeName}\nFlavor: ${flavor}\nBase Price: ${price}`;
-            currentOrderDetails = shortDetails;
-            
-            document.getElementById("modal-cake-summary").innerText = shortDetails;
-            
-            const descEl = document.getElementById("modal-long-desc");
-            descEl.innerText = longDesc; 
-            descEl.classList.remove("hidden"); 
+<!-- ============ TRENDING ============ -->
+<section class="bg-surface-variant py-12 sm:py-16">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="mb-7">
+      <span class="text-xs font-bold text-primary uppercase tracking-wider">What's Hot</span>
+      <h2 class="font-headline text-3xl sm:text-4xl mt-1">Trending Now</h2>
+      <p class="text-on-surface-variant mt-1">New flavours and designs everyone's ordering this month.</p>
+    </div>
+    <div id="grid-trending" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+    <div class="text-center mt-8">
+      <a href="store.html" class="inline-flex items-center gap-2 border border-outline-variant font-bold px-6 py-3 rounded-xl hover:border-primary hover:text-primary transition">
+        See All Cakes <span class="material-symbols-outlined text-base">storefront</span>
+      </a>
+    </div>
+  </div>
+</section>
 
-            document.getElementById("checkout-modal").classList.remove("hidden");
-            document.body.style.overflow = "hidden";
-        }
+<!-- ============ BUILDER ============ -->
+<section id="builder" class="max-w-4xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
+  <div class="text-center mb-8">
+    <span class="text-xs font-bold text-primary uppercase tracking-wider">Make It Yours</span>
+    <h2 class="font-headline text-3xl sm:text-4xl mt-1">Build Your Cake</h2>
+    <p class="text-on-surface-variant mt-1">Pick your occasion, flavour and size. Takes less than a minute.</p>
+  </div>
 
-        function triggerBuilderCheckout() {
-            const inscription = document.getElementById("builder-message").value;
-            const notes = document.getElementById("builder-notes").value;
-            
-            const finalOccasion = isOtherOccasion ? document.getElementById("other-occasion-val").value || "Custom Occasion" : builderState.occasion;
-            const finalFlavor = isOtherFlavor ? document.getElementById("other-flavor-val").value || "Custom Flavor" : builderState.flavor;
-            
-            let details = `Custom ${finalOccasion} Cake\n`;
-            details += `Flavor: ${finalFlavor}\n`;
-            details += `Size: ${builderState.size}`;
-            if(inscription) details += `\nInscription: "${inscription}"`;
-            if(notes) details += `\nNotes: ${notes}`;
+  <div class="bg-surface border border-outline-variant rounded-3xl p-5 sm:p-8 space-y-8 shadow-sm">
 
-            currentOrderDetails = details;
-            document.getElementById("modal-cake-summary").innerText = details;
-            
-            document.getElementById("modal-long-desc").classList.add("hidden");
-            
-            document.getElementById("checkout-modal").classList.remove("hidden");
-            document.body.style.overflow = "hidden"; 
-        }
+    <div>
+      <h3 class="font-bold mb-3">1. What are you celebrating?</h3>
+      <div id="opt-occasion" class="flex flex-wrap gap-2"></div>
+      <div id="wrap-occasion-other" hidden class="mt-3">
+        <input id="occasion-other" type="text" placeholder="Tell us the occasion"
+               class="w-full px-4 py-3 rounded-xl border border-outline-variant focus:border-primary outline-none"/>
+      </div>
+      <p id="wedding-note" hidden class="mt-3 text-sm bg-surface-container rounded-xl px-4 py-3">
+        <strong>Wedding cakes need 2 weeks' notice.</strong> We'll confirm the design with you before we start.
+      </p>
+    </div>
 
-        function closeCheckoutModal() {
-            document.getElementById("checkout-modal").classList.add("hidden");
-            document.body.style.overflow = "auto";
-        }
+    <div>
+      <h3 class="font-bold mb-3">2. Pick your flavour</h3>
+      <div id="opt-flavour" class="flex flex-wrap gap-2"></div>
+      <div id="wrap-flavour-other" hidden class="mt-3">
+        <input id="flavour-other" type="text" placeholder="Tell us the flavour you want"
+               class="w-full px-4 py-3 rounded-xl border border-outline-variant focus:border-primary outline-none"/>
+      </div>
+    </div>
 
-        function submitOrderToSheet(event) {
-            event.preventDefault(); 
-            
-            const submitBtn = document.getElementById("final-submit-btn");
-            submitBtn.innerHTML = `<span class="material-symbols-outlined animate-spin">progress_activity</span> Sending...`;
-            submitBtn.disabled = true;
+    <div>
+      <h3 class="font-bold mb-3">3. What size?</h3>
+      <div id="opt-size" class="grid sm:grid-cols-2 gap-2"></div>
+      <p class="mt-3 text-sm text-on-surface-variant">
+        Not sure what size? Tell us your guest count on WhatsApp and we'll advise.
+      </p>
+    </div>
 
-            const orderData = {
-                customerName: document.getElementById("checkout-name").value || "No Name",
-                customerPhone: document.getElementById("checkout-phone").value || "No Phone",
-                deliveryDate: document.getElementById("checkout-date").value,
-                deliveryAddress: document.getElementById("checkout-address").value,
-                allergies: document.getElementById("checkout-allergies").value,
-                promoClaimed: document.getElementById("checkout-promo").value 
-            };
+    <div class="grid sm:grid-cols-2 gap-4">
+      <div>
+        <label class="block text-sm font-bold mb-1.5">Message on the cake <span class="font-normal text-on-surface-variant">(optional)</span></label>
+        <input id="inscription" type="text" placeholder="Happy Birthday Tolu!"
+               class="w-full px-4 py-3 rounded-xl border border-outline-variant focus:border-primary outline-none"/>
+      </div>
+      <div>
+        <label class="block text-sm font-bold mb-1.5">Anything else we should know?</label>
+        <input id="notes" type="text" placeholder="Colours, design ideas, allergies..."
+               class="w-full px-4 py-3 rounded-xl border border-outline-variant focus:border-primary outline-none"/>
+      </div>
+    </div>
 
-            fetch(API_URL, {
-                method: 'POST',
-                body: JSON.stringify(orderData)
-            })
-            .then(response => response.json())
-            .then(data => {
-                if(data.status === "success") {
-                    let message = `Hello XtraFresh! 🎂\n\nI just placed an order on the website.\n*Order ID:* ${data.orderId}\n\n`;
-                    message += `*My Order Details:*\n${currentOrderDetails}\n\n`;
-                    message += `*Delivery to:* ${orderData.deliveryAddress} on ${orderData.deliveryDate}\n\n`;
-                    message += `Please let me know the total cost with delivery and your account details so I can make the transfer!`;
-                    
-                    const whatsappLink = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(message)}`;
-                    window.location.href = whatsappLink;
-                } else {
-                    alert("Oops! Something went wrong saving your order.");
-                    resetSubmitButton(submitBtn);
-                }
-            })
-            .catch(error => {
-                console.error("Error:", error);
-                alert("Network error. Please check your connection.");
-                resetSubmitButton(submitBtn);
-            });
-        }
+    <div class="bg-surface-container rounded-2xl p-5 flex flex-wrap items-center justify-between gap-4">
+      <div>
+        <p class="text-xs text-on-surface-variant">Estimated price</p>
+        <p id="builder-price" class="font-headline text-2xl">—</p>
+        <p id="builder-price-note" class="text-xs text-on-surface-variant mt-0.5"></p>
+      </div>
+      <button onclick="checkoutFromBuilder()"
+              class="bg-primary text-white font-bold px-6 py-3.5 rounded-xl hover:bg-primary-hover active:scale-95 transition">
+        Continue
+      </button>
+    </div>
+    <p class="text-xs text-on-surface-variant -mt-4">Every cake is made to order — we confirm your final price on WhatsApp.</p>
+  </div>
+</section>
 
-        function resetSubmitButton(btn) {
-            btn.innerHTML = `<span class="material-symbols-outlined">send</span> Confirm & Send to WhatsApp`;
-            btn.disabled = false;
-        }
+<!-- ============ HOW IT WORKS ============ -->
+<section id="how" class="bg-surface-dark text-white py-14 sm:py-20">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6">
+    <h2 class="font-headline text-3xl sm:text-4xl text-center mb-10">How ordering works</h2>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="bg-white/5 rounded-2xl p-5">
+        <div class="w-9 h-9 rounded-full bg-primary flex items-center justify-center font-bold mb-3">1</div>
+        <p class="font-bold mb-1">Pick or build your cake</p>
+        <p class="text-white/70 text-sm">Choose from our cakes, or build your own.</p>
+      </div>
+      <div class="bg-white/5 rounded-2xl p-5">
+        <div class="w-9 h-9 rounded-full bg-primary flex items-center justify-center font-bold mb-3">2</div>
+        <p class="font-bold mb-1">Send us the details</p>
+        <p class="text-white/70 text-sm">Fill the short form. It opens WhatsApp with everything filled in.</p>
+      </div>
+      <div class="bg-white/5 rounded-2xl p-5">
+        <div class="w-9 h-9 rounded-full bg-primary flex items-center justify-center font-bold mb-3">3</div>
+        <p class="font-bold mb-1">We confirm price and payment</p>
+        <p class="text-white/70 text-sm">You get the exact price, we agree a date, you pay.</p>
+      </div>
+      <div class="bg-white/5 rounded-2xl p-5">
+        <div class="w-9 h-9 rounded-full bg-primary flex items-center justify-center font-bold mb-3">4</div>
+        <p class="font-bold mb-1">We bake and deliver</p>
+        <p class="text-white/70 text-sm">Baked fresh the morning of your event.</p>
+      </div>
+    </div>
+    <p class="text-center mt-8 font-bold">Order at least 1 week ahead. 2 weeks for weddings.</p>
+  </div>
+</section>
 
-        function openPromoModal() {
-            document.getElementById('promo-modal').classList.remove('hidden');
-        }
-        function closePromoModal() {
-            document.getElementById('promo-modal').classList.add('hidden');
-        }
-        function scrollToConfigurator() {
-            document.getElementById('configurator').scrollIntoView({ behavior: 'smooth' });
-        }
-        
-        // --- EXCLUSIVE PROMO SUBMISSION LOGIC ---
-        function submitPromoOrderToSheet(event) {
-            event.preventDefault(); 
-            
-            const submitBtn = document.getElementById("promo-submit-btn");
-            submitBtn.innerHTML = `<span class="material-symbols-outlined animate-spin">progress_activity</span> Verifying...`;
-            submitBtn.disabled = true;
+<!-- ============ BLOG ============ -->
+<section id="blog" class="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
+  <div class="mb-7">
+    <span class="text-xs font-bold text-primary uppercase tracking-wider">From Our Kitchen</span>
+    <h2 class="font-headline text-3xl sm:text-4xl mt-1">Stories &amp; Tips</h2>
+  </div>
+  <div id="grid-blog" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+</section>
 
-            const name = document.getElementById("promo-name").value || "No Name";
-            const phone = document.getElementById("promo-phone").value || "No Phone";
-            const date = document.getElementById("promo-date").value;
-            const address = document.getElementById("promo-address").value;
-            const occasion = document.getElementById("promo-occasion").value;
-            const size = document.getElementById("promo-size").value;
+<!-- ============ FOOTER ============ -->
+<footer class="bg-surface-dark text-white/80 pt-14 pb-8">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 grid md:grid-cols-3 gap-10">
+    <div>
+      <p class="font-headline text-2xl text-white mb-3">XtraFresh<span class="text-primary">Cakes</span></p>
+      <p class="text-sm mb-4">Custom cakes made to order in Lagos. Baked fresh the morning of your event.</p>
+      <div class="flex gap-3 text-sm">
+        <a href="https://instagram.com/xtrafreshcakes" target="_blank" rel="noopener" class="hover:text-white">Instagram</a>
+        <a href="https://tiktok.com/@xtrafreshcakes" target="_blank" rel="noopener" class="hover:text-white">TikTok</a>
+      </div>
+    </div>
+    <div>
+      <h4 class="text-white font-bold mb-3">Where We Deliver</h4>
+      <p class="text-sm mb-2"><strong class="text-white">Free delivery:</strong> Ogba · Ikeja · Ojodu</p>
+      <p class="text-sm">
+        <strong class="text-white">We also deliver to:</strong>
+        Yaba · Surulere · Maryland · Anthony · Gbagada · Victoria Island · Lekki · Ajah · Ikoyi · Festac · Alimosho
+        <span class="block mt-1 text-white/60">Delivery fee applies.</span>
+      </p>
+    </div>
+    <div>
+      <h4 class="text-white font-bold mb-3">Talk to Us</h4>
+      <address class="not-italic text-sm space-y-2">
+        <p class="text-white font-semibold">XtraFresh Cakes</p>
+        <p>73 Clem Road, Ijaye, Lagos</p>
+        <p><a id="footer-wa" href="https://wa.me/2349060009541" target="_blank" rel="noopener" class="text-whatsapp font-bold">+234 906 000 9541</a></p>
+        <p>Open Monday to Saturday, 8am – 7pm</p>
+        <p class="text-white/60">Order at least 1 week ahead. 2 weeks for weddings.</p>
+      </address>
+    </div>
+  </div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 mt-10 pt-6 border-t border-white/10 text-xs">
+    <p>© 2026 XtraFresh Cakes.</p>
+  </div>
+</footer>
 
-            // Enforce date validation directly on the frontend
-            if (!date || new Date(date) > new Date('2026-08-15') || new Date(date) < new Date('2026-08-01')) {
-                alert("Please select a valid event date between August 1 and August 15, 2026.");
-                submitBtn.innerHTML = `<span class="material-symbols-outlined">celebration</span> Claim Free Cake & WhatsApp Us`;
-                submitBtn.disabled = false;
-                return;
-            }
+<!-- ============ STICKY MOBILE CTA ============ -->
+<div id="sticky-cta" hidden
+     class="md:hidden fixed bottom-0 inset-x-0 z-40 p-3 bg-surface/95 backdrop-blur border-t border-outline-variant">
+  <button onclick="openPromo()"
+          class="w-full bg-primary text-white font-bold py-3.5 rounded-xl active:scale-95 transition">
+    Claim Your Free Cake
+  </button>
+</div>
 
-            const orderData = {
-                customerName: name,
-                customerPhone: phone,
-                deliveryDate: date,
-                deliveryAddress: address,
-                allergies: "Promo Giveaway",
-                promoClaimed: "Yes" 
-            };
+<!-- ============ CHECKOUT MODAL ============ -->
+<div id="modal-checkout" hidden class="modal fixed inset-0 bg-black/70 backdrop-blur-sm z-[100] flex items-end sm:items-center justify-center sm:p-4">
+  <div class="bg-surface w-full sm:max-w-lg sm:rounded-3xl rounded-t-3xl max-h-[92vh] flex flex-col">
+    <div class="flex items-center justify-between px-5 py-4 border-b border-outline-variant">
+      <h3 class="font-headline text-xl">Confirm Your Order</h3>
+      <button onclick="closeModal('modal-checkout')" class="p-1"><span class="material-symbols-outlined">close</span></button>
+    </div>
 
-            fetch(API_URL, {
-                method: 'POST',
-                body: JSON.stringify(orderData)
-            })
-            .then(response => response.json())
-            .then(data => {
-                if(data.status === "success") {
-                    let message = `Hello XtraFresh! 🎉\n\nI am reaching out to claim the *August Celebration Giveaway*!\n*Order ID:* ${data.orderId}\n\n`;
-                    message += `*Promo Details:*\nOccasion: ${occasion}\nSize: ${size}\n\n`;
-                    message += `*Delivery to:* ${address} on ${date}\n\n`;
-                    message += `Please let me know if I am among the first 10 and confirm my booking!`;
-                    
-                    const whatsappLink = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(message)}`;
-                    window.location.href = whatsappLink;
-                } else {
-                    alert("Oops! Something went wrong saving your promo claim.");
-                    submitBtn.innerHTML = `<span class="material-symbols-outlined">celebration</span> Claim Free Cake & WhatsApp Us`;
-                    submitBtn.disabled = false;
-                }
-            })
-            .catch(error => {
-                console.error("Error:", error);
-                alert("Network error. Please check your connection.");
-                submitBtn.innerHTML = `<span class="material-symbols-outlined">celebration</span> Claim Free Cake & WhatsApp Us`;
-                submitBtn.disabled = false;
-            });
-        }
-        
-        // --- DYNAMIC CONTENT FETCHING ---
-        // Pointing directly to your valid /exec API URL
-        const APP_SCRIPT_GET_URL = API_URL;
+    <div class="overflow-y-auto px-5 py-4 space-y-4">
+      <div class="bg-surface-container rounded-2xl p-4">
+        <p class="text-xs text-on-surface-variant mb-1">Your order</p>
+        <p id="sum-order" class="text-sm font-semibold whitespace-pre-line"></p>
+        <p id="sum-desc" hidden class="text-sm text-on-surface-variant mt-2"></p>
+        <p id="sum-price" class="text-sm text-primary font-bold mt-2"></p>
+      </div>
 
-        // Fetch data as soon as the page loads
-        document.addEventListener("DOMContentLoaded", () => {
-            fetchDynamicContent();
+      <div class="grid sm:grid-cols-2 gap-4">
+        <div>
+          <label class="block text-sm font-bold mb-1.5">Your Name</label>
+          <input id="co-name" type="text" placeholder="Sarah Adeyemi"
+                 class="w-full px-4 py-3 rounded-xl border border-outline-variant focus:border-primary outline-none"/>
+        </div>
+        <div>
+          <label class="block text-sm font-bold mb-1.5">WhatsApp Number</label>
+          <input id="co-phone" type="tel" inputmode="tel" placeholder="0801 234 5678"
+                 class="w-full px-4 py-3 rounded-xl border border-outline-variant focus:border-primary outline-none"/>
+          <p class="text-xs text-on-surface-variant mt-1">This is how we reach you.</p>
+        </div>
+      </div>
+
+      <div>
+        <label class="block text-sm font-bold mb-1.5">When do you need it?</label>
+        <input id="co-date" type="date"
+               class="w-full px-4 py-3 rounded-xl border border-outline-variant focus:border-primary outline-none"/>
+        <p id="co-date-hint" class="text-xs text-on-surface-variant mt-1"></p>
+      </div>
+
+      <div>
+        <label class="block text-sm font-bold mb-2">How would you like to get it?</label>
+        <div class="grid grid-cols-2 gap-2">
+          <button type="button" onclick="setFulfilment('delivery')" id="ff-delivery"
+                  class="option-btn selected border rounded-xl py-3 text-sm font-semibold">Deliver to me</button>
+          <button type="button" onclick="setFulfilment('pickup')" id="ff-pickup"
+                  class="option-btn border border-outline-variant rounded-xl py-3 text-sm font-semibold">I'll pick up (free)</button>
+        </div>
+      </div>
+
+      <div id="wrap-address">
+        <label class="block text-sm font-bold mb-1.5">Where should we deliver?</label>
+        <textarea id="co-address" rows="2" placeholder="12 Aina Street, Ogba, Lagos"
+                  class="w-full px-4 py-3 rounded-xl border border-outline-variant focus:border-primary outline-none"></textarea>
+        <p class="text-xs text-on-surface-variant mt-1">
+          Free in Ogba, Ikeja &amp; Ojodu. Other areas ₦4,000–₦10,000 depending on distance.
+        </p>
+      </div>
+
+      <div>
+        <label class="block text-sm font-bold mb-1.5">Any allergies?</label>
+        <input id="co-allergies" type="text" placeholder="Nuts, dairy, or type None"
+               class="w-full px-4 py-3 rounded-xl border border-outline-variant focus:border-primary outline-none"/>
+      </div>
+
+      <p id="co-error" hidden class="text-sm text-primary font-semibold bg-primary/5 rounded-xl px-4 py-3"></p>
+    </div>
+
+    <div class="px-5 py-4 border-t border-outline-variant">
+      <button id="co-submit" onclick="submitOrder()"
+              class="w-full bg-primary text-white font-bold py-4 rounded-xl hover:bg-primary-hover active:scale-95 transition flex items-center justify-center gap-2">
+        <span class="material-symbols-outlined">send</span> Send My Order
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ PROMO MODAL ============ -->
+<div id="modal-promo" hidden class="modal fixed inset-0 bg-black/70 backdrop-blur-sm z-[100] flex items-end sm:items-center justify-center sm:p-4">
+  <div class="bg-surface w-full sm:max-w-lg sm:rounded-3xl rounded-t-3xl max-h-[92vh] flex flex-col">
+    <div class="bg-primary text-white px-5 py-4 sm:rounded-t-3xl flex items-center justify-between">
+      <div>
+        <h3 class="font-headline text-xl">Free Cake — First 10 Only</h3>
+        <p id="promo-slots" class="text-xs text-white/80 mt-0.5"></p>
+      </div>
+      <button onclick="closeModal('modal-promo')" class="p-1"><span class="material-symbols-outlined">close</span></button>
+    </div>
+
+    <div class="overflow-y-auto px-5 py-4 space-y-4">
+      <p class="text-sm text-on-surface-variant leading-relaxed">
+        We're new, and we'd rather you taste our cake than read about it. So we're giving 10 of them
+        away, free, for celebrations happening in August.
+      </p>
+
+      <div class="bg-surface-container rounded-2xl p-4 text-sm space-y-3">
+        <div>
+          <p class="font-bold mb-1">What you get</p>
+          <p class="text-on-surface-variant">Any cake, completely free — up to 12-inch, or a 2-layer cake for
+          weddings. Free delivery in Ogba, Ikeja or Ojodu; anywhere else you can pick up free or pay for delivery.</p>
+        </div>
+        <div>
+          <p class="font-bold mb-1">What we ask in return</p>
+          <ul class="text-on-surface-variant space-y-1 list-disc pl-4">
+            <li>Tell us honestly what you thought — good and bad.</li>
+            <li>Let us photograph your cake. <em>You get the professional photos free.</em></li>
+            <li>A short review for our website, with your first name.</li>
+            <li>Tag us in one post or story on the day.</li>
+          </ul>
+        </div>
+        <p class="text-on-surface-variant"><strong class="text-on-surface">A small thank you:</strong>
+        two 15%-off codes to pass to friends.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-4">
+        <div>
+          <label class="block text-sm font-bold mb-1.5">Your Name</label>
+          <input id="pr-name" type="text" placeholder="Sarah Adeyemi"
+                 class="w-full px-4 py-3 rounded-xl border border-outline-variant focus:border-primary outline-none"/>
+        </div>
+        <div>
+          <label class="block text-sm font-bold mb-1.5">WhatsApp Number</label>
+          <input id="pr-phone" type="tel" inputmode="tel" placeholder="0801 234 5678"
+                 class="w-full px-4 py-3 rounded-xl border border-outline-variant focus:border-primary outline-none"/>
+        </div>
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-4">
+        <div>
+          <label class="block text-sm font-bold mb-1.5">What are you celebrating?</label>
+          <select id="pr-occasion" onchange="updatePromoDateLimits()"
+                  class="w-full px-4 py-3 rounded-xl border border-outline-variant focus:border-primary outline-none">
+            <option>Birthday</option><option>Wedding</option><option>Anniversary</option>
+            <option>Engagement</option><option>Baby Shower</option><option>Graduation</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-sm font-bold mb-1.5">Size</label>
+          <select id="pr-size" class="w-full px-4 py-3 rounded-xl border border-outline-variant focus:border-primary outline-none"></select>
+        </div>
+      </div>
+
+      <div>
+        <label class="block text-sm font-bold mb-1.5">Date of your event</label>
+        <input id="pr-date" type="date"
+               class="w-full px-4 py-3 rounded-xl border border-outline-variant focus:border-primary outline-none"/>
+        <p id="pr-date-hint" class="text-xs text-on-surface-variant mt-1"></p>
+      </div>
+
+      <div>
+        <label class="block text-sm font-bold mb-2">Delivery or pickup?</label>
+        <div class="grid grid-cols-2 gap-2">
+          <button type="button" onclick="setPromoFulfilment('delivery')" id="pf-delivery"
+                  class="option-btn selected border rounded-xl py-3 text-sm font-semibold">Deliver to me</button>
+          <button type="button" onclick="setPromoFulfilment('pickup')" id="pf-pickup"
+                  class="option-btn border border-outline-variant rounded-xl py-3 text-sm font-semibold">I'll pick up</button>
+        </div>
+      </div>
+
+      <div id="pr-wrap-address">
+        <label class="block text-sm font-bold mb-1.5">Your address</label>
+        <textarea id="pr-address" rows="2" placeholder="12 Aina Street, Ogba, Lagos"
+                  class="w-full px-4 py-3 rounded-xl border border-outline-variant focus:border-primary outline-none"></textarea>
+      </div>
+
+      <label class="flex gap-3 items-start text-sm bg-surface-container rounded-xl p-4">
+        <input id="pr-agree" type="checkbox" class="mt-0.5 rounded"/>
+        <span>I agree to the conditions above — honest feedback, photos, a short review, and one tag.</span>
+      </label>
+
+      <p class="text-xs text-on-surface-variant">
+        Order at least 1 week before your event — 2 weeks for weddings. Your event must fall between
+        1 and 31 August 2026. One claim per phone number.
+      </p>
+
+      <p id="pr-error" hidden class="text-sm text-primary font-semibold bg-primary/5 rounded-xl px-4 py-3"></p>
+    </div>
+
+    <div class="px-5 py-4 border-t border-outline-variant">
+      <button id="pr-submit" onclick="submitPromo()"
+              class="w-full bg-primary text-white font-bold py-4 rounded-xl hover:bg-primary-hover active:scale-95 transition flex items-center justify-center gap-2">
+        <span class="material-symbols-outlined">celebration</span> Claim My Free Cake
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ WAITLIST MODAL ============ -->
+<div id="modal-waitlist" hidden class="modal fixed inset-0 bg-black/70 backdrop-blur-sm z-[100] flex items-end sm:items-center justify-center sm:p-4">
+  <div class="bg-surface w-full sm:max-w-md sm:rounded-3xl rounded-t-3xl p-6">
+    <div class="flex justify-between items-start mb-3">
+      <h3 class="font-headline text-2xl">All 10 slots are gone</h3>
+      <button onclick="closeModal('modal-waitlist')" class="p-1"><span class="material-symbols-outlined">close</span></button>
+    </div>
+    <p class="text-sm text-on-surface-variant mb-5">
+      That went fast. Leave your number and we'll tell you first about the next offer —
+      or order a cake now and we'll take good care of you.
+    </p>
+    <div class="space-y-3">
+      <input id="wl-name" type="text" placeholder="Your name"
+             class="w-full px-4 py-3 rounded-xl border border-outline-variant focus:border-primary outline-none"/>
+      <input id="wl-phone" type="tel" inputmode="tel" placeholder="0801 234 5678"
+             class="w-full px-4 py-3 rounded-xl border border-outline-variant focus:border-primary outline-none"/>
+      <button onclick="joinWaitlist()" class="w-full bg-primary text-white font-bold py-3.5 rounded-xl active:scale-95 transition">
+        Keep Me Posted
+      </button>
+      <button onclick="closeModal('modal-waitlist'); scrollTo_('#builder')"
+              class="w-full border border-outline-variant font-bold py-3.5 rounded-xl">
+        Order a Cake Instead
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ BLOG POST READER ============ -->
+<div id="modal-post" hidden class="modal fixed inset-0 bg-black/70 backdrop-blur-sm z-[100] flex items-end sm:items-center justify-center sm:p-4">
+  <div class="bg-surface w-full sm:max-w-2xl sm:rounded-3xl rounded-t-3xl max-h-[92vh] flex flex-col">
+    <div class="flex items-start justify-between gap-4 px-5 py-4 border-b border-outline-variant">
+      <div>
+        <h3 id="post-title" class="font-headline text-2xl leading-tight"></h3>
+        <p id="post-meta" class="text-xs text-on-surface-variant mt-1"></p>
+      </div>
+      <button onclick="closeModal('modal-post')" class="p-1 shrink-0"><span class="material-symbols-outlined">close</span></button>
+    </div>
+    <div class="overflow-y-auto px-5 py-5">
+      <p id="post-body" class="text-sm leading-relaxed whitespace-pre-line text-on-surface-variant"></p>
+    </div>
+    <div class="px-5 py-4 border-t border-outline-variant">
+      <button onclick="closeModal('modal-post'); scrollTo_('#builder')"
+              class="w-full bg-primary text-white font-bold py-3.5 rounded-xl active:scale-95 transition">
+        Build Your Cake
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ CONFIRMATION ============ -->
+<div id="modal-done" hidden class="modal fixed inset-0 bg-black/70 backdrop-blur-sm z-[110] flex items-end sm:items-center justify-center sm:p-4">
+  <div class="bg-surface w-full sm:max-w-md sm:rounded-3xl rounded-t-3xl p-6 text-center">
+    <div class="w-14 h-14 rounded-full bg-whatsapp/10 flex items-center justify-center mx-auto mb-4">
+      <span class="material-symbols-outlined text-whatsapp text-3xl">check_circle</span>
+    </div>
+    <h3 class="font-headline text-2xl mb-2">Order received 🎉</h3>
+    <p class="text-sm text-on-surface-variant mb-1">Your order number is</p>
+    <p id="done-id" class="font-bold text-lg mb-4">—</p>
+    <p class="text-sm text-on-surface-variant mb-5">
+      Next step: send us the details on WhatsApp so we can confirm your price and date.
+      The message is already written for you.
+    </p>
+    <a id="done-wa" href="#" target="_blank" rel="noopener"
+       class="block w-full bg-whatsapp text-white font-bold py-4 rounded-xl active:scale-95 transition mb-3">
+      Open WhatsApp
+    </a>
+    <button onclick="copyOrderText()" class="w-full border border-outline-variant font-bold py-3 rounded-xl text-sm mb-3">
+      Copy my order details
+    </button>
+    <p class="text-xs text-on-surface-variant">
+      WhatsApp not opening? Chat us on <strong id="done-phone">+234 906 000 9541</strong>.
+    </p>
+    <button onclick="closeModal('modal-done')" class="mt-4 text-sm text-on-surface-variant underline">Close</button>
+  </div>
+</div>
+
+<script>
+// ============================================================
+// CONFIG
+// ============================================================
+const API_URL = "https://script.google.com/macros/s/AKfycbycvxx3tKkPp_Ssld75TfQGX13oVp8GpD58tvehjAAFsXaywJJg-c_XhQ42q0aZ724Q/exec";
+
+// Shown only if the backend is unreachable, so the site is never empty.
+const FALLBACK_CAKES = [
+  { Name:"Classic Vanilla Celebration", Flavor:"Vanilla", "Price From":55000, "Price To":72000,
+    Typical:"Most 8-inch orders come to about ₦60,000", Serves:"10–12 people",
+    Image:"https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=800&auto=format&fit=crop" },
+  { Name:"Rich Chocolate Fudge", Flavor:"Chocolate", "Price From":55000, "Price To":75000,
+    Typical:"Most 8-inch orders come to about ₦62,000", Serves:"10–12 people",
+    Image:"https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?q=80&w=800&auto=format&fit=crop" },
+  { Name:"Red Velvet Signature", Flavor:"Red Velvet", "Price From":58000, "Price To":78000,
+    Typical:"Most 8-inch orders come to about ₦65,000", Serves:"10–12 people",
+    Image:"https://images.unsplash.com/photo-1616541823729-00fe0aacd32c?q=80&w=800&auto=format&fit=crop" }
+];
+
+const SIZES = [
+  { label:"6-inch",  serves:"4–8 people",    from:35000,  to:48000  },
+  { label:"8-inch",  serves:"10–12 people",  from:55000,  to:72000,  popular:true },
+  { label:"10-inch", serves:"18–22 people",  from:85000,  to:115000 },
+  { label:"12-inch", serves:"30–35 people",  from:125000, to:165000 },
+  { label:"2-layer", serves:"40–60 people",  from:140000, to:195000 },
+  { label:"3-layer", serves:"70–100 people", from:220000, to:300000 }
+];
+
+const PLACEHOLDER = "https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=800&auto=format&fit=crop";
+
+const OCCASIONS = ["Birthday","Wedding","Anniversary","Engagement","Bridal Shower","Baby Shower","Graduation","Other"];
+const FLAVOURS  = ["Vanilla","Chocolate","Red Velvet","Carrot","Lemon","Marble","Coconut","Other"];
+
+// ============================================================
+// STATE
+// ============================================================
+const state = {
+  settings: {},
+  slots: { promoActive:false, total:0, used:0, remaining:0 },
+  occasion:"Birthday", flavour:"Vanilla", size:"8-inch",
+  fulfilment:"delivery", promoFulfilment:"delivery",
+  orderText:"", estPrice:"", source:"builder",
+  requestId:null, sending:false
+};
+
+const $ = id => document.getElementById(id);
+const naira = n => "₦" + Number(n).toLocaleString("en-NG");
+
+// ============================================================
+// BOOT
+// ============================================================
+document.addEventListener("DOMContentLoaded", () => {
+  renderOptions();
+  renderSizeSelect();
+  skeletons("grid-best", 3); skeletons("grid-trending", 3); skeletons("grid-blog", 3);
+  updateBuilderPrice();
+  loadData();
+});
+
+async function loadData() {
+  // Apps Script cold starts can take 15s+, so we're patient and we retry once.
+  const data = await tryLoad(25000) || await tryLoad(25000);
+
+  if (data) {
+    state.settings = data.settings || {};
+    applySettings();
+    renderCakes(data.cakes || []);
+    renderBlog(data.blog || []);
+    return;
+  }
+
+  // Still nothing: the site stays usable on the fallback catalogue,
+  // in normal (non-promo) mode.
+  console.error("Could not load site data after two attempts.");
+  applySettings();
+  renderCakes([]);
+  $("grid-blog").innerHTML = message(
+    "Stories are taking a moment to load. Refresh the page, or " + waLink("message us on WhatsApp") + "."
+  );
+}
+
+async function tryLoad(ms) {
+  try {
+    const res  = await fetchWithTimeout(API_URL + "?action=getAll", ms);
+    const data = await res.json();
+    if (data.status !== "success") throw new Error(data.code || "bad response");
+    return data;
+  } catch (err) {
+    console.warn("Load attempt failed:", err.message || err);
+    return null;
+  }
+}
+
+function fetchWithTimeout(url, ms) {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), ms);
+  return fetch(url, { signal: controller.signal }).finally(() => clearTimeout(timer));
+}
+
+/** A tappable WhatsApp link for use inside messages. */
+function waLink(text) {
+  return '<a href="https://wa.me/' + whatsappNumber() +
+         '" target="_blank" rel="noopener" class="text-whatsapp font-bold underline">' + text + '</a>';
+}
+
+// ============================================================
+// SETTINGS -> PROMO MODE
+// ============================================================
+function applySettings() {
+  const s = state.settings || {};
+
+  let active = !!s.promoActive;
+  const end = parseDate(s.promoEnd);
+  if (end && today() > end) active = false;   // auto-revert after August
+
+  const total = Number(s.promoSlots) || 0;
+  const used  = Number(s.promoSlotsUsed) || 0;
+  state.slots = { promoActive:active, total:total, used:used, remaining: Math.max(0, total - used) };
+
+  const full = active && state.slots.remaining <= 0;
+
+  $("hero-promo").hidden  = !active;
+  $("hero-normal").hidden = active;
+  $("sticky-cta").hidden  = !active;
+
+  const bar = $("announce-bar");
+  if (active && !full) {
+    $("announce-text").innerHTML =
+      esc(s.promoHeadline || "FREE CAKE — first 10 people only.") + " <u>Tap to claim your slot.</u>";
+    bar.hidden = false;
+    bar.classList.add("cursor-pointer");
+    bar.onclick = openPromo;
+  } else if (active && full) {
+    $("announce-text").textContent = "All 10 slots have been claimed. Tap to join the list for our next offer.";
+    bar.hidden = false;
+    bar.classList.add("cursor-pointer");
+    bar.onclick = () => showModal("modal-waitlist");
+  } else if (s.announcementBar) {
+    $("announce-text").textContent = s.announcementBar;
+    bar.hidden = false;
+    bar.onclick = null;
+    bar.classList.remove("cursor-pointer");
+  } else {
+    bar.hidden = true;
+  }
+
+  const label = full ? "All slots claimed" : state.slots.remaining + " of " + total + " slots left";
+  $("hero-slots").textContent = label;
+  $("promo-slots").textContent = label;
+  if (full) $("sticky-cta").querySelector("button").textContent = "Join the list";
+
+  if (s.whatsappNumber) {
+    const clean = String(s.whatsappNumber).replace(/[^0-9]/g, "");
+    $("footer-wa").href = "https://wa.me/" + clean;
+    $("footer-wa").textContent = s.whatsappNumber;
+    $("done-phone").textContent = s.whatsappNumber;
+  }
+
+  renderOptions();      // size labels depend on showPrices
+  updateBuilderPrice();
+  updateCheckoutDateLimits();
+  updatePromoDateLimits();
+}
+
+function whatsappNumber() {
+  const raw = state.settings.whatsappNumber || "2349060009541";
+  return String(raw).replace(/[^0-9]/g, "");
+}
+
+/**
+ * Prices are hidden until the owner signs them off.
+ * Tick "showPrices" in the Notion Site Settings database to turn them on.
+ * Absent property = hidden, so nothing goes public unapproved.
+ */
+function showPrices() { return state.settings.showPrices === true; }
+
+// ============================================================
+// RENDERING
+// ============================================================
+function skeletons(id, n) {
+  $(id).innerHTML = Array(n).fill(
+    '<div class="rounded-3xl overflow-hidden border border-outline-variant">' +
+      '<div class="skeleton aspect-[4/3]"></div>' +
+      '<div class="p-4 space-y-2"><div class="skeleton h-4 rounded w-3/4"></div>' +
+      '<div class="skeleton h-3 rounded w-1/2"></div></div></div>'
+  ).join("");
+}
+
+function message(text) {
+  return '<p class="col-span-full text-center text-on-surface-variant py-8">' + text + '</p>';
+}
+
+/**
+ * "Display Section" is a multi-select in Notion, so it arrives as an array.
+ * This copes with an array, a plain string, or the property being absent —
+ * so it keeps working if you change the property type later.
+ */
+function sectionsOf(cake) {
+  const raw = cake["Display Section"];
+  if (!raw) return [];
+  const list = Array.isArray(raw) ? raw : String(raw).split(",");
+  return list.map(s => String(s).trim().toLowerCase()).filter(Boolean);
+}
+
+function inSection(cake, name) {
+  return sectionsOf(cake).indexOf(name.toLowerCase()) !== -1;
+}
+
+function renderCakes(all) {
+  const list = (all && all.length) ? all : FALLBACK_CAKES;
+
+  // Anything you've tagged in Notion wins.
+  let best  = list.filter(c => inSection(c, "Best Seller")).slice(0, 3);
+  let trend = list.filter(c => inSection(c, "Trending")).slice(0, 3);
+
+  // Nothing tagged? Fall back so the section is never empty.
+  const untagged = list.filter(c => sectionsOf(c).length === 0);
+  const spare = untagged.length ? untagged : list;
+
+  if (!best.length)  best  = spare.slice(0, 3);
+  if (!trend.length) trend = spare.filter(c => best.indexOf(c) === -1).slice(0, 3);
+  if (!trend.length) trend = list.slice(0, 3);
+
+  console.log("Best Sellers: " + best.length + " · Trending: " + trend.length +
+              "  (tagged in Notion: " + list.filter(c => sectionsOf(c).length).length +
+              " of " + list.length + ")");
+
+  paintGrid("grid-best", best);
+  paintGrid("grid-trending", trend);
+}
+
+/**
+ * Notion-hosted files come back as signed URLs that expire in about an hour.
+ * Whatever the property is called, prefer a permanent link.
+ */
+function isTemporary(url) {
+  return /prod-files-secure|amazonaws\.com.*x-amz/i.test(String(url || ""));
+}
+
+/**
+ * Returns the image sources in the order given, dropping empties.
+ * Catalogue order: Photo URL, then Cake Photo.
+ * Blog order:      Cover Image, then Cover URL.
+ */
+function pickImage() {
+  return Array.prototype.slice.call(arguments).filter(Boolean);
+}
+
+/**
+ * Renders an image that degrades gracefully: main photo, then the backup,
+ * then a placeholder. Needed because Notion file links expire after about
+ * an hour and some hosts block hotlinking (403).
+ */
+function imgTag(sources, alt, cls) {
+  const list = (Array.isArray(sources) ? sources : [sources]).filter(Boolean);
+  const first = list[0] || PLACEHOLDER;
+  const rest  = list.slice(1).concat([PLACEHOLDER]);
+
+  return '<img src="' + esc(first) + '" alt="' + esc(alt) + '" loading="lazy" class="' + cls + '" ' +
+         'data-alts="' + esc(JSON.stringify(rest)) + '" onerror="imageFailed(this)"/>';
+}
+
+/** Steps through the backup images one at a time. Cannot loop. */
+function imageFailed(el) {
+  let alts = [];
+  try { alts = JSON.parse(el.dataset.alts || "[]"); } catch (e) { alts = []; }
+  console.warn("Image failed: " + el.src);
+  const next = alts.shift();
+  if (!next) { el.onerror = null; return; }
+  el.dataset.alts = JSON.stringify(alts);
+  el.src = next;
+}
+
+function paintGrid(id, cakes) {
+  if (!cakes.length) {
+    $(id).innerHTML = message("Having trouble loading our cakes. Refresh the page, or " +
+      waLink("message us on WhatsApp") + " and we'll send you the full list.");
+    return;
+  }
+  $(id).innerHTML = cakes.map(c => {
+    // Notion property names, with fallbacks so a rename doesn't break the page.
+    const name    = c["Cake Name"] || c.Name || c.Title || "Our Cake";
+    const flavour = c.Flavor || c.Flavour || "";
+    // Main: Photo URL.  Fallback: Cake Photo.
+    const img     = pickImage(c["Photo URL"], c["Cake Photo"], c.Image, c.Photo);
+    const from    = Number(c["Price From"]) || 0;
+    const to      = Number(c["Price To"]) || Number(c.Price) || 0;
+    const serves  = c.Serves || "";
+    const typical = c.Typical || "";
+    const note    = c["Price Note"] || "";
+    const short   = c["Short Description"] || "";
+    const long    = c["Long Description"] || "";
+    const status  = c.Status || "";
+
+    // Prices only appear once the owner has approved them (showPrices in Notion).
+    const price = !showPrices() ? "Available for pre-order"
+                : (from && to) ? naira(from) + " – " + naira(to)
+                : from ? "From " + naira(from) : "Price on request";
+
+    const payload = esc(JSON.stringify({
+      name:name, flavour:flavour, price:price, serves:serves, longDesc:long || short
+    }));
+
+    // "Pre-order Only" and similar need to be visible, not a surprise on WhatsApp.
+    const badge = status
+      ? '<span class="absolute top-3 left-3 bg-surface-dark/90 text-white text-[11px] font-bold px-2.5 py-1 rounded-full">' +
+        esc(status) + '</span>' : "";
+
+    return '<article class="rounded-3xl overflow-hidden border border-outline-variant bg-surface hover:shadow-lg transition-shadow flex flex-col">' +
+      '<div class="relative">' + badge +
+        imgTag(img, name, "aspect-[4/3] w-full object-cover") +
+      '</div>' +
+      '<div class="p-4 flex flex-col flex-1">' +
+        '<h3 class="font-bold leading-snug">' + esc(name) + '</h3>' +
+        '<p class="text-sm text-on-surface-variant">' + esc(flavour) + (serves ? " · " + esc(serves) : "") + '</p>' +
+        (short ? '<p class="text-sm text-on-surface-variant mt-1.5 line-clamp-2">' + esc(short) + '</p>' : "") +
+        '<p class="font-bold text-primary mt-2">' + price + '</p>' +
+        (showPrices() && note ? '<p class="text-xs text-on-surface-variant mt-0.5">' + esc(note) + '</p>' : "") +
+        (showPrices() && typical ? '<p class="text-xs text-on-surface-variant">' + esc(typical) + '</p>' : "") +
+        (!showPrices() ? '<p class="text-xs text-on-surface-variant mt-0.5">We\'ll confirm your price on WhatsApp.</p>' : "") +
+        '<div class="flex-1"></div>' +
+        '<button class="mt-4 w-full bg-surface-dark text-white font-bold py-3 rounded-xl active:scale-95 transition" ' +
+                'onclick="checkoutFromCatalog(JSON.parse(this.dataset.cake))" data-cake="' + payload + '">Order This</button>' +
+      '</div></article>';
+  }).join("");
+}
+
+let blogPosts = [];
+
+/** The full article text, whatever you named the property in Notion. */
+function postBody(p) {
+  return p["Full Post"] || p["Post Body"] || p.Body || p.Content ||
+         p["Long Description"] || p["Long Summary"] || "";
+}
+
+async function openPost(i) {
+  const p = blogPosts[i];
+  if (!p) return;
+
+  $("post-title").textContent = p.Title || p["Post Title"] || "Untitled";
+  $("post-meta").textContent  = [p.Category, p["Read Time"]].filter(Boolean).join(" · ");
+
+  const summary = p["Short Summary"] || p["Short Description"] || "";
+  const body = $("post-body");
+
+  // Show what we already have, then load the full article.
+  body.innerHTML = '<p class="mb-4">' + esc(summary) + "</p>" +
+                   '<p class="text-on-surface-variant">Loading the rest…</p>';
+  showModal("modal-post");
+
+  // Cached after the first open.
+  if (p._blocks) { body.innerHTML = renderPost(p._blocks, summary); return; }
+
+  const propText = postBody(p);
+  if (propText) { body.innerHTML = '<p class="whitespace-pre-line">' + esc(propText) + "</p>"; return; }
+
+  if (!p._pageId) { body.innerHTML = renderPost([], summary); return; }
+
+  try {
+    const res  = await fetchWithTimeout(API_URL + "?action=getPost&id=" + encodeURIComponent(p._pageId), 20000);
+    const data = await res.json();
+    p._blocks = (data.status === "success" && data.data) ? data.data : [];
+  } catch (err) {
+    console.warn("Could not load post body:", err);
+    p._blocks = [];
+  }
+  body.innerHTML = renderPost(p._blocks, summary);
+}
+
+/** Turns the blocks from Notion into readable HTML. */
+function renderPost(blocks, summary) {
+  if (!blocks || !blocks.length) {
+    return '<p class="mb-4">' + esc(summary) + "</p>" +
+           '<p class="text-on-surface-variant">The full article is coming soon. ' +
+           "In the meantime, " + waLink("ask us on WhatsApp") + " — we're happy to talk you through it.</p>";
+  }
+
+  let html = "", openList = null;   // "ul" | "ol" | "todo" | null
+
+  const closeList = () => {
+    if (openList === "ul" || openList === "todo") html += "</ul>";
+    else if (openList === "ol") html += "</ol>";
+    openList = null;
+  };
+
+  blocks.forEach(b => {
+    // Lists need their wrapper opened once and closed when the run ends.
+    if (b.type === "li" || b.type === "ol" || b.type === "todo") {
+      const want = b.type === "ol" ? "ol" : b.type === "todo" ? "todo" : "ul";
+      if (openList !== want) {
+        closeList();
+        html += want === "ol" ? '<ol class="list-decimal pl-5 space-y-1.5 mb-4">'
+              : want === "todo" ? '<ul class="space-y-1.5 mb-4 list-none pl-0">'
+              : '<ul class="list-disc pl-5 space-y-1.5 mb-4">';
+        openList = want;
+      }
+      html += want === "todo"
+        ? '<li class="flex gap-2 items-start"><span class="material-symbols-outlined text-primary text-[18px] leading-5">' +
+          (b.checked ? "check_box" : "check_box_outline_blank") + "</span><span>" + esc(b.text) + "</span></li>"
+        : "<li>" + esc(b.text) + "</li>";
+      return;
+    }
+
+    closeList();
+
+    switch (b.type) {
+      case "h1": html += '<h4 class="font-headline text-xl mt-6 mb-2 text-on-surface">' + esc(b.text) + "</h4>"; break;
+      case "h2": html += '<h4 class="font-bold text-base mt-5 mb-2 text-on-surface">' + esc(b.text) + "</h4>"; break;
+      case "h3": html += '<h5 class="font-bold text-sm mt-4 mb-1 text-on-surface">' + esc(b.text) + "</h5>"; break;
+      case "quote": html += '<blockquote class="border-l-4 border-primary pl-4 italic my-4">' + esc(b.text) + "</blockquote>"; break;
+      case "divider": html += '<hr class="my-5 border-outline-variant"/>'; break;
+      case "image": html += imgTag([b.text], "", "rounded-2xl w-full my-4"); break;
+      default: html += '<p class="mb-3">' + esc(b.text) + "</p>";
+    }
+  });
+
+  closeList();
+  return html;
+}
+
+function renderBlog(posts) {
+  if (!posts || !posts.length) { $("grid-blog").innerHTML = message("New stories coming soon."); return; }
+  // Newest first
+  const sorted = posts.slice().sort((a, b) =>
+    String(b["Publish Date"] || "").localeCompare(String(a["Publish Date"] || "")));
+
+  blogPosts = sorted.slice(0, 3);
+
+  $("grid-blog").innerHTML = blogPosts.map((p, i) => {
+    const title    = p.Title || p["Post Title"] || p.Name || "Untitled";
+    // Main: Cover Image.  Fallback: Cover URL.
+    const img      = pickImage(p["Cover Image"], p["Cover URL"], p.Image, p.Cover);
+    const sum      = p["Short Summary"] || p["Short Description"] || p.Summary || p.Excerpt || "";
+    const category = p.Category || "";
+    const readTime = p["Read Time"] || "";
+    const link = p["Post URL"] || p.URL || p.Link || "";
+
+    // Always offer Read more — the article is fetched from the Notion page.
+    const cta = link
+      ? '<a href="' + esc(link) + '" target="_blank" rel="noopener" ' +
+        'class="mt-3 text-sm font-bold text-primary self-start hover:underline">Read more →</a>'
+      : '<button onclick="openPost(' + i + ')" ' +
+        'class="mt-3 text-sm font-bold text-primary self-start hover:underline">Read more →</button>';
+
+    return '<article class="rounded-3xl overflow-hidden border border-outline-variant bg-surface flex flex-col hover:shadow-lg transition-shadow">' +
+      '<div class="relative">' +
+        (category ? '<span class="absolute top-3 left-3 bg-surface-dark/90 text-white text-[11px] font-bold px-2.5 py-1 rounded-full">' +
+                     esc(category) + '</span>' : "") +
+        imgTag(img, title, "aspect-[16/9] w-full object-cover") +
+      '</div>' +
+      '<div class="p-4 flex flex-col flex-1">' +
+        '<h3 class="font-bold leading-snug mb-1">' + esc(title) + '</h3>' +
+        '<p class="text-sm text-on-surface-variant">' + esc(sum) + '</p>' +
+        '<div class="flex-1"></div>' + cta +
+        (readTime ? '<p class="text-xs text-on-surface-variant mt-3">' + esc(readTime) + '</p>' : "") +
+      '</div></article>';
+  }).join("");
+}
+
+function renderOptions() {
+  $("opt-occasion").innerHTML = OCCASIONS.map(o =>
+    '<button type="button" class="option-btn border border-outline-variant rounded-xl px-4 py-2.5 text-sm font-semibold' +
+    (o === state.occasion ? " selected" : "") + '" onclick="pickOccasion(this,\'' + o + '\')">' + o + '</button>').join("");
+
+  $("opt-flavour").innerHTML = FLAVOURS.map(f =>
+    '<button type="button" class="option-btn border border-outline-variant rounded-xl px-4 py-2.5 text-sm font-semibold' +
+    (f === state.flavour ? " selected" : "") + '" onclick="pickFlavour(this,\'' + f + '\')">' + f + '</button>').join("");
+
+  $("opt-size").innerHTML = SIZES.map(s =>
+    '<button type="button" class="option-btn border border-outline-variant rounded-xl px-4 py-3 text-left' +
+    (s.label === state.size ? " selected" : "") + '" onclick="pickSize(this,\'' + s.label + '\')">' +
+    '<span class="block text-sm font-bold">' + s.label +
+      (s.popular ? ' <span class="text-xs font-normal">· most popular</span>' : "") + '</span>' +
+    '<span class="block text-xs opacity-80">' + s.serves +
+      (showPrices() ? ' · from ' + naira(s.from) : "") + '</span></button>').join("");
+}
+
+function renderSizeSelect() {
+  $("pr-size").innerHTML = SIZES.map(s =>
+    '<option value="' + s.label + '">' + s.label + " — " + s.serves + '</option>').join("");
+}
+
+function esc(s) {
+  return String(s == null ? "" : s)
+    .replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;").replace(/'/g,"&#39;");
+}
+
+// ============================================================
+// BUILDER
+// ============================================================
+function clearSelected(container) {
+  document.querySelectorAll("#" + container + " .option-btn").forEach(b => b.classList.remove("selected"));
+}
+
+function pickOccasion(btn, value) {
+  clearSelected("opt-occasion"); btn.classList.add("selected");
+  state.occasion = value;
+  $("wrap-occasion-other").hidden = (value !== "Other");
+  $("wedding-note").hidden = (value !== "Wedding");
+  updateCheckoutDateLimits();
+}
+
+function pickFlavour(btn, value) {
+  clearSelected("opt-flavour"); btn.classList.add("selected");
+  state.flavour = value;
+  $("wrap-flavour-other").hidden = (value !== "Other");
+}
+
+function pickSize(btn, value) {
+  clearSelected("opt-size"); btn.classList.add("selected");
+  state.size = value;
+  updateBuilderPrice();
+}
+
+function sizeInfo(label) { return SIZES.find(s => s.label === label) || SIZES[1]; }
+
+function updateBuilderPrice() {
+  const s = sizeInfo(state.size);
+  if (showPrices()) {
+    $("builder-price").textContent = naira(s.from) + " – " + naira(s.to);
+    $("builder-price-note").textContent = "Depends on design and finish · " + s.serves;
+  } else {
+    $("builder-price").textContent = "Available for pre-order";
+    $("builder-price-note").textContent = "We'll confirm your price on WhatsApp · " + s.serves;
+  }
+}
+
+function resolvedOccasion() {
+  return state.occasion === "Other" ? ($("occasion-other").value.trim() || "Other") : state.occasion;
+}
+function resolvedFlavour() {
+  return state.flavour === "Other" ? ($("flavour-other").value.trim() || "Other") : state.flavour;
+}
+
+function checkoutFromBuilder() {
+  $("sum-desc").hidden = true;
+  const s = sizeInfo(state.size);
+  const inscription = $("inscription").value.trim();
+  const notes = $("notes").value.trim();
+
+  let text = "Custom " + resolvedOccasion() + " Cake\nFlavour: " + resolvedFlavour() +
+             "\nSize: " + state.size + " (" + s.serves + ")";
+  if (inscription) text += '\nMessage on cake: "' + inscription + '"';
+  if (notes) text += "\nNotes: " + notes;
+
+  state.orderText = text;
+  state.estPrice  = showPrices() ? naira(s.from) + " – " + naira(s.to) : "";
+  state.source    = "builder";
+
+  $("sum-order").textContent = text;
+  $("sum-price").textContent = state.estPrice
+    ? "Estimated: " + state.estPrice
+    : "We'll confirm your price on WhatsApp.";
+  openCheckout();
+}
+
+function checkoutFromCatalog(cake) {
+  state.orderText = cake.name + "\nFlavour: " + cake.flavour + (cake.serves ? "\nServes: " + cake.serves : "");
+  state.estPrice  = cake.price;
+  state.source    = "catalog";
+
+  $("sum-order").textContent = state.orderText;
+  $("sum-price").textContent = showPrices()
+    ? "Estimated: " + cake.price
+    : "We'll confirm your price on WhatsApp.";
+
+  const desc = $("sum-desc");
+  desc.textContent = cake.longDesc || "";
+  desc.hidden = !cake.longDesc;
+
+  openCheckout();
+}
+
+// ============================================================
+// MODALS
+// ============================================================
+function showModal(id) {
+  $(id).hidden = false;
+  document.body.style.overflow = "hidden";
+}
+
+function closeModal(id) {
+  $(id).hidden = true;
+  // Only release the page scroll once nothing is open.
+  if (!document.querySelector(".modal:not([hidden])")) document.body.style.overflow = "";
+}
+
+function closeTopModal() {
+  const open = document.querySelectorAll(".modal:not([hidden])");
+  if (open.length) closeModal(open[open.length - 1].id);
+}
+
+// Click the dark area outside a modal to close it.
+document.addEventListener("click", e => {
+  if (e.target.classList && e.target.classList.contains("modal")) closeModal(e.target.id);
+});
+
+// Esc closes the top-most modal.
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape") closeTopModal();
+});
+
+function openCheckout() {
+  state.requestId = uuid();   // new id per checkout — protects against double submits
+  $("co-error").hidden = true;
+  updateCheckoutDateLimits();
+  showModal("modal-checkout");
+}
+
+function openPromo() {
+  if (!state.slots.promoActive) return;
+  if (state.slots.remaining <= 0) { showModal("modal-waitlist"); return; }
+  state.requestId = uuid();
+  $("pr-error").hidden = true;
+  updatePromoDateLimits();
+  showModal("modal-promo");
+}
+
+function scrollTo_(sel) { document.querySelector(sel).scrollIntoView({ behavior:"smooth" }); }
+
+// ============================================================
+// DATES
+// ============================================================
+function today() { const d = new Date(); d.setHours(0,0,0,0); return d; }
+function parseDate(s) { if (!s) return null; const m = String(s).match(/^(\d{4})-(\d{2})-(\d{2})/); return m ? new Date(+m[1], +m[2]-1, +m[3]) : null; }
+function iso(d) { return d.getFullYear() + "-" + String(d.getMonth()+1).padStart(2,"0") + "-" + String(d.getDate()).padStart(2,"0"); }
+function addDays(d, n) { const x = new Date(d.getTime()); x.setDate(x.getDate()+n); return x; }
+
+function leadDaysFor(occasion) {
+  const s = state.settings || {};
+  return /wedding/i.test(occasion) ? (Number(s.leadDaysWedding) || 14) : (Number(s.leadDaysDefault) || 7);
+}
+
+function updateCheckoutDateLimits() {
+  const lead = leadDaysFor(resolvedOccasion());
+  const min = addDays(today(), lead);
+  $("co-date").min = iso(min);
+  $("co-date-hint").textContent = "We need at least " + lead + " days to bake. Earliest date: " +
+    min.toLocaleDateString("en-NG", { day:"numeric", month:"long", year:"numeric" }) + ".";
+}
+
+function updatePromoDateLimits() {
+  const s = state.settings || {};
+  const el = $("pr-date");
+  if (!el) return;
+
+  const occ  = $("pr-occasion") ? $("pr-occasion").value : "Birthday";
+  const lead = leadDaysFor(occ);
+
+  const windowStart = parseDate(s.promoStart) || new Date(2026,7,1);
+  const windowEnd   = parseDate(s.promoEnd)   || new Date(2026,7,31);
+  const earliest = new Date(Math.max(addDays(today(), lead).getTime(), windowStart.getTime()));
+
+  el.min = iso(earliest);
+  el.max = iso(windowEnd);
+
+  const hint = $("pr-date-hint");
+  if (earliest > windowEnd) {
+    hint.textContent = "The last date we can still bake for in this offer has passed.";
+  } else {
+    hint.textContent = (/wedding/i.test(occ) ? "Weddings need 2 weeks. " : "We need 1 week. ") +
+      "Choose between " + earliest.toLocaleDateString("en-NG",{day:"numeric",month:"long"}) +
+      " and " + windowEnd.toLocaleDateString("en-NG",{day:"numeric",month:"long"}) + ".";
+  }
+}
+
+// ============================================================
+// FULFILMENT TOGGLES
+// ============================================================
+function setFulfilment(mode) {
+  state.fulfilment = mode;
+  $("ff-delivery").classList.toggle("selected", mode === "delivery");
+  $("ff-pickup").classList.toggle("selected", mode === "pickup");
+  $("wrap-address").hidden = (mode === "pickup");
+}
+
+function setPromoFulfilment(mode) {
+  state.promoFulfilment = mode;
+  $("pf-delivery").classList.toggle("selected", mode === "delivery");
+  $("pf-pickup").classList.toggle("selected", mode === "pickup");
+  $("pr-wrap-address").hidden = (mode === "pickup");
+}
+
+// ============================================================
+// SUBMIT
+// ============================================================
+function uuid() {
+  return (window.crypto && crypto.randomUUID) ? crypto.randomUUID()
+    : "id-" + Date.now() + "-" + Math.random().toString(16).slice(2);
+}
+
+async function post(payload) {
+  // No Content-Type header on purpose: it keeps this a "simple" CORS request.
+  // Adding one triggers a preflight that Apps Script cannot answer.
+  const res = await fetch(API_URL, { method:"POST", body: JSON.stringify(payload) });
+  return res.json();
+}
+
+function busy(btnId, on, labelHtml) {
+  const b = $(btnId);
+  b.disabled = on;
+  b.innerHTML = on
+    ? '<span class="material-symbols-outlined animate-spin">progress_activity</span> Sending...'
+    : labelHtml;
+}
+
+function showError(id, msg) { const e = $(id); e.textContent = msg; e.hidden = false; }
+
+async function submitOrder() {
+  if (state.sending) return;
+  const name    = $("co-name").value.trim();
+  const phone   = $("co-phone").value.trim();
+  const date    = $("co-date").value;
+  const address = $("co-address").value.trim();
+
+  if (name.length < 2)    return showError("co-error", "Please enter your name.");
+  if (!validPhone(phone)) return showError("co-error", "Please enter a valid Nigerian WhatsApp number.");
+  if (!date)              return showError("co-error", "Please choose a date.");
+  if (state.fulfilment === "delivery" && address.length < 8)
+    return showError("co-error", "Please enter your full delivery address.");
+
+  $("co-error").hidden = true;
+  state.sending = true;
+  busy("co-submit", true);
+
+  try {
+    const data = await post({
+      clientRequestId: state.requestId,
+      customerName: name, customerPhone: phone,
+      deliveryDate: date, deliveryAddress: address,
+      fulfilment: state.fulfilment,
+      allergies: $("co-allergies").value.trim() || "None",
+      orderDetails: state.orderText,
+      occasion: resolvedOccasion(), size: state.size, flavour: resolvedFlavour(),
+      inscription: $("inscription").value.trim(),
+      estPrice: state.estPrice, source: state.source,
+      promoClaimed: "No"
+    });
+
+    if (data.status === "success") {
+      closeModal("modal-checkout");
+      finish(data.orderId, buildMessage(data.orderId, name, date, address, false));
+    } else {
+      showError("co-error", friendly(data));
+    }
+  } catch (err) {
+    console.error(err);
+    showError("co-error", "Couldn't save your order — check your connection and try again. Still not working? WhatsApp us.");
+  } finally {
+    state.sending = false;
+    busy("co-submit", false, '<span class="material-symbols-outlined">send</span> Send My Order');
+  }
+}
+
+async function submitPromo() {
+  if (state.sending) return;
+  const name     = $("pr-name").value.trim();
+  const phone    = $("pr-phone").value.trim();
+  const date     = $("pr-date").value;
+  const address  = $("pr-address").value.trim();
+  const occasion = $("pr-occasion").value;
+  const size     = $("pr-size").value;
+
+  if (name.length < 2)    return showError("pr-error", "Please enter your name.");
+  if (!validPhone(phone)) return showError("pr-error", "Please enter a valid Nigerian WhatsApp number.");
+  if (!date)              return showError("pr-error", "Please choose your event date.");
+  if (state.promoFulfilment === "delivery" && address.length < 8)
+    return showError("pr-error", "Please enter your full address, or choose pickup.");
+  if (!$("pr-agree").checked)
+    return showError("pr-error", "Please agree to the conditions so we know you're happy with them.");
+
+  $("pr-error").hidden = true;
+  state.sending = true;
+  busy("pr-submit", true);
+
+  const details = "FREE CAKE PROMO\nOccasion: " + occasion + "\nSize: " + size;
+
+  try {
+    const data = await post({
+      clientRequestId: state.requestId,
+      customerName: name, customerPhone: phone,
+      deliveryDate: date, deliveryAddress: address,
+      fulfilment: state.promoFulfilment,
+      allergies: "Promo claim — confirm on WhatsApp",
+      orderDetails: details, occasion: occasion, size: size,
+      source: "promo", estPrice: "FREE",
+      promoClaimed: "Yes"
+    });
+
+    if (data.status === "success") {
+      if (data.slotsRemaining != null) state.slots.remaining = data.slotsRemaining;
+      closeModal("modal-promo");
+      finish(data.orderId, buildMessage(data.orderId, name, date, address, true, occasion, size));
+    } else if (data.status === "full" || data.code === "PROMO_FULL") {
+      closeModal("modal-promo");
+      showModal("modal-waitlist");
+    } else {
+      showError("pr-error", friendly(data));
+    }
+  } catch (err) {
+    console.error(err);
+    showError("pr-error", "Couldn't save your claim — check your connection and try again.");
+  } finally {
+    state.sending = false;
+    busy("pr-submit", false, '<span class="material-symbols-outlined">celebration</span> Claim My Free Cake');
+  }
+}
+
+function validPhone(raw) {
+  let s = String(raw).replace(/[^0-9]/g,"");
+  if (s.indexOf("234") === 0) s = s.slice(3);
+  else if (s.indexOf("0") === 0) s = s.slice(1);
+  return s.length === 10 && ["7","8","9"].indexOf(s[0]) !== -1;
+}
+
+function friendly(data) {
+  const map = {
+    LEAD_TIME:        data.message || "We need more notice for that date. Please pick a later one.",
+    OUT_OF_WINDOW:    "The free cake offer only covers events in August 2026.",
+    PROMO_INACTIVE:   "This offer has closed.",
+    PHONE_INVALID:    "Please enter a valid Nigerian WhatsApp number.",
+    NAME_REQUIRED:    "Please enter your name.",
+    ADDRESS_REQUIRED: "Please enter your full delivery address.",
+    DATE_REQUIRED:    "Please choose a date.",
+    BUSY:             "We're busy for a second — please try again.",
+    SERVER_ERROR:     "Something went wrong on our end. Please try again, or WhatsApp us."
+  };
+  return map[data.code] || data.message || "Something went wrong. Please try again.";
+}
+
+// ============================================================
+// CONFIRMATION
+// ============================================================
+let lastMessage = "";
+
+function buildMessage(orderId, name, date, address, isPromo, occasion, size) {
+  const nice = new Date(date).toLocaleDateString("en-NG",
+    { weekday:"long", day:"numeric", month:"long", year:"numeric" });
+
+  let m = isPromo
+    ? "Hello XtraFresh!\n\nI'd like to claim the August free cake offer.\nOrder number: " + orderId +
+      "\n\nOccasion: " + occasion + "\nSize: " + size + "\n"
+    : "Hello XtraFresh!\n\nI just placed an order on your website.\nOrder number: " + orderId +
+      "\n\n" + state.orderText + "\n";
+
+  const pickup = isPromo ? (state.promoFulfilment === "pickup") : (state.fulfilment === "pickup");
+  m += "\nName: " + name + "\nDate needed: " + nice + "\n";
+  m += pickup ? "I'll pick up.\n" : "Deliver to: " + address + "\n";
+  if (!isPromo && state.estPrice) m += "\nEstimated: " + state.estPrice + "\n";
+  m += "\nPlease confirm the final price and how to pay. Thank you!";
+  return m;
+}
+
+function finish(orderId, message) {
+  lastMessage = message;
+  $("done-id").textContent = orderId;
+  $("done-wa").href = "https://wa.me/" + whatsappNumber() + "?text=" + encodeURIComponent(message);
+  showModal("modal-done");
+}
+
+function copyOrderText() {
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(lastMessage)
+      .then(() => alert("Order details copied. Paste it to us on WhatsApp."))
+      .catch(() => alert(lastMessage));
+  } else {
+    alert(lastMessage);
+  }
+}
+
+// ============================================================
+// WAITLIST
+// ============================================================
+async function joinWaitlist() {
+  const name  = $("wl-name").value.trim();
+  const phone = $("wl-phone").value.trim();
+  if (name.length < 2 || !validPhone(phone)) {
+    alert("Please enter your name and a valid WhatsApp number."); return;
+  }
+
+  try {
+    await post({
+      clientRequestId: uuid(),
+      customerName: name, customerPhone: phone,
+      deliveryDate: iso(addDays(today(), 30)),
+      deliveryAddress: "", fulfilment: "pickup",
+      orderDetails: "WAITLIST — promo was full", source: "waitlist",
+      allergies: "None", promoClaimed: "No"
+    });
+  } catch (err) { console.error(err); }
+
+  closeModal("modal-waitlist");
+  alert("You're on the list. We'll message you first when the next offer opens.");
+}
+
+// ============================================================
+// DIAGNOSTIC — type xtraCheck() in the browser console
+// ============================================================
+window.xtraCheck = async function () {
+  console.log("Calling:", API_URL + "?action=getAll");
+  try {
+    const res  = await fetch(API_URL + "?action=getAll");
+    const text = await res.text();
+    console.log("HTTP status:", res.status);
+    let data;
+    try { data = JSON.parse(text); }
+    catch (e) { console.error("Response was not JSON. First 300 characters:\n", text.slice(0,300)); return; }
+    console.log("status:", data.status);
+    console.log("cakes:", (data.cakes||[]).length, " blog:", (data.blog||[]).length);
+
+    // --- Settings, in full -------------------------------------------
+    const s = data.settings || {};
+    console.log("--- SETTINGS ---");
+    console.table(s);
+
+    const need = ["promoActive","promoSlots","promoSlotsUsed","promoStart",
+                  "promoEnd","leadDaysDefault","leadDaysWedding"];
+    need.forEach(k => {
+      if (!(k in s)) console.warn("MISSING setting: " + k + "  (check the spelling in Notion)");
+    });
+    console.log(s.promoActive
+      ? "PROMO IS ON — the site shows promo mode."
+      : "PROMO IS OFF — the site shows the normal storefront. Tick promoActive in Notion to switch it on.");
+
+    // --- What a cake actually looks like -----------------------------
+    const cakes = data.cakes || [];
+    if (cakes.length) {
+      console.log("--- FIRST CAKE ---");
+      console.table(cakes[0]);
+      console.log("Property names Notion is sending:", Object.keys(cakes[0]).join(" | "));
+
+      const c = cakes[0];
+      if (!("Price From" in c) || !("Price To" in c))
+        console.warn('NO PRICES: add "Price From" and "Price To" (Number) to your Catalog database. ' +
+                     'Cards will say "Price on request" until you do.');
+      // --- Which cakes are tagged for which section ---
+      console.log("--- DISPLAY SECTION ---");
+      const bestList = [], trendList = [], untaggedList = [], otherTags = [];
+      cakes.forEach(k => {
+        const secs = sectionsOf(k);
+        const nm = k["Cake Name"] || k.Name || "(unnamed)";
+        if (!secs.length) { untaggedList.push(nm); return; }
+        secs.forEach(s => {
+          if (s === "best seller") bestList.push(nm);
+          else if (s === "trending") trendList.push(nm);
+          else otherTags.push(nm + ' -> "' + s + '"');
         });
+      });
+      console.log("Best Seller: " + (bestList.join(", ")  || "(none tagged)"));
+      console.log("Trending:    " + (trendList.join(", ") || "(none tagged)"));
+      console.log("Untagged:    " + untaggedList.length + " cakes");
+      if (otherTags.length)
+        console.warn("Tags that match neither section (check spelling): " + otherTags.join(" | "));
+      if (!bestList.length && !trendList.length)
+        console.warn('Nothing is tagged. Set "Display Section" to "Best Seller" or "Trending" ' +
+                     "on the cakes you want featured. Spelling must match exactly.");
 
-        async function fetchDynamicContent() {
-            try {
-                // Fetch Cakes
-                const cakeResponse = await fetch(`${APP_SCRIPT_GET_URL}?action=getCakes`);
-                const cakeData = await cakeResponse.json();
-                
-                if (cakeData.status === "success") {
-                    const allCakes = cakeData.data;
-                    const bestSellers = allCakes.filter(c => c["Display Section"] === "Best Seller").slice(0, 3);
-                    const trending = allCakes.filter(c => c["Display Section"] === "Trending").slice(0, 3);
-                    
-                    renderCakes(bestSellers, 'best-sellers-grid');
-                    renderCakes(trending, 'trending-grid');
-                } else {
-                    // Stop hanging and print the exact backend error
-                    const errorMsg = `<p class="text-primary col-span-full text-center font-bold">Backend says: ${cakeData.message}</p>`;
-                    if(document.getElementById('best-sellers-grid')) document.getElementById('best-sellers-grid').innerHTML = errorMsg;
-                    if(document.getElementById('trending-grid')) document.getElementById('trending-grid').innerHTML = errorMsg;
-                }
+      // --- Image ---
+      const chain = pickImage(c["Photo URL"], c["Cake Photo"], c.Image, c.Photo);
+      console.log("Main image:     " + (chain[0] ? chain[0].slice(0,70) + "..." : "(none)"));
+      console.log("Fallback image: " + (chain[1] ? chain[1].slice(0,70) + "..." : "(none)"));
+    } else {
+      console.warn("No cakes returned — check CATALOG_DB_ID and the Notion connection.");
+    }
 
-                // Fetch Blog
-                const blogResponse = await fetch(`${APP_SCRIPT_GET_URL}?action=getBlog`);
-                const blogData = await blogResponse.json();
-                
-                if (blogData.status === "success") {
-                    renderBlog(blogData.data);
-                } else {
-                    const errorMsg = `<p class="text-primary col-span-full text-center font-bold">Backend says: ${blogData.message}</p>`;
-                    if(document.getElementById('dynamic-blog-grid')) document.getElementById('dynamic-blog-grid').innerHTML = errorMsg;
-                }
-            } catch (error) {
-                console.error("Error fetching data:", error);
-                const networkErrorHtml = `<p class="text-primary col-span-full text-center font-bold">Network Error: Failed to connect to server.</p>`;
-                if(document.getElementById('best-sellers-grid')) document.getElementById('best-sellers-grid').innerHTML = networkErrorHtml;
-                if(document.getElementById('trending-grid')) document.getElementById('trending-grid').innerHTML = networkErrorHtml;
-            }
-        }
+    // --- What a blog post actually looks like ------------------------
+    const blog = data.blog || [];
+    if (blog.length) {
+      console.log("--- FIRST BLOG POST ---");
+      console.table(blog[0]);
+      console.log("Blog property names Notion is sending:", Object.keys(blog[0]).join(" | "));
+      if (!postBody(blog[0]) && !(blog[0]["Post URL"] || blog[0].URL || blog[0].Link))
+        console.warn('NO "Read more" possible: add a rich-text property named "Full Post" ' +
+                     'with the article text, or a URL property named "Post URL".');
+    } else {
+      console.warn("No blog posts returned — check BLOG_DB_ID and the Notion connection.");
+    }
 
-        function renderCakes(cakesToRender, targetGridId) {
-            const grid = document.getElementById(targetGridId);
-            if(!grid) return;
-            
-            grid.innerHTML = ""; 
-            
-            if(cakesToRender.length === 0) {
-                grid.innerHTML = `<p class="text-on-surface-variant col-span-full text-center">Check back soon for new items!</p>`;
-                return;
-            }
-
-            cakesToRender.forEach(cake => {
-                const formattedPrice = "₦" + Number(cake["Price"]).toLocaleString() + "+";
-                const safeDesc = cake["Long Description"] ? cake["Long Description"].replace(/'/g, "\\'") : '';
-                
-                const html = `
-                <article class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg border border-outline-variant flex flex-col relative">
-                    <span class="absolute top-3 left-3 bg-white/90 backdrop-blur text-primary font-bold text-[10px] uppercase tracking-wider px-3 py-1 rounded-full shadow-sm z-10 flex items-center gap-1">
-                        <span class="w-1.5 h-1.5 rounded-full ${cake["Status"] === 'Available' ? 'bg-green-500' : 'bg-amber-400'}"></span> 
-                        ${cake["Status"] || 'Available'}
-                    </span>
-                    <div class="aspect-[4/3] overflow-hidden bg-surface-variant relative">
-                        <img src="${cake["Cake Photo"] || 'https://via.placeholder.com/800x600?text=No+Image'}" alt="${cake["Cake Name"]}" class="w-full h-full object-cover"/>
-                    </div>
-                    <div class="p-5 flex flex-col flex-1 justify-between">
-                        <div>
-                            <h3 class="font-headline text-xl text-surface-dark">${cake["Cake Name"]}</h3>
-                            <p class="text-xs text-on-surface-variant mt-2 line-clamp-2">${cake["Short Description"] || ''}</p>
-                        </div>
-                        <div class="mt-4 pt-4 border-t border-outline-variant/50 flex items-center justify-between">
-                            <span class="font-bold text-sm text-primary">${formattedPrice}</span>
-                            <button onclick="openCatalogModal('${cake["Cake Name"]}', '${cake["Flavor"]}', '${formattedPrice}', '${safeDesc}')" class="bg-surface-variant text-surface-dark hover:bg-primary hover:text-white text-xs font-bold px-5 py-2 rounded-full transition-colors">Order Now</button>
-                        </div>
-                    </div>
-                </article>`;
-                grid.insertAdjacentHTML('beforeend', html);
-            });
-        }
-
-        function renderBlog(posts) {
-            const grid = document.getElementById('dynamic-blog-grid');
-            if(!grid) return;
-            
-            grid.innerHTML = ""; 
-            const homePosts = posts.slice(0, 3);
-            
-            homePosts.forEach(post => {
-                const dateObj = new Date(post["Publish Date"]);
-                const formattedDate = !isNaN(dateObj) ? dateObj.toLocaleDateString('en-US', { month: 'long', year: 'numeric' }) : "Recent";
-                
-                const html = `
-                <article class="bg-white rounded-2xl border border-outline-variant overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col">
-                    <div class="aspect-[16/10] overflow-hidden bg-surface-variant relative">
-                        <img src="${post["Cover Image"] || 'https://via.placeholder.com/800x500?text=No+Image'}" alt="${post["Title"]}" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"/>
-                        <span class="absolute top-3 left-3 bg-white/90 backdrop-blur text-primary font-bold text-[10px] uppercase tracking-wider px-3 py-1 rounded-full shadow-sm">${post["Category"] || 'Update'}</span>
-                    </div>
-                    <div class="p-6 flex flex-col flex-1 justify-between">
-                        <div>
-                            <span class="text-[11px] text-on-surface-variant">${formattedDate} • ${post["Read Time"] || '3 min read'}</span>
-                            <h3 class="font-headline text-xl text-surface-dark mt-2">${post["Title"]}</h3>
-                            <p class="text-xs text-on-surface-variant mt-2 leading-relaxed">${post["Short Summary"] || ''}</p>
-                            <a href="#" class="text-primary font-bold text-xs hover:underline mt-4 inline-block">Read More &rarr;</a>
-                        </div>
-                    </div>
-                </article>`;
-                grid.insertAdjacentHTML('beforeend', html);
-            });
-        }
-    </script>
+    // --- Images across the whole catalogue ---------------------------
+    console.log("--- IMAGES (main = Photo URL, fallback = Cake Photo) ---");
+    const noImage = [], noBackup = [], expiring = [];
+    (data.cakes || []).forEach(k => {
+      const nm = k["Cake Name"] || k.Name || "(unnamed)";
+      const chain = pickImage(k["Photo URL"], k["Cake Photo"], k.Image, k.Photo);
+      if (!chain.length) { noImage.push(nm); return; }
+      if (chain.length < 2) noBackup.push(nm);
+      if (isTemporary(chain[0])) expiring.push(nm);
+    });
+    if (noImage.length)  console.warn("No image at all (" + noImage.length + "): " + noImage.join(", "));
+    if (noBackup.length) console.log("No fallback image (" + noBackup.length + "): " + noBackup.join(", "));
+    if (expiring.length) console.warn("Main image is a Notion-hosted file, which expires after about an hour (" +
+                                      expiring.length + "): " + expiring.join(", ") +
+                                      "  -> the fallback will cover it, but a permanent URL is better.");
+    if (!noImage.length && !expiring.length) console.log("Every cake has a working main image.");
+  } catch (err) {
+    console.error("Request failed:", err);
+  }
+};
+</script>
 </body>
 </html>

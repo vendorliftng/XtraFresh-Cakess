@@ -1,380 +1,902 @@
 <!DOCTYPE html>
 <html lang="en" class="light scroll-smooth">
 <head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Storefront | XtraFresh Cakes Catalog</title>
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com"/>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,0" rel="stylesheet"/>
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <script id="tailwind-config">
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#E63946",       
-                        "primary-hover": "#C92B37",
-                        "accent-pink": "#FFB3C1",   
-                        "surface-dark": "#1D1D1D",  
-                        "surface": "#ffffff",
-                        "surface-variant": "#f9f9f9",
-                        "surface-container": "#f1f1f1",
-                        "on-surface": "#1D1D1D",
-                        "on-surface-variant": "#5a5a5a",
-                        "outline-variant": "#e0e0e0",
-                        "whatsapp": "#25D366"
-                    },
-                    fontFamily: {
-                        "headline": ["DM Serif Display", "serif"],
-                        "body": ["Plus Jakarta Sans", "sans-serif"]
-                    }
-                }
-            }
-        }
-    </script>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<!-- Replace https://xtrafreshcakes.com with your real domain -->
+<title>All Our Cakes | Birthday, Wedding &amp; Party Cakes in Lagos | XtraFresh</title>
+<meta name="description" content="Browse every XtraFresh cake — birthday, wedding, anniversary and party cakes. Filter by occasion and flavour. Baked fresh in Lagos, free delivery in Ogba, Ikeja and Ojodu."/>
+<link rel="canonical" href="https://xtrafreshcakes.com/store.html"/>
+<meta name="robots" content="index, follow, max-image-preview:large"/>
+<meta name="theme-color" content="#E63946"/>
+
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="XtraFresh Cakes"/>
+<meta property="og:locale" content="en_NG"/>
+<meta property="og:url" content="https://xtrafreshcakes.com/store.html"/>
+<meta property="og:title" content="All Our Cakes | XtraFresh Cakes Lagos"/>
+<meta property="og:description" content="Birthday, wedding and party cakes, baked fresh in Lagos. Free delivery in Ogba, Ikeja and Ojodu."/>
+<meta property="og:image" content="https://xtrafreshcakes.com/og-image.jpg"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="All Our Cakes | XtraFresh Cakes Lagos"/>
+<meta name="twitter:description" content="Birthday, wedding and party cakes, baked fresh in Lagos."/>
+<meta name="twitter:image" content="https://xtrafreshcakes.com/og-image.jpg"/>
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23E63946'/%3E%3Ctext x='50' y='72' font-size='62' font-family='Georgia,serif' fill='white' text-anchor='middle'%3EX%3C/text%3E%3C/svg%3E"/>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://xtrafreshcakes.com/" },
+    { "@type": "ListItem", "position": 2, "name": "All Cakes", "item": "https://xtrafreshcakes.com/store.html" }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="preconnect" href="https://script.google.com"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,0" rel="stylesheet"/>
+
+<script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+<script>
+tailwind.config = {
+  theme: { extend: {
+    colors: {
+      "primary": "#E63946", "primary-hover": "#C92B37", "accent-pink": "#FFB3C1",
+      "surface-dark": "#1D1D1D", "surface": "#ffffff", "surface-variant": "#f9f9f9",
+      "surface-container": "#f1f1f1", "on-surface": "#1D1D1D",
+      "on-surface-variant": "#5a5a5a", "outline-variant": "#e0e0e0", "whatsapp": "#25D366"
+    },
+    fontFamily: { "headline": ["DM Serif Display","serif"], "body": ["Plus Jakarta Sans","sans-serif"] }
+  }}
+};
+</script>
+
+<style>
+  .option-btn { transition: all .2s ease-in-out; }
+  .option-btn:active { transform: scale(.96); }
+  .option-btn.selected { border-color:#E63946; background:#E63946; color:#fff; }
+  .chip.selected { border-color:#E63946; background:#E63946; color:#fff; }
+  .skeleton { background: linear-gradient(90deg,#f1f1f1 25%,#e6e6e6 37%,#f1f1f1 63%); background-size:400% 100%; animation: shimmer 1.4s ease infinite; }
+  @keyframes shimmer { 0%{background-position:100% 50%} 100%{background-position:0 50%} }
+  input, select, textarea { font-size: 16px; }
+  [hidden] { display:none !important; }
+  .line-clamp-2 { display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+</style>
 </head>
-<body class="bg-surface text-surface-dark antialiased font-body min-h-screen flex flex-col selection:bg-accent-pink selection:text-surface-dark">
 
-    <!-- Header Navigation -->
-    <header class="bg-surface/95 backdrop-blur-md sticky top-0 z-50 border-b border-outline-variant/50 transition-all duration-300">
-        <div class="flex justify-between items-center px-4 md:px-10 py-4 w-full max-w-7xl mx-auto">
-            <a href="index.html" class="font-headline font-black text-2xl md:text-3xl text-primary tracking-tight">
-                XtraFresh<span class="text-surface-dark">Cakes</span>
-            </a>
-            <nav class="hidden md:flex items-center gap-8">
-                <a href="index.html" class="text-surface-dark font-semibold text-sm hover:text-primary transition-colors">Home</a>
-                <a href="store.html" class="text-primary font-bold text-sm transition-colors border-b-2 border-primary pb-1">Full Catalog</a>
-                <a href="index.html#configurator" class="text-on-surface-variant font-medium text-sm hover:text-primary transition-colors">Custom Builder</a>
-            </nav>
-        </div>
-    </header>
+<body class="font-body bg-surface-variant text-on-surface antialiased">
 
-    <!-- STOREFRONT MAIN LAYOUT -->
-    <div class="w-full max-w-7xl mx-auto px-4 md:px-10 py-10 flex flex-col lg:flex-row gap-8 items-start">
-        
-        <!-- SIDEBAR FILTERS -->
-        <aside class="w-full lg:w-72 shrink-0 bg-white p-6 rounded-2xl border border-outline-variant shadow-sm lg:sticky lg:top-28">
-            <div class="flex items-center justify-between border-b border-outline-variant pb-4 mb-5">
-                <h3 class="font-headline text-xl text-surface-dark flex items-center gap-2">
-                    <span class="material-symbols-outlined text-primary text-xl">tune</span> Filters
-                </h3>
-                <button onclick="resetFilters()" class="text-xs text-primary font-semibold hover:underline">Clear All</button>
-            </div>
+<!-- ============ ANNOUNCEMENT BAR ============ -->
+<div id="announce-bar" hidden
+     class="bg-primary text-white text-xs sm:text-sm font-semibold py-2.5 px-4 text-center flex justify-center items-center gap-2 relative z-[60]">
+  <span class="material-symbols-outlined text-base">celebration</span>
+  <span id="announce-text"></span>
+</div>
 
-            <!-- Search -->
-            <div class="mb-6 relative">
-                <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-lg">search</span>
-                <input type="text" id="store-search" oninput="filterStore()" placeholder="Search cakes..." class="w-full pl-10 pr-4 py-2.5 rounded-xl border border-outline-variant bg-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none text-sm transition-all"/>
-            </div>
+<!-- ============ HEADER ============ -->
+<header class="sticky top-0 z-50 bg-surface/95 backdrop-blur border-b border-outline-variant">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
+    <a href="index.html" class="font-headline text-xl sm:text-2xl tracking-tight">
+      XtraFresh<span class="text-primary">Cakes</span>
+    </a>
+    <nav class="hidden md:flex items-center gap-7 text-sm font-medium">
+      <a href="store.html" class="text-primary font-bold">All Cakes</a>
+      <a href="index.html#builder" class="hover:text-primary transition-colors">Build Your Cake</a>
+      <a href="index.html#how" class="hover:text-primary transition-colors">How It Works</a>
+      <a href="index.html#blog" class="hover:text-primary transition-colors">Stories</a>
+    </nav>
+    <a href="index.html#builder"
+       class="bg-primary text-white text-sm font-bold px-4 py-2.5 rounded-xl hover:bg-primary-hover active:scale-95 transition">
+      Build Your Cake
+    </a>
+  </div>
+</header>
 
-            <!-- Occasion Filter -->
-            <div class="mb-6">
-                <h4 class="font-bold text-xs text-surface-dark uppercase tracking-wider mb-3">Occasion</h4>
-                <div class="flex flex-col gap-2 text-sm text-on-surface-variant">
-                    <label class="flex items-center gap-2 cursor-pointer hover:text-primary"><input type="radio" name="filter-occasion" value="all" onchange="filterStore()" checked class="text-primary focus:ring-primary"/> All Occasions</label>
-                    <label class="flex items-center gap-2 cursor-pointer hover:text-primary"><input type="radio" name="filter-occasion" value="Birthday" onchange="filterStore()" class="text-primary focus:ring-primary"/> Birthday</label>
-                    <label class="flex items-center gap-2 cursor-pointer hover:text-primary"><input type="radio" name="filter-occasion" value="Wedding" onchange="filterStore()" class="text-primary focus:ring-primary"/> Wedding & Engagement</label>
-                    <label class="flex items-center gap-2 cursor-pointer hover:text-primary"><input type="radio" name="filter-occasion" value="Anniversary" onchange="filterStore()" class="text-primary focus:ring-primary"/> Anniversary</label>
-                    <label class="flex items-center gap-2 cursor-pointer hover:text-primary"><input type="radio" name="filter-occasion" value="Shower" onchange="filterStore()" class="text-primary focus:ring-primary"/> Baby / Bridal Showers</label>
-                </div>
-            </div>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 py-8">
 
-            <!-- Flavor Filter -->
-            <div class="mb-6">
-                <h4 class="font-bold text-xs text-surface-dark uppercase tracking-wider mb-3">Base Flavor</h4>
-                <div class="flex flex-col gap-2 text-sm text-on-surface-variant">
-                    <label class="flex items-center gap-2 cursor-pointer hover:text-primary"><input type="radio" name="filter-flavor" value="all" onchange="filterStore()" checked class="text-primary focus:ring-primary"/> All Flavors</label>
-                    <label class="flex items-center gap-2 cursor-pointer hover:text-primary"><input type="radio" name="filter-flavor" value="Vanilla" onchange="filterStore()" class="text-primary focus:ring-primary"/> Vanilla & Funfetti</label>
-                    <label class="flex items-center gap-2 cursor-pointer hover:text-primary"><input type="radio" name="filter-flavor" value="Chocolate" onchange="filterStore()" class="text-primary focus:ring-primary"/> Rich Chocolate</label>
-                    <label class="flex items-center gap-2 cursor-pointer hover:text-primary"><input type="radio" name="filter-flavor" value="Red Velvet" onchange="filterStore()" class="text-primary focus:ring-primary"/> Red Velvet</label>
-                    <label class="flex items-center gap-2 cursor-pointer hover:text-primary"><input type="radio" name="filter-flavor" value="Fruit" onchange="filterStore()" class="text-primary focus:ring-primary"/> Citrus & Berry</label>
-                    <label class="flex items-center gap-2 cursor-pointer hover:text-primary"><input type="radio" name="filter-flavor" value="Specialty" onchange="filterStore()" class="text-primary focus:ring-primary"/> Specialty (Matcha, Caramel)</label>
-                </div>
-            </div>
-            
-            <div class="pt-4 border-t border-outline-variant text-center">
-                <p class="text-xs text-on-surface-variant mb-3">Don't see what you need?</p>
-                <a href="index.html#configurator" class="block w-full bg-surface-variant text-primary font-bold py-2.5 rounded-xl text-xs hover:bg-primary hover:text-white transition-colors">Use Custom Builder</a>
-            </div>
-        </aside>
+  <!-- ============ PAGE HEAD ============ -->
+  <div class="mb-6">
+    <h1 class="font-headline text-3xl sm:text-4xl">All Cakes</h1>
+    <p class="text-on-surface-variant mt-1">
+      Every cake we make, baked fresh to order. Can't find it? <a href="index.html#builder" class="text-primary font-bold hover:underline">Build your own</a>.
+    </p>
+  </div>
 
-        <!-- PRODUCT GRID -->
-        <main class="flex-1 w-full">
-            <div class="mb-6 flex justify-between items-center">
-                <h1 class="font-headline text-3xl text-surface-dark">The Signature Catalog</h1>
-                <span id="result-count" class="text-sm font-bold text-on-surface-variant">Loading...</span>
-            </div>
-
-            <div id="store-grid" class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
-                <!-- DYNAMIC CAKES WILL LOAD HERE -->
-                <div class="col-span-full text-center py-20 text-on-surface-variant animate-pulse">Loading full catalog...</div>
-            </div>
-            
-            <div id="no-results" class="hidden text-center py-20 bg-surface-variant rounded-2xl border border-outline-variant mt-6">
-                <span class="material-symbols-outlined text-4xl text-on-surface-variant mb-2">search_off</span>
-                <h3 class="font-headline text-xl text-surface-dark">No cakes found</h3>
-                <p class="text-sm text-on-surface-variant mt-1">Try adjusting your filters or search term.</p>
-                <button onclick="resetFilters()" class="mt-4 bg-white text-primary border border-outline-variant text-sm font-bold px-6 py-2 rounded-full hover:bg-surface">Reset Filters</button>
-            </div>
-        </main>
+  <!-- ============ TOOLBAR ============ -->
+  <div class="bg-surface rounded-2xl border border-outline-variant p-3 mb-6 flex flex-wrap gap-3 items-center sticky top-16 z-40">
+    <div class="relative flex-1 min-w-[200px]">
+      <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-lg">search</span>
+      <input id="q" type="search" oninput="syncSearch(this.value)" placeholder="Search cakes, flavours, occasions..."
+             class="w-full pl-10 pr-4 py-2.5 rounded-xl border border-outline-variant focus:border-primary outline-none text-sm"/>
     </div>
 
-    <!-- FOOTER -->
-    <footer class="bg-surface-dark text-white pt-16 pb-12 mt-auto border-t border-outline-variant">
-        <div class="max-w-7xl mx-auto px-4 md:px-10 grid grid-cols-1 md:grid-cols-3 gap-12 border-b border-gray-800 pb-12">
-            <div class="space-y-4">
-                <a href="#" class="font-headline font-black text-3xl text-primary block">XtraFresh<span class="text-white">Cakes</span></a>
-                <p class="text-sm text-gray-400 leading-relaxed max-w-sm">Premium bespoke cakes handcrafted in Lagos, Nigeria. We specialize in transforming your special occasions into unforgettable memories.</p>
-                <div class="flex gap-4 pt-2">
-                    <a href="https://instagram.com/xtrafreshcakes" target="_blank" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-pink-600 transition-colors text-white"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd"/></svg></a>
-                    <a href="https://tiktok.com/@xtrafreshcakes" target="_blank" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-pink-600 transition-colors text-white"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg></a>
-                </div>
-            </div>
-            <div>
-                <h4 class="font-bold text-xs uppercase text-primary tracking-wider mb-5">Serving All of Lagos State</h4>
-                <div class="grid grid-cols-2 gap-2 text-sm text-gray-400">
-                    <ul class="space-y-2"><li>Ikeja & GRA</li><li>Victoria Island</li><li>Lekki & Ajah</li><li>Ikoyi</li><li>Yaba & Akoka</li></ul>
-                    <ul class="space-y-2"><li>Surulere</li><li>Maryland & Anthony</li><li>Gbagada</li><li>Festac Town</li><li>Alimosho District</li></ul>
-                </div>
-            </div>
-            <div>
-                <h4 class="font-bold text-xs uppercase text-primary tracking-wider mb-5">Contact Us</h4>
-                <address class="not-italic text-sm text-gray-400 space-y-3">
-                    <p class="font-bold text-white text-base mb-1">XtraFresh Cakes</p>
-                    <p class="flex items-start gap-3"><span class="material-symbols-outlined text-primary text-[18px] mt-0.5">location_on</span><span>73 Clem Road,<br/>Ijaye, Lagos, Nigeria</span></p>
-                    <p class="flex items-center gap-3 pt-2"><span class="material-symbols-outlined text-whatsapp text-[18px]">chat</span><a href="https://wa.me/2349060009541" target="_blank" class="font-bold text-white hover:text-whatsapp transition-colors text-base">+234 906 000 9541</a></p>
-                </address>
-            </div>
-        </div>
-        <div class="max-w-7xl mx-auto px-4 md:px-10 pt-6 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
-            <p>© 2026 XtraFresh Cakes. All rights reserved.</p>
-        </div>
-    </footer>
+    <select id="sort" onchange="applyFilters()"
+            class="py-2.5 pl-3 pr-8 rounded-xl border border-outline-variant focus:border-primary outline-none text-sm">
+      <option value="popular">Most popular</option>
+      <option value="az">Name A–Z</option>
+      <option value="price-asc">Price: low to high</option>
+      <option value="price-desc">Price: high to low</option>
+      <option value="serves">Serves: most people</option>
+    </select>
 
-    <!-- CHECKOUT MODAL -->
-    <div id="checkout-modal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-[100] hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-2xl max-w-lg w-full shadow-2xl relative border border-outline-variant overflow-hidden flex flex-col max-h-[90vh]">
-            <div class="bg-surface-variant p-4 border-b border-outline-variant flex justify-between items-center">
-                <h3 class="font-headline text-2xl text-surface-dark">Finalize Order</h3>
-                <button onclick="closeCheckoutModal()" class="text-on-surface-variant hover:text-primary"><span class="material-symbols-outlined text-2xl">close</span></button>
-            </div>
-            <div class="p-6 overflow-y-auto space-y-5">
-                <div class="bg-primary/5 border border-primary/20 p-4 rounded-xl">
-                    <p class="text-[10px] font-bold text-primary uppercase tracking-widest mb-1">Your Order:</p>
-                    <p id="modal-cake-summary" class="text-sm font-bold text-surface-dark whitespace-pre-line mb-2"></p>
-                    <p id="modal-long-desc" class="text-xs text-on-surface-variant leading-relaxed border-t border-primary/10 pt-2"></p>
-                </div>
-                <div class="grid grid-cols-2 gap-4">
-                    <div class="col-span-2 sm:col-span-1">
-                        <label class="block text-xs font-bold text-surface-dark mb-1.5">Full Name</label>
-                        <input type="text" id="checkout-name" placeholder="Sarah Doe" class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface focus:border-primary outline-none text-sm"/>
-                    </div>
-                    <div class="col-span-2 sm:col-span-1">
-                        <label class="block text-xs font-bold text-surface-dark mb-1.5">WhatsApp Number</label>
-                        <input type="tel" id="checkout-phone" placeholder="090..." class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface focus:border-primary outline-none text-sm"/>
-                    </div>
-                </div>
-                <div class="grid grid-cols-2 gap-4">
-                    <div class="col-span-2 sm:col-span-1">
-                        <label class="block text-xs font-bold text-surface-dark mb-1.5">Delivery Date</label>
-                        <input type="date" id="checkout-date" class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface focus:border-primary outline-none text-sm"/>
-                    </div>
-                    <div class="col-span-2 sm:col-span-1">
-                        <label class="block text-xs font-bold text-surface-dark mb-1.5">Claim August Promo?</label>
-                        <select id="checkout-promo" class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface focus:border-primary outline-none text-sm">
-                            <option value="No">No</option><option value="Yes">Yes</option>
-                        </select>
-                    </div>
-                </div>
-                <div>
-                    <label class="block text-xs font-bold text-surface-dark mb-1.5">Allergies?</label>
-                    <input type="text" id="checkout-allergies" placeholder="e.g., Nuts, None" class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface focus:border-primary outline-none text-sm mb-4"/>
-                </div>
-                <div>
-                    <label class="block text-xs font-bold text-surface-dark mb-1.5">Delivery Address (Lagos)</label>
-                    <textarea id="checkout-address" rows="2" placeholder="Full street address and area" class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface focus:border-primary outline-none text-sm"></textarea>
-                </div>
-            </div>
-            <div class="p-4 border-t border-outline-variant bg-surface">
-                <button id="final-submit-btn" onclick="submitOrderToSheet(event)" class="w-full bg-primary text-white font-bold text-base px-6 py-4 rounded-xl hover:bg-primary-hover active:scale-[0.98] transition-all shadow-lg flex items-center justify-center gap-2">
-                    <span class="material-symbols-outlined">send</span> Confirm & Send to WhatsApp
-                </button>
-            </div>
+    <button onclick="openFilters()"
+            class="lg:hidden flex items-center gap-2 px-4 py-2.5 rounded-xl border border-outline-variant text-sm font-bold">
+      <span class="material-symbols-outlined text-lg">tune</span> Filters
+      <span id="filter-count-mobile" hidden class="bg-primary text-white text-[11px] rounded-full px-1.5">0</span>
+    </button>
+  </div>
+
+  <div class="flex gap-6 items-start">
+
+    <!-- ============ FILTERS ============ -->
+    <aside id="filters"
+           class="hidden lg:block w-64 shrink-0 bg-surface rounded-2xl border border-outline-variant p-5 lg:sticky lg:top-32">
+      <div class="flex items-center justify-between pb-3 mb-4 border-b border-outline-variant">
+        <h2 class="font-bold flex items-center gap-2">
+          <span class="material-symbols-outlined text-primary text-xl">tune</span> Filters
+        </h2>
+        <button onclick="clearFilters()" class="text-xs text-primary font-bold hover:underline">Clear all</button>
+      </div>
+
+      <div class="relative mb-5">
+        <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-lg">search</span>
+        <input id="q-side" type="search" oninput="syncSearch(this.value)" placeholder="Search cakes..."
+               class="w-full pl-10 pr-4 py-2.5 rounded-xl border border-outline-variant focus:border-primary outline-none text-sm"/>
+      </div>
+
+      <div id="filter-groups" class="space-y-6"></div>
+    </aside>
+
+    <!-- ============ RESULTS ============ -->
+    <main class="flex-1 min-w-0">
+      <div class="flex flex-wrap items-center gap-2 mb-4">
+        <span id="count" class="text-sm text-on-surface-variant">Loading…</span>
+        <div id="active-chips" class="flex flex-wrap gap-2"></div>
+      </div>
+
+      <div id="grid" class="grid sm:grid-cols-2 xl:grid-cols-3 gap-5"></div>
+
+      <div id="empty" hidden class="text-center bg-surface rounded-3xl border border-outline-variant py-16 px-6 mt-2">
+        <span class="material-symbols-outlined text-5xl text-outline-variant">search_off</span>
+        <h3 class="font-headline text-2xl mt-3 mb-2">No cakes match that</h3>
+        <p class="text-on-surface-variant text-sm mb-5 max-w-sm mx-auto">
+          Try removing a filter — or tell us exactly what you want and we'll make it.
+        </p>
+        <div class="flex flex-wrap gap-3 justify-center">
+          <button onclick="clearFilters()" class="border border-outline-variant font-bold px-5 py-3 rounded-xl">Clear filters</button>
+          <a href="index.html#builder" class="bg-primary text-white font-bold px-5 py-3 rounded-xl">Build Your Cake</a>
         </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<!-- ============ FOOTER ============ -->
+<footer class="bg-surface-dark text-white/80 pt-14 pb-8 mt-10">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 grid md:grid-cols-3 gap-10">
+    <div>
+      <p class="font-headline text-2xl text-white mb-3">XtraFresh<span class="text-primary">Cakes</span></p>
+      <p class="text-sm">Custom cakes made to order in Lagos. Baked fresh the morning of your event.</p>
+    </div>
+    <div>
+      <h4 class="text-white font-bold mb-3">Where We Deliver</h4>
+      <p class="text-sm mb-2"><strong class="text-white">Free delivery:</strong> Ogba · Ikeja · Ojodu</p>
+      <p class="text-sm">Everywhere else in Lagos — delivery fee applies, or pick up free.</p>
+    </div>
+    <div>
+      <h4 class="text-white font-bold mb-3">Talk to Us</h4>
+      <p class="text-sm"><a id="footer-wa" href="https://wa.me/2349060009541" target="_blank" rel="noopener" class="text-whatsapp font-bold">+234 906 000 9541</a></p>
+      <p class="text-sm mt-2">Open Monday to Saturday, 8am – 7pm</p>
+      <p class="text-sm text-white/60 mt-2">Order at least 1 week ahead. 2 weeks for weddings.</p>
+    </div>
+  </div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 mt-10 pt-6 border-t border-white/10 text-xs">
+    <p>© 2026 XtraFresh Cakes.</p>
+  </div>
+</footer>
+
+<!-- ============ MOBILE FILTER DRAWER ============ -->
+<div id="modal-filters" hidden class="modal lg:hidden fixed inset-0 bg-black/70 backdrop-blur-sm z-[100] flex items-end">
+  <div class="bg-surface w-full rounded-t-3xl max-h-[85vh] flex flex-col">
+    <div class="flex items-center justify-between px-5 py-4 border-b border-outline-variant">
+      <h3 class="font-headline text-xl">Filters</h3>
+      <button onclick="closeModal('modal-filters')" class="p-1"><span class="material-symbols-outlined">close</span></button>
+    </div>
+    <div class="px-5 pt-4">
+      <div class="relative">
+        <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-lg">search</span>
+        <input id="q-drawer" type="search" oninput="syncSearch(this.value)" placeholder="Search cakes..."
+               class="w-full pl-10 pr-4 py-3 rounded-xl border border-outline-variant focus:border-primary outline-none text-sm"/>
+      </div>
+    </div>
+    <div id="filter-groups-mobile" class="overflow-y-auto px-5 py-4 space-y-6"></div>
+    <div class="px-5 py-4 border-t border-outline-variant flex gap-3">
+      <button onclick="clearFilters()" class="flex-1 border border-outline-variant font-bold py-3.5 rounded-xl">Clear all</button>
+      <button onclick="closeModal('modal-filters')" id="apply-btn" class="flex-1 bg-primary text-white font-bold py-3.5 rounded-xl">Show results</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ QUICK VIEW ============ -->
+<div id="modal-view" hidden class="modal fixed inset-0 bg-black/70 backdrop-blur-sm z-[100] flex items-end sm:items-center justify-center sm:p-4">
+  <div class="bg-surface w-full sm:max-w-3xl sm:rounded-3xl rounded-t-3xl max-h-[92vh] flex flex-col overflow-hidden">
+
+    <!-- Close sits above everything so it works in both layouts -->
+    <button onclick="closeModal('modal-view')"
+            class="absolute top-3 right-3 sm:top-5 sm:right-5 z-20 bg-black/50 text-white rounded-full p-1.5">
+      <span class="material-symbols-outlined">close</span>
+    </button>
+
+    <div class="flex flex-col sm:flex-row overflow-hidden">
+
+      <!-- Image: capped on mobile so it can't swallow the page -->
+      <div class="relative shrink-0 sm:w-5/12">
+        <div id="view-img"></div>
+        <span id="view-status" hidden
+              class="absolute top-3 left-3 bg-surface-dark/90 text-white text-[11px] font-bold px-2.5 py-1 rounded-full"></span>
+      </div>
+
+      <div class="flex-1 overflow-y-auto px-5 py-4 sm:py-6 min-h-0">
+        <h3 id="view-name" class="font-headline text-2xl leading-tight pr-8"></h3>
+        <p id="view-meta" class="text-sm text-on-surface-variant mt-1"></p>
+        <p id="view-price" class="font-bold text-primary text-lg mt-3"></p>
+        <p id="view-pricenote" class="text-xs text-on-surface-variant"></p>
+        <p id="view-desc" class="text-sm leading-relaxed mt-4 whitespace-pre-line text-on-surface-variant"></p>
+        <div id="view-tags" class="flex flex-wrap gap-2 mt-4"></div>
+      </div>
     </div>
 
-    <!-- Scripts -->
-    <script>
-        const API_URL = "https://script.google.com/macros/s/AKfycbycvxx3tKkPp_Ssld75TfQGX13oVp8GpD58tvehjAAFsXaywJJg-c_XhQ42q0aZ724Q/exec";
-        const WHATSAPP_PHONE = "2349060009541";
-        let currentOrderDetails = "";
+    <div class="px-5 py-4 border-t border-outline-variant shrink-0 bg-surface">
+      <button onclick="orderFromView()"
+              class="w-full bg-primary text-white font-bold py-4 rounded-xl active:scale-95 transition">
+        Order This Cake
+      </button>
+    </div>
+  </div>
+</div>
 
-        // --- DYNAMIC FETCH LOGIC ---
-        document.addEventListener("DOMContentLoaded", () => {
-            fetchStoreCatalog();
-        });
+<!-- ============ CHECKOUT ============ -->
+<div id="modal-checkout" hidden class="modal fixed inset-0 bg-black/70 backdrop-blur-sm z-[105] flex items-end sm:items-center justify-center sm:p-4">
+  <div class="bg-surface w-full sm:max-w-lg sm:rounded-3xl rounded-t-3xl max-h-[92vh] flex flex-col">
+    <div class="flex items-center justify-between px-5 py-4 border-b border-outline-variant">
+      <h3 class="font-headline text-xl">Confirm Your Order</h3>
+      <button onclick="closeModal('modal-checkout')" class="p-1"><span class="material-symbols-outlined">close</span></button>
+    </div>
 
-        async function fetchStoreCatalog() {
-            try {
-                const response = await fetch(`${API_URL}?action=getCakes`);
-                const data = await response.json();
-                
-                if (data.status === "success") {
-                    renderStoreCakes(data.data);
-                } else {
-                    document.getElementById('store-grid').innerHTML = `<p class="text-primary col-span-full text-center font-bold">Backend says: ${data.message}</p>`;
-                    document.getElementById('result-count').innerText = "0 items";
-                }
-            } catch (error) {
-                console.error("Error fetching data:", error);
-                document.getElementById('store-grid').innerHTML = `<p class="text-primary col-span-full text-center font-bold">Network Error: Failed to load catalog.</p>`;
-                document.getElementById('result-count').innerText = "0 items";
-            }
-        }
+    <div class="overflow-y-auto px-5 py-4 space-y-4">
+      <div class="bg-surface-container rounded-2xl p-4">
+        <p class="text-xs text-on-surface-variant mb-1">Your order</p>
+        <p id="sum-order" class="text-sm font-semibold whitespace-pre-line"></p>
+        <p id="sum-price" class="text-sm text-primary font-bold mt-2"></p>
+      </div>
 
-        function renderStoreCakes(cakes) {
-            const grid = document.getElementById('store-grid');
-            grid.innerHTML = ""; // Clear loading text
-            
-            if(cakes.length === 0) {
-                grid.innerHTML = `<p class="text-on-surface-variant col-span-full text-center">Catalog is currently empty.</p>`;
-                document.getElementById('result-count').innerText = `0 items`;
-                return;
-            }
+      <div>
+        <label class="block text-sm font-bold mb-1.5">What size?</label>
+        <select id="co-size" class="w-full px-4 py-3 rounded-xl border border-outline-variant focus:border-primary outline-none"></select>
+      </div>
 
-            cakes.forEach(cake => {
-                const formattedPrice = "₦" + Number(cake["Price"] || 0).toLocaleString() + "+";
-                const safeDesc = cake["Long Description"] ? cake["Long Description"].replace(/'/g, "\\'") : '';
-                
-                // Ensure Occasion and Flavor map securely to your filtering attributes
-                const flavorAttr = cake["Flavor"] || ""; 
-                const occasionAttr = cake["Occasion"] || "";
-                
-                const html = `
-                <article class="store-card bg-white rounded-2xl overflow-hidden shadow-sm border border-outline-variant flex flex-col relative transition-opacity duration-300" data-flavor="${flavorAttr}" data-occasion="${occasionAttr}">
-                    <span class="absolute top-3 left-3 bg-white/90 backdrop-blur text-primary font-bold text-[10px] uppercase tracking-wider px-3 py-1 rounded-full shadow-sm z-10 flex items-center gap-1">
-                        <span class="w-1.5 h-1.5 rounded-full ${cake["Status"] === 'Available' ? 'bg-green-500' : 'bg-amber-400'}"></span> 
-                        ${cake["Status"] || 'Available'}
-                    </span>
-                    <div class="aspect-[4/3] overflow-hidden bg-surface-variant relative">
-                        <img src="${cake["Cake Photo"] || 'https://via.placeholder.com/800x600?text=No+Image'}" alt="${cake["Cake Name"]}" class="w-full h-full object-cover"/>
-                    </div>
-                    <div class="p-5 flex flex-col flex-1 justify-between">
-                        <div>
-                            <h3 class="font-headline text-xl text-surface-dark">${cake["Cake Name"]}</h3>
-                            <p class="text-xs text-on-surface-variant mt-2 line-clamp-2">${cake["Short Description"] || ''}</p>
-                        </div>
-                        <div class="mt-4 pt-4 border-t border-outline-variant/50 flex items-center justify-between">
-                            <span class="font-bold text-sm text-primary">${formattedPrice}</span>
-                            <button onclick="openCatalogModal('${cake["Cake Name"]}', '${cake["Flavor"]}', '${formattedPrice}', '${safeDesc}')" class="bg-primary text-white text-xs font-bold px-5 py-2 rounded-full hover:bg-primary-hover transition-colors">Order</button>
-                        </div>
-                    </div>
-                </article>`;
-                grid.insertAdjacentHTML('beforeend', html);
-            });
-            
-            // Run the filter to instantly verify total counts on load
-            filterStore();
-        }
+      <div class="grid sm:grid-cols-2 gap-4">
+        <div>
+          <label class="block text-sm font-bold mb-1.5">Your Name</label>
+          <input id="co-name" type="text" placeholder="Sarah Adeyemi"
+                 class="w-full px-4 py-3 rounded-xl border border-outline-variant focus:border-primary outline-none"/>
+        </div>
+        <div>
+          <label class="block text-sm font-bold mb-1.5">WhatsApp Number</label>
+          <input id="co-phone" type="tel" inputmode="tel" placeholder="0801 234 5678"
+                 class="w-full px-4 py-3 rounded-xl border border-outline-variant focus:border-primary outline-none"/>
+        </div>
+      </div>
 
-        // --- FILTER LOGIC ---
-        function filterStore() {
-            const searchVal = document.getElementById('store-search').value.toLowerCase();
-            const occasionVal = document.querySelector('input[name="filter-occasion"]:checked').value;
-            const flavorVal = document.querySelector('input[name="filter-flavor"]:checked').value;
-            
-            const cards = document.querySelectorAll('.store-card');
-            let visibleCount = 0;
+      <div>
+        <label class="block text-sm font-bold mb-1.5">When do you need it?</label>
+        <input id="co-date" type="date"
+               class="w-full px-4 py-3 rounded-xl border border-outline-variant focus:border-primary outline-none"/>
+        <p id="co-date-hint" class="text-xs text-on-surface-variant mt-1"></p>
+      </div>
 
-            cards.forEach(card => {
-                const title = card.querySelector('h3').innerText.toLowerCase();
-                const cardFlavor = card.getAttribute('data-flavor');
-                const cardOccasion = card.getAttribute('data-occasion');
+      <div>
+        <label class="block text-sm font-bold mb-2">How would you like to get it?</label>
+        <div class="grid grid-cols-2 gap-2">
+          <button type="button" onclick="setFulfilment('delivery')" id="ff-delivery"
+                  class="option-btn selected border rounded-xl py-3 text-sm font-semibold">Deliver to me</button>
+          <button type="button" onclick="setFulfilment('pickup')" id="ff-pickup"
+                  class="option-btn border border-outline-variant rounded-xl py-3 text-sm font-semibold">I'll pick up (free)</button>
+        </div>
+      </div>
 
-                const matchesSearch = title.includes(searchVal);
-                const matchesOccasion = occasionVal === 'all' || cardOccasion.includes(occasionVal);
-                const matchesFlavor = flavorVal === 'all' || cardFlavor.includes(flavorVal);
+      <div id="wrap-address">
+        <label class="block text-sm font-bold mb-1.5">Where should we deliver?</label>
+        <textarea id="co-address" rows="2" placeholder="12 Aina Street, Ogba, Lagos"
+                  class="w-full px-4 py-3 rounded-xl border border-outline-variant focus:border-primary outline-none"></textarea>
+        <p class="text-xs text-on-surface-variant mt-1">Free in Ogba, Ikeja &amp; Ojodu. Other areas ₦4,000–₦10,000.</p>
+      </div>
 
-                if (matchesSearch && matchesOccasion && matchesFlavor) {
-                    card.style.display = 'flex';
-                    setTimeout(() => card.style.opacity = '1', 50);
-                    visibleCount++;
-                } else {
-                    card.style.opacity = '0';
-                    setTimeout(() => card.style.display = 'none', 300);
-                }
-            });
+      <div>
+        <label class="block text-sm font-bold mb-1.5">Message on the cake <span class="font-normal text-on-surface-variant">(optional)</span></label>
+        <input id="co-inscription" type="text" placeholder="Happy Birthday Tolu!"
+               class="w-full px-4 py-3 rounded-xl border border-outline-variant focus:border-primary outline-none"/>
+      </div>
 
-            document.getElementById('result-count').innerText = `${visibleCount} items`;
-            document.getElementById('no-results').style.display = visibleCount === 0 ? 'block' : 'none';
-        }
+      <div>
+        <label class="block text-sm font-bold mb-1.5">Any allergies?</label>
+        <input id="co-allergies" type="text" placeholder="Nuts, dairy, or type None"
+               class="w-full px-4 py-3 rounded-xl border border-outline-variant focus:border-primary outline-none"/>
+      </div>
 
-        function resetFilters() {
-            document.getElementById('store-search').value = '';
-            document.querySelector('input[name="filter-occasion"][value="all"]').checked = true;
-            document.querySelector('input[name="filter-flavor"][value="all"]').checked = true;
-            filterStore();
-        }
+      <p id="co-error" hidden class="text-sm text-primary font-semibold bg-primary/5 rounded-xl px-4 py-3"></p>
+    </div>
 
-        // --- MODAL & SUBMIT LOGIC ---
-        function openCatalogModal(cakeName, flavor, price, longDesc) {
-            const shortDetails = `${cakeName}\nFlavor: ${flavor}\nBase Price: ${price}`;
-            currentOrderDetails = shortDetails;
-            document.getElementById("modal-cake-summary").innerText = shortDetails;
-            const descEl = document.getElementById("modal-long-desc");
-            descEl.innerText = longDesc; 
-            descEl.classList.remove("hidden"); 
-            document.getElementById("checkout-modal").classList.remove("hidden");
-            document.body.style.overflow = "hidden";
-        }
+    <div class="px-5 py-4 border-t border-outline-variant">
+      <button id="co-submit" onclick="submitOrder()"
+              class="w-full bg-primary text-white font-bold py-4 rounded-xl hover:bg-primary-hover active:scale-95 transition flex items-center justify-center gap-2">
+        <span class="material-symbols-outlined">send</span> Send My Order
+      </button>
+    </div>
+  </div>
+</div>
 
-        function closeCheckoutModal() {
-            document.getElementById("checkout-modal").classList.add("hidden");
-            document.body.style.overflow = "auto";
-        }
+<!-- ============ CONFIRMATION ============ -->
+<div id="modal-done" hidden class="modal fixed inset-0 bg-black/70 backdrop-blur-sm z-[110] flex items-end sm:items-center justify-center sm:p-4">
+  <div class="bg-surface w-full sm:max-w-md sm:rounded-3xl rounded-t-3xl p-6 text-center">
+    <div class="w-14 h-14 rounded-full bg-whatsapp/10 flex items-center justify-center mx-auto mb-4">
+      <span class="material-symbols-outlined text-whatsapp text-3xl">check_circle</span>
+    </div>
+    <h3 class="font-headline text-2xl mb-2">Order received 🎉</h3>
+    <p class="text-sm text-on-surface-variant mb-1">Your order number is</p>
+    <p id="done-id" class="font-bold text-lg mb-4">—</p>
+    <p class="text-sm text-on-surface-variant mb-5">
+      Next step: send us the details on WhatsApp so we can confirm your price and date.
+      The message is already written for you.
+    </p>
+    <a id="done-wa" href="#" target="_blank" rel="noopener"
+       class="block w-full bg-whatsapp text-white font-bold py-4 rounded-xl active:scale-95 transition mb-3">Open WhatsApp</a>
+    <button onclick="copyOrderText()" class="w-full border border-outline-variant font-bold py-3 rounded-xl text-sm mb-3">
+      Copy my order details
+    </button>
+    <p class="text-xs text-on-surface-variant">
+      WhatsApp not opening? Chat us on <strong id="done-phone">+234 906 000 9541</strong>.
+    </p>
+    <button onclick="closeModal('modal-done')" class="mt-4 text-sm text-on-surface-variant underline">Close</button>
+  </div>
+</div>
 
-        function submitOrderToSheet(event) {
-            event.preventDefault(); 
-            const submitBtn = document.getElementById("final-submit-btn");
-            submitBtn.innerHTML = `<span class="material-symbols-outlined animate-spin">progress_activity</span> Sending...`;
-            submitBtn.disabled = true;
+<script>
+// ============================================================
+// CONFIG
+// ============================================================
+const API_URL = "https://script.google.com/macros/s/AKfycbycvxx3tKkPp_Ssld75TfQGX13oVp8GpD58tvehjAAFsXaywJJg-c_XhQ42q0aZ724Q/exec";
+const PLACEHOLDER = "https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=800&auto=format&fit=crop";
 
-            const orderData = {
-                customerName: document.getElementById("checkout-name").value || "No Name",
-                customerPhone: document.getElementById("checkout-phone").value || "No Phone",
-                deliveryDate: document.getElementById("checkout-date").value,
-                deliveryAddress: document.getElementById("checkout-address").value,
-                allergies: document.getElementById("checkout-allergies").value,
-                promoClaimed: document.getElementById("checkout-promo").value 
-            };
+const SIZES = [
+  { label:"6-inch",  serves:"4–8 people",    from:35000,  to:48000,  people:8 },
+  { label:"8-inch",  serves:"10–12 people",  from:55000,  to:72000,  people:12, popular:true },
+  { label:"10-inch", serves:"18–22 people",  from:85000,  to:115000, people:22 },
+  { label:"12-inch", serves:"30–35 people",  from:125000, to:165000, people:35 },
+  { label:"2-layer", serves:"40–60 people",  from:140000, to:195000, people:60 },
+  { label:"3-layer", serves:"70–100 people", from:220000, to:300000, people:100 }
+];
 
-            fetch(API_URL, {
-                method: 'POST',
-                body: JSON.stringify(orderData)
-            }).then(response => response.json()).then(data => {
-                if(data.status === "success") {
-                    let message = `Hello XtraFresh! 🎂\n\nI just placed an order on the website.\n*Order ID:* ${data.orderId}\n\n*My Order Details:*\n${currentOrderDetails}\n\n*Delivery to:* ${orderData.deliveryAddress} on ${orderData.deliveryDate}\n\nPlease let me know the total cost with delivery and your account details so I can make the transfer!`;
-                    window.location.href = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(message)}`;
-                } else {
-                    alert("Oops! Something went wrong saving your order.");
-                    resetSubmitButton(submitBtn);
-                }
-            }).catch(error => {
-                alert("Network error. Please check your connection.");
-                resetSubmitButton(submitBtn);
-            });
-        }
+const state = {
+  settings:{}, cakes:[], filtered:[],
+  filters:{ Occasions:new Set(), Flavor:new Set(), Status:new Set() },
+  current:null, fulfilment:"delivery",
+  orderText:"", estPrice:"", requestId:null, sending:false
+};
 
-        function resetSubmitButton(btn) {
-            btn.innerHTML = `<span class="material-symbols-outlined">send</span> Confirm & Send to WhatsApp`;
-            btn.disabled = false;
-        }
-    </script>
+const $ = id => document.getElementById(id);
+const naira = n => "₦" + Number(n).toLocaleString("en-NG");
+const esc = s => String(s == null ? "" : s)
+  .replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")
+  .replace(/"/g,"&quot;").replace(/'/g,"&#39;");
+
+function showPrices() { return state.settings.showPrices === true; }
+function whatsappNumber() { return String(state.settings.whatsappNumber || "2349060009541").replace(/[^0-9]/g,""); }
+
+// ============================================================
+// BOOT
+// ============================================================
+document.addEventListener("DOMContentLoaded", () => {
+  $("grid").innerHTML = skeletons(6);
+  fillSizeSelect();
+  readUrlFilters();
+  loadData();
+});
+
+async function loadData() {
+  const data = await tryLoad(25000) || await tryLoad(25000);
+  if (!data) {
+    $("grid").innerHTML = "";
+    $("count").textContent = "";
+    $("empty").hidden = false;
+    $("empty").querySelector("h3").textContent = "Couldn't load the catalogue";
+    $("empty").querySelector("p").innerHTML =
+      "Refresh the page, or " + waLink("message us on WhatsApp") + " and we'll send you the full list.";
+    return;
+  }
+  state.settings = data.settings || {};
+  state.cakes    = data.cakes || [];
+  applySettings();
+  buildFilters();
+  applyFilters();
+}
+
+async function tryLoad(ms) {
+  try {
+    const res  = await fetchWithTimeout(API_URL + "?action=getAll", ms);
+    const data = await res.json();
+    if (data.status !== "success") throw new Error(data.code || "bad response");
+    return data;
+  } catch (err) { console.warn("Load attempt failed:", err.message || err); return null; }
+}
+
+function fetchWithTimeout(url, ms) {
+  const c = new AbortController();
+  const t = setTimeout(() => c.abort(), ms);
+  return fetch(url, { signal:c.signal }).finally(() => clearTimeout(t));
+}
+
+function waLink(text) {
+  return '<a href="https://wa.me/' + whatsappNumber() +
+         '" target="_blank" rel="noopener" class="text-whatsapp font-bold underline">' + text + "</a>";
+}
+
+function applySettings() {
+  const s = state.settings;
+  let active = !!s.promoActive;
+  const end = parseDate(s.promoEnd);
+  if (end && today() > end) active = false;
+
+  const remaining = Math.max(0, (Number(s.promoSlots)||0) - (Number(s.promoSlotsUsed)||0));
+  const bar = $("announce-bar");
+
+  if (active && remaining > 0) {
+    $("announce-text").innerHTML = esc(s.promoHeadline || "FREE CAKE — first 10 people only.") +
+      ' <a href="index.html" class="underline">Claim your slot</a>';
+    bar.hidden = false;
+  } else if (s.announcementBar) {
+    $("announce-text").textContent = s.announcementBar;
+    bar.hidden = false;
+  }
+
+  if (s.whatsappNumber) {
+    $("footer-wa").href = "https://wa.me/" + whatsappNumber();
+    $("footer-wa").textContent = s.whatsappNumber;
+    $("done-phone").textContent = s.whatsappNumber;
+  }
+  fillSizeSelect();
+  updateDateLimits();
+}
+
+// ============================================================
+// FILTERS  (built from your actual Notion data)
+// ============================================================
+const FILTER_GROUPS = [
+  { key:"Occasions", label:"Occasion" },
+  { key:"Flavor",    label:"Flavour" },
+  { key:"Status",    label:"Availability" }
+];
+
+function valuesOf(cake, key) {
+  const raw = cake[key];
+  if (!raw) return [];
+  return (Array.isArray(raw) ? raw : [raw]).map(v => String(v).trim()).filter(Boolean);
+}
+
+function buildFilters() {
+  const html = FILTER_GROUPS.map(g => {
+    // Count how many cakes carry each value, so empty options never appear.
+    const counts = {};
+    state.cakes.forEach(c => valuesOf(c, g.key).forEach(v => counts[v] = (counts[v]||0) + 1));
+    const values = Object.keys(counts).sort();
+    if (!values.length) return "";
+
+    return '<div><h4 class="font-bold text-xs uppercase tracking-wider mb-3">' + esc(g.label) + "</h4>" +
+      '<div class="flex flex-wrap gap-2">' +
+      values.map(v =>
+        '<button type="button" onclick="toggleFilter(\'' + esc(g.key) + "','" + esc(v).replace(/'/g,"\\'") + '\')" ' +
+        'class="chip border border-outline-variant rounded-full px-3 py-1.5 text-xs font-semibold' +
+        (state.filters[g.key].has(v) ? " selected" : "") + '">' +
+        esc(v) + ' <span class="opacity-60">' + counts[v] + "</span></button>").join("") +
+      "</div></div>";
+  }).join("");
+
+  $("filter-groups").innerHTML = html;
+  $("filter-groups-mobile").innerHTML = html;
+}
+
+function toggleFilter(key, value) {
+  const set = state.filters[key];
+  set.has(value) ? set.delete(value) : set.add(value);
+  buildFilters();
+  applyFilters();
+}
+
+/** Three search boxes (toolbar, sidebar, drawer) that stay in step. */
+const SEARCH_BOXES = ["q", "q-side", "q-drawer"];
+
+function syncSearch(value) {
+  SEARCH_BOXES.forEach(id => { const el = $(id); if (el && el.value !== value) el.value = value; });
+  applyFilters();
+}
+
+function searchTerm() {
+  const el = $("q");
+  return el ? el.value.trim().toLowerCase() : "";
+}
+
+function clearFilters() {
+  Object.keys(state.filters).forEach(k => state.filters[k].clear());
+  SEARCH_BOXES.forEach(id => { const el = $(id); if (el) el.value = ""; });
+  buildFilters();
+  applyFilters();
+}
+
+function activeCount() {
+  return Object.keys(state.filters).reduce((n,k) => n + state.filters[k].size, 0);
+}
+
+/** Deep links like store.html?occasion=Wedding */
+function readUrlFilters() {
+  const p = new URLSearchParams(location.search);
+  if (p.get("occasion")) state.filters.Occasions.add(p.get("occasion"));
+  if (p.get("flavour"))  state.filters.Flavor.add(p.get("flavour"));
+  if (p.get("q")) SEARCH_BOXES.forEach(id => { const el = $(id); if (el) el.value = p.get("q"); });
+}
+
+function applyFilters() {
+  const q = searchTerm();
+
+  let list = state.cakes.filter(c => {
+    for (const g of FILTER_GROUPS) {
+      const wanted = state.filters[g.key];
+      if (!wanted.size) continue;
+      const has = valuesOf(c, g.key).some(v => wanted.has(v));
+      if (!has) return false;
+    }
+    if (!q) return true;
+    const hay = [c["Cake Name"], c.Flavor, c["Short Description"], c["Long Description"],
+                 valuesOf(c,"Occasions").join(" "), c.Status].join(" ").toLowerCase();
+    return hay.indexOf(q) !== -1;
+  });
+
+  const sort = $("sort").value;
+  const priceOf = c => Number(c["Price From"]) || Number(c.Price) || 0;
+  if (sort === "az")         list.sort((a,b) => String(a["Cake Name"]||"").localeCompare(String(b["Cake Name"]||"")));
+  else if (sort === "price-asc")  list.sort((a,b) => priceOf(a) - priceOf(b));
+  else if (sort === "price-desc") list.sort((a,b) => priceOf(b) - priceOf(a));
+  else if (sort === "serves")     list.sort((a,b) => servesNum(b) - servesNum(a));
+  else list.sort((a,b) => rank(b) - rank(a));   // popular
+
+  state.filtered = list;
+  paint(list);
+  paintActiveChips();
+
+  const n = activeCount();
+  $("filter-count-mobile").hidden = !n;
+  $("filter-count-mobile").textContent = n;
+  $("apply-btn").textContent = "Show " + list.length + " cake" + (list.length === 1 ? "" : "s");
+}
+
+function rank(c) {
+  const s = (Array.isArray(c["Display Section"]) ? c["Display Section"] : [c["Display Section"]])
+            .filter(Boolean).map(x => String(x).toLowerCase());
+  return s.indexOf("best seller") !== -1 ? 2 : s.indexOf("trending") !== -1 ? 1 : 0;
+}
+
+function servesNum(c) {
+  const m = String(c.Serves || "").match(/(\d+)\s*$|–\s*(\d+)|-\s*(\d+)/);
+  return m ? Number(m[1] || m[2] || m[3]) : 0;
+}
+
+function paintActiveChips() {
+  const chips = [];
+  FILTER_GROUPS.forEach(g => state.filters[g.key].forEach(v =>
+    chips.push('<button onclick="toggleFilter(\'' + esc(g.key) + "','" + esc(v).replace(/'/g,"\\'") + '\')" ' +
+      'class="inline-flex items-center gap-1 bg-surface border border-outline-variant rounded-full px-3 py-1 text-xs font-semibold">' +
+      esc(v) + ' <span class="material-symbols-outlined text-[14px]">close</span></button>')));
+  if (chips.length) chips.push('<button onclick="clearFilters()" class="text-xs text-primary font-bold underline px-2">Clear all</button>');
+  $("active-chips").innerHTML = chips.join("");
+}
+
+// ============================================================
+// RENDER
+// ============================================================
+function skeletons(n) {
+  return Array(n).fill('<div class="rounded-3xl overflow-hidden border border-outline-variant bg-surface">' +
+    '<div class="skeleton aspect-[4/3]"></div><div class="p-4 space-y-2">' +
+    '<div class="skeleton h-4 rounded w-3/4"></div><div class="skeleton h-3 rounded w-1/2"></div></div></div>').join("");
+}
+
+function pickImage() { return Array.prototype.slice.call(arguments).filter(Boolean); }
+
+function imgTag(sources, alt, cls) {
+  const list = (Array.isArray(sources) ? sources : [sources]).filter(Boolean);
+  const first = list[0] || PLACEHOLDER;
+  const rest  = list.slice(1).concat([PLACEHOLDER]);
+  return '<img src="' + esc(first) + '" alt="' + esc(alt) + '" loading="lazy" class="' + cls + '" ' +
+         'data-alts="' + esc(JSON.stringify(rest)) + '" onerror="imageFailed(this)"/>';
+}
+
+function imageFailed(el) {
+  let alts = [];
+  try { alts = JSON.parse(el.dataset.alts || "[]"); } catch (e) {}
+  const next = alts.shift();
+  if (!next) { el.onerror = null; return; }
+  el.dataset.alts = JSON.stringify(alts);
+  el.src = next;
+}
+
+function priceLabel(c) {
+  if (!showPrices()) return "Available for pre-order";
+  const from = Number(c["Price From"]) || 0, to = Number(c["Price To"]) || 0;
+  return (from && to) ? naira(from) + " – " + naira(to) : from ? "From " + naira(from) : "Price on request";
+}
+
+function paint(list) {
+  $("count").textContent = list.length + " cake" + (list.length === 1 ? "" : "s");
+  $("empty").hidden = list.length > 0;
+
+  $("grid").innerHTML = list.map((c, i) => {
+    const name   = c["Cake Name"] || c.Name || "Our Cake";
+    const img    = pickImage(c["Photo URL"], c["Cake Photo"], c.Image, c.Photo);
+    const short  = c["Short Description"] || "";
+    const status = c.Status || "";
+    const occ    = valuesOf(c, "Occasions").slice(0,2);
+
+    return '<article class="rounded-3xl overflow-hidden border border-outline-variant bg-surface flex flex-col hover:shadow-lg transition-shadow">' +
+      '<button onclick="openView(' + i + ')" class="relative block text-left">' +
+        (status ? '<span class="absolute top-3 left-3 bg-surface-dark/90 text-white text-[11px] font-bold px-2.5 py-1 rounded-full z-10">' + esc(status) + "</span>" : "") +
+        imgTag(img, name, "aspect-[4/3] w-full object-cover") +
+      "</button>" +
+      '<div class="p-4 flex flex-col flex-1">' +
+        '<h3 class="font-bold leading-snug">' + esc(name) + "</h3>" +
+        '<p class="text-sm text-on-surface-variant">' + esc(c.Flavor || "") +
+          (c.Serves ? " · " + esc(c.Serves) : "") + "</p>" +
+        (short ? '<p class="text-sm text-on-surface-variant mt-1.5 line-clamp-2">' + esc(short) + "</p>" : "") +
+        (occ.length ? '<div class="flex flex-wrap gap-1.5 mt-2">' + occ.map(o =>
+          '<span class="text-[11px] bg-surface-container rounded-full px-2 py-0.5">' + esc(o) + "</span>").join("") + "</div>" : "") +
+        '<div class="flex-1"></div>' +
+        '<p class="font-bold text-primary mt-3">' + priceLabel(c) + "</p>" +
+        '<div class="grid grid-cols-2 gap-2 mt-3">' +
+          '<button onclick="openView(' + i + ')" class="border border-outline-variant font-bold py-2.5 rounded-xl text-sm">Details</button>' +
+          '<button onclick="orderCake(' + i + ')" class="bg-surface-dark text-white font-bold py-2.5 rounded-xl text-sm">Order</button>' +
+        "</div>" +
+      "</div></article>";
+  }).join("");
+}
+
+// ============================================================
+// QUICK VIEW
+// ============================================================
+function openView(i) {
+  const c = state.filtered[i];
+  if (!c) return;
+  state.current = c;
+
+  // Short on mobile, full-height column on desktop.
+  $("view-img").innerHTML = imgTag(pickImage(c["Photo URL"], c["Cake Photo"], c.Image, c.Photo),
+    c["Cake Name"] || "", "w-full h-48 sm:h-full sm:min-h-[320px] object-cover");
+  $("view-name").textContent = c["Cake Name"] || "Our Cake";
+  $("view-meta").textContent = [c.Flavor, c.Serves].filter(Boolean).join(" · ");
+  $("view-price").textContent = priceLabel(c);
+  $("view-pricenote").textContent = showPrices()
+    ? [c["Price Note"], c.Typical].filter(Boolean).join(" · ")
+    : "We'll confirm your price on WhatsApp.";
+  $("view-desc").textContent = c["Long Description"] || c["Short Description"] || "";
+
+  const st = $("view-status");
+  st.textContent = c.Status || ""; st.hidden = !c.Status;
+
+  $("view-tags").innerHTML = valuesOf(c, "Occasions").map(o =>
+    '<span class="text-xs bg-surface-container rounded-full px-3 py-1">' + esc(o) + "</span>").join("");
+
+  showModal("modal-view");
+}
+
+function orderFromView() { closeModal("modal-view"); startCheckout(state.current); }
+function orderCake(i)    { startCheckout(state.filtered[i]); }
+
+// ============================================================
+// CHECKOUT
+// ============================================================
+function fillSizeSelect() {
+  $("co-size").innerHTML = SIZES.map(s =>
+    '<option value="' + s.label + '"' + (s.popular ? " selected" : "") + ">" +
+    s.label + " — " + s.serves + (showPrices() ? " · from " + naira(s.from) : "") + "</option>").join("");
+}
+
+function startCheckout(c) {
+  if (!c) return;
+  state.current   = c;
+  state.requestId = uuid();
+  $("co-error").hidden = true;
+
+  const name = c["Cake Name"] || "Our Cake";
+  state.orderText = name + (c.Flavor ? "\nFlavour: " + c.Flavor : "");
+  state.estPrice  = showPrices() ? priceLabel(c) : "";
+
+  $("sum-order").textContent = state.orderText;
+  $("sum-price").textContent = state.estPrice
+    ? "Estimated: " + state.estPrice
+    : "We'll confirm your price on WhatsApp.";
+
+  updateDateLimits();
+  showModal("modal-checkout");
+}
+
+function setFulfilment(mode) {
+  state.fulfilment = mode;
+  $("ff-delivery").classList.toggle("selected", mode === "delivery");
+  $("ff-pickup").classList.toggle("selected", mode === "pickup");
+  $("wrap-address").hidden = (mode === "pickup");
+}
+
+function today() { const d = new Date(); d.setHours(0,0,0,0); return d; }
+function parseDate(s) { if (!s) return null; const m = String(s).match(/^(\d{4})-(\d{2})-(\d{2})/); return m ? new Date(+m[1], +m[2]-1, +m[3]) : null; }
+function iso(d) { return d.getFullYear() + "-" + String(d.getMonth()+1).padStart(2,"0") + "-" + String(d.getDate()).padStart(2,"0"); }
+function addDays(d,n) { const x = new Date(d.getTime()); x.setDate(x.getDate()+n); return x; }
+
+function isWeddingCake() {
+  const c = state.current || {};
+  const size = $("co-size") ? $("co-size").value : "";
+  return /wedding/i.test(valuesOf(c,"Occasions").join(" ") + " " + (c["Cake Name"]||"") + " " + size);
+}
+
+function updateDateLimits() {
+  const s = state.settings;
+  const lead = isWeddingCake() ? (Number(s.leadDaysWedding)||14) : (Number(s.leadDaysDefault)||7);
+  const min = addDays(today(), lead);
+  if (!$("co-date")) return;
+  $("co-date").min = iso(min);
+  $("co-date-hint").textContent = "We need at least " + lead + " days to bake. Earliest: " +
+    min.toLocaleDateString("en-NG",{day:"numeric",month:"long",year:"numeric"}) + ".";
+}
+
+function uuid() {
+  return (window.crypto && crypto.randomUUID) ? crypto.randomUUID()
+    : "id-" + Date.now() + "-" + Math.random().toString(16).slice(2);
+}
+
+async function post(payload) {
+  // No Content-Type header — keeps it a simple CORS request Apps Script can answer.
+  const res = await fetch(API_URL, { method:"POST", body: JSON.stringify(payload) });
+  return res.json();
+}
+
+function validPhone(raw) {
+  let s = String(raw).replace(/[^0-9]/g,"");
+  if (s.indexOf("234") === 0) s = s.slice(3);
+  else if (s.indexOf("0") === 0) s = s.slice(1);
+  return s.length === 10 && ["7","8","9"].indexOf(s[0]) !== -1;
+}
+
+function showError(msg) { const e = $("co-error"); e.textContent = msg; e.hidden = false; }
+
+async function submitOrder() {
+  if (state.sending) return;
+  const name    = $("co-name").value.trim();
+  const phone   = $("co-phone").value.trim();
+  const date    = $("co-date").value;
+  const address = $("co-address").value.trim();
+  const size    = $("co-size").value;
+
+  if (name.length < 2)    return showError("Please enter your name.");
+  if (!validPhone(phone)) return showError("Please enter a valid Nigerian WhatsApp number.");
+  if (!date)              return showError("Please choose a date.");
+  if (state.fulfilment === "delivery" && address.length < 8)
+    return showError("Please enter your full delivery address.");
+
+  $("co-error").hidden = true;
+  state.sending = true;
+  const btn = $("co-submit");
+  btn.disabled = true;
+  btn.innerHTML = '<span class="material-symbols-outlined animate-spin">progress_activity</span> Sending...';
+
+  const c = state.current || {};
+  const details = state.orderText + "\nSize: " + size;
+
+  try {
+    const data = await post({
+      clientRequestId: state.requestId,
+      customerName:name, customerPhone:phone,
+      deliveryDate:date, deliveryAddress:address,
+      fulfilment: state.fulfilment,
+      allergies: $("co-allergies").value.trim() || "None",
+      orderDetails: details,
+      occasion: valuesOf(c,"Occasions")[0] || "",
+      size: size, flavour: c.Flavor || "",
+      inscription: $("co-inscription").value.trim(),
+      estPrice: state.estPrice, source: "catalog",
+      promoClaimed: "No"
+    });
+
+    if (data.status === "success") {
+      closeModal("modal-checkout");
+      finish(data.orderId, buildMessage(data.orderId, name, date, address, details));
+    } else {
+      showError(friendly(data));
+    }
+  } catch (err) {
+    console.error(err);
+    showError("Couldn't save your order — check your connection and try again.");
+  } finally {
+    state.sending = false;
+    btn.disabled = false;
+    btn.innerHTML = '<span class="material-symbols-outlined">send</span> Send My Order';
+  }
+}
+
+function friendly(data) {
+  const map = {
+    LEAD_TIME: data.message || "We need more notice for that date. Please pick a later one.",
+    PHONE_INVALID:"Please enter a valid Nigerian WhatsApp number.",
+    NAME_REQUIRED:"Please enter your name.",
+    ADDRESS_REQUIRED:"Please enter your full delivery address.",
+    DATE_REQUIRED:"Please choose a date.",
+    BUSY:"We're busy for a second — please try again.",
+    SERVER_ERROR:"Something went wrong on our end. Please try again, or WhatsApp us."
+  };
+  return map[data.code] || data.message || "Something went wrong. Please try again.";
+}
+
+let lastMessage = "";
+
+function buildMessage(orderId, name, date, address, details) {
+  const nice = new Date(date).toLocaleDateString("en-NG",{weekday:"long",day:"numeric",month:"long",year:"numeric"});
+  let m = "Hello XtraFresh!\n\nI just placed an order on your website.\nOrder number: " + orderId +
+          "\n\n" + details + "\n\nName: " + name + "\nDate needed: " + nice + "\n";
+  m += state.fulfilment === "pickup" ? "I'll pick up.\n" : "Deliver to: " + address + "\n";
+  if (state.estPrice) m += "\nEstimated: " + state.estPrice + "\n";
+  m += "\nPlease confirm the final price and how to pay. Thank you!";
+  return m;
+}
+
+function finish(orderId, message) {
+  lastMessage = message;
+  $("done-id").textContent = orderId;
+  $("done-wa").href = "https://wa.me/" + whatsappNumber() + "?text=" + encodeURIComponent(message);
+  showModal("modal-done");
+}
+
+function copyOrderText() {
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(lastMessage)
+      .then(() => alert("Order details copied. Paste it to us on WhatsApp."))
+      .catch(() => alert(lastMessage));
+  } else alert(lastMessage);
+}
+
+// ============================================================
+// MODALS
+// ============================================================
+function showModal(id) { $(id).hidden = false; document.body.style.overflow = "hidden"; }
+function closeModal(id) {
+  $(id).hidden = true;
+  if (!document.querySelector(".modal:not([hidden])")) document.body.style.overflow = "";
+}
+function openFilters() { showModal("modal-filters"); }
+
+document.addEventListener("click", e => {
+  if (e.target.classList && e.target.classList.contains("modal")) closeModal(e.target.id);
+});
+document.addEventListener("keydown", e => {
+  if (e.key !== "Escape") return;
+  const open = document.querySelectorAll(".modal:not([hidden])");
+  if (open.length) closeModal(open[open.length - 1].id);
+});
+
+document.addEventListener("change", e => {
+  if (e.target && e.target.id === "co-size") updateDateLimits();
+});
+</script>
 </body>
 </html>
