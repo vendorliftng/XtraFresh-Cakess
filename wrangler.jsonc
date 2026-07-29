@@ -13,10 +13,14 @@
     // Serve the repository root as plain static files.
     "directory": "./",
 
-    // Serve files at their real paths. Without this, Cloudflare redirects
-    // /store.html to /store, which disagrees with the canonical tags and
-    // the sitemap and creates a needless redirect on every internal link.
-    "html_handling": "none",
+    // Leave html_handling at its default ("auto-trailing-slash").
+    //
+    // Do NOT set it to "none": that serves files only at their exact paths,
+    // which means "/" stops resolving to index.html and the bare domain
+    // returns a 404. The default is what makes xtrafreshcakes.com work.
+    //
+    // The default also serves /store.html at /store. The canonical tags and
+    // sitemap point at /store to match.
 
     // "404-page" = if a file genuinely does not exist, show 404.html.
     //

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en" class="light scroll-smooth">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>How did we do? | XtraFresh Cakes</title>
+<meta name="description" content="Tell us honestly what you thought of your XtraFresh cake."/>
+<meta name="robots" content="noindex"/>
+<meta name="theme-color" content="#E63946"/>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="preconnect" href="https://script.google.com"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,0" rel="stylesheet"/>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23E63946'/%3E%3Ctext x='50' y='72' font-size='62' font-family='Georgia,serif' fill='white' text-anchor='middle'%3EX%3C/text%3E%3C/svg%3E"/>
+
+<script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+<script>
+tailwind.config = { theme: { extend: {
+  colors: { "primary":"#E63946","primary-hover":"#C92B37","surface-dark":"#1D1D1D",
+            "surface":"#ffffff","surface-variant":"#f9f9f9","surface-container":"#f1f1f1",
+            "on-surface":"#1D1D1D","on-surface-variant":"#5a5a5a","outline-variant":"#e0e0e0",
+            "whatsapp":"#25D366" },
+  fontFamily: { "headline":["DM Serif Display","serif"], "body":["Plus Jakarta Sans","sans-serif"] }
+}}};
+</script>
+<style>
+  input, select, textarea { font-size: 16px; }
+  [hidden] { display:none !important; }
+  .star { cursor:pointer; transition: transform .12s ease; user-select:none; }
+  .star:active { transform: scale(.9); }
+</style>
+</head>
+
+<body class="font-body bg-surface-variant text-on-surface antialiased">
+
+<header class="bg-surface border-b border-outline-variant">
+  <div class="max-w-2xl mx-auto px-4 h-16 flex items-center">
+    <a href="index.html" class="font-headline text-xl">XtraFresh<span class="text-primary">Cakes</span></a>
+  </div>
+</header>
+
+<main class="max-w-2xl mx-auto px-4 py-8 sm:py-12">
+
+  <!-- ===== FORM ===== -->
+  <div id="form-wrap">
+    <h1 class="font-headline text-3xl sm:text-4xl mb-2">How did we do?</h1>
+    <p class="text-on-surface-variant mb-6">
+      Tell us honestly — the good and the bad. This is how we get better, and it takes about a minute.
+    </p>
+
+    <div id="order-card" hidden class="bg-surface border border-outline-variant rounded-2xl p-4 mb-5">
+      <p class="text-xs text-on-surface-variant">Your order</p>
+      <p id="order-summary" class="text-sm font-semibold whitespace-pre-line mt-1"></p>
+    </div>
+
+    <div class="bg-surface border border-outline-variant rounded-3xl p-5 sm:p-7 space-y-6">
+
+      <div class="grid sm:grid-cols-2 gap-4">
+        <div>
+          <label class="block text-sm font-bold mb-1.5">Order number <span class="font-normal text-on-surface-variant">(optional)</span></label>
+          <input id="f-order" type="text" placeholder="ORD-260801-003" oninput="lookup()"
+                 class="w-full px-4 py-3 rounded-xl border border-outline-variant focus:border-primary outline-none uppercase"/>
+          <p id="order-hint" class="text-xs text-on-surface-variant mt-1">On your confirmation screen and WhatsApp message.</p>
+        </div>
+        <div>
+          <label class="block text-sm font-bold mb-1.5">Your name</label>
+          <input id="f-name" type="text" placeholder="Sarah"
+                 class="w-full px-4 py-3 rounded-xl border border-outline-variant focus:border-primary outline-none"/>
+        </div>
+      </div>
+
+      <div>
+        <label class="block text-sm font-bold mb-2">Overall, how was it?</label>
+        <div id="stars-overall" class="flex gap-1"></div>
+        <p id="overall-label" class="text-sm text-on-surface-variant mt-1.5">Tap a star</p>
+      </div>
+
+      <div class="grid sm:grid-cols-3 gap-5">
+        <div>
+          <label class="block text-sm font-bold mb-2">Taste</label>
+          <div id="stars-taste" class="flex gap-1"></div>
+        </div>
+        <div>
+          <label class="block text-sm font-bold mb-2">How it looked</label>
+          <div id="stars-appearance" class="flex gap-1"></div>
+        </div>
+        <div>
+          <label class="block text-sm font-bold mb-2">Worth the price</label>
+          <div id="stars-value" class="flex gap-1"></div>
+        </div>
+      </div>
+
+      <div>
+        <label class="block text-sm font-bold mb-1.5">What could we have done better?</label>
+        <textarea id="f-improve" rows="3" placeholder="Be blunt — this is the part that actually helps us."
+                  class="w-full px-4 py-3 rounded-xl border border-outline-variant focus:border-primary outline-none"></textarea>
+        <p class="text-xs text-on-surface-variant mt-1">
+          We would genuinely rather hear a problem than a compliment.
+        </p>
+      </div>
+
+      <div>
+        <label class="block text-sm font-bold mb-1.5">Would you say something nice for our website?</label>
+        <textarea id="f-testimonial" rows="3" placeholder="e.g. The cake arrived exactly on time and my mum cried. Everyone asked where we got it."
+                  class="w-full px-4 py-3 rounded-xl border border-outline-variant focus:border-primary outline-none"></textarea>
+
+        <label class="flex gap-3 items-start text-sm bg-surface-container rounded-xl p-4 mt-3">
+          <input id="f-publish" type="checkbox" class="mt-0.5 rounded"/>
+          <span>You may show this on the XtraFresh website with my first name.</span>
+        </label>
+      </div>
+
+      <p id="f-error" hidden class="text-sm text-primary font-semibold bg-primary/5 rounded-xl px-4 py-3"></p>
+
+      <button id="f-submit" onclick="submitFeedback()"
+              class="w-full bg-primary text-white font-bold py-4 rounded-xl hover:bg-primary-hover active:scale-95 transition flex items-center justify-center gap-2">
+        <span class="material-symbols-outlined">send</span> Send Feedback
+      </button>
+    </div>
+  </div>
+
+  <!-- ===== THANK YOU ===== -->
+  <div id="done" hidden class="bg-surface border border-outline-variant rounded-3xl p-8 text-center">
+    <div class="w-14 h-14 rounded-full bg-whatsapp/10 flex items-center justify-center mx-auto mb-4">
+      <span class="material-symbols-outlined text-whatsapp text-3xl">favorite</span>
+    </div>
+    <h2 class="font-headline text-2xl mb-2">Thank you — really</h2>
+    <p class="text-sm text-on-surface-variant mb-6">
+      We read every one of these, and they change how we bake. If you told us something
+      went wrong, we'll be in touch.
+    </p>
+    <a href="index.html" class="block w-full bg-primary text-white font-bold py-3.5 rounded-xl mb-3">Back to XtraFresh</a>
+    <a id="wa-link" href="https://wa.me/2349060009541" target="_blank" rel="noopener"
+       class="block w-full border border-outline-variant font-bold py-3.5 rounded-xl text-sm">Message us on WhatsApp</a>
+  </div>
+</main>
+
+<footer class="max-w-2xl mx-auto px-4 pb-10 text-center text-xs text-on-surface-variant">
+  <p>© 2026 XtraFresh Cakes · Baked fresh in Lagos</p>
+</footer>
+
+<script>
+const API_URL = "https://script.google.com/macros/s/AKfycbycvxx3tKkPp_Ssld75TfQGX13oVp8GpD58tvehjAAFsXaywJJg-c_XhQ42q0aZ724Q/exec";
+const $ = id => document.getElementById(id);
+
+const ratings = { overall:0, taste:0, appearance:0, value:0 };
+const WORDS = ["", "Not good", "Below what we aim for", "Fine", "Good", "Excellent"];
+
+// ---------- stars ----------
+function buildStars(key) {
+  const box = $("stars-" + key);
+  box.innerHTML = [1,2,3,4,5].map(n =>
+    '<span class="star material-symbols-outlined text-3xl text-outline-variant" ' +
+    'data-n="' + n + '" onclick="setRating(\'' + key + '\',' + n + ')">star</span>').join("");
+}
+
+function setRating(key, n) {
+  ratings[key] = n;
+  paintStars(key);
+  if (key === "overall") $("overall-label").textContent = WORDS[n];
+}
+
+function paintStars(key) {
+  const stars = $("stars-" + key).querySelectorAll(".star");
+  stars.forEach(s => {
+    const on = Number(s.dataset.n) <= ratings[key];
+    s.classList.toggle("text-primary", on);
+    s.classList.toggle("text-outline-variant", !on);
+    s.style.fontVariationSettings = on ? "'FILL' 1" : "'FILL' 0";
+  });
+}
+
+["overall","taste","appearance","value"].forEach(buildStars);
+
+// ---------- order lookup ----------
+let lookupTimer = null;
+
+function lookup() {
+  clearTimeout(lookupTimer);
+  const id = $("f-order").value.trim();
+  if (id.length < 8) { $("order-card").hidden = true; return; }
+  lookupTimer = setTimeout(() => doLookup(id), 500);
+}
+
+async function doLookup(id) {
+  try {
+    const res = await fetch(API_URL + "?action=lookupOrder&id=" + encodeURIComponent(id));
+    const data = await res.json();
+    if (data.status === "success" && data.data) {
+      const o = data.data;
+      $("order-summary").textContent = (o.details || "") + (o.date ? "\nDelivered: " + o.date : "");
+      $("order-card").hidden = false;
+      $("order-hint").textContent = "Order found ✓";
+      if (o.name && !$("f-name").value) $("f-name").value = String(o.name).split(" ")[0];
+    } else {
+      $("order-card").hidden = true;
+      $("order-hint").textContent = "We couldn't find that number — you can still send feedback without it.";
+    }
+  } catch (err) {
+    console.warn(err);
+  }
+}
+
+// ---------- submit ----------
+async function submitFeedback() {
+  if (!ratings.overall) return showError("Please give an overall rating — just tap a star.");
+  if (!$("f-name").value.trim()) return showError("Please tell us your name.");
+  if ($("f-publish").checked && !$("f-testimonial").value.trim())
+    return showError("You ticked permission to publish, but the review box is empty.");
+
+  $("f-error").hidden = true;
+  const btn = $("f-submit");
+  btn.disabled = true;
+  btn.innerHTML = '<span class="material-symbols-outlined animate-spin">progress_activity</span> Sending...';
+
+  try {
+    // No Content-Type header — keeps this a simple CORS request.
+    const res = await fetch(API_URL, { method:"POST", body: JSON.stringify({
+      type: "feedback",
+      orderId: $("f-order").value.trim(),
+      name: $("f-name").value.trim(),
+      overall: ratings.overall, taste: ratings.taste,
+      appearance: ratings.appearance, value: ratings.value,
+      improve: $("f-improve").value.trim(),
+      testimonial: $("f-testimonial").value.trim(),
+      mayPublish: $("f-publish").checked
+    })});
+    const data = await res.json();
+
+    if (data.status === "success") {
+      $("form-wrap").hidden = true;
+      $("done").hidden = false;
+      window.scrollTo(0,0);
+    } else {
+      showError("Something went wrong saving that. Please try again.");
+      resetBtn();
+    }
+  } catch (err) {
+    console.error(err);
+    showError("Couldn't send — check your connection and try again.");
+    resetBtn();
+  }
+}
+
+function resetBtn() {
+  const btn = $("f-submit");
+  btn.disabled = false;
+  btn.innerHTML = '<span class="material-symbols-outlined">send</span> Send Feedback';
+}
+
+function showError(msg) { const e = $("f-error"); e.textContent = msg; e.hidden = false; }
+
+// Prefill from the link we send: feedback.html?order=ORD-260801-003
+const params = new URLSearchParams(location.search);
+if (params.get("order")) { $("f-order").value = params.get("order"); doLookup(params.get("order")); }
+if (params.get("name"))  { $("f-name").value  = params.get("name"); }
+</script>
+</body>
+</html>

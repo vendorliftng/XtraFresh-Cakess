@@ -85,7 +85,7 @@
   "url": "https://xtrafreshcakes.com/",
   "potentialAction": {
     "@type": "SearchAction",
-    "target": "https://xtrafreshcakes.com/store.html?q={search_term_string}",
+    "target": "https://xtrafreshcakes.com/store?q={search_term_string}",
     "query-input": "required name=search_term_string"
   }
 }
@@ -145,6 +145,7 @@ tailwind.config = {
       <a href="store.html" class="hover:text-primary transition-colors">All Cakes</a>
       <a href="#builder" class="hover:text-primary transition-colors">Build Your Cake</a>
       <a href="#how" class="hover:text-primary transition-colors">How It Works</a>
+      <a href="#reviews" class="hover:text-primary transition-colors">Reviews</a>
       <a href="#blog" class="hover:text-primary transition-colors">Stories</a>
     </nav>
     <div class="flex items-center gap-2">
@@ -369,6 +370,18 @@ tailwind.config = {
       </div>
     </div>
     <p class="text-center mt-8 font-bold">Order at least 1 week ahead. 2 weeks for weddings.</p>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section id="reviews" hidden class="bg-surface-variant py-12 sm:py-16">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="text-center mb-8">
+      <span class="text-xs font-bold text-primary uppercase tracking-wider">In Their Words</span>
+      <h2 class="font-headline text-3xl sm:text-4xl mt-1">What Our Customers Say</h2>
+      <p class="text-on-surface-variant mt-1">Real reviews from real orders.</p>
+    </div>
+    <div id="grid-reviews" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5"></div>
   </div>
 </section>
 
@@ -754,6 +767,7 @@ async function loadData() {
     applySettings();
     renderCakes(data.cakes || []);
     renderBlog(data.blog || []);
+    loadTestimonials();     // separate call — must never delay the catalogue
     return;
   }
 
@@ -1011,6 +1025,32 @@ function paintGrid(id, cakes) {
                 'onclick="checkoutFromCatalog(JSON.parse(this.dataset.cake))" data-cake="' + payload + '">Order This</button>' +
       '</div></article>';
   }).join("");
+}
+
+// ============================================================
+// TESTIMONIALS
+// ============================================================
+async function loadTestimonials() {
+  try {
+    const res  = await fetchWithTimeout(API_URL + "?action=getTestimonials", 20000);
+    const data = await res.json();
+    const list = (data.status === "success" && data.data) ? data.data : [];
+    if (!list.length) return;          // section stays hidden until real reviews exist
+
+    $("grid-reviews").innerHTML = list.slice(0, 6).map(t => {
+      const stars = "★".repeat(Math.max(1, Math.min(5, t.rating))) +
+                    "☆".repeat(5 - Math.max(1, Math.min(5, t.rating)));
+      return '<figure class="bg-surface border border-outline-variant rounded-3xl p-5 flex flex-col">' +
+        '<div class="text-primary text-lg tracking-wide mb-2">' + stars + "</div>" +
+        '<blockquote class="text-sm leading-relaxed flex-1">"' + esc(t.quote) + '"</blockquote>' +
+        '<figcaption class="text-sm font-bold mt-3">' + esc(t.name) + "</figcaption>" +
+        "</figure>";
+    }).join("");
+
+    $("reviews").hidden = false;
+  } catch (err) {
+    console.warn("Testimonials unavailable:", err);   // silent — not worth an error message
+  }
 }
 
 let blogPosts = [];
