@@ -1,0 +1,25 @@
+{
+  // ⚠️ "name" MUST match your existing Cloudflare project name exactly.
+  // Find it: Cloudflare dashboard → Workers & Pages → the project title.
+  // If it differs, Cloudflare creates a SECOND worker and your domain
+  // keeps pointing at the old, broken one.
+  "name": "xtrafresh-cakess",
+
+  // Matches what the dashboard already had, so nothing else changes.
+  "compatibility_date": "2026-07-29",
+  "compatibility_flags": ["nodejs_compat"],
+
+  "assets": {
+    // Serve the repository root as plain static files.
+    "directory": "./",
+
+    // "404-page" = if a file genuinely does not exist, show 404.html.
+    //
+    // The default is "single-page-application", which returns index.html
+    // with a 200 OK for EVERY unmatched path. That is why store.html,
+    // og-image.jpg, robots.txt and sitemap.xml were all returning the
+    // homepage — and why WhatsApp could not build a link preview, since
+    // og-image.jpg was answering with HTML instead of an image.
+    "not_found_handling": "404-page"
+  }
+}
